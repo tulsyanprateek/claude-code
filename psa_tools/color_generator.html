@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Priyam — Color Order</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Sora:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:     #0C0C0E;
+  --bg2:    #131316;
+  --bg3:    #1A1A1F;
+  --rule:   #26262E;
+  --rule2:  #303038;
+  --ink:    #F0EFF5;
+  --ink2:   #A8A6B4;
+  --ink3:   #6A6878;
+  --ink4:   #3A3848;
+  --gold:   #C8922A;
+  --gold2:  #E0A830;
+  --gold-t: rgba(200,146,42,0.10);
+  --green:  #2A9A60;
+  --green-t:rgba(42,154,96,0.12);
+  --red:    #C04040;
+  --red-t:  rgba(192,64,64,0.12);
+  --mono:   'DM Mono', monospace;
+  --sans:   'Sora', sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  font-family: var(--sans);
+  color: var(--ink);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── TOPBAR ── */
+.topbar {
+  background: var(--bg2);
+  border-bottom: 1px solid var(--rule);
+  padding: 0 1.5rem;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+.brand {
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  color: var(--gold);
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.brand-dot {
+  width: 6px; height: 6px;
+  background: var(--gold);
+  border-radius: 50%;
+}
+.brand span { color: var(--ink3); }
+.ver {
+  font-size: 0.52rem;
+  color: var(--ink4);
+  border: 1px solid var(--rule);
+  padding: 0.1rem 0.4rem;
+  border-radius: 2px;
+  letter-spacing: 0.06em;
+}
+
+/* ── LAYOUT ── */
+.layout {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 420px 1fr;
+  min-height: 0;
+}
+
+/* ── FORM SIDE ── */
+.form-side {
+  background: var(--bg2);
+  border-right: 1px solid var(--rule);
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  padding: 1.5rem;
+  gap: 1.25rem;
+}
+
+.section-label {
+  font-family: var(--mono);
+  font-size: 0.54rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink3);
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.75rem;
+}
+.section-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--rule);
+}
+
+/* ── META FIELDS ── */
+.meta-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.6rem;
+}
+.field { display: flex; flex-direction: column; gap: 0.3rem; }
+.field label {
+  font-family: var(--mono);
+  font-size: 0.54rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink3);
+}
+.field input, .field select {
+  background: var(--bg3);
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  padding: 0.55rem 0.7rem;
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  color: var(--ink);
+  outline: none;
+  transition: border-color 0.15s;
+  -webkit-appearance: none;
+}
+.field input:focus, .field select:focus { border-color: var(--gold); }
+.field input::placeholder { color: var(--ink4); }
+
+/* ── COLOR ROWS ── */
+.colors-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.color-row {
+  display: grid;
+  grid-template-columns: 1fr 90px 32px;
+  gap: 0.4rem;
+  align-items: center;
+  animation: rowIn 0.15s ease;
+}
+@keyframes rowIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.color-num {
+  background: var(--bg3);
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  padding: 0.55rem 0.7rem;
+  font-family: var(--mono);
+  font-size: 0.88rem;
+  color: var(--ink);
+  outline: none;
+  transition: border-color 0.15s;
+  width: 100%;
+}
+.color-num:focus { border-color: var(--gold); }
+.color-num::placeholder { color: var(--ink4); }
+
+/* hide number spinners */
+.color-num::-webkit-outer-spin-button,
+.color-num::-webkit-inner-spin-button,
+.qty-input::-webkit-outer-spin-button,
+.qty-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.color-num, .qty-input { -moz-appearance: textfield; }
+
+.qty-input {
+  background: var(--bg3);
+  border: 1px solid var(--rule2);
+  border-radius: 3px;
+  padding: 0.55rem 0.5rem;
+  font-family: var(--mono);
+  font-size: 0.88rem;
+  color: var(--gold2);
+  font-weight: 500;
+  text-align: center;
+  outline: none;
+  transition: border-color 0.15s;
+  width: 100%;
+}
+.qty-input:focus { border-color: var(--gold); }
+.qty-input::placeholder { color: var(--ink4); font-weight: 400; }
+
+.del-btn {
+  width: 32px; height: 32px;
+  background: none;
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  color: var(--ink3);
+  cursor: pointer;
+  font-size: 0.75rem;
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.12s;
+  flex-shrink: 0;
+}
+.del-btn:hover { border-color: var(--red); color: var(--red); background: var(--red-t); }
+
+/* ── COLUMN HEADERS ── */
+.col-headers {
+  display: grid;
+  grid-template-columns: 1fr 90px 32px;
+  gap: 0.4rem;
+  margin-bottom: 0.2rem;
+}
+.col-h {
+  font-family: var(--mono);
+  font-size: 0.52rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink4);
+  padding: 0 0.2rem;
+}
+
+/* ── ADD BUTTON ── */
+.add-btn {
+  width: 100%;
+  background: none;
+  border: 1px dashed var(--rule2);
+  border-radius: 3px;
+  padding: 0.55rem;
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  color: var(--ink3);
+  cursor: pointer;
+  transition: all 0.15s;
+  display: flex; align-items: center; justify-content: center; gap: 0.4rem;
+  margin-top: 0.2rem;
+}
+.add-btn:hover { border-color: var(--gold); color: var(--gold); background: var(--gold-t); }
+
+/* ── TOTALS BAR ── */
+.totals-bar {
+  background: var(--bg3);
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  padding: 0.6rem 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.totals-bar .t-label {
+  font-family: var(--mono);
+  font-size: 0.56rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink3);
+}
+.totals-bar .t-val {
+  font-family: var(--mono);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--gold2);
+}
+.totals-bar .t-sep {
+  width: 1px;
+  height: 24px;
+  background: var(--rule);
+}
+
+/* ── OVERRIDE TOTAL ── */
+.override-row {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.override-row label {
+  font-family: var(--mono);
+  font-size: 0.56rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink3);
+  white-space: nowrap;
+}
+.override-input {
+  background: var(--bg3);
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  padding: 0.45rem 0.6rem;
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  color: var(--ink);
+  outline: none;
+  width: 100px;
+  transition: border-color 0.15s;
+}
+.override-input:focus { border-color: var(--gold); }
+.override-input::placeholder { color: var(--ink4); }
+.override-hint {
+  font-family: var(--mono);
+  font-size: 0.54rem;
+  color: var(--ink4);
+  flex: 1;
+}
+
+/* ── GENERATE BTN ── */
+.gen-btn {
+  width: 100%;
+  background: var(--gold);
+  color: #0C0C0E;
+  border: none;
+  border-radius: 3px;
+  padding: 0.85rem;
+  font-family: var(--mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.gen-btn:hover { background: var(--gold2); }
+.gen-btn:active { transform: translateY(1px); }
+
+/* ── PREVIEW SIDE ── */
+.preview-side {
+  background: var(--bg);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  overflow-y: auto;
+}
+
+.preview-label {
+  font-family: var(--mono);
+  font-size: 0.54rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink3);
+}
+
+/* ── OUTPUT BOX ── */
+.output-box {
+  background: var(--bg2);
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  padding: 1.25rem 1.25rem 1rem;
+  min-height: 100px;
+  flex-shrink: 0;
+}
+.output-text {
+  font-family: var(--mono);
+  font-size: 0.92rem;
+  line-height: 1.9;
+  color: var(--ink);
+  word-break: break-all;
+  white-space: pre-wrap;
+}
+.output-text .color-pair {
+  display: inline;
+}
+.output-text .sep {
+  color: var(--ink3);
+  user-select: none;
+}
+.output-text .col-num { color: var(--gold2); font-weight: 500; }
+.output-text .col-qty { color: var(--ink2); }
+.output-text .total-line {
+  display: block;
+  margin-top: 0.5rem;
+  color: var(--green);
+  font-size: 0.84rem;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 2.5rem 1rem;
+  color: var(--ink4);
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+}
+
+/* ── ACTION BUTTONS ── */
+.action-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0.5rem;
+}
+.act-btn {
+  padding: 0.6rem;
+  border-radius: 3px;
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border: 1px solid var(--rule);
+  background: var(--bg2);
+  color: var(--ink2);
+  transition: all 0.15s;
+  display: flex; align-items: center; justify-content: center; gap: 0.35rem;
+}
+.act-btn:hover { border-color: var(--ink3); color: var(--ink); }
+.act-btn.primary {
+  background: var(--green-t);
+  border-color: var(--green);
+  color: var(--green);
+}
+.act-btn.primary:hover { background: var(--green); color: #0C0C0E; }
+
+.feedback {
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  color: var(--green);
+  text-align: center;
+  letter-spacing: 0.06em;
+  height: 1rem;
+}
+
+/* ── HISTORY ── */
+.history-wrap {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.history-label {
+  font-family: var(--mono);
+  font-size: 0.54rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink4);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.clear-hist {
+  background: none;
+  border: none;
+  font-family: var(--mono);
+  font-size: 0.52rem;
+  color: var(--ink4);
+  cursor: pointer;
+  letter-spacing: 0.06em;
+  padding: 0;
+}
+.clear-hist:hover { color: var(--red); }
+
+.history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+.hist-item {
+  background: var(--bg2);
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  padding: 0.6rem 0.85rem;
+  cursor: pointer;
+  transition: border-color 0.12s;
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+}
+.hist-item:hover { border-color: var(--gold); }
+.hist-text {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--ink2);
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.hist-meta {
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  color: var(--ink4);
+  flex-shrink: 0;
+}
+.no-history {
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  color: var(--ink4);
+  text-align: center;
+  padding: 1.5rem;
+  letter-spacing: 0.06em;
+}
+
+@media(max-width: 700px) {
+  .layout { grid-template-columns: 1fr; }
+  .preview-side { border-top: 1px solid var(--rule); }
+  .meta-row { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="brand">
+    <div class="brand-dot"></div>
+    PRIYAM SALES <span>·</span> COLOR ORDER
+    <span class="ver">v1.0</span>
+  </div>
+</div>
+
+<div class="layout">
+
+  <!-- FORM -->
+  <div class="form-side">
+
+    <div>
+      <div class="section-label">Order Info</div>
+      <div class="meta-row">
+        <div class="field">
+          <label>Supplier / Party</label>
+          <input type="text" id="metaSupp" placeholder="e.g. Rathi Dyeing" oninput="liveRender()">
+        </div>
+        <div class="field">
+          <label>Item / Quality</label>
+          <input type="text" id="metaItem" placeholder="e.g. Mulmul 60×60" oninput="liveRender()">
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="section-label">Colors</div>
+      <div class="col-headers">
+        <div class="col-h">Color No.</div>
+        <div class="col-h">Qty</div>
+        <div class="col-h"></div>
+      </div>
+      <div class="colors-wrap" id="colorRows"></div>
+      <button class="add-btn" onclick="addRow()">+ Add Color</button>
+    </div>
+
+    <div class="totals-bar" id="totalsBar">
+      <div>
+        <div class="t-label">Colors</div>
+        <div class="t-val" id="totalColors">0</div>
+      </div>
+      <div class="t-sep"></div>
+      <div>
+        <div class="t-label">Total Qty</div>
+        <div class="t-val" id="totalThaans">0</div>
+      </div>
+      <div class="t-sep"></div>
+      <div>
+        <div class="t-label">Unit</div>
+        <select id="qtyUnit" onchange="liveRender()" style="background:transparent;border:none;font-family:var(--mono);font-size:0.82rem;color:var(--gold2);font-weight:500;outline:none;cursor:pointer;padding:0;">
+          <option value="thaan">thaan(s)</option>
+          <option value="piece">piece(s)</option>
+          <option value="bundle">bundle(s)</option>
+        </select>
+      </div>
+    </div>
+
+    <div>
+      <div class="section-label">Override Total Label</div>
+      <div class="override-row">
+        <label>Total =</label>
+        <input type="text" id="overrideTotal" class="override-input" placeholder="auto" oninput="liveRender()">
+        <span class="override-hint">leave blank to auto-calculate</span>
+      </div>
+    </div>
+
+    <button class="gen-btn" onclick="generate()">▶ Generate &amp; Copy</button>
+
+  </div>
+
+  <!-- PREVIEW -->
+  <div class="preview-side">
+
+    <div class="preview-label">Output Preview</div>
+
+    <div class="output-box" id="outputBox">
+      <div class="empty-state">Add colors to see output</div>
+    </div>
+
+    <div class="action-row" id="actionRow" style="display:none;">
+      <button class="act-btn" onclick="copyPlain()">⎘ Copy Plain</button>
+      <button class="act-btn primary" onclick="copyFormatted()">⎘ Copy for WhatsApp</button>
+      <button class="act-btn" onclick="resetAll()">↺ New Order</button>
+    </div>
+    <div class="feedback" id="feedback"></div>
+
+    <div class="history-wrap">
+      <div class="history-label">
+        Recent Orders
+        <button class="clear-hist" onclick="clearHistory()">Clear</button>
+      </div>
+      <div class="history-list" id="historyList"></div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+// ── State ──
+let rows = [];
+let rowId = 0;
+const LS_HIST = 'psa_color_history';
+
+// ── Init ──
+addRow();
+addRow();
+renderHistory();
+
+// ── Row Management ──
+function addRow(colorVal = '', qtyVal = '') {
+  const id = ++rowId;
+  rows.push({ id, color: colorVal, qty: qtyVal });
+  renderRows();
+  if (!colorVal) {
+    setTimeout(() => {
+      const inputs = document.querySelectorAll('.color-num');
+      if (inputs.length) inputs[inputs.length - 1].focus();
+    }, 30);
+  }
+}
+
+function removeRow(id) {
+  if (rows.length <= 1) return;
+  rows = rows.filter(r => r.id !== id);
+  renderRows();
+  liveRender();
+}
+
+function syncRow(id) {
+  const card = document.querySelector(`[data-row="${id}"]`);
+  if (!card) return;
+  const row = rows.find(r => r.id === id);
+  if (!row) return;
+  row.color = card.querySelector('.color-num').value.trim();
+  row.qty   = card.querySelector('.qty-input').value.trim();
+  liveRender();
+}
+
+function renderRows() {
+  const wrap = document.getElementById('colorRows');
+  wrap.innerHTML = rows.map((r, i) => `
+    <div class="color-row" data-row="${r.id}">
+      <input class="color-num" type="text"
+        value="${esc(r.color)}" placeholder="e.g. 21"
+        oninput="syncRow(${r.id})"
+        onkeydown="rowKeydown(event, ${r.id})"
+        title="Color number">
+      <input class="qty-input" type="number" inputmode="numeric" pattern="[0-9]*" min="1" step="1"
+        value="${esc(r.qty)}" placeholder="Qty"
+        oninput="syncRow(${r.id})"
+        onkeydown="rowKeydown(event, ${r.id})"
+        title="Quantity">
+      <button class="del-btn" onclick="removeRow(${r.id})" title="Remove">✕</button>
+    </div>
+  `).join('');
+}
+
+// Enter on color → jump to qty; Enter on qty → jump to next color
+function rowKeydown(e, id) {
+  if (e.key === 'Enter') {
+    e.preventDefault();
+    const isQty = e.target.classList.contains('qty-input');
+    if (isQty) {
+      const idx = rows.findIndex(r => r.id === id);
+      if (idx < rows.length - 1) {
+        document.querySelector(`[data-row="${rows[idx + 1].id}"] .color-num`)?.focus();
+      } else {
+        addRow();
+      }
+    } else {
+      document.querySelector(`[data-row="${id}"] .qty-input`)?.focus();
+    }
+  }
+}
+
+function esc(s) {
+  return (s || '').replace(/&/g,'&amp;').replace(/"/g,'&quot;');
+}
+
+// ── Build output string ──
+function getValidRows() {
+  return rows.filter(r => r.color && r.color.trim() !== '');
+}
+
+function calcTotal() {
+  return getValidRows().reduce((s, r) => s + (parseInt(r.qty) || 0), 0);
+}
+
+function getUnit() {
+  const u = document.getElementById('qtyUnit').value;
+  const total = calcTotal();
+  if (u === 'thaan') return total === 1 ? 'thaan' : 'thaans';
+  if (u === 'piece') return total === 1 ? 'piece' : 'pieces';
+  if (u === 'bundle') return total === 1 ? 'bundle' : 'bundles';
+  return u;
+}
+
+function buildPlain() {
+  const valid = getValidRows();
+  if (!valid.length) return '';
+
+  const pairs = valid.map(r => {
+    const qty = r.qty ? r.qty : '1';
+    return `${r.color}/${qty}`;
+  }).join(' ~~ ');
+
+  const overrideRaw = document.getElementById('overrideTotal').value.trim();
+  const total = overrideRaw || `${calcTotal()} ${getUnit()}`;
+
+  let out = pairs + ' = ' + total;
+
+  const supp = document.getElementById('metaSupp').value.trim();
+  const item = document.getElementById('metaItem').value.trim();
+  if (supp || item) {
+    const meta = [supp, item].filter(Boolean).join(' · ');
+    out = meta + '\n' + out;
+  }
+
+  return out;
+}
+
+function buildWhatsApp() {
+  const valid = getValidRows();
+  if (!valid.length) return '';
+
+  const supp = document.getElementById('metaSupp').value.trim();
+  const item = document.getElementById('metaItem').value.trim();
+  const overrideRaw = document.getElementById('overrideTotal').value.trim();
+  const total = overrideRaw || `${calcTotal()} ${getUnit()}`;
+
+  const pairs = valid.map(r => {
+    const qty = r.qty ? r.qty : '1';
+    return `${r.color}/${qty}`;
+  }).join(' ~~ ');
+
+  let lines = [];
+  if (supp) lines.push(`*${supp}*`);
+  if (item) lines.push(`_${item}_`);
+  if (lines.length) lines.push('');
+  lines.push(pairs + ' = *' + total + '*');
+
+  return lines.join('\n');
+}
+
+// ── Live Render ──
+function liveRender() {
+  const valid = getValidRows();
+  const totalColors = valid.length;
+  const totalThaans = calcTotal();
+
+  document.getElementById('totalColors').textContent = totalColors;
+  document.getElementById('totalThaans').textContent = totalThaans;
+
+  const box = document.getElementById('outputBox');
+  if (!valid.length) {
+    box.innerHTML = '<div class="empty-state">Add colors to see output</div>';
+    document.getElementById('actionRow').style.display = 'none';
+    return;
+  }
+
+  const overrideRaw = document.getElementById('overrideTotal').value.trim();
+  const totalLabel = overrideRaw || `${totalThaans} ${getUnit()}`;
+  const supp = document.getElementById('metaSupp').value.trim();
+  const item = document.getElementById('metaItem').value.trim();
+
+  // Build rich HTML preview
+  const pairsHTML = valid.map((r, i) => {
+    const qty = r.qty ? r.qty : '1';
+    const sep = i < valid.length - 1 ? '<span class="sep"> ~~ </span>' : '';
+    return `<span class="color-pair"><span class="col-num">${r.color}</span><span class="sep">/</span><span class="col-qty">${qty}</span></span>${sep}`;
+  }).join('');
+
+  let metaHTML = '';
+  if (supp || item) {
+    const metaStr = [supp, item].filter(Boolean).join(' · ');
+    metaHTML = `<span style="display:block;color:var(--ink3);font-size:0.75rem;margin-bottom:0.35rem;">${metaStr}</span>`;
+  }
+
+  box.innerHTML = `<div class="output-text">${metaHTML}${pairsHTML}<span class="total-line">= ${totalLabel}</span></div>`;
+  document.getElementById('actionRow').style.display = 'grid';
+}
+
+// ── Generate & Copy ──
+function generate() {
+  // sync all
+  rows.forEach(r => syncRow(r.id));
+  liveRender();
+  const plain = buildPlain();
+  if (!plain) return;
+  saveToHistory(plain);
+  copyToClipboard(plain, '✓ Copied plain text');
+}
+
+function copyPlain() {
+  rows.forEach(r => syncRow(r.id));
+  const plain = buildPlain();
+  if (!plain) return;
+  saveToHistory(plain);
+  copyToClipboard(plain, '✓ Copied — paste anywhere');
+}
+
+function copyFormatted() {
+  rows.forEach(r => syncRow(r.id));
+  const wa = buildWhatsApp();
+  if (!wa) return;
+  saveToHistory(buildPlain());
+  copyToClipboard(wa, '✓ Copied for WhatsApp');
+}
+
+function copyToClipboard(text, msg) {
+  navigator.clipboard.writeText(text).then(() => {
+    showFeedback(msg);
+  }).catch(() => {
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    showFeedback(msg);
+  });
+}
+
+function showFeedback(msg) {
+  const el = document.getElementById('feedback');
+  el.textContent = msg;
+  setTimeout(() => el.textContent = '', 2500);
+}
+
+// ── Reset ──
+function resetAll() {
+  rows = [];
+  rowId = 0;
+  document.getElementById('metaSupp').value = '';
+  document.getElementById('metaItem').value = '';
+  document.getElementById('overrideTotal').value = '';
+  addRow();
+  addRow();
+  liveRender();
+}
+
+// ── History ──
+function saveToHistory(text) {
+  if (!text) return;
+  let hist = loadHistory();
+  // avoid duplicates
+  hist = hist.filter(h => h.text !== text);
+  hist.unshift({ text, ts: Date.now() });
+  hist = hist.slice(0, 15);
+  try { localStorage.setItem(LS_HIST, JSON.stringify(hist)); } catch(e) {}
+  renderHistory();
+}
+
+function loadHistory() {
+  try {
+    const raw = localStorage.getItem(LS_HIST);
+    return raw ? JSON.parse(raw) : [];
+  } catch(e) { return []; }
+}
+
+function renderHistory() {
+  const hist = loadHistory();
+  const list = document.getElementById('historyList');
+  if (!hist.length) {
+    list.innerHTML = '<div class="no-history">No orders yet</div>';
+    return;
+  }
+  list.innerHTML = hist.map((h, i) => {
+    const d = new Date(h.ts);
+    const dateStr = `${d.getDate()}/${d.getMonth()+1} ${d.getHours()}:${String(d.getMinutes()).padStart(2,'0')}`;
+    // truncate the text for display
+    const display = h.text.replace(/\n/g, ' · ').slice(0, 60) + (h.text.length > 60 ? '…' : '');
+    return `<div class="hist-item" onclick="loadFromHistory(${i})" title="Click to reload">
+      <span class="hist-text">${display}</span>
+      <span class="hist-meta">${dateStr}</span>
+    </div>`;
+  }).join('');
+}
+
+function loadFromHistory(idx) {
+  const hist = loadHistory();
+  const entry = hist[idx];
+  if (!entry) return;
+
+  // Parse back: may have meta line
+  const lines = entry.text.split('\n');
+  let colorLine = entry.text;
+  let suppVal = '', itemVal = '';
+
+  if (lines.length >= 2) {
+    // First line might be "supp · item"
+    const metaLine = lines[0];
+    colorLine = lines[lines.length - 1];
+    const parts = metaLine.split(' · ');
+    suppVal = parts[0] || '';
+    itemVal = parts[1] || '';
+  }
+
+  document.getElementById('metaSupp').value = suppVal;
+  document.getElementById('metaItem').value = itemVal;
+
+  // Parse color pairs: "21/8 ~~23/3 = X thaans"
+  const pairsPart = colorLine.split(' = ')[0];
+  const pairs = pairsPart.split(' ~~ ');
+
+  rows = [];
+  rowId = 0;
+  pairs.forEach(pair => {
+    const [c, q] = pair.split('/');
+    if (c && c.trim()) addRow(c.trim(), (q || '').trim());
+  });
+
+  liveRender();
+}
+
+function clearHistory() {
+  try { localStorage.removeItem(LS_HIST); } catch(e) {}
+  renderHistory();
+}
+</script>
+
+</body>
+</html>

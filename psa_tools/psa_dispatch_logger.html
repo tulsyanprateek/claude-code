@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>PSA Dispatch Logger</title>
+<link rel="stylesheet" href="./priyam-brand/priyam-brand.css">
+<style>
+/* ── App tokens mapped to PSA brand ───────────────────────── */
+:root {
+  --bg:         var(--ps-paper);
+  --surface:    var(--ps-white);
+  --surface-2:  var(--ps-cloud);
+  --surface-3:  #EBE7DF;
+  --border:     var(--ps-border);
+  --border-2:   #D5CFC6;
+  --brand:      var(--ps-gold);
+  --brand-dk:   #D99200;
+  --brand-lt:   rgba(251,174,26,.13);
+  --brand-ring: rgba(251,174,26,.28);
+  --tc:         var(--ps-terracotta);
+  --tc-lt:      rgba(223,109,53,.12);
+  --danger:     var(--ps-issue);
+  --success:    var(--ps-confirmed);
+  --success-lt: rgba(46,139,111,.1);
+  --t1:         var(--ps-ink);
+  --t2:         var(--ps-slate);
+  --t3:         var(--ps-muted);
+  --sup-bg:     rgba(251,174,26,.06);
+  --sup-border: rgba(251,174,26,.45);
+  --doc-bg:     var(--ps-cloud);
+  --r:          var(--ps-radius);
+  --r-sm:       var(--ps-radius-sm);
+  --sh-sm:      var(--ps-shadow-sm);
+  --sh:         var(--ps-shadow);
+}
+
+[data-theme="dark"] {
+  --bg:#181510;--surface:#201D18;--surface-2:#2A2620;--surface-3:#35302A;
+  --border:#3D3830;--border-2:#4D4840;
+  --brand:#FBAE1A;--brand-dk:#D99200;--brand-lt:rgba(251,174,26,.14);--brand-ring:rgba(251,174,26,.28);
+  --tc:#DF6D35;--tc-lt:rgba(223,109,53,.14);
+  --danger:#E8695F;--success:#4AAE8A;--success-lt:rgba(46,139,111,.14);
+  --t1:#F5F2ED;--t2:#A8A098;--t3:#68625A;
+  --sup-bg:rgba(251,174,26,.07);--sup-border:rgba(251,174,26,.35);--doc-bg:#251F18;
+  --sh-sm:0 1px 3px rgba(0,0,0,.35);--sh:0 8px 24px rgba(0,0,0,.4);
+}
+
+/* ── Reset ────────────────────────────────────────────────── */
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--t1);font-size:15px;min-height:100vh}
+
+/* ── Header ───────────────────────────────────────────────── */
+.hdr{
+  background:var(--surface);border-bottom:1px solid var(--border);
+  padding:11px 16px;display:flex;align-items:center;justify-content:space-between;
+  position:sticky;top:0;z-index:100;box-shadow:var(--sh-sm);
+}
+.hdr-logo{display:flex;align-items:center;gap:10px}
+.hdr-icon{
+  width:36px;height:36px;border-radius:10px;flex-shrink:0;
+  background:var(--ps-gradient);display:flex;align-items:center;justify-content:center;font-size:19px;
+}
+.hdr-title{font-family:var(--ps-font-display);font-size:17px;font-weight:700;color:var(--t1);letter-spacing:-.3px}
+.hdr-sub{font-family:var(--ps-font-mono);font-size:10px;color:var(--t3);margin-top:1px;letter-spacing:.06em;text-transform:uppercase}
+.hdr-right{display:flex;align-items:center;gap:8px}
+.icon-btn{
+  background:var(--surface-2);border:1px solid var(--border);color:var(--t2);
+  width:36px;height:36px;border-radius:var(--r-sm);font-size:15px;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;transition:background var(--ps-dur) var(--ps-ease);
+}
+.icon-btn:hover{background:var(--surface-3)}
+.status-pill{
+  font-family:var(--ps-font-mono);font-size:10px;font-weight:500;
+  padding:3px 9px;border-radius:var(--ps-radius-pill);letter-spacing:.04em;text-transform:uppercase;
+}
+.status-pill.ok {color:var(--success);background:var(--success-lt)}
+.status-pill.err{color:var(--danger);background:rgba(208,71,59,.1)}
+.status-pill.busy{color:var(--brand-dk);background:var(--brand-lt)}
+
+/* ── Tabs ─────────────────────────────────────────────────── */
+.tabs{background:var(--surface);border-bottom:1px solid var(--border);display:flex;position:sticky;top:57px;z-index:99}
+.tab{
+  flex:1;padding:12px 8px;text-align:center;
+  font-family:var(--ps-font-display);font-size:13px;font-weight:600;color:var(--t2);
+  cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px;
+  transition:color var(--ps-dur) var(--ps-ease),border-color var(--ps-dur) var(--ps-ease);
+  min-height:44px;display:flex;align-items:center;justify-content:center;gap:5px;
+}
+.tab.active{color:var(--brand-dk);border-bottom-color:var(--brand)}
+
+/* ── Pages ────────────────────────────────────────────────── */
+.page{display:none;padding:14px;max-width:620px;margin:0 auto;padding-bottom:90px}
+.page.active{display:block}
+
+/* ── Card ─────────────────────────────────────────────────── */
+.card{
+  background:var(--surface);border-radius:var(--r);padding:16px;margin-bottom:12px;
+  border:1px solid var(--border);box-shadow:var(--sh-sm);
+}
+.card-title{
+  font-family:var(--ps-font-mono);font-size:10px;font-weight:500;color:var(--t3);
+  text-transform:uppercase;letter-spacing:.1em;margin-bottom:14px;
+}
+
+/* ── Fields ───────────────────────────────────────────────── */
+.field{margin-bottom:13px}
+.field:last-child{margin-bottom:0}
+.field label{
+  display:block;font-family:var(--ps-font-mono);font-size:11px;font-weight:500;
+  color:var(--t2);text-transform:uppercase;letter-spacing:.08em;margin-bottom:5px;
+}
+input[type=text],input[type=date],select,textarea{
+  width:100%;padding:10px 13px;border:1.5px solid var(--border);border-radius:var(--r-sm);
+  background:var(--surface);color:var(--t1);font-size:16px;outline:none;
+  font-family:var(--ps-font-body);
+  transition:border-color var(--ps-dur) var(--ps-ease),box-shadow var(--ps-dur) var(--ps-ease);
+  -webkit-appearance:none;appearance:none;
+}
+input[type=text]:focus,input[type=date]:focus,select:focus,textarea:focus{
+  border-color:var(--brand);box-shadow:0 0 0 3px var(--brand-ring);
+}
+input.err,select.err{border-color:var(--danger);box-shadow:0 0 0 3px rgba(208,71,59,.15)}
+.ferr{font-family:var(--ps-font-mono);font-size:10px;color:var(--danger);margin-top:4px;letter-spacing:.02em}
+
+/* ── Radio pills ──────────────────────────────────────────── */
+.pill-group{display:flex;gap:8px}
+.pill{
+  flex:1;display:flex;align-items:center;justify-content:center;gap:7px;padding:10px;
+  border:1.5px solid var(--border);border-radius:var(--r-sm);cursor:pointer;
+  font-family:var(--ps-font-display);font-size:14px;font-weight:600;
+  transition:all var(--ps-dur) var(--ps-ease);min-height:44px;color:var(--t2);background:var(--surface-2);
+}
+.pill input{display:none}
+.pill.sel{border-color:var(--brand);background:var(--brand-lt);color:var(--brand-dk)}
+
+/* ── Channel dropdown + add ───────────────────────────────── */
+.channel-select-row{display:flex;gap:8px;align-items:center}
+.channel-select-row select{flex:1}
+.add-channel-btn{
+  flex-shrink:0;background:var(--surface-2);border:1.5px solid var(--border);color:var(--t2);
+  height:42px;padding:0 13px;border-radius:var(--r-sm);font-size:18px;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;min-width:42px;
+  transition:all var(--ps-dur) var(--ps-ease);
+}
+.add-channel-btn:hover{background:var(--brand-lt);border-color:var(--brand);color:var(--brand-dk)}
+.add-channel-inline{display:none;margin-top:8px;gap:8px;align-items:center}
+.add-channel-inline.open{display:flex}
+.add-channel-inline input{flex:1}
+.save-ch-btn{
+  flex-shrink:0;background:var(--brand);color:var(--ps-ink);border:none;
+  padding:0 14px;height:42px;border-radius:var(--r-sm);
+  font-family:var(--ps-font-display);font-size:13px;font-weight:700;cursor:pointer;white-space:nowrap;
+}
+.cancel-ch-btn{
+  flex-shrink:0;background:var(--surface-2);border:1.5px solid var(--border);
+  color:var(--t2);padding:0 12px;height:42px;border-radius:var(--r-sm);
+  font-family:var(--ps-font-display);font-size:13px;font-weight:600;cursor:pointer;
+}
+
+/* ── Autocomplete ─────────────────────────────────────────── */
+.ac-wrap{position:relative}
+.ac-list{
+  position:absolute;top:100%;left:0;right:0;background:var(--surface);
+  border:1.5px solid var(--brand);border-top:none;border-radius:0 0 var(--r-sm) var(--r-sm);
+  max-height:210px;overflow-y:auto;z-index:300;box-shadow:var(--sh);display:none;
+}
+.ac-list.open{display:block}
+.ac-item{
+  padding:9px 13px;cursor:pointer;font-size:14px;border-bottom:1px solid var(--border);
+  font-family:var(--ps-font-body);
+}
+.ac-item:last-child{border-bottom:none}
+.ac-item:hover,.ac-item.hi{background:var(--brand-lt)}
+.ac-item small{font-family:var(--ps-font-mono);color:var(--t3);font-size:11px;display:block;margin-top:2px}
+
+/* ── Supplier blocks ──────────────────────────────────────── */
+.sup-blocks{display:flex;flex-direction:column;gap:10px}
+.sup-block{background:var(--sup-bg);border:1.5px solid var(--sup-border);border-radius:var(--r);padding:13px}
+.sup-block-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:11px}
+.sup-block-label{
+  font-family:var(--ps-font-mono);font-size:10px;font-weight:500;
+  color:var(--brand-dk);text-transform:uppercase;letter-spacing:.1em;
+}
+.rm-btn{
+  background:none;border:none;color:var(--t3);font-size:20px;cursor:pointer;
+  padding:2px 6px;border-radius:6px;line-height:1;min-width:32px;min-height:32px;
+  display:flex;align-items:center;justify-content:center;
+  transition:color var(--ps-dur) var(--ps-ease);
+}
+.rm-btn:hover{color:var(--danger)}
+
+/* ── Doc rows ─────────────────────────────────────────────── */
+.doc-rows{display:flex;flex-direction:column;gap:6px;margin-top:6px}
+.doc-row{
+  background:var(--doc-bg);border:1px solid var(--border);border-radius:var(--r-sm);
+  padding:7px 9px;display:grid;grid-template-columns:100px 1fr auto auto;gap:6px;align-items:center;
+}
+.doc-row select{font-size:13px;padding:7px 8px;border-radius:6px}
+.doc-row input[type=text]{font-size:14px;padding:7px 10px;border-radius:6px}
+.lr-wrap{display:flex;flex-direction:column;align-items:center;gap:2px}
+.lr-wrap input[type=checkbox]{width:17px;height:17px;cursor:pointer;accent-color:var(--brand);margin:0}
+.lr-label{font-family:var(--ps-font-mono);font-size:9px;color:var(--t3);text-transform:uppercase;letter-spacing:.06em}
+
+/* ── Buttons ──────────────────────────────────────────────── */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:7px;
+  padding:12px 20px;border-radius:var(--ps-radius-pill);border:none;
+  font-family:var(--ps-font-display);font-size:14px;font-weight:600;
+  cursor:pointer;min-height:44px;line-height:1;
+  transition:transform var(--ps-dur) var(--ps-ease),background var(--ps-dur) var(--ps-ease),box-shadow var(--ps-dur) var(--ps-ease);
+}
+.btn:active{transform:scale(.97)}
+.btn-primary{background:var(--brand);color:var(--ps-ink);box-shadow:0 2px 8px rgba(251,174,26,.35)}
+.btn-primary:hover{background:var(--brand-dk);transform:translateY(-1px)}
+.btn-tc{background:var(--tc);color:#fff}
+.btn-tc:hover{background:#C85D28;transform:translateY(-1px)}
+.btn-ghost{background:var(--surface-2);border:1.5px solid var(--border);color:var(--t2)}
+.btn-ghost:hover{background:var(--surface-3)}
+.btn-outline{background:transparent;border:1.5px solid var(--border);color:var(--t2)}
+.btn-outline:hover{border-color:var(--brand);color:var(--brand-dk)}
+.btn-danger{background:var(--danger);color:#fff}
+.btn-success{background:var(--success);color:#fff}
+.btn-full{width:100%}
+.btn-sm{padding:7px 16px;font-size:13px;min-height:36px}
+
+.add-doc-btn{
+  margin-top:7px;color:var(--brand-dk);background:none;border:1.5px dashed var(--sup-border);
+  border-radius:var(--r-sm);padding:7px 12px;cursor:pointer;width:100%;min-height:36px;
+  font-family:var(--ps-font-display);font-size:13px;font-weight:600;
+  display:flex;align-items:center;justify-content:center;gap:5px;
+  transition:background var(--ps-dur) var(--ps-ease);
+}
+.add-doc-btn:hover{background:var(--brand-lt)}
+
+.add-sup-btn{
+  background:none;border:1.5px dashed var(--border-2);color:var(--t2);
+  border-radius:var(--r);padding:12px;font-family:var(--ps-font-display);font-size:14px;font-weight:600;
+  cursor:pointer;width:100%;min-height:44px;display:flex;align-items:center;justify-content:center;gap:7px;
+  margin-top:4px;transition:all var(--ps-dur) var(--ps-ease);
+}
+.add-sup-btn:hover{border-color:var(--brand);color:var(--brand-dk);background:var(--brand-lt)}
+
+/* ── WA output ────────────────────────────────────────────── */
+.wa-box{
+  background:rgba(46,139,111,.07);border:1.5px solid rgba(46,139,111,.3);
+  border-radius:var(--r);padding:14px;
+  font-family:var(--ps-font-mono);font-size:13px;white-space:pre-wrap;line-height:1.75;
+  color:var(--ps-confirmed);margin-bottom:14px;word-break:break-word;
+}
+[data-theme="dark"] .wa-box{background:rgba(46,139,111,.1);border-color:rgba(46,139,111,.35);color:#5DBD98}
+
+/* ── Toast ────────────────────────────────────────────────── */
+.toast{
+  position:fixed;bottom:20px;left:50%;transform:translateX(-50%) translateY(80px);
+  background:var(--t1);color:var(--bg);padding:10px 20px;border-radius:var(--ps-radius-pill);
+  font-family:var(--ps-font-body);font-size:14px;font-weight:500;
+  z-index:999;transition:transform var(--ps-dur) var(--ps-ease);
+  white-space:nowrap;max-width:90vw;text-align:center;box-shadow:var(--sh);
+}
+.toast.show{transform:translateX(-50%) translateY(0)}
+
+/* ── History ──────────────────────────────────────────────── */
+.search-wrap{position:relative;margin-bottom:12px}
+.search-wrap input{padding-left:38px;background:var(--surface)}
+.search-icon{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--t3);font-size:14px;pointer-events:none}
+
+.hist-item{
+  background:var(--surface);border:1px solid var(--border);border-radius:var(--r);
+  padding:13px;margin-bottom:8px;box-shadow:var(--sh-sm);
+  transition:border-color var(--ps-dur) var(--ps-ease);
+}
+.hist-item:hover{border-color:var(--brand)}
+.hist-hdr{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;margin-bottom:5px}
+.hist-recipient{font-family:var(--ps-font-display);font-weight:700;font-size:15px;color:var(--t1)}
+.hist-date{
+  font-family:var(--ps-font-mono);font-size:11px;color:var(--t3);
+  background:var(--surface-2);padding:2px 9px;border-radius:var(--ps-radius-pill);white-space:nowrap;
+}
+.badge{
+  display:inline-block;font-family:var(--ps-font-mono);font-size:10px;font-weight:500;
+  padding:2px 9px;border-radius:var(--ps-radius-pill);text-transform:uppercase;letter-spacing:.05em;margin-left:6px;
+}
+.badge-c{background:rgba(37,99,235,.1);color:#1d4ed8}
+.badge-s{background:var(--tc-lt);color:var(--tc)}
+[data-theme="dark"] .badge-c{background:rgba(96,165,250,.12);color:#93c5fd}
+[data-theme="dark"] .badge-s{background:rgba(223,109,53,.15);color:#F0895A}
+
+.hist-meta{font-size:12px;color:var(--t2);margin-top:5px;display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.hist-ch{
+  font-family:var(--ps-font-mono);font-size:10px;background:var(--surface-2);
+  color:var(--t2);padding:2px 9px;border-radius:var(--ps-radius-pill);letter-spacing:.03em;
+}
+.hist-actions{display:flex;gap:6px;margin-top:10px}
+.empty-state{text-align:center;color:var(--t3);padding:48px 20px;font-size:14px;font-family:var(--ps-font-body)}
+.empty-state .ico{font-size:40px;margin-bottom:10px}
+
+/* ── Action bar ───────────────────────────────────────────── */
+.action-bar{
+  position:sticky;bottom:0;background:var(--surface);border-top:1px solid var(--border);
+  padding:10px 14px;display:flex;gap:8px;max-width:620px;margin:0 auto;
+  box-shadow:0 -2px 12px rgba(43,43,51,.08);
+}
+
+/* ── Spinner ──────────────────────────────────────────────── */
+.spin{display:inline-block;width:16px;height:16px;border:2px solid rgba(43,43,51,.2);border-top-color:var(--ps-ink);border-radius:50%;animation:sp .55s linear infinite}
+@keyframes sp{to{transform:rotate(360deg)}}
+
+/* ── Modal overlay ────────────────────────────────────────── */
+.overlay{display:none;position:fixed;inset:0;background:rgba(43,43,51,.5);z-index:500;align-items:flex-end;justify-content:center;backdrop-filter:blur(3px)}
+.overlay.open{display:flex}
+.modal{
+  background:var(--surface);border-radius:20px 20px 0 0;padding:20px 16px 32px;
+  width:100%;max-width:620px;max-height:90vh;overflow-y:auto;
+}
+.modal-title{font-family:var(--ps-font-display);font-size:18px;font-weight:700;color:var(--t1);margin-bottom:16px}
+.modal-close{
+  float:right;background:var(--surface-2);border:none;color:var(--t2);
+  width:30px;height:30px;border-radius:50%;font-size:14px;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+}
+
+/* ── Decorative rule ──────────────────────────────────────── */
+.ps-rule{height:4px;width:48px;border-radius:3px;background:var(--ps-gradient);border:0;margin-bottom:16px}
+
+@media(min-width:480px){.doc-row{grid-template-columns:120px 1fr auto auto}}
+</style>
+</head>
+<body class="ps-root">
+
+<!-- ── Header ── -->
+<div class="hdr">
+  <div class="hdr-logo">
+    <div class="hdr-icon">📮</div>
+    <div>
+      <div class="hdr-title">Dispatch Logger</div>
+      <div class="hdr-sub">Priyam Sales Agency</div>
+    </div>
+  </div>
+  <div class="hdr-right">
+    <span class="status-pill busy" id="statusPill">Connecting</span>
+    <button class="icon-btn" onclick="toggleTheme()" id="themeBtn" title="Toggle theme">🌙</button>
+  </div>
+</div>
+
+<!-- ── Tabs ── -->
+<div class="tabs">
+  <div class="tab active" id="tabNew"     onclick="switchTab('new')">✏️ New Dispatch</div>
+  <div class="tab"        id="tabHistory" onclick="switchTab('history')">📋 History</div>
+</div>
+
+<!-- ══ NEW DISPATCH ══ -->
+<div class="page active" id="pageNew">
+
+  <div class="card">
+    <div class="card-title">Dispatch Details</div>
+    <hr class="ps-rule">
+
+    <div class="field">
+      <label>Date</label>
+      <input type="date" id="iDate">
+    </div>
+
+    <div class="field">
+      <label>Sending To</label>
+      <div class="pill-group">
+        <label class="pill sel" id="pillCustomer">
+          <input type="radio" name="rtype" value="Customer" checked onchange="onTypeChange()">
+          🏪 Customer
+        </label>
+        <label class="pill" id="pillSupplier">
+          <input type="radio" name="rtype" value="Supplier" onchange="onTypeChange()">
+          🏭 Supplier
+        </label>
+      </div>
+    </div>
+
+    <div class="field">
+      <label id="recipientLabel">Customer Name</label>
+      <div class="ac-wrap">
+        <input type="text" id="iRecipient" placeholder="Search name…" autocomplete="off"
+          oninput="acFilter('iRecipient','acRecipient')"
+          onkeydown="acKey(event,'iRecipient','acRecipient')"
+          onfocus="acFilter('iRecipient','acRecipient')">
+        <div class="ac-list" id="acRecipient"></div>
+      </div>
+      <div class="ferr" id="errRecipient"></div>
+    </div>
+
+    <div class="field">
+      <label>Sending Channel</label>
+      <div class="channel-select-row">
+        <select id="iChannel"></select>
+        <button class="add-channel-btn" onclick="toggleAddChannel()" title="Add new channel">＋</button>
+      </div>
+      <div class="add-channel-inline" id="addChannelRow">
+        <input type="text" id="iNewChannel" placeholder="e.g. In Person — Manish">
+        <button class="save-ch-btn" onclick="saveNewChannel()">Add</button>
+        <button class="cancel-ch-btn" onclick="toggleAddChannel()">✕</button>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Remarks <span style="font-family:var(--ps-font-body);font-weight:400;text-transform:none;font-size:11px">(optional)</span></label>
+      <input type="text" id="iRemarks" placeholder="Any notes for this dispatch…">
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Documents Enclosed</div>
+    <hr class="ps-rule">
+    <div class="sup-blocks" id="supBlocks"></div>
+    <div class="ferr" id="errDocs" style="margin-top:6px"></div>
+    <button class="add-sup-btn" onclick="addSupplierBlock()" style="margin-top:10px">＋ Add Supplier</button>
+  </div>
+
+</div><!-- /pageNew -->
+
+<!-- ══ HISTORY ══ -->
+<div class="page" id="pageHistory">
+  <div class="search-wrap">
+    <span class="search-icon">🔍</span>
+    <input type="text" id="iSearch" placeholder="Search by name, channel, or doc number…" oninput="debounceSearch()">
+  </div>
+  <div id="histList">
+    <div class="empty-state"><div class="ico">📋</div>Switch to History to load records.</div>
+  </div>
+</div>
+
+<!-- ── Action bar ── -->
+<div class="action-bar" id="actionBar">
+  <button class="btn btn-ghost btn-sm" id="btnCancelEdit" onclick="cancelEdit()" style="display:none">✕ Cancel</button>
+  <button class="btn btn-ghost btn-sm" id="btnClear" onclick="resetForm()">🗑 Clear</button>
+  <button class="btn btn-primary btn-full" id="btnSave" onclick="saveDispatch()">
+    📤 Save &amp; Get WA Message
+  </button>
+</div>
+
+<!-- ══ WA Overlay ══ -->
+<div class="overlay" id="waOverlay">
+  <div class="modal">
+    <button class="modal-close" onclick="closeWAOverlay()">✕</button>
+    <div class="modal-title">✅ Dispatch Saved</div>
+    <div id="waContent"></div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <button class="btn btn-success btn-full" onclick="copyWA()">📋 Copy Message</button>
+      <button class="btn btn-outline" style="flex:1" onclick="shareWA()">📲 Share</button>
+      <button class="btn btn-ghost btn-full" id="btnWAClose" onclick="closeWAOverlay()">New Dispatch</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══ Delete confirm ══ -->
+<div class="overlay" id="delOverlay">
+  <div class="modal">
+    <div class="modal-title">Delete this dispatch?</div>
+    <p style="font-size:14px;color:var(--t2);font-family:var(--ps-font-body);margin-bottom:20px">
+      This will permanently remove the record from the Sheet.
+    </p>
+    <div style="display:flex;gap:8px">
+      <button class="btn btn-ghost" style="flex:1" onclick="closeOverlay('delOverlay')">Cancel</button>
+      <button class="btn btn-danger" style="flex:1" onclick="confirmDelete()">Delete</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// ════════════════════════════════════════════════════════════
+//  CONFIG
+// ════════════════════════════════════════════════════════════
+const BACKEND_URL = 'https://script.google.com/macros/s/AKfycbx7wUG2Ptdq6lFIZegjPW7VQQhXPCdiRlu52sral3iEZiR_Kn140UB5rxpkmzFrlQYC/exec'; // paste Apps Script Web App URL here
+
+// ════════════════════════════════════════════════════════════
+//  DATA
+// ════════════════════════════════════════════════════════════
+const SUPPLIERS = [
+  {name:"Bhagwati Prints",city:"Surat"},{name:"Maruti Fashion",city:"Surat"},
+  {name:"Khushboo Synthetics",city:"Surat"},{name:"Anupam Saree Centre",city:"Mathura"},
+  {name:"Nand Gopal Print - Msme",city:"Jetpur"},{name:"Anand Textile Agency - Msme",city:"Burhanpur"},
+  {name:"Ganpati Sales",city:"Balotra"},{name:"Mehta Texmills India Private Limited - M",city:"Pali-Marwar"},
+  {name:"Rajasthan Industries",city:"Pali-Marwar"},{name:"Paresh Print Private Limited",city:"Jetpur"},
+  {name:"Jay Khodiyar Mills",city:"Jetpur"},{name:"Acm Fabricot - Msme",city:"Balotra"},
+  {name:"Malchand Sons",city:"Mumbai"},{name:"Ruthvik Trading Co",city:"Ahmedabad"},
+  {name:"Rahul Textiles Mills",city:"Erode"},{name:"Kanchan Cotton Mills",city:"Ichalkaranji"},
+  {name:"Manglam Prints - Msme",city:"Pali-Marwar"},{name:"Pragati Fabrics",city:"Pali-Marwar"},
+  {name:"Shree Sadguru Sarees",city:"Surat"},{name:"Shubh Mandir",city:"Surat"},
+  {name:"Tanu Fashion",city:"Surat"},{name:"Manish Ratan Fabrics - Msme",city:"Balotra"},
+  {name:"Sunshine Textile",city:"Pali-Marwar"},{name:"Shubh Lakshmi Fashion Llp",city:"Surat"},
+  {name:"Brij Bansuri Prints",city:"Surat"},{name:"Vasuki Creations",city:"Surat"},
+  {name:"Tirupati Tex Fab",city:"Surat"},{name:"Amrit Shawls - Msme",city:"Ludhiana"},
+  {name:"Sairam Synthetics",city:"Indore"},{name:"Nandani Tex",city:"Surat"},
+  {name:"Durga Trading Company - Msme",city:"Gorakhpur"},{name:"Mangilal Industries",city:"Balotra"},
+  {name:"Shyam Bihari Fashion",city:"Surat"},{name:"Muskan Sarees",city:"Surat"},
+  {name:"Shubh Sindoor",city:"Surat"},{name:"Oscar Fabrics",city:"Chennimalai"},
+  {name:"Hari Om Textile",city:"Panipat"},{name:"A.Tex",city:"Gorakhpur"},
+  {name:"Aaradhya Suits",city:"Surat"},{name:"Aarav Sarees",city:"Surat"},
+  {name:"Akash Leela Fashions",city:"Surat"},{name:"Ambaji Sarees",city:"Surat"},
+  {name:"Amruta Texcom",city:"Ichalkaranji"},{name:"Balaji Cotton",city:"Jetpur"},
+  {name:"Chandrakala Sarees",city:"Surat"},{name:"Deepvin Industries - Msme",city:"Jetpur"},
+  {name:"Floreon Trends",city:"Surat"},{name:"G M Non Wovens",city:"Panipat"},
+  {name:"Garg Textiles - Msme",city:"Mathura"},{name:"Girish Synthetics",city:"Surat"},
+  {name:"Gokila Sarees",city:"Surat"},{name:"Hari Leela",city:"Surat"},
+  {name:"Jai Matadi Silk Mills",city:"Surat"},{name:"Jai Minakshi Textile - Msme",city:"Pali-Marwar"},
+  {name:"Janki Fabrics",city:"Indore"},{name:"Jasbeer Synthetics - Msme",city:"Surat"},
+  {name:"Jay Khodiyar Processors",city:"Jetpur"},{name:"Karnavati Fabco",city:"Ahmedabad"},
+  {name:"Kaveri Silk Mills Pvt Ltd",city:"Surat"},{name:"Khatu Kripa",city:"Surat"},
+  {name:"Krishna Suitings",city:"Bhilwara"},{name:"Kundan Fabric",city:"Surat"},
+  {name:"Laxmi Ratan Textiles - Msme",city:"Balotra"},{name:"Laxmipati Textile",city:"Jetpur"},
+  {name:"M Devendra & Co. - Msme",city:"Mumbai"},{name:"Maa Baneshwari Texofine - Msme",city:"Balotra"},
+  {name:"Mahajan Fabrics - Msme",city:"Amritsar"},{name:"Manju Textile",city:"Panipat"},
+  {name:"Manjushree Prints",city:"Surat"},{name:"Mayoor Textile Mills Llp",city:"Pali-Marwar"},
+  {name:"Mehta Silk",city:"Surat"},{name:"Mohit Textile",city:"Surat"},
+  {name:"Muskan Fashion",city:"Surat"},{name:"Naisha Synthetics",city:"Surat"},
+  {name:"Nandan Textile Industries",city:"Jetpur"},{name:"Nandani Enterprises",city:"Surat"},
+  {name:"Nandini Sarees",city:"Surat"},{name:"Nargis Fashion Private Limited",city:"Kolkata"},
+  {name:"National Process",city:"Mathura"},{name:"Navkar Fab Tex",city:"Ahmedabad"},
+  {name:"Nischay Sarees",city:"Surat"},{name:"Perfect Chunari House Pvt Ltd - Msme",city:"Surat"},
+  {name:"Priyalaxmi Fabrics",city:"Pali-Marwar"},{name:"Raigur Fabrics",city:"Bhiwandi"},
+  {name:"Raj Industries - Msme",city:"Pali-Marwar"},{name:"Rajeev Mahajan Huf",city:"Amritsar"},
+  {name:"Savamani",city:"Surat"},{name:"Shah Rikhabchand Hazarimal",city:"Ahmedabad"},
+  {name:"Showlook Apparels",city:"Surat"},{name:"Shree Ganesh Fabrics",city:"Surat"},
+  {name:"Shree Ram Pavan Fashions",city:"Kolkata"},{name:"Shreehari Sarees Pvt Ltd",city:"Surat"},
+  {name:"Shri Gopal Industries - Msme",city:"Pali-Marwar"},{name:"Shubh Lakshmi Fashion - Msme",city:"Surat"},
+  {name:"Siya Sarees",city:"Kolkata"},{name:"Somnath Textile - Msme",city:"Pali-Marwar"},
+  {name:"Sunray Creation",city:"Jetpur"},{name:"Teja Prints",city:"Surat"},
+  {name:"Vaishnavi Sarees",city:"Surat"},{name:"Vasuki Fashion",city:"Surat"},
+  {name:"Veda Silk & Sarees",city:"Surat"},
+];
+
+const PARTIES = [
+  {name:"Akash Ganga",city:"Sujawalpur"},{name:"Amit Enterprises",city:"Muzaffarpur"},
+  {name:"Anil Textiles",city:"Muzaffarpur"},{name:"Arun Textiles",city:"Madhubani"},
+  {name:"Ashish Vastralay",city:"Barachakia"},{name:"Badri Prasad Binod Kumar",city:"Muzaffarpur"},
+  {name:"Bajrang Khadi Bhandar",city:"Muzaffarpur"},{name:"Banwarilal Omprakash",city:"Muzaffarpur"},
+  {name:"Bhagirath Prasad Mahesh Kumar",city:"Muzaffarpur"},{name:"Bihar Kargha Khadi Bhandar",city:"Muzaffarpur"},
+  {name:"Binod Kumar Vijay Kumar",city:"Pupri"},{name:"Bishwanath And Company",city:"Muzaffarpur"},
+  {name:"Cash Center",city:"Tajpur"},{name:"Chiranjiv Synthetics",city:"Simri"},
+  {name:"Devjyoti Synthetics",city:"Muzaffarpur"},{name:"Dhandharia Brothers",city:"Muzaffarpur"},
+  {name:"Dheeraj & Neeraj Handloom",city:"Goraul"},{name:"Dwarka Prasad Sushil Kumar & Co.",city:"Muzaffarpur"},
+  {name:"Ganesh Silk House",city:"Muzaffarpur"},{name:"Ganesh Textiles",city:"Jainagar"},
+  {name:"Geeta Textile",city:"Bettiah"},{name:"Gopal Prasad Bishnu Kumar",city:"Madhepur"},
+  {name:"Gopal Shree",city:"Tajpur"},{name:"Gopi Krishna Textiles",city:"Muzaffarpur"},
+  {name:"Hanuman Prasad Biharilal",city:"Muzaffarpur"},{name:"Hanumanbux Gaurishankar",city:"Jainagar"},
+  {name:"Haridarshan",city:"Muzaffarpur"},{name:"Hiralal Pawan Kumar",city:"Muzaffarpur"},
+  {name:"Jagdamba Textile",city:"Bettiah"},{name:"Jagdish Vastralaya",city:"Muzaffarpur"},
+  {name:"Jai Mata Di Handloom",city:"Pathrahi"},{name:"Jainarain Sitaram",city:"Muzaffarpur"},
+  {name:"Jalan Trading Co",city:"Muzaffarpur"},{name:"Janata Cloth Stores",city:"Raiganj"},
+  {name:"Kajal Saree Centre",city:"Madhuban"},{name:"Kakrania Brothers",city:"Muzaffarpur"},
+  {name:"Kanhaiya Textiles",city:"Pupri"},{name:"Kishan Lal Pramod Kumar",city:"Nirmali"},
+  {name:"Kishori Lal Sanjay Kumar",city:"Motihari"},{name:"Krishna Textiles",city:"Sitamarhi"},
+  {name:"Kunal Textile",city:"Muzaffarpur"},{name:"Laxmi Handloom",city:"Bettiah"},
+  {name:"Laxmi Hari",city:"Motihari"},{name:"Laxmi Trading Company",city:"Sitamarhi"},
+  {name:"Lucky Textiles",city:"Bettiah"},{name:"M Chaudhary Saree Center",city:"Muzaffarpur"},
+  {name:"Maa Ambe Saree Centre",city:"Samastipur"},{name:"Maa Durga Saree Centre",city:"Muzaffarpur"},
+  {name:"Mahira Creation",city:"Samastipur"},{name:"Maruti Textiles",city:"Barachakia"},
+  {name:"Mehta Enterprises",city:"Runni Saidpur"},{name:"Murlidhar Shankar Lal",city:"Muzaffarpur"},
+  {name:"Nathmal Damodar",city:"Muzaffarpur"},{name:"Nirmal Vastralaya",city:"Nirmali"},
+  {name:"Nutan Vastralaya",city:"Jainagar"},{name:"Om Prakash Hari Prakash",city:"Ghoghardiha"},
+  {name:"Oswal Stores",city:"Muzaffarpur"},{name:"Pawan Vastralaya",city:"Bajitpur"},
+  {name:"Poonam Synthetics",city:"Muzaffarpur"},{name:"Prahlad Cloth Emporium",city:"Samastipur"},
+  {name:"Pramod Kumar Suresh Kumar",city:"Sitamarhi"},{name:"Praveen Textile Co.",city:"Sitamarhi"},
+  {name:"Priyanka Khadi Bhandar",city:"Bettiah"},{name:"Pushpa Synthetics",city:"Muzaffarpur"},
+  {name:"Radha Krishna Textiles",city:"Bettiah"},{name:"Raj Kumar Pramod Kumar (Rkpk)",city:"Muzaffarpur"},
+  {name:"Raj Kumar Pramod Kumar (Rp)",city:"Muzaffarpur"},{name:"Rajasthan Textile Agency",city:"Muzaffarpur"},
+  {name:"Rajasthan Trading Agency",city:"Madhubani"},{name:"Rajesh Kumar Ranjeet Kumar",city:"Jhanjharpur"},
+  {name:"Rajesh Trading Company",city:"Muzaffarpur"},{name:"Rajlaxmi Textiles",city:"Mahua"},
+  {name:"Ram Kishundas Dhandharia",city:"Muzaffarpur"},{name:"Ritesh Kumar Amit Kumar",city:"Muzaffarpur"},
+  {name:"Sadan Lal Rajvansh",city:"Muzaffarpur"},{name:"Sahu & Sons",city:"Muzaffarpur"},
+  {name:"Sajjan Kumar Sharwan Kumar",city:"Muzaffarpur"},{name:"Santosh Vastralaya",city:"Dalsingsarai"},
+  {name:"Sanvi Synthetics",city:"Muzaffarpur"},{name:"Saras Textiles",city:"Muzaffarpur"},
+  {name:"Saree Sansar",city:"Bettiah"},{name:"Sati Textile",city:"Samastipur"},
+  {name:"Satyanarayan Sawarmal & Co.",city:"Muzaffarpur"},{name:"Sawarmal Kanhaiyalal",city:"Muzaffarpur"},
+  {name:"Shambhu Trading Company",city:"Sitamarhi"},{name:"Shankar Vastralaya",city:"Khutauna"},
+  {name:"Shiv Shakti Textiles",city:"Bettiah"},{name:"Siddhi Vinayak Enterprises",city:"Muzaffarpur"},
+  {name:"Sitaram Pawan Kumar",city:"Muzaffarpur"},{name:"Sri Bharat Trading Company",city:"Muzaffarpur"},
+  {name:"Sri Dholi Sati Synthetics",city:"Samastipur"},{name:"Sri Fashion Textiles",city:"Biraul"},
+  {name:"Sri Ganesh Sri Laxmi",city:"Motihari"},{name:"Sri Harishankar Khadi Bhandar",city:"Sitamarhi"},
+  {name:"Sri Jagdamba Saree",city:"Motihari"},{name:"Sri Kishan Arun Kumar",city:"Muzaffarpur"},
+  {name:"Sri Krishna Vastra Bhandar",city:"Barachakia"},{name:"Sri Maruti Collection",city:"Muzaffarpur"},
+  {name:"Sri Pragati Textiles",city:"Muzaffarpur"},{name:"Sri Pramod Handloom",city:"Muzaffarpur"},
+  {name:"Sri Raimata Textiles",city:"Muzaffarpur"},{name:"Sri Ram Vastralaya",city:"Laukaha"},
+  {name:"Sri Rani Sati Cloth Store",city:"Basopatty"},{name:"Sri Ranisati Handloom",city:"Muzaffarpur"},
+  {name:"Sri Ranisati Textiles",city:"Jainagar"},{name:"Sri Sati Synthetics",city:"Muzaffarpur"},
+  {name:"Sri Shankar Khadi Bhandar",city:"Barachakia"},{name:"Sri Shankar Textile",city:"Sitamarhi"},
+  {name:"Sri Vidyanand Animesh Kishore",city:"Jandaha"},{name:"Sri Vinayak Traders",city:"Chapra"},
+  {name:"Subh Laxmi Textiles",city:"Sitamarhi"},{name:"Suit Creation",city:"Muzaffarpur"},
+  {name:"Suit House",city:"Muzaffarpur"},{name:"Sunil Textiles",city:"Muzaffarpur"},
+  {name:"Super Handloom",city:"Vidhyapati Nagar"},{name:"Suraj Handloom Center",city:"Kurhani"},
+  {name:"Suraj Synthetic",city:"Muzaffarpur"},{name:"Surat Saree Kendra",city:"Muzaffarpur"},
+  {name:"Sushil Handloom",city:"Muzaffarpur"},{name:"Tibrewal Textile",city:"Bettiah"},
+  {name:"Tikmani Synthetics",city:"Muzaffarpur"},{name:"Uma Synthetics",city:"Muzaffarpur"},
+  {name:"Vatika",city:"Muzaffarpur"},{name:"Vijay Kumar Pawan Kr.",city:"Muzaffarpur"},
+  {name:"Vijay Vastralaya",city:"Sakra"},{name:"Vinay Kumar Pramod Kumar",city:"Muzaffarpur"},
+  {name:"Vinod Kumar Abhishek Kumar",city:"Muzaffarpur"},{name:"Vyahut Vastra Niketan",city:"Sitamarhi"},
+  {name:"Yashoda Handloom",city:"Dalsingsarai"},{name:"Zishan Ali Handloom Store",city:"Tajpur"},
+];
+
+const DOC_TYPES = ['Bill','CN','DN','JV','Outstanding','Cheque','Other'];
+
+const DEFAULT_CHANNELS = [
+  'Speed Post','Courier','By Hand','With Transport',
+  'Bank','Registered Post','VPP (Value Payable Post)',
+];
+
+// ════════════════════════════════════════════════════════════
+//  STATE
+// ════════════════════════════════════════════════════════════
+let supBlockId=0, currentWAMsg='', pendingDelId=null, searchTimer=null;
+let editingId=null, historyCache=[], waFromHistory=false;
+
+// ════════════════════════════════════════════════════════════
+//  LOCAL RECORDS (offline cache)
+// ════════════════════════════════════════════════════════════
+function getLocalRecords(){try{return JSON.parse(localStorage.getItem('psa_dispatch_records')||'[]');}catch{return[];}}
+function saveLocalRecords(arr){localStorage.setItem('psa_dispatch_records',JSON.stringify(arr.slice(0,200)));}
+function upsertLocalRecord(r){const arr=getLocalRecords(),i=arr.findIndex(x=>x.id===r.id);if(i>=0)arr[i]=r;else arr.unshift(r);saveLocalRecords(arr);}
+function deleteLocalRecord(id){saveLocalRecords(getLocalRecords().filter(r=>r.id!==id));}
+
+// ════════════════════════════════════════════════════════════
+//  CHANNELS
+// ════════════════════════════════════════════════════════════
+function getChannels(){
+  try{const s=JSON.parse(localStorage.getItem('psa_dispatch_channels')||'null');if(Array.isArray(s)&&s.length)return s;}catch{}
+  return[...DEFAULT_CHANNELS];
+}
+function saveChannels(list){localStorage.setItem('psa_dispatch_channels',JSON.stringify(list));}
+function renderChannelSelect(id,val){
+  const sel=document.getElementById(id), ch=getChannels(), prev=val||sel.value;
+  sel.innerHTML=ch.map(c=>`<option value="${escH(c)}"${c===prev?' selected':''}>${escH(c)}</option>`).join('');
+}
+function toggleAddChannel(){
+  const row=document.getElementById('addChannelRow'), inp=document.getElementById('iNewChannel');
+  const open=row.classList.toggle('open');
+  if(open){inp.value='';inp.focus();}
+}
+function saveNewChannel(){
+  const val=document.getElementById('iNewChannel').value.trim();
+  if(!val)return;
+  const ch=getChannels();
+  if(!ch.includes(val)){ch.push(val);saveChannels(ch);}
+  renderChannelSelect('iChannel',val);
+  toggleAddChannel();
+  showToast(`✅ "${val}" added`);
+}
+document.getElementById('iNewChannel').addEventListener('keydown',e=>{
+  if(e.key==='Enter')saveNewChannel();
+  if(e.key==='Escape')toggleAddChannel();
+});
+
+// ════════════════════════════════════════════════════════════
+//  THEME
+// ════════════════════════════════════════════════════════════
+function toggleTheme(){
+  const dark=document.documentElement.dataset.theme==='dark';
+  document.documentElement.dataset.theme=dark?'':'dark';
+  document.getElementById('themeBtn').textContent=dark?'🌙':'☀️';
+  localStorage.setItem('psa_dispatch_theme',dark?'':'dark');
+}
+
+// ════════════════════════════════════════════════════════════
+//  TABS
+// ════════════════════════════════════════════════════════════
+function switchTab(tab){
+  ['pageNew','pageHistory'].forEach(id=>document.getElementById(id).classList.toggle('active',id===(tab==='new'?'pageNew':'pageHistory')));
+  ['tabNew','tabHistory'].forEach(id=>document.getElementById(id).classList.toggle('active',id===(tab==='new'?'tabNew':'tabHistory')));
+  document.getElementById('actionBar').style.display=tab==='new'?'flex':'none';
+  if(tab==='history')loadHistory();
+}
+
+// ════════════════════════════════════════════════════════════
+//  TYPE TOGGLE
+// ════════════════════════════════════════════════════════════
+function onTypeChange(){
+  const isC=document.querySelector('input[name=rtype]:checked').value==='Customer';
+  document.getElementById('pillCustomer').classList.toggle('sel',isC);
+  document.getElementById('pillSupplier').classList.toggle('sel',!isC);
+  document.getElementById('recipientLabel').textContent=isC?'Customer Name':'Supplier Name';
+  const inp=document.getElementById('iRecipient');
+  inp.value='';inp.placeholder=isC?'Search customer…':'Search supplier…';
+  setupRecipientAC();
+}
+
+// ════════════════════════════════════════════════════════════
+//  AUTOCOMPLETE
+// ════════════════════════════════════════════════════════════
+function acFilter(inputId,listId){
+  const inp=document.getElementById(inputId),list=document.getElementById(listId);
+  const q=inp.value.trim().toLowerCase(),items=inp._acItems||[];
+  const matches=q?items.filter(i=>i.label.toLowerCase().includes(q)):items.slice(0,60);
+  if(!matches.length){list.innerHTML='';list.classList.remove('open');return;}
+  list.innerHTML=matches.slice(0,60).map(m=>
+    `<div class="ac-item" onmousedown="acSelect('${inputId}','${listId}','${escA(m.value)}')">${escH(m.label)}${m.sub?`<small>${escH(m.sub)}</small>`:''}</div>`
+  ).join('');
+  list.classList.add('open');
+}
+function acKey(e,inputId,listId){
+  const list=document.getElementById(listId),items=list.querySelectorAll('.ac-item'),cur=list.querySelector('.ac-item.hi');
+  if(e.key==='ArrowDown'){e.preventDefault();if(cur){cur.classList.remove('hi');(cur.nextElementSibling||items[0]).classList.add('hi');}else if(items[0])items[0].classList.add('hi');}
+  else if(e.key==='ArrowUp'){e.preventDefault();if(cur){cur.classList.remove('hi');(cur.previousElementSibling||items[items.length-1]).classList.add('hi');}}
+  else if(e.key==='Enter'&&cur){e.preventDefault();cur.dispatchEvent(new MouseEvent('mousedown'));}
+  else if(e.key==='Escape')list.classList.remove('open');
+}
+function acSelect(inputId,listId,val){document.getElementById(inputId).value=val;document.getElementById(listId).classList.remove('open');}
+function setupAC(inp,list,items){inp._acItems=items;inp.addEventListener('blur',()=>setTimeout(()=>list.classList.remove('open'),180));}
+function setupRecipientAC(){
+  const isC=document.querySelector('input[name=rtype]:checked').value==='Customer';
+  const items=(isC?PARTIES:SUPPLIERS).map(p=>({label:`${p.name}, ${p.city}`,value:`${p.name}, ${p.city}`,sub:''}));
+  setupAC(document.getElementById('iRecipient'),document.getElementById('acRecipient'),items);
+}
+
+// ════════════════════════════════════════════════════════════
+//  SUPPLIER BLOCKS
+// ════════════════════════════════════════════════════════════
+function addSupplierBlock(){
+  const id=++supBlockId,inpId=`iSup${id}`,listId=`acSup${id}`;
+  const block=document.createElement('div');
+  block.className='sup-block';block.id=`supBlock${id}`;
+  block.innerHTML=`
+    <div class="sup-block-hdr">
+      <span class="sup-block-label">Supplier ${id}</span>
+      <button class="rm-btn" onclick="removeSupplierBlock(${id})">×</button>
+    </div>
+    <div class="field" style="margin-bottom:8px">
+      <div class="ac-wrap">
+        <input type="text" id="${inpId}" placeholder="Search supplier name…" autocomplete="off"
+          oninput="acFilter('${inpId}','${listId}')"
+          onkeydown="acKey(event,'${inpId}','${listId}')"
+          onfocus="acFilter('${inpId}','${listId}')">
+        <div class="ac-list" id="${listId}"></div>
+      </div>
+    </div>
+    <div class="doc-rows" id="docRows${id}"></div>
+    <button class="add-doc-btn" onclick="addDocRow(${id})">＋ Add Document</button>`;
+  document.getElementById('supBlocks').appendChild(block);
+  const inpEl=document.getElementById(inpId),listEl=document.getElementById(listId);
+  setupAC(inpEl,listEl,SUPPLIERS.map(s=>({label:s.name,value:`${s.name}, ${s.city}`,sub:s.city})));
+  addDocRow(id);
+}
+function removeSupplierBlock(id){document.getElementById(`supBlock${id}`)?.remove();}
+
+// ════════════════════════════════════════════════════════════
+//  DOC ROWS
+// ════════════════════════════════════════════════════════════
+function addDocRow(supId){
+  const row=document.createElement('div');row.className='doc-row';
+  row.innerHTML=`
+    <select class="doc-type">${DOC_TYPES.map(t=>`<option>${t}</option>`).join('')}</select>
+    <input type="text" class="doc-num" placeholder="No. / Ref  e.g. 1001, 1002">
+    <div class="lr-wrap">
+      <span class="lr-label">LR</span>
+      <input type="checkbox" class="doc-lr" title="LR attached">
+    </div>
+    <button class="rm-btn" onclick="this.closest('.doc-row').remove()">×</button>`;
+  document.getElementById(`docRows${supId}`).appendChild(row);
+}
+
+// ════════════════════════════════════════════════════════════
+//  READ FORM
+// ════════════════════════════════════════════════════════════
+function readForm(){
+  const date=document.getElementById('iDate').value;
+  const recipientType=document.querySelector('input[name=rtype]:checked').value;
+  const recipientName=document.getElementById('iRecipient').value.trim();
+  const channel=document.getElementById('iChannel').value;
+  const remarks=document.getElementById('iRemarks').value.trim();
+  const suppliers=[];
+  document.querySelectorAll('.sup-block').forEach(block=>{
+    const supName=block.querySelector('input[type=text]').value.trim();
+    const docs=[];
+    block.querySelectorAll('.doc-row').forEach(row=>{
+      const num=row.querySelector('.doc-num').value.trim();
+      if(num)docs.push({type:row.querySelector('.doc-type').value,num,lr:row.querySelector('.doc-lr').checked});
+    });
+    if(supName||docs.length)suppliers.push({supName,docs});
+  });
+  return{date,recipientType,recipientName,channel,remarks,suppliers};
+}
+
+// ════════════════════════════════════════════════════════════
+//  VALIDATE
+// ════════════════════════════════════════════════════════════
+function validate(d){
+  let ok=true;
+  document.getElementById('errRecipient').textContent='';
+  document.getElementById('iRecipient').classList.remove('err');
+  document.getElementById('errDocs').textContent='';
+  if(!d.recipientName){document.getElementById('errRecipient').textContent='⚠ Required';document.getElementById('iRecipient').classList.add('err');ok=false;}
+  if(!d.suppliers.length||!d.suppliers.some(s=>s.docs.length)){document.getElementById('errDocs').textContent='⚠ Add at least one supplier with a document';ok=false;}
+  return ok;
+}
+
+// ════════════════════════════════════════════════════════════
+//  BUILD WA MESSAGE
+// ════════════════════════════════════════════════════════════
+function buildWA(d){
+  const ds=formatDate(d.date);
+  let msg=`📮 *DISPATCH NOTE*\nDate: ${ds}\nTo: *${d.recipientName}* (${d.recipientType})\nVia: ${d.channel}\n\n`;
+  d.suppliers.forEach((s,i)=>{
+    msg+=`📄 *${s.supName||'(Supplier not named)'}*\n`;
+    s.docs.forEach(doc=>{msg+=`   • ${doc.type}: ${doc.num}`;if(doc.lr)msg+=`  ✅ LR`;msg+=`\n`;});
+    if(i<d.suppliers.length-1)msg+=`\n`;
+  });
+  if(d.remarks)msg+=`\nRemarks: _${d.remarks}_`;
+  msg+=`\n\n_Priyam Sales Agency_`;
+  return msg;
+}
+
+// ════════════════════════════════════════════════════════════
+//  SAVE
+// ════════════════════════════════════════════════════════════
+async function saveDispatch(){
+  const data=readForm();if(!validate(data))return;
+  const btn=document.getElementById('btnSave');
+  btn.innerHTML='<span class="spin"></span> Saving…';btn.disabled=true;
+  const waMsg=buildWA(data);
+  const id=editingId||`${Date.now()}_${Math.random().toString(36).slice(2,7)}`;
+  const wasEditing=!!editingId;
+  const payload={action:'save',id,
+    date:data.date,recipientType:data.recipientType,recipientName:data.recipientName,
+    channel:data.channel,suppliersJson:JSON.stringify(data.suppliers),
+    remarks:data.remarks,waMessage:waMsg,timestamp:new Date().toISOString()};
+  upsertLocalRecord({...payload,_pending:true});
+  if(BACKEND_URL){
+    try{
+      await fetch(BACKEND_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
+      upsertLocalRecord({...payload,_pending:false});
+    }catch{}
+  }
+  currentWAMsg=waMsg;
+  editingId=null;
+  btn.disabled=false;
+  updateSaveBtn();
+  showWAOverlay(waMsg,wasEditing);
+}
+
+// ════════════════════════════════════════════════════════════
+//  WA OVERLAY
+// ════════════════════════════════════════════════════════════
+function showWAOverlay(msg,isEdit=false){
+  waFromHistory=false;
+  document.getElementById('waContent').innerHTML=`<div class="wa-box">${escH(msg)}</div>`;
+  document.querySelector('#waOverlay .modal-title').textContent=isEdit?'✅ Dispatch Updated':'✅ Dispatch Saved';
+  document.getElementById('btnWAClose').textContent='New Dispatch';
+  document.getElementById('waOverlay').classList.add('open');
+}
+function closeWAOverlay(){document.getElementById('waOverlay').classList.remove('open');if(!waFromHistory)resetForm();}
+function copyWA(){
+  const copy=()=>{const ta=document.createElement('textarea');ta.value=currentWAMsg;document.body.appendChild(ta);ta.select();document.execCommand('copy');ta.remove();};
+  if(navigator.clipboard)navigator.clipboard.writeText(currentWAMsg).catch(copy);else copy();
+  showToast('✅ Copied to clipboard!');
+}
+function shareWA(){
+  if(navigator.share)navigator.share({text:currentWAMsg}).catch(()=>{});
+  else window.open(`https://wa.me/?text=${encodeURIComponent(currentWAMsg)}`,'_blank');
+}
+
+// ════════════════════════════════════════════════════════════
+//  RESET
+// ════════════════════════════════════════════════════════════
+function resetForm(){
+  editingId=null;
+  updateSaveBtn();
+  document.getElementById('iDate').value=todayISO();
+  document.getElementById('iRecipient').value='';
+  document.getElementById('iRemarks').value='';
+  document.getElementById('supBlocks').innerHTML='';
+  document.getElementById('errRecipient').textContent='';
+  document.getElementById('errDocs').textContent='';
+  renderChannelSelect('iChannel');
+  supBlockId=0;
+  document.querySelectorAll('input[name=rtype]').forEach(x=>x.checked=x.value==='Customer');
+  onTypeChange();
+  addSupplierBlock();
+}
+
+// ════════════════════════════════════════════════════════════
+//  HISTORY
+// ════════════════════════════════════════════════════════════
+async function loadHistory(search){
+  const el=document.getElementById('histList');
+  el.innerHTML='<div class="empty-state"><div class="ico">⏳</div>Loading…</div>';
+  if(BACKEND_URL){
+    try{
+      const p=new URLSearchParams({action:'list',limit:'60',offset:'0'});
+      if(search)p.set('search',search);
+      const json=await(await fetch(`${BACKEND_URL}?${p}`)).json();
+      if(json.records?.length){
+        json.records.forEach(r=>upsertLocalRecord({...r,_pending:false}));
+        renderHistory(json.records);return;
+      }
+      el.innerHTML='<div class="empty-state"><div class="ico">📭</div>No dispatches found.</div>';return;
+    }catch{}
+  }
+  // Offline fallback — local cache
+  let records=getLocalRecords();
+  if(search){const q=search.toLowerCase();records=records.filter(r=>(r.recipientName||'').toLowerCase().includes(q)||(r.channel||'').toLowerCase().includes(q)||(r.suppliersJson||'').toLowerCase().includes(q));}
+  if(!records.length){
+    el.innerHTML=`<div class="empty-state"><div class="ico">${BACKEND_URL?'📴':'🔌'}</div>${BACKEND_URL?'Offline — no local records yet.':'Set BACKEND_URL to enable sync.'}</div>`;
+    return;
+  }
+  renderHistory(records);
+  el.insertAdjacentHTML('beforeend','<div style="text-align:center;font-size:11px;color:var(--t3);padding:8px 0;font-family:var(--ps-font-mono)">📴 Showing local records</div>');
+}
+function renderHistory(records){
+  historyCache=records;
+  document.getElementById('histList').innerHTML=records.map((r,idx)=>{
+    let sups=[];try{sups=JSON.parse(r.suppliersJson||'[]');}catch{}
+    const supNames=sups.map(s=>s.supName).filter(Boolean).join(', ')||'—';
+    const docCount=sups.reduce((n,s)=>n+(s.docs?.length||0),0);
+    const ds=formatDate(r.date);
+    const bc=r.recipientType==='Customer'?'badge-c':'badge-s';
+    const ch=r.channel?`<span class="hist-ch">📬 ${escH(r.channel)}</span>`:'';
+    const pending=r._pending?`<span class="hist-ch" style="color:var(--tc)">⏳ Pending sync</span>`:'';
+    return`<div class="hist-item">
+      <div class="hist-hdr">
+        <div><span class="hist-recipient">${escH(r.recipientName)}</span><span class="badge ${bc}">${escH(r.recipientType)}</span></div>
+        <span class="hist-date">${ds}</span>
+      </div>
+      <div class="hist-meta">${ch}${pending}<span>📦 ${escH(supNames)}</span><span style="color:var(--t3)">· ${docCount} doc${docCount!==1?'s':''}</span></div>
+      ${r.remarks?`<div style="font-size:12px;color:var(--t3);margin-top:4px">📝 ${escH(r.remarks)}</div>`:''}
+      <div class="hist-actions">
+        <button class="btn btn-ghost btn-sm" onclick="viewWA(${idx})">📋 WA Msg</button>
+        <button class="btn btn-outline btn-sm" onclick="editDispatch(${idx})">✏️ Edit</button>
+        <button class="btn btn-outline btn-sm" style="color:var(--danger);border-color:var(--danger)" onclick="askDelete('${escA(r.id)}')">🗑 Delete</button>
+      </div>
+    </div>`;
+  }).join('');
+}
+function viewWA(idx){
+  const r=historyCache[idx];if(!r)return;
+  currentWAMsg=r.waMessage||'';
+  waFromHistory=true;
+  document.getElementById('waContent').innerHTML=`<div class="wa-box">${escH(currentWAMsg)}</div>`;
+  document.querySelector('#waOverlay .modal-title').textContent='📋 WA Message';
+  document.getElementById('btnWAClose').textContent='✕ Close';
+  document.getElementById('waOverlay').classList.add('open');
+}
+function debounceSearch(){clearTimeout(searchTimer);searchTimer=setTimeout(()=>loadHistory(document.getElementById('iSearch').value.trim()),400);}
+
+// ════════════════════════════════════════════════════════════
+//  DELETE
+// ════════════════════════════════════════════════════════════
+function askDelete(id){pendingDelId=id;document.getElementById('delOverlay').classList.add('open');}
+async function confirmDelete(){
+  closeOverlay('delOverlay');
+  if(!pendingDelId)return;
+  deleteLocalRecord(pendingDelId);
+  if(BACKEND_URL){
+    try{await fetch(`${BACKEND_URL}?action=delete&id=${encodeURIComponent(pendingDelId)}`);}
+    catch{}
+  }
+  showToast('🗑 Deleted');
+  loadHistory(document.getElementById('iSearch').value.trim());
+  pendingDelId=null;
+}
+function closeOverlay(id){document.getElementById(id).classList.remove('open');}
+
+// ════════════════════════════════════════════════════════════
+//  BACKEND PING
+// ════════════════════════════════════════════════════════════
+async function pingBackend(){
+  const pill=document.getElementById('statusPill');
+  if(!BACKEND_URL){pill.textContent='Offline';pill.className='status-pill err';return;}
+  pill.textContent='Connecting';pill.className='status-pill busy';
+  try{
+    await fetch(`${BACKEND_URL}?action=ping`);
+    pill.textContent='Live';pill.className='status-pill ok';
+    syncPending();
+  }catch{pill.textContent='Offline';pill.className='status-pill err';}
+}
+
+// ════════════════════════════════════════════════════════════
+//  UTILS
+// ════════════════════════════════════════════════════════════
+function escH(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');}
+function escA(s){return escH(s);}
+function todayISO(){const d=new Date();return`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;}
+function showToast(msg,ms=2600){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),ms);}
+function formatDate(s){if(!s)return'—';const d=new Date(s+'T00:00:00');return isNaN(d.getTime())?s:d.toLocaleDateString('en-IN',{day:'2-digit',month:'short',year:'numeric'});}
+
+// ════════════════════════════════════════════════════════════
+//  EDIT / POPULATE
+// ════════════════════════════════════════════════════════════
+function updateSaveBtn(){
+  const isEdit=!!editingId;
+  document.getElementById('btnSave').innerHTML=isEdit?'✏️ Update Dispatch':'📤 Save & Get WA Message';
+  document.getElementById('btnCancelEdit').style.display=isEdit?'':'none';
+  document.getElementById('btnClear').style.display=isEdit?'none':'';
+}
+function cancelEdit(){editingId=null;resetForm();}
+function populateFormFromRecord(r){
+  document.getElementById('iDate').value=r.date||todayISO();
+  const type=r.recipientType||'Customer';
+  document.querySelectorAll('input[name=rtype]').forEach(x=>x.checked=x.value===type);
+  onTypeChange();
+  document.getElementById('iRecipient').value=r.recipientName||'';
+  renderChannelSelect('iChannel',r.channel);
+  document.getElementById('iRemarks').value=r.remarks||'';
+  document.getElementById('supBlocks').innerHTML='';supBlockId=0;
+  let sups=[];try{sups=JSON.parse(r.suppliersJson||'[]');}catch{}
+  sups.forEach(sup=>{
+    addSupplierBlock();
+    const sid=supBlockId;
+    document.getElementById(`iSup${sid}`).value=sup.supName||'';
+    document.getElementById(`docRows${sid}`).innerHTML='';
+    (sup.docs||[]).forEach(doc=>{
+      addDocRow(sid);
+      const rows=document.getElementById(`docRows${sid}`).querySelectorAll('.doc-row');
+      const row=rows[rows.length-1];
+      row.querySelector('.doc-type').value=doc.type||'Bill';
+      row.querySelector('.doc-num').value=doc.num||'';
+      row.querySelector('.doc-lr').checked=!!doc.lr;
+    });
+    if(!sup.docs||!sup.docs.length)addDocRow(sid);
+  });
+  if(!sups.length)addSupplierBlock();
+}
+function editDispatch(idx){
+  const r=historyCache[idx];if(!r)return;
+  editingId=r.id;
+  switchTab('new');
+  populateFormFromRecord(r);
+  updateSaveBtn();
+  window.scrollTo(0,0);
+  showToast('✏️ Editing — update and save');
+}
+async function syncPending(){
+  if(!BACKEND_URL)return;
+  const pending=getLocalRecords().filter(r=>r._pending);
+  for(const r of pending){
+    const payload={...r};delete payload._pending;
+    try{
+      await fetch(BACKEND_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
+      upsertLocalRecord({...r,_pending:false});
+    }catch{break;}
+  }
+}
+
+// ════════════════════════════════════════════════════════════
+//  INIT
+// ════════════════════════════════════════════════════════════
+function init(){
+  const theme=localStorage.getItem('psa_dispatch_theme');
+  if(theme){document.documentElement.dataset.theme=theme;document.getElementById('themeBtn').textContent=theme==='dark'?'☀️':'🌙';}
+  document.getElementById('iDate').value=todayISO();
+  renderChannelSelect('iChannel');
+  setupRecipientAC();
+  document.getElementById('iRecipient').addEventListener('blur',()=>setTimeout(()=>document.getElementById('acRecipient').classList.remove('open'),180));
+  addSupplierBlock();
+  pingBackend();
+}
+init();
+</script>
+</body>
+</html>

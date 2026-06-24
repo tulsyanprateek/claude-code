@@ -1,0 +1,135 @@
+/* ============================================================
+   PRIYAM SALES AGENCY — BRAND STYLESHEET
+   Single source of truth · v1.0 · 2026
+   Works ONLINE and OFFLINE — fonts are self-hosted (no CDN).
+   Link this one file in every app and use the var(--ps-*) tokens.
+   ============================================================ */
+
+/* ---- 1. FONTS (self-hosted, variable, offline-safe) -------- */
+@font-face{font-family:'Outfit';font-style:normal;font-weight:300 800;font-display:swap;src:url('./fonts/outfit.woff2') format('woff2');}
+@font-face{font-family:'Hanken Grotesk';font-style:normal;font-weight:400 800;font-display:swap;src:url('./fonts/hanken-grotesk.woff2') format('woff2');}
+@font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:400 500;font-display:swap;src:url('./fonts/ibm-plex-mono.woff2') format('woff2');}
+@font-face{font-family:'Noto Sans Devanagari';font-style:normal;font-weight:400 700;font-display:swap;src:url('./fonts/noto-sans-devanagari.woff2') format('woff2');}
+
+/* ---- 2. TOKENS --------------------------------------------- */
+:root{
+  /* Brand colour */
+  --ps-gold:#FBAE1A;
+  --ps-terracotta:#DF6D35;
+  --ps-ledger-slate:#515162;
+
+  /* Neutrals */
+  --ps-ink:#2B2B33;        /* primary text / dark surfaces */
+  --ps-slate:#515162;      /* secondary text */
+  --ps-body:#6B6B78;       /* muted body copy */
+  --ps-muted:#9A9AA6;      /* captions, hints */
+  --ps-border:#ECE8E1;     /* hairlines, card borders */
+  --ps-cloud:#F3F0EB;      /* soft fill */
+  --ps-paper:#FBFAF8;      /* page background */
+  --ps-white:#FFFFFF;
+
+  /* Functional / status */
+  --ps-confirmed:#2E8B6F;
+  --ps-pending:#FBAE1A;
+  --ps-issue:#D0473B;
+
+  /* Signature gradient */
+  --ps-gradient:linear-gradient(140deg, #FBAE1A, #DF6D35);
+
+  /* Type families */
+  --ps-font-display:'Outfit', sans-serif;          /* headlines */
+  --ps-font-body:'Hanken Grotesk', sans-serif;     /* body copy  */
+  --ps-font-mono:'IBM Plex Mono', monospace;       /* labels, numbers, order refs */
+  --ps-font-hindi:'Noto Sans Devanagari', sans-serif;
+
+  /* Type scale (size / line-height) */
+  --ps-text-display:64px;  --ps-lh-display:1;
+  --ps-text-h1:40px;       --ps-lh-h1:1.05;
+  --ps-text-h2:24px;       --ps-lh-h2:1.25;
+  --ps-text-h3:19px;       --ps-lh-h3:1.3;
+  --ps-text-body:17px;     --ps-lh-body:1.6;
+  --ps-text-small:14.5px;  --ps-lh-small:1.6;
+  --ps-text-label:12px;    --ps-track-label:0.14em;
+
+  /* Weights */
+  --ps-w-light:300; --ps-w-regular:400; --ps-w-medium:500;
+  --ps-w-semibold:600; --ps-w-bold:700; --ps-w-extrabold:800;
+
+  /* Radius */
+  --ps-radius-sm:8px;
+  --ps-radius:14px;
+  --ps-radius-lg:16px;
+  --ps-radius-pill:999px;
+
+  /* Spacing scale (4px base) */
+  --ps-space-1:4px;  --ps-space-2:8px;  --ps-space-3:12px; --ps-space-4:16px;
+  --ps-space-5:24px; --ps-space-6:32px; --ps-space-7:48px; --ps-space-8:64px;
+
+  /* Elevation */
+  --ps-shadow-sm:0 1px 2px rgba(43,43,51,0.06);
+  --ps-shadow:0 18px 40px rgba(43,43,51,0.08);
+  --ps-shadow-dark:0 18px 40px rgba(43,43,51,0.22);
+
+  /* Motion */
+  --ps-ease:cubic-bezier(.4,0,.2,1);
+  --ps-dur:180ms;
+}
+
+/* ---- 3. BASE (opt-in — only applies if you use these tags/classes) */
+.ps-root,
+body.ps-root{
+  margin:0;
+  background:var(--ps-paper);
+  color:var(--ps-ink);
+  font-family:var(--ps-font-body);
+  font-size:var(--ps-text-body);
+  line-height:var(--ps-lh-body);
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+.ps-root ::selection{background:var(--ps-gold);color:var(--ps-ink);}
+
+/* ---- 4. TYPE HELPERS --------------------------------------- */
+.ps-display{font-family:var(--ps-font-display);font-weight:var(--ps-w-extrabold);font-size:var(--ps-text-display);line-height:var(--ps-lh-display);letter-spacing:-0.02em;}
+.ps-h1{font-family:var(--ps-font-display);font-weight:var(--ps-w-bold);font-size:var(--ps-text-h1);line-height:var(--ps-lh-h1);letter-spacing:-0.02em;}
+.ps-h2{font-family:var(--ps-font-display);font-weight:var(--ps-w-semibold);font-size:var(--ps-text-h2);line-height:var(--ps-lh-h2);letter-spacing:-0.01em;}
+.ps-h3{font-family:var(--ps-font-display);font-weight:var(--ps-w-semibold);font-size:var(--ps-text-h3);line-height:var(--ps-lh-h3);}
+.ps-body{font-family:var(--ps-font-body);font-size:var(--ps-text-body);line-height:var(--ps-lh-body);color:var(--ps-slate);}
+.ps-small{font-family:var(--ps-font-body);font-size:var(--ps-text-small);line-height:var(--ps-lh-small);color:var(--ps-body);}
+.ps-label{font-family:var(--ps-font-mono);font-size:var(--ps-text-label);letter-spacing:var(--ps-track-label);text-transform:uppercase;color:var(--ps-muted);}
+.ps-mono{font-family:var(--ps-font-mono);}
+.ps-hindi{font-family:var(--ps-font-hindi);}
+
+.ps-font-display{font-family:var(--ps-font-display);}
+.ps-font-body{font-family:var(--ps-font-body);}
+.ps-font-mono{font-family:var(--ps-font-mono);}
+.ps-font-hindi{font-family:var(--ps-font-hindi);}
+
+/* ---- 5. COMPONENTS ----------------------------------------- */
+.ps-btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  font-family:var(--ps-font-display);font-weight:var(--ps-w-semibold);font-size:15px;
+  padding:12px 22px;border-radius:var(--ps-radius-pill);border:0;cursor:pointer;
+  background:var(--ps-ink);color:#fff;text-decoration:none;line-height:1;
+  transition:transform var(--ps-dur) var(--ps-ease),background var(--ps-dur) var(--ps-ease);
+}
+.ps-btn:hover{transform:translateY(-1px);}
+.ps-btn--gold{background:var(--ps-gold);color:var(--ps-ink);}
+.ps-btn--terracotta{background:var(--ps-terracotta);color:#fff;}
+.ps-btn--ghost{background:transparent;color:var(--ps-ink);border:1px solid var(--ps-border);}
+
+.ps-card{
+  background:var(--ps-white);border:1px solid var(--ps-border);
+  border-radius:var(--ps-radius-lg);padding:var(--ps-space-7);box-shadow:var(--ps-shadow-sm);
+}
+
+.ps-tag{
+  display:inline-flex;align-items:center;gap:6px;
+  font-family:var(--ps-font-mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;
+  padding:5px 10px;border-radius:var(--ps-radius-pill);
+}
+.ps-tag--confirmed{background:rgba(46,139,111,0.12);color:var(--ps-confirmed);}
+.ps-tag--pending{background:rgba(251,174,26,0.16);color:#9a6a00;}
+.ps-tag--issue{background:rgba(208,71,59,0.12);color:var(--ps-issue);}
+
+.ps-rule{height:5px;width:70px;border-radius:3px;background:var(--ps-gradient);border:0;}

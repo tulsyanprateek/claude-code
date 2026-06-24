@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Priyam Sales — Brand Starter</title>
+
+<!-- THIS is the only line your app needs. One file, works online + offline. -->
+<link rel="stylesheet" href="./priyam-brand.css" />
+</head>
+
+<body class="ps-root" style="padding:56px 28px;">
+<main style="max-width:920px;margin:0 auto;display:flex;flex-direction:column;gap:var(--ps-space-8);">
+
+  <!-- Header -->
+  <header>
+    <div class="ps-label" style="color:var(--ps-terracotta);">Priyam Sales Agency · Brand starter</div>
+    <h1 class="ps-display" style="margin:14px 0 0;">The trusted thread,<br/>in every app.</h1>
+    <p class="ps-body" style="max-width:54ch;margin:18px 0 0;">
+      This page links one stylesheet — <span class="ps-mono">priyam-brand.css</span> — and uses only
+      brand tokens. Copy the <span class="ps-mono">priyam-brand/</span> folder into any project, online or off.
+    </p>
+    <p class="ps-hindi" style="color:var(--ps-terracotta);font-weight:600;font-size:22px;margin:14px 0 0;">मिल से दुकान तक, भरोसे का धागा।</p>
+  </header>
+
+  <!-- Colour -->
+  <section>
+    <div class="ps-label">Colour</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:var(--ps-space-3);margin-top:var(--ps-space-4);">
+      <div><div style="height:72px;border-radius:var(--ps-radius);background:var(--ps-gold);"></div><div class="ps-mono" style="font-size:11px;margin-top:8px;">--ps-gold</div></div>
+      <div><div style="height:72px;border-radius:var(--ps-radius);background:var(--ps-terracotta);"></div><div class="ps-mono" style="font-size:11px;margin-top:8px;">--ps-terracotta</div></div>
+      <div><div style="height:72px;border-radius:var(--ps-radius);background:var(--ps-ink);"></div><div class="ps-mono" style="font-size:11px;margin-top:8px;">--ps-ink</div></div>
+      <div><div style="height:72px;border-radius:var(--ps-radius);background:var(--ps-slate);"></div><div class="ps-mono" style="font-size:11px;margin-top:8px;">--ps-slate</div></div>
+      <div><div style="height:72px;border-radius:var(--ps-radius);background:var(--ps-cloud);border:1px solid var(--ps-border);"></div><div class="ps-mono" style="font-size:11px;margin-top:8px;">--ps-cloud</div></div>
+      <div><div style="height:72px;border-radius:var(--ps-radius);background:var(--ps-gradient);"></div><div class="ps-mono" style="font-size:11px;margin-top:8px;">--ps-gradient</div></div>
+    </div>
+  </section>
+
+  <!-- Type -->
+  <section>
+    <div class="ps-label">Type</div>
+    <div class="ps-card" style="margin-top:var(--ps-space-4);display:flex;flex-direction:column;gap:var(--ps-space-5);">
+      <div><span class="ps-mono" style="font-size:11px;color:var(--ps-muted);">DISPLAY · Outfit 800</span><div class="ps-display" style="font-size:48px;">Trade, kept tight</div></div>
+      <div><span class="ps-mono" style="font-size:11px;color:var(--ps-muted);">H1 · Outfit 700</span><div class="ps-h1">Section heading</div></div>
+      <div><span class="ps-mono" style="font-size:11px;color:var(--ps-muted);">H2 · Outfit 600</span><div class="ps-h2">Subsection title</div></div>
+      <div><span class="ps-mono" style="font-size:11px;color:var(--ps-muted);">BODY · Hanken Grotesk 400</span><p class="ps-body" style="max-width:52ch;margin:6px 0 0;">Body copy is set in Hanken Grotesk at a comfortable size with generous line height, so a wholesaler can read a quote in seconds.</p></div>
+      <div><span class="ps-mono" style="font-size:11px;color:var(--ps-muted);">LABEL · IBM Plex Mono</span><div class="ps-label" style="color:var(--ps-slate);margin-top:6px;">ORDER&nbsp;#PS-2026-0418</div></div>
+    </div>
+  </section>
+
+  <!-- Components -->
+  <section>
+    <div class="ps-label">Components</div>
+    <div style="display:flex;flex-wrap:wrap;gap:var(--ps-space-3);align-items:center;margin-top:var(--ps-space-4);">
+      <a class="ps-btn" href="#">Primary</a>
+      <a class="ps-btn ps-btn--gold" href="#">Gold</a>
+      <a class="ps-btn ps-btn--terracotta" href="#">Terracotta</a>
+      <a class="ps-btn ps-btn--ghost" href="#">Ghost</a>
+      <span class="ps-tag ps-tag--confirmed">Confirmed</span>
+      <span class="ps-tag ps-tag--pending">Pending</span>
+      <span class="ps-tag ps-tag--issue">Issue</span>
+    </div>
+  </section>
+
+  <footer class="ps-small" style="border-top:1px solid var(--ps-border);padding-top:var(--ps-space-5);">
+    Priyam Sales Agency · Brand v1.0 · 2026 — see <span class="ps-mono">README.txt</span> for install.
+  </footer>
+
+</main>
+</body>
+</html>
