@@ -154,22 +154,6 @@ nav{position:fixed;bottom:0;left:0;right:0;background:rgba(13,13,15,0.92);backdr
 .btn-del{flex:0 0 auto;background:transparent;color:#e85d5d;border-color:#2a1414;}
 .toast{position:fixed;bottom:104px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--accent);color:#0d0d0f;padding:11px 22px;border-radius:24px;font-family:'Outfit',sans-serif;font-size:14px;font-weight:600;opacity:0;pointer-events:none;transition:0.25s;z-index:70;}
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
-.gate{position:fixed;inset:0;background:var(--bg);z-index:200;display:none;align-items:center;justify-content:center;}
-.gate.show{display:flex;}
-.gate-inner{width:100%;max-width:300px;text-align:center;padding:20px;}
-.gate-lock{color:var(--text2);margin-bottom:14px;}
-.gate-title{font-family:'Outfit',sans-serif;font-size:20px;font-weight:600;}
-.gate-sub{font-size:13px;color:var(--text2);margin-top:4px;margin-bottom:22px;}
-.gate-dots{display:flex;gap:14px;justify-content:center;margin-bottom:8px;}
-.gate-dots .gd{width:13px;height:13px;border-radius:50%;border:1.5px solid var(--text3);}
-.gate-dots .gd.on{background:var(--text);border-color:var(--text);}
-.gate-err{font-size:12px;color:#e85d5d;height:16px;margin-bottom:14px;}
-.keypad{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;max-width:240px;margin:0 auto;}
-.key{font-family:'Outfit',sans-serif;width:64px;height:64px;margin:0 auto;border-radius:50%;border:0.5px solid var(--border);background:var(--surface);color:var(--text);font-size:22px;font-weight:500;cursor:pointer;display:flex;align-items:center;justify-content:center;}
-.key:active{background:var(--surface2);}
-.key.blank{border:none;background:none;cursor:default;}
-.shake{animation:shake 0.4s;}
-@keyframes shake{0%,100%{transform:translateX(0);}20%,60%{transform:translateX(-8px);}40%,80%{transform:translateX(8px);}}
 </style>
 </head>
 <body>
@@ -230,19 +214,6 @@ nav{position:fixed;bottom:0;left:0;right:0;background:rgba(13,13,15,0.92);backdr
     </div>
     <div id="memberList"></div>
     <div class="note">Removing a person archives them. Their past records stay and still show in the calendar. Each person keeps a stable ID, so renaming never breaks history.</div>
-    <div class="section-label">Security</div>
-    <div class="set-card">
-      <div style="padding:14px 0;">
-        <span class="field-label">Change PIN</span>
-        <div style="display:flex;gap:8px;align-items:center;">
-          <input type="password" inputmode="numeric" maxlength="4" id="pinCur" placeholder="Current" style="flex:1;">
-          <input type="password" inputmode="numeric" maxlength="4" id="pinNew" placeholder="New 4-digit" style="flex:1;">
-          <button class="mini" onclick="doChangePin()">Save</button>
-        </div>
-      </div>
-    </div>
-    <button class="btn-full" onclick="lockApp()">Lock app now</button>
-
     <div class="section-label">Data</div>
     <button class="btn-full" onclick="exportCSV()">&#8595; Export all as CSV</button>
     <div class="note" id="storageNote"></div>
@@ -275,29 +246,6 @@ nav{position:fixed;bottom:0;left:0;right:0;background:rgba(13,13,15,0.92);backdr
   </div>
 </div>
 
-<div class="gate" id="gate">
-  <div class="gate-inner">
-    <div class="gate-lock"><svg viewBox="0 0 24 24" width="44" height="44" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10.5" width="16" height="10.5" rx="2.2"/><path d="M8 10.5V7a4 4 0 0 1 8 0v3.5"/></svg></div>
-    <div class="gate-title">Attendance</div>
-    <div class="gate-sub">Enter PIN to unlock</div>
-    <div class="gate-dots" id="gateDots"><span class="gd"></span><span class="gd"></span><span class="gd"></span><span class="gd"></span></div>
-    <div class="gate-err" id="gateErr"></div>
-    <div class="keypad">
-      <button class="key" onclick="gPress('1')">1</button>
-      <button class="key" onclick="gPress('2')">2</button>
-      <button class="key" onclick="gPress('3')">3</button>
-      <button class="key" onclick="gPress('4')">4</button>
-      <button class="key" onclick="gPress('5')">5</button>
-      <button class="key" onclick="gPress('6')">6</button>
-      <button class="key" onclick="gPress('7')">7</button>
-      <button class="key" onclick="gPress('8')">8</button>
-      <button class="key" onclick="gPress('9')">9</button>
-      <div class="key blank"></div>
-      <button class="key" onclick="gPress('0')">0</button>
-      <button class="key" onclick="gBack()">&#9003;</button>
-    </div>
-  </div>
-</div>
 <div class="toast" id="toast"></div>
 
 <div class="backdrop" id="mbackdrop" onclick="closeMember()"></div>
@@ -321,7 +269,7 @@ nav{position:fixed;bottom:0;left:0;right:0;background:rgba(13,13,15,0.92);backdr
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script>
 /* ── config — paste your deployed Apps Script URL here ── */
-var BACKEND_URL = '';
+var BACKEND_URL = 'https://script.google.com/macros/s/AKfycbyNUNnI8zhpLlM_T1w1iBHgyGJeWGyl8fKF73hHlI57qws5u03yJevpb6dIxoJMpKAx/exec';
 
 var PAL=[['#13243d','#5b9bf0'],['#16240d','#7cc94a'],['#2a1f0d','#e8a33d'],['#2a1611','#e07a4d'],['#28141d','#d97aa0'],['#1d243d','#9aa9f0'],['#13302a','#34c98a'],['#2d1330','#c97ad9']];
 var STATUSES=[
@@ -661,39 +609,7 @@ function exportCSV(){
 }
 function refresh(){loadAll(function(){rerender();if(document.getElementById('page-settings').classList.contains('active'))renderMembers();toast('Refreshed');});}
 
-/* ── PIN lock ── */
-
-var pinBuf='',booted=false;
-function gDot(){var d=document.querySelectorAll('#gateDots .gd');for(var i=0;i<d.length;i++)d[i].classList.toggle('on',i<pinBuf.length);}
-function gPress(n){if(pinBuf.length>=4)return;pinBuf+=n;gDot();if(pinBuf.length===4)gVerify();}
-function gBack(){pinBuf=pinBuf.slice(0,-1);gDot();}
-function gErr(m){var e=document.getElementById('gateErr');e.textContent=m||'Wrong PIN';var inner=document.querySelector('.gate-inner');inner.classList.add('shake');setTimeout(function(){inner.classList.remove('shake');},420);pinBuf='';gDot();}
-function gVerify(){
-  if(BACKEND_URL){
-    apiGet('checkPin',{pin:pinBuf})
-      .then(function(d){if(d.ok)gUnlock();else gErr();})
-      .catch(function(){gErr('Connection issue');});
-  }else{
-    var p=localStorage.getItem('att_pin')||'1234';
-    if(pinBuf===p)gUnlock();else gErr();
-  }
-}
-function gUnlock(){localStorage.setItem('att_unlocked','1');document.getElementById('gateErr').textContent='';document.getElementById('gate').classList.remove('show');boot();}
-function lockApp(){localStorage.removeItem('att_unlocked');pinBuf='';gDot();document.getElementById('gate').classList.add('show');window.scrollTo(0,0);}
-function doChangePin(){
-  var cur=document.getElementById('pinCur').value,nw=document.getElementById('pinNew').value;
-  if(!/^\d{4}$/.test(nw)){toast('New PIN must be 4 digits');return;}
-  function clear(){document.getElementById('pinCur').value='';document.getElementById('pinNew').value='';}
-  if(BACKEND_URL){
-    apiGet('changePin',{current:cur,next:nw})
-      .then(function(d){clear();toast(d.ok?'PIN changed':'Current PIN incorrect');})
-      .catch(function(){toast('Failed');});
-  }else{
-    var p=localStorage.getItem('att_pin')||'1234';
-    if(cur!==p){toast('Current PIN incorrect');return;}
-    localStorage.setItem('att_pin',nw);clear();toast('PIN changed');
-  }
-}
+var booted=false;
 
 /* ── boot ── */
 
@@ -704,8 +620,7 @@ function boot(){
   loadAll(function(){renderCal();});
 }
 
-if(localStorage.getItem('att_unlocked')==='1'){boot();}
-else{document.getElementById('gate').classList.add('show');gDot();}
+boot();
 </script>
 </body>
 </html>
