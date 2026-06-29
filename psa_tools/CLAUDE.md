@@ -15,10 +15,13 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 | File | Purpose |
 |---|---|
-| `priyam_order_generator_v3.html` | WA/WB order generator (~3870 lines). Two order types: WhatsApp text (WA) and A4 PNG image (WB). |
-| `priyam_backend.gs` | Apps Script backend for order generator. |
+| `psa_order_generator.html` | WA/WB order generator (~3870 lines). Two order types: WhatsApp text (WA) and A4 PNG image (WB). |
+| `psa_order_backend.gs` | Apps Script backend for order generator. |
 | `psa_dispatch_logger.html` | Document dispatch logger — logs docs sent by post, generates WA message. |
 | `psa_dispatch_backend.gs` | Apps Script backend for dispatch logger. |
+| `psa_attendance_logger.html` | Staff attendance logger — calendar grid, reports, PIN lock. |
+| `psa_attendance_backend.gs` | Apps Script backend for attendance logger. |
+| `psa_color_generator.html` | Standalone color utility tool. |
 | `priyam-brand/priyam-brand.css` | PSA brand stylesheet — tokens, fonts, base styles. Link in every tool. |
 | `priyam-brand/fonts/` | Self-hosted font files (Outfit, Hanken Grotesk, IBM Plex Mono, Noto Sans Devanagari). |
 | `BACKEND_SETUP.md` | Step-by-step Google Sheets + Apps Script setup guide. |
@@ -44,7 +47,7 @@ Fonts are self-hosted — work fully offline on phone browsers.
 
 No build step. Open any HTML file directly in a browser or serve with `npx serve`.
 
-**Order generator backend** (`priyam_backend.gs`) test functions:
+**Order generator backend** (`psa_order_backend.gs`) test functions:
 - `testGetCounters()` — verify counter sync
 - `testSaveOrder()` — write a test row (delete manually afterwards)
 - `testListOrders()` — verify list response
@@ -56,7 +59,7 @@ No build step. Open any HTML file directly in a browser or serve with `npx serve
 
 Deploy any backend: Deploy > New deployment > Web app > Execute as Me > Access: Anyone.
 
-## Order Generator Architecture (`priyam_order_generator_v3.html`)
+## Order Generator Architecture (`psa_order_generator.html`)
 
 Single file — `<style>` (~1100 lines) + `<body>` (markup) + `<script>` (~2700 lines).
 
@@ -78,7 +81,7 @@ Single file — `<style>` (~1100 lines) + `<body>` (markup) + `<script>` (~2700 
 
 **Counter semantic:** "last USED number". Display = stored + 1. After save: store current (not +1). Backend only advances counter if new value > current (prevents stale-device rollback).
 
-### Order Generator Backend (`priyam_backend.gs`)
+### Order Generator Backend (`psa_order_backend.gs`)
 
 Apps Script Web App. Both `doGet` and `doPost` route on an `action` parameter.
 
