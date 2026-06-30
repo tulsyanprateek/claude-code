@@ -1,0 +1,286 @@
+[
+  {
+    "Station": "AHMEDABAD",
+    "Status": "S"
+  },
+  {
+    "Station": "AMRITSAR",
+    "Status": "S"
+  },
+  {
+    "Station": "BAJITPUR",
+    "Status": "C"
+  },
+  {
+    "Station": "BALOTRA",
+    "Status": "S"
+  },
+  {
+    "Station": "BARACHAKIA",
+    "Status": "C"
+  },
+  {
+    "Station": "BASOPATTY",
+    "Status": "C"
+  },
+  {
+    "Station": "BETTIAH",
+    "Status": "C"
+  },
+  {
+    "Station": "BHILWARA",
+    "Status": "S"
+  },
+  {
+    "Station": "BIRAUL",
+    "Status": "C"
+  },
+  {
+    "Station": "BURHANPUR",
+    "Status": "S"
+  },
+  {
+    "Station": "CHENNIMALAI",
+    "Status": "S"
+  },
+  {
+    "Station": "DALSINGSARAI",
+    "Status": "C"
+  },
+  {
+    "Station": "DARBHANGA",
+    "Status": "C"
+  },
+  {
+    "Station": "DEORIA KOTHI",
+    "Status": "C"
+  },
+  {
+    "Station": "ERODE",
+    "Status": "S"
+  },
+  {
+    "Station": "GHOGHARDIHA",
+    "Status": "C"
+  },
+  {
+    "Station": "GORAKHPUR",
+    "Status": "C"
+  },
+  {
+    "Station": "GORAKHPUR",
+    "Status": "S"
+  },
+  {
+    "Station": "GORAUL",
+    "Status": "C"
+  },
+  {
+    "Station": "ICHALKARANJI",
+    "Status": "S"
+  },
+  {
+    "Station": "INDORE",
+    "Status": "S"
+  },
+  {
+    "Station": "ISLAMPUR",
+    "Status": "C"
+  },
+  {
+    "Station": "JAINAGAR",
+    "Status": "C"
+  },
+  {
+    "Station": "JANDAHA",
+    "Status": "C"
+  },
+  {
+    "Station": "JETPUR",
+    "Status": "C"
+  },
+  {
+    "Station": "JETPUR",
+    "Status": "S"
+  },
+  {
+    "Station": "JHANJHARPUR",
+    "Status": "C"
+  },
+  {
+    "Station": "KHUTAUNA",
+    "Status": "C"
+  },
+  {
+    "Station": "KOLKATA",
+    "Status": "S"
+  },
+  {
+    "Station": "KURHANI",
+    "Status": "C"
+  },
+  {
+    "Station": "LAUKAHA",
+    "Status": "C"
+  },
+  {
+    "Station": "LUDHIANA",
+    "Status": "S"
+  },
+  {
+    "Station": "MADHUBAN",
+    "Status": "C"
+  },
+  {
+    "Station": "MADHUBANI",
+    "Status": "C"
+  },
+  {
+    "Station": "MAHUA",
+    "Status": "C"
+  },
+  {
+    "Station": "MATHURA",
+    "Status": "S"
+  },
+  {
+    "Station": "MOTIHARI",
+    "Status": "C"
+  },
+  {
+    "Station": "MOTIPUR",
+    "Status": "C"
+  },
+  {
+    "Station": "MUMBAI",
+    "Status": "S"
+  },
+  {
+    "Station": "MUZAFFARPUR",
+    "Status": "C"
+  },
+  {
+    "Station": "NAWADA",
+    "Status": "C"
+  },
+  {
+    "Station": "NIRMALI",
+    "Status": "C"
+  },
+  {
+    "Station": "PALI-MARWAR",
+    "Status": "S"
+  },
+  {
+    "Station": "PANIPAT",
+    "Status": "S"
+  },
+  {
+    "Station": "PATHRAHI",
+    "Status": "C"
+  },
+  {
+    "Station": "PUPRI",
+    "Status": "C"
+  },
+  {
+    "Station": "RAIGANJ",
+    "Status": "C"
+  },
+  {
+    "Station": "RUNNI SAIDPUR",
+    "Status": "C"
+  },
+  {
+    "Station": "SAKRA",
+    "Status": "C"
+  },
+  {
+    "Station": "SAMASTIPUR",
+    "Status": "C"
+  },
+  {
+    "Station": "SARFUDDINPUR",
+    "Status": "C"
+  },
+  {
+    "Station": "SIMRI",
+    "Status": "C"
+  },
+  {
+    "Station": "SITAMARHI",
+    "Status": "C"
+  },
+  {
+    "Station": "SUJAWALPUR",
+    "Status": "C"
+  },
+  {
+    "Station": "SURAT",
+    "Status": "S"
+  },
+  {
+    "Station": "TAJPUR",
+    "Status": "C"
+  },
+  {
+    "Station": "TAMKUHI ROAD",
+    "Status": "C"
+  },
+  {
+    "Station": "VIDHYAPATI NAGAR",
+    "Status": "C"
+  },
+  {
+    "Station": "LAHERIASARAI",
+    "Status": "C"
+  },
+  {
+    "Station": "KISHANGANJ",
+    "Status": ""
+  },
+  {
+    "Station": "HAJIPUR",
+    "Status": "C"
+  },
+  {
+    "Station": "BARGANIA",
+    "Status": "C"
+  },
+  {
+    "Station": "BHIWANDI",
+    "Status": "S"
+  },
+  {
+    "Station": "MADHEPUR",
+    "Status": ""
+  },
+  {
+    "Station": "MADHVAPUR",
+    "Status": "C"
+  },
+  {
+    "Station": "RAXAUL",
+    "Status": ""
+  },
+  {
+    "Station": "SULTANGANJ",
+    "Status": ""
+  },
+  {
+    "Station": "BHAGALPUR",
+    "Status": ""
+  },
+  {
+    "Station": "CHAPRA",
+    "Status": ""
+  },
+  {
+    "Station": "JAIPUR",
+    "Status": ""
+  },
+  {
+    "Station": "SAROLI",
+    "Status": ""
+  }
+]
