@@ -19,5 +19,12 @@
       "runtimeArgs": ["serve", "-p", "3458", "."],
       "port": 3458
     }
+    ,{
+      "name": "psa-dashboard",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["-m", "http.server", "3459"],
+      "cwd": "kp raw data",
+      "port": 3459
+    }
   ]
 }

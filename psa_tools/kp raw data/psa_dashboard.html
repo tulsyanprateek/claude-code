@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>PSA Customer Dashboard</title>
+<style>
+/* ── Reset & Variables ──────────────────────────────────────────────────── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0d0f18;--surface:#14172a;--surface2:#1c1f35;--surface3:#242844;
+  --border:#2a2f50;--border2:#363c62;
+  --text:#e2e8f0;--text-dim:#7a85a3;--text-faint:#4a5270;
+  --gold:#f5a623;--gold-dim:#c47e0f;
+  --terra:#e8735a;
+  --green:#4ade80;--yellow:#fbbf24;--red:#f87171;--blue:#60a5fa;--purple:#a78bfa;
+  --radius:10px;--radius-sm:6px;--radius-lg:14px;
+  --shadow:0 2px 12px rgba(0,0,0,.4);
+  --transition:150ms ease;
+  --font:'Segoe UI',system-ui,sans-serif;
+  --font-mono:'Consolas','Courier New',monospace;
+  --header-h:56px;
+  --tab-h:48px;
+}
+html{font-family:var(--font);background:var(--bg);color:var(--text);font-size:15px;-webkit-text-size-adjust:100%}
+body{min-height:100vh;padding-bottom:env(safe-area-inset-bottom)}
+a{color:var(--gold)}
+button{cursor:pointer;font-family:inherit}
+input,select{font-family:inherit;color:var(--text);background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius-sm)}
+input:focus,select:focus{outline:2px solid var(--gold);outline-offset:1px}
+
+/* ── Scrollbar ─────────────────────────────────────────────────────────── */
+::-webkit-scrollbar{width:6px;height:6px}
+::-webkit-scrollbar-track{background:var(--surface)}
+::-webkit-scrollbar-thumb{background:var(--border2);border-radius:3px}
+
+/* ── Layout ─────────────────────────────────────────────────────────────── */
+#app{display:flex;flex-direction:column;min-height:100vh}
+
+/* ── Header ─────────────────────────────────────────────────────────────── */
+#header{
+  position:sticky;top:0;z-index:100;
+  height:var(--header-h);
+  background:var(--surface);
+  border-bottom:1px solid var(--border);
+  display:flex;align-items:center;gap:12px;
+  padding:0 16px;
+}
+#header-logo{font-weight:700;font-size:17px;white-space:nowrap;color:var(--gold);letter-spacing:.5px}
+#header-as-of{font-size:11px;color:var(--text-faint);white-space:nowrap}
+#customer-search-wrap{flex:1;min-width:0;position:relative}
+#customer-search{
+  width:100%;height:36px;padding:0 36px 0 12px;
+  font-size:15px;border-radius:var(--radius-sm);
+  background:var(--surface2);border:1px solid var(--border);color:var(--text);
+}
+#customer-search-clear{
+  position:absolute;right:8px;top:50%;transform:translateY(-50%);
+  background:none;border:none;color:var(--text-dim);font-size:18px;line-height:1;padding:4px;
+  display:none;
+}
+#customer-search-clear.visible{display:block}
+#customer-dropdown{
+  position:absolute;top:calc(100% + 4px);left:0;right:0;z-index:200;
+  background:var(--surface2);border:1px solid var(--border2);border-radius:var(--radius);
+  box-shadow:var(--shadow);max-height:320px;overflow-y:auto;display:none;
+}
+#customer-dropdown.open{display:block}
+.dd-item{
+  padding:10px 14px;cursor:pointer;border-bottom:1px solid var(--border);
+  display:flex;flex-direction:column;gap:2px;
+}
+.dd-item:last-child{border-bottom:none}
+.dd-item:hover,.dd-item.selected{background:var(--surface3);color:var(--gold)}
+.dd-item-name{font-size:14px;font-weight:600}
+.dd-item-sub{font-size:11px;color:var(--text-dim)}
+
+/* ── Main Tabs ───────────────────────────────────────────────────────────── */
+#tabs{
+  height:var(--tab-h);
+  background:var(--surface);
+  border-bottom:1px solid var(--border);
+  display:flex;position:sticky;top:var(--header-h);z-index:99;
+}
+.tab-btn{
+  flex:1;border:none;background:none;color:var(--text-dim);
+  font-size:13px;font-weight:600;letter-spacing:.8px;text-transform:uppercase;
+  border-bottom:2px solid transparent;transition:var(--transition);
+  padding:0;
+}
+.tab-btn.active{color:var(--gold);border-bottom-color:var(--gold)}
+
+/* ── Content ─────────────────────────────────────────────────────────────── */
+#content{flex:1;padding:16px;max-width:1200px;margin:0 auto;width:100%}
+.tab-panel{display:none}
+.tab-panel.active{display:block}
+
+/* ── No-selection state ─────────────────────────────────────────────────── */
+#no-selection{
+  text-align:center;padding:60px 20px;color:var(--text-dim);
+}
+#no-selection h2{font-size:20px;margin-bottom:8px;color:var(--text-faint)}
+#no-selection p{font-size:14px}
+
+/* ── Section ─────────────────────────────────────────────────────────────── */
+.section{margin-bottom:20px}
+.section-header{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:12px 14px;background:var(--surface2);
+  border:1px solid var(--border);border-radius:var(--radius) var(--radius) 0 0;
+  cursor:pointer;user-select:none;
+}
+.section-header.collapsed{border-radius:var(--radius)}
+.section-title{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:var(--text-dim)}
+.section-meta{font-size:12px;color:var(--text-faint)}
+.section-chevron{font-size:12px;color:var(--text-faint);transition:var(--transition)}
+.section-header.collapsed .section-chevron{transform:rotate(-90deg)}
+.section-body{
+  background:var(--surface);border:1px solid var(--border);border-top:none;
+  border-radius:0 0 var(--radius) var(--radius);overflow:hidden;
+}
+
+/* ── KPI Cards ───────────────────────────────────────────────────────────── */
+#kpi-row{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:16px}
+@media(min-width:600px){#kpi-row{grid-template-columns:repeat(4,1fr)}}
+.kpi{
+  background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);
+  padding:14px;display:flex;flex-direction:column;gap:4px;
+}
+.kpi-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--text-faint)}
+.kpi-value{font-size:22px;font-weight:700;line-height:1;font-family:var(--font-mono)}
+.kpi-sub{font-size:11px;color:var(--text-dim)}
+.kpi.highlight-red .kpi-value{color:var(--red)}
+.kpi.highlight-green .kpi-value{color:var(--green)}
+.kpi.highlight-gold .kpi-value{color:var(--gold)}
+.kpi.highlight-blue .kpi-value{color:var(--blue)}
+
+/* ── Customer Info Card ─────────────────────────────────────────────────── */
+#cust-info-card{
+  background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);
+  padding:14px;margin-bottom:14px;
+  display:flex;flex-wrap:wrap;gap:10px;align-items:flex-start;
+}
+#cust-name{font-size:19px;font-weight:700;flex:1;min-width:180px}
+.cust-chip{
+  font-size:11px;background:var(--surface3);border:1px solid var(--border);
+  border-radius:20px;padding:3px 9px;color:var(--text-dim);white-space:nowrap;
+}
+.cust-chip.active-chip{color:var(--gold);border-color:var(--gold-dim)}
+
+/* ── Ageing Bar ─────────────────────────────────────────────────────────── */
+#ageing-wrap{
+  background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);
+  padding:14px;margin-bottom:16px;
+}
+#ageing-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;color:var(--text-faint);margin-bottom:10px}
+#ageing-bar{height:10px;border-radius:5px;overflow:hidden;display:flex;margin-bottom:10px;background:var(--surface3)}
+#ageing-legend{display:grid;grid-template-columns:repeat(2,1fr);gap:6px}
+@media(min-width:480px){#ageing-legend{grid-template-columns:repeat(4,1fr)}}
+.ageing-legend-item{display:flex;align-items:center;gap:6px;font-size:11px}
+.ageing-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.ageing-legend-label{color:var(--text-dim)}
+.ageing-legend-amt{color:var(--text);font-weight:600;font-family:var(--font-mono)}
+
+/* ── Tables ─────────────────────────────────────────────────────────────── */
+.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{
+  padding:10px 12px;text-align:left;font-size:10px;font-weight:700;
+  text-transform:uppercase;letter-spacing:.6px;color:var(--text-faint);
+  background:var(--surface2);border-bottom:1px solid var(--border);
+  white-space:nowrap;position:sticky;top:0;
+}
+td{padding:10px 12px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.4}
+tr:last-child td{border-bottom:none}
+tr.expandable-row{cursor:pointer}
+tr.expandable-row:hover td{background:var(--surface2)}
+tr.detail-row td{background:var(--surface2);padding:0}
+tr.detail-row{display:none}
+tr.detail-row.open{display:table-row}
+.num{text-align:right;font-family:var(--font-mono)}
+.tag{
+  display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;
+  letter-spacing:.5px;padding:2px 7px;border-radius:4px;
+}
+.tag-red{background:rgba(248,113,113,.15);color:var(--red)}
+.tag-green{background:rgba(74,222,128,.12);color:var(--green)}
+.tag-gold{background:rgba(245,166,35,.12);color:var(--gold)}
+.tag-blue{background:rgba(96,165,250,.12);color:var(--blue)}
+.tag-gray{background:rgba(122,133,163,.12);color:var(--text-dim)}
+
+/* ── Bill Detail Expand ─────────────────────────────────────────────────── */
+.bill-detail{padding:10px 14px}
+.bill-detail-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:8px;margin-bottom:10px}
+.bill-detail-field{font-size:12px}
+.bill-detail-field span:first-child{color:var(--text-faint);display:block;font-size:10px;text-transform:uppercase;letter-spacing:.5px}
+.bill-items-table table{font-size:12px}
+.bill-items-table table th{font-size:9px}
+.expand-icon{color:var(--text-faint);font-size:12px;transition:var(--transition);margin-right:4px}
+tr.expandable-row.expanded .expand-icon{transform:rotate(90deg)}
+
+/* ── Trend Chart ─────────────────────────────────────────────────────────── */
+#trend-chart-wrap{padding:14px}
+#trend-chart{width:100%;overflow:hidden}
+.chart-bar-label{font-size:9px;fill:var(--text-faint)}
+.chart-bar-value{font-size:9px;fill:var(--text-dim)}
+
+/* ── Ledger ─────────────────────────────────────────────────────────────── */
+.ledger-dr{color:var(--red)}
+.ledger-cr{color:var(--green)}
+.ledger-balance{font-family:var(--font-mono);font-weight:600}
+
+/* ── Supplier Tab ────────────────────────────────────────────────────────── */
+#sup-selector-wrap{margin-bottom:16px}
+#supplier-select{
+  width:100%;padding:10px 12px;font-size:15px;
+  border-radius:var(--radius-sm);background:var(--surface2);
+  border:1px solid var(--border);color:var(--text);
+}
+#sup-info-card{
+  background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);
+  padding:14px;margin-bottom:14px;display:none;
+}
+#sup-kpi-row{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:16px}
+@media(min-width:480px){#sup-kpi-row{grid-template-columns:repeat(3,1fr)}}
+
+/* ── Empty state ─────────────────────────────────────────────────────────── */
+.empty{padding:30px;text-align:center;color:var(--text-faint);font-size:13px}
+
+/* ── Mobile tweaks ───────────────────────────────────────────────────────── */
+@media(max-width:480px){
+  #header{padding:0 10px;gap:8px}
+  #header-logo{font-size:14px}
+  #content{padding:10px}
+  table{font-size:12px}
+  th,td{padding:8px 10px}
+  .kpi-value{font-size:18px}
+}
+
+/* ── Loading state ───────────────────────────────────────────────────────── */
+#loading{
+  position:fixed;inset:0;background:var(--bg);z-index:999;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;
+}
+#loading-text{color:var(--text-dim);font-size:14px}
+.spinner{
+  width:32px;height:32px;border:3px solid var(--surface3);
+  border-top-color:var(--gold);border-radius:50%;
+  animation:spin .7s linear infinite;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+</style>
+</head>
+<body>
+
+<div id="loading">
+  <div class="spinner"></div>
+  <div id="loading-text">Loading data…</div>
+</div>
+
+<div id="app" style="display:none">
+
+  <!-- Header -->
+  <header id="header">
+    <div id="header-logo">PSA</div>
+    <div id="customer-search-wrap">
+      <input type="search" id="customer-search" placeholder="Search customer…" autocomplete="off" autocorrect="off">
+      <button id="customer-search-clear" title="Clear">×</button>
+      <div id="customer-dropdown"></div>
+    </div>
+    <div id="header-as-of"></div>
+  </header>
+
+  <!-- Main Tabs -->
+  <nav id="tabs">
+    <button class="tab-btn active" data-tab="customer">Customer</button>
+    <button class="tab-btn" data-tab="supplier">Supplier</button>
+  </nav>
+
+  <!-- Content -->
+  <main id="content">
+
+    <!-- CUSTOMER TAB -->
+    <div id="tab-customer" class="tab-panel active">
+      <div id="no-selection">
+        <h2>No customer selected</h2>
+        <p>Search for a customer in the box above</p>
+      </div>
+      <div id="customer-view" style="display:none">
+
+        <!-- Info card -->
+        <div id="cust-info-card">
+          <div id="cust-name"></div>
+          <div id="cust-chips"></div>
+        </div>
+
+        <!-- KPIs -->
+        <div id="kpi-row">
+          <div class="kpi highlight-red">
+            <div class="kpi-label">Outstanding</div>
+            <div class="kpi-value" id="kpi-outstanding"></div>
+            <div class="kpi-sub" id="kpi-outstanding-sub"></div>
+          </div>
+          <div class="kpi highlight-gold">
+            <div class="kpi-label">Total Business</div>
+            <div class="kpi-value" id="kpi-total"></div>
+            <div class="kpi-sub" id="kpi-total-sub"></div>
+          </div>
+          <div class="kpi highlight-blue">
+            <div class="kpi-label">Avg Pay Days</div>
+            <div class="kpi-value" id="kpi-avg-days"></div>
+            <div class="kpi-sub">days to pay</div>
+          </div>
+          <div class="kpi highlight-green">
+            <div class="kpi-label">Pending Orders</div>
+            <div class="kpi-value" id="kpi-pending-orders"></div>
+            <div class="kpi-sub">with open lines</div>
+          </div>
+        </div>
+
+        <!-- Ageing -->
+        <div id="ageing-wrap">
+          <div id="ageing-title">Outstanding Ageing</div>
+          <div id="ageing-bar"></div>
+          <div id="ageing-legend"></div>
+        </div>
+
+        <!-- Outstanding Bills -->
+        <div class="section" id="sec-outstanding">
+          <div class="section-header" onclick="toggleSection('outstanding')">
+            <span class="section-title">Outstanding Bills</span>
+            <span class="section-meta" id="sec-outstanding-meta"></span>
+            <span class="section-chevron">▾</span>
+          </div>
+          <div class="section-body" id="sec-outstanding-body">
+            <div class="table-wrap"><table id="tbl-outstanding"></table></div>
+          </div>
+        </div>
+
+        <!-- Pending Orders -->
+        <div class="section" id="sec-orders">
+          <div class="section-header" onclick="toggleSection('orders')">
+            <span class="section-title">Pending Orders</span>
+            <span class="section-meta" id="sec-orders-meta"></span>
+            <span class="section-chevron">▾</span>
+          </div>
+          <div class="section-body" id="sec-orders-body">
+            <div class="table-wrap"><table id="tbl-orders"></table></div>
+          </div>
+        </div>
+
+        <!-- Dispatch History -->
+        <div class="section" id="sec-dispatch">
+          <div class="section-header collapsed" onclick="toggleSection('dispatch')">
+            <span class="section-title">Dispatch History</span>
+            <span class="section-meta" id="sec-dispatch-meta"></span>
+            <span class="section-chevron">▾</span>
+          </div>
+          <div class="section-body" id="sec-dispatch-body" style="display:none">
+            <div class="table-wrap"><table id="tbl-dispatch"></table></div>
+          </div>
+        </div>
+
+        <!-- Ledger -->
+        <div class="section" id="sec-ledger">
+          <div class="section-header collapsed" onclick="toggleSection('ledger')">
+            <span class="section-title">Ledger</span>
+            <span class="section-meta" id="sec-ledger-meta"></span>
+            <span class="section-chevron">▾</span>
+          </div>
+          <div class="section-body" id="sec-ledger-body" style="display:none">
+            <div class="table-wrap"><table id="tbl-ledger"></table></div>
+          </div>
+        </div>
+
+        <!-- Payment History -->
+        <div class="section" id="sec-payments">
+          <div class="section-header collapsed" onclick="toggleSection('payments')">
+            <span class="section-title">Payment History</span>
+            <span class="section-meta" id="sec-payments-meta"></span>
+            <span class="section-chevron">▾</span>
+          </div>
+          <div class="section-body" id="sec-payments-body" style="display:none">
+            <div class="table-wrap"><table id="tbl-payments"></table></div>
+          </div>
+        </div>
+
+        <!-- Sales Trend -->
+        <div class="section" id="sec-trend">
+          <div class="section-header collapsed" onclick="toggleSection('trend')">
+            <span class="section-title">Monthly Sales Trend</span>
+            <span class="section-meta" id="sec-trend-meta"></span>
+            <span class="section-chevron">▾</span>
+          </div>
+          <div class="section-body" id="sec-trend-body" style="display:none">
+            <div id="trend-chart-wrap"><div id="trend-chart"></div></div>
+          </div>
+        </div>
+
+        <!-- Returns -->
+        <div class="section" id="sec-returns">
+          <div class="section-header collapsed" onclick="toggleSection('returns')">
+            <span class="section-title">Returns / Damage</span>
+            <span class="section-meta" id="sec-returns-meta"></span>
+            <span class="section-chevron">▾</span>
+          </div>
+          <div class="section-body" id="sec-returns-body" style="display:none">
+            <div class="table-wrap"><table id="tbl-returns"></table></div>
+          </div>
+        </div>
+
+      </div><!-- /customer-view -->
+    </div><!-- /tab-customer -->
+
+    <!-- SUPPLIER TAB -->
+    <div id="tab-supplier" class="tab-panel">
+      <div id="sup-selector-wrap">
+        <select id="supplier-select"><option value="">— Select Supplier —</option></select>
+      </div>
+      <div id="sup-info-card">
+        <div id="sup-name" style="font-size:18px;font-weight:700;margin-bottom:6px"></div>
+        <div id="sup-chips"></div>
+      </div>
+      <div id="sup-kpi-row" style="display:none">
+        <div class="kpi highlight-red">
+          <div class="kpi-label">Total Outstanding</div>
+          <div class="kpi-value" id="sup-kpi-os"></div>
+          <div class="kpi-sub" id="sup-kpi-os-sub"></div>
+        </div>
+        <div class="kpi highlight-gold">
+          <div class="kpi-label">Total Business</div>
+          <div class="kpi-value" id="sup-kpi-total"></div>
+          <div class="kpi-sub" id="sup-kpi-total-sub"></div>
+        </div>
+        <div class="kpi highlight-blue">
+          <div class="kpi-label">Active Customers</div>
+          <div class="kpi-value" id="sup-kpi-cust"></div>
+          <div class="kpi-sub">with transactions</div>
+        </div>
+      </div>
+      <div class="section" id="sec-sup-customers">
+        <div class="section-header" onclick="toggleSection('sup-customers')">
+          <span class="section-title">Customers — Outstanding First</span>
+          <span class="section-meta" id="sec-sup-customers-meta"></span>
+          <span class="section-chevron">▾</span>
+        </div>
+        <div class="section-body" id="sec-sup-customers-body">
+          <div class="table-wrap"><table id="tbl-sup-customers"></table></div>
+        </div>
+      </div>
+    </div><!-- /tab-supplier -->
+
+  </main>
+</div><!-- /app -->
+
+<!-- Data file — generated by generate_data.py -->
+<script src="dashboard_data.js"></script>
+<script>
+'use strict';
+
+// ── State ────────────────────────────────────────────────────────────────────
+let DATA, currentCustomer = null, currentSupplier = null;
+
+// ── Formatting helpers ───────────────────────────────────────────────────────
+const fmt = {
+  inr(v){ return v == null ? '—' : '₹' + Math.abs(v).toLocaleString('en-IN',{maximumFractionDigits:0}) },
+  inrK(v){
+    if(v == null) return '—';
+    const a = Math.abs(v);
+    if(a>=10000000) return '₹'+(a/10000000).toFixed(2)+'Cr';
+    if(a>=100000) return '₹'+(a/100000).toFixed(1)+'L';
+    if(a>=1000) return '₹'+(a/1000).toFixed(1)+'K';
+    return '₹'+a.toLocaleString('en-IN',{maximumFractionDigits:0});
+  },
+  date(s){ if(!s) return '—'; const d=new Date(s); return isNaN(d)?s:d.toLocaleDateString('en-IN',{day:'2-digit',month:'short',year:'2-digit'}) },
+  monthLabel(s){ if(!s||s.length<7) return s; const [y,m]=s.split('-'); const mn=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']; return (mn[+m-1]||m)+' '+y.slice(2) },
+  num(v,d=0){ return (v??0).toLocaleString('en-IN',{maximumFractionDigits:d}) },
+};
+
+function esc(s){ return s?String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'):''; }
+
+function ageBucket(days){
+  if(days<=30) return {label:'0–30d',color:'#f87171',key:'0_30'};
+  if(days<=60) return {label:'31–60d',color:'#fbbf24',key:'31_60'};
+  if(days<=90) return {label:'61–90d',color:'#a78bfa',key:'61_90'};
+  return {label:'90d+',color:'#f43f5e',key:'91_plus'};
+}
+
+// ── Boot ─────────────────────────────────────────────────────────────────────
+window.addEventListener('DOMContentLoaded', () => {
+  setTimeout(init, 50); // allow repaint
+});
+
+function init(){
+  if(typeof window.PSA_DATA === 'undefined'){
+    document.getElementById('loading-text').textContent = 'ERROR: dashboard_data.js not found. Run generate_data.py first.';
+    return;
+  }
+  DATA = window.PSA_DATA;
+
+  // Header
+  document.getElementById('header-as-of').textContent = 'as of ' + fmt.date(DATA.meta.data_as_of);
+
+  // Populate customer dropdown
+  buildCustomerList();
+
+  // Populate supplier select
+  buildSupplierSelect();
+
+  // Tab switching
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+      document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById('tab-'+btn.dataset.tab).classList.add('active');
+    });
+  });
+
+  // Search
+  const searchInput = document.getElementById('customer-search');
+  const clearBtn = document.getElementById('customer-search-clear');
+  const dropdown = document.getElementById('customer-dropdown');
+
+  searchInput.addEventListener('input', () => {
+    filterCustomerDropdown(searchInput.value);
+    clearBtn.classList.toggle('visible', searchInput.value.length > 0);
+  });
+  searchInput.addEventListener('focus', () => {
+    filterCustomerDropdown(searchInput.value);
+  });
+  clearBtn.addEventListener('click', () => {
+    searchInput.value = '';
+    clearBtn.classList.remove('visible');
+    dropdown.classList.remove('open');
+    searchInput.focus();
+  });
+  document.addEventListener('click', e => {
+    if(!e.target.closest('#customer-search-wrap')) dropdown.classList.remove('open');
+  });
+
+  // Supplier
+  document.getElementById('supplier-select').addEventListener('change', e => {
+    renderSupplierView(e.target.value);
+  });
+
+  // Done
+  document.getElementById('loading').style.display = 'none';
+  document.getElementById('app').style.display = 'flex';
+}
+
+// ── Customer search ───────────────────────────────────────────────────────────
+let sortedCustomers = [];
+
+function buildCustomerList(){
+  sortedCustomers = Object.values(DATA.customers)
+    .sort((a,b) => a.info.name.localeCompare(b.info.name));
+}
+
+function filterCustomerDropdown(query){
+  const dd = document.getElementById('customer-dropdown');
+  const q = query.trim().toLowerCase();
+  const matches = q
+    ? sortedCustomers.filter(c =>
+        c.info.name.toLowerCase().includes(q) ||
+        c.info.code.toLowerCase().includes(q) ||
+        c.info.city.toLowerCase().includes(q)
+      ).slice(0, 40)
+    : sortedCustomers.slice(0, 40);
+
+  if(!matches.length){
+    dd.innerHTML = '<div class="empty">No customers found</div>';
+  } else {
+    dd.innerHTML = matches.map(c => `
+      <div class="dd-item" data-code="${esc(c.info.code)}" onclick="selectCustomer('${esc(c.info.code)}')">
+        <div class="dd-item-name">${esc(c.info.name)}</div>
+        <div class="dd-item-sub">${esc(c.info.code)} · ${esc(c.info.city)}</div>
+      </div>`).join('');
+  }
+  dd.classList.add('open');
+}
+
+function selectCustomer(code){
+  const dd = document.getElementById('customer-dropdown');
+  dd.classList.remove('open');
+  const cust = DATA.customers[code];
+  if(!cust) return;
+  document.getElementById('customer-search').value = cust.info.name;
+  document.getElementById('customer-search-clear').classList.add('visible');
+  currentCustomer = cust;
+  renderCustomerView(cust);
+
+  // Switch to customer tab
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+  document.querySelector('.tab-btn[data-tab="customer"]').classList.add('active');
+  document.getElementById('tab-customer').classList.add('active');
+}
+
+// ── Section toggle ────────────────────────────────────────────────────────────
+function toggleSection(id){
+  const header = document.querySelector(`#sec-${id} .section-header`);
+  const body = document.getElementById(`sec-${id}-body`);
+  if(!header||!body) return;
+  const isCollapsed = header.classList.contains('collapsed');
+  header.classList.toggle('collapsed', !isCollapsed);
+  body.style.display = isCollapsed ? '' : 'none';
+}
+
+// ── Render Customer View ──────────────────────────────────────────────────────
+function renderCustomerView(cust){
+  document.getElementById('no-selection').style.display = 'none';
+  document.getElementById('customer-view').style.display = 'block';
+
+  const info = cust.info;
+  const sum  = cust.summary;
+
+  // Info card
+  document.getElementById('cust-name').textContent = info.name;
+  const chips = [];
+  if(info.city) chips.push(`<span class="cust-chip">${esc(info.city)}</span>`);
+  if(info.mobile) chips.push(`<span class="cust-chip">📞 ${esc(info.mobile)}</span>`);
+  if(info.gstno) chips.push(`<span class="cust-chip">GST: ${esc(info.gstno)}</span>`);
+  if(info.credit_days) chips.push(`<span class="cust-chip active-chip">${info.credit_days}d credit</span>`);
+  if(info.remarks) chips.push(`<span class="cust-chip">${esc(info.remarks)}</span>`);
+  document.getElementById('cust-chips').innerHTML = chips.join('');
+
+  // KPIs
+  document.getElementById('kpi-outstanding').textContent = fmt.inrK(sum.outstanding_amt);
+  document.getElementById('kpi-outstanding-sub').textContent = sum.outstanding_count + ' bills pending';
+  document.getElementById('kpi-total').textContent = fmt.inrK(sum.settled_amt + sum.outstanding_amt);
+  document.getElementById('kpi-total-sub').textContent = sum.total_bills + ' total bills';
+  document.getElementById('kpi-avg-days').textContent = sum.avg_payment_days != null ? sum.avg_payment_days : '—';
+  document.getElementById('kpi-pending-orders').textContent = sum.pending_orders;
+
+  // Ageing
+  renderAgeing(sum.ageing);
+
+  // Sections
+  const outstanding = cust.outstanding_bills;
+  const settled     = cust.settled_bills;
+  const orders      = cust.orders;
+  const payments    = cust.payments;
+  const ledger      = cust.ledger;
+  const returns     = cust.returns;
+
+  // Meta badges
+  document.getElementById('sec-outstanding-meta').textContent = outstanding.length + ' bills · ' + fmt.inrK(sum.outstanding_amt);
+  document.getElementById('sec-orders-meta').textContent = sum.pending_orders + ' pending';
+  document.getElementById('sec-dispatch-meta').textContent = settled.length + ' bills';
+  document.getElementById('sec-ledger-meta').textContent = ledger.length + ' entries';
+  document.getElementById('sec-payments-meta').textContent = payments.length + ' payments';
+  document.getElementById('sec-trend-meta').textContent = sum.monthly_trend.length + ' months';
+  document.getElementById('sec-returns-meta').textContent = returns.length + ' returns';
+
+  // Tables
+  renderOutstandingTable(outstanding);
+  renderOrdersTable(orders);
+  renderDispatchTable(settled);
+  renderLedgerTable(ledger);
+  renderPaymentsTable(payments);
+  renderTrendChart(sum.monthly_trend);
+  renderReturnsTable(returns);
+
+  // Reset collapsed states — outstanding and orders open by default, rest collapsed
+  ['dispatch','ledger','payments','trend','returns'].forEach(id => {
+    const h = document.querySelector(`#sec-${id} .section-header`);
+    const b = document.getElementById(`sec-${id}-body`);
+    if(h) h.classList.add('collapsed');
+    if(b) b.style.display = 'none';
+  });
+  ['outstanding','orders'].forEach(id => {
+    const h = document.querySelector(`#sec-${id} .section-header`);
+    const b = document.getElementById(`sec-${id}-body`);
+    if(h) h.classList.remove('collapsed');
+    if(b) b.style.display = '';
+  });
+}
+
+// ── Ageing Bar ───────────────────────────────────────────────────────────────
+function renderAgeing(ageing){
+  const buckets = [
+    {key:'0_30',  label:'0–30 days', color:'#4ade80'},
+    {key:'31_60', label:'31–60 days',color:'#fbbf24'},
+    {key:'61_90', label:'61–90 days',color:'#a78bfa'},
+    {key:'91_plus',label:'90+ days', color:'#f87171'},
+  ];
+  const total = Object.values(ageing).reduce((a,b)=>a+b,0)||1;
+
+  document.getElementById('ageing-bar').innerHTML = buckets.map(b => {
+    const pct = (ageing[b.key]||0)/total*100;
+    return `<div style="width:${pct}%;background:${b.color};transition:.3s"></div>`;
+  }).join('');
+
+  document.getElementById('ageing-legend').innerHTML = buckets.map(b => `
+    <div class="ageing-legend-item">
+      <div class="ageing-dot" style="background:${b.color}"></div>
+      <div>
+        <div class="ageing-legend-label">${b.label}</div>
+        <div class="ageing-legend-amt">${fmt.inrK(ageing[b.key]||0)}</div>
+      </div>
+    </div>`).join('');
+}
+
+// ── Outstanding Bills Table ───────────────────────────────────────────────────
+function renderOutstandingTable(bills){
+  const tbl = document.getElementById('tbl-outstanding');
+  if(!bills.length){ tbl.innerHTML='<tr><td class="empty">No outstanding bills</td></tr>'; return; }
+
+  let html = `<thead><tr>
+    <th></th><th>Bill No</th><th>Date</th><th>Supplier</th>
+    <th class="num">Amount</th><th>Age</th><th>LR / Transport</th>
+  </tr></thead><tbody>`;
+
+  bills.forEach((b,i) => {
+    const age = b.age_days != null ? b.age_days : '—';
+    const bucket = b.age_days != null ? ageBucket(b.age_days) : {color:'#7a85a3',label:''};
+    const ageTag = b.age_days != null ? `<span class="tag" style="background:${bucket.color}22;color:${bucket.color}">${age}d</span>` : '—';
+    const rowId = 'os-'+i;
+
+    html += `<tr class="expandable-row" id="${rowId}" onclick="toggleBillDetail('${rowId}')">
+      <td><span class="expand-icon">▶</span></td>
+      <td><strong>${esc(b.inv_no)}</strong></td>
+      <td>${fmt.date(b.inv_dt)}</td>
+      <td>${esc(b.supplier)}</td>
+      <td class="num">${fmt.inr(b.nett)}</td>
+      <td>${ageTag}</td>
+      <td style="font-size:11px;color:var(--text-dim)">${esc(b.lr_no)||'—'}<br>${esc(b.transport)||''}</td>
+    </tr>`;
+    html += `<tr class="detail-row" id="${rowId}-detail"><td colspan="7">${buildBillDetail(b)}</td></tr>`;
+  });
+
+  html += '</tbody>';
+  tbl.innerHTML = html;
+}
+
+// ── Bill Detail expand ────────────────────────────────────────────────────────
+function toggleBillDetail(rowId){
+  const row = document.getElementById(rowId);
+  const detail = document.getElementById(rowId+'-detail');
+  if(!row||!detail) return;
+  const open = detail.classList.toggle('open');
+  row.classList.toggle('expanded', open);
+}
+
+function buildBillDetail(b){
+  const fields = [
+    ['Invoice No', b.inv_no], ['Invoice Date', fmt.date(b.inv_dt)],
+    ['Entry Date', fmt.date(b.entry_dt)], ['Due Date', fmt.date(b.due_dt)],
+    ['Supplier', b.supplier], ['Destination', b.dest||'—'],
+    ['Transport', b.transport||'—'], ['LR No', b.lr_no||'—'],
+    ['LR Date', fmt.date(b.lr_dt)], ['Bales', b.bales||'—'],
+    ['Taxable', fmt.inr(b.taxable)], ['IGST', fmt.inr(b.igst)],
+    ['Net Amount', fmt.inr(b.nett)], ['Indent Ref', b.indent_abbr?(b.indent_abbr+' '+b.indent_no):'—'],
+  ].filter(f=>f[1]&&f[1]!=='—'&&f[1]!=='₹0');
+
+  let html = `<div class="bill-detail">
+    <div class="bill-detail-grid">
+      ${fields.map(([l,v])=>`<div class="bill-detail-field"><span>${esc(l)}</span>${esc(String(v))}</div>`).join('')}
+    </div>`;
+
+  if(b.lines && b.lines.length){
+    html += `<div class="bill-items-table"><table>
+      <thead><tr><th>Item</th><th>Group</th><th>Co.</th><th class="num">Mtrs</th><th class="num">Rate</th><th class="num">Amount</th></tr></thead>
+      <tbody>
+        ${b.lines.map(l=>`<tr>
+          <td>${esc(l.item_name)}</td>
+          <td style="color:var(--text-dim)">${esc(l.group)}</td>
+          <td style="color:var(--text-dim)">${esc(l.company)}</td>
+          <td class="num">${fmt.num(l.metres,1)}</td>
+          <td class="num">${fmt.inr(l.rate)}</td>
+          <td class="num">${fmt.inr(l.amount)}</td>
+        </tr>`).join('')}
+      </tbody>
+    </table></div>`;
+  }
+
+  html += '</div>';
+  return html;
+}
+
+// ── Pending Orders ────────────────────────────────────────────────────────────
+function renderOrdersTable(orders){
+  const tbl = document.getElementById('tbl-orders');
+  const pending = orders.filter(o=>o.has_pending);
+  if(!pending.length){ tbl.innerHTML='<tr><td class="empty">No pending orders</td></tr>'; return; }
+
+  let html = `<thead><tr>
+    <th></th><th>Order Ref</th><th>Date</th><th>Due</th>
+    <th>Supplier</th><th>Destination</th><th>Pending Items</th>
+  </tr></thead><tbody>`;
+
+  pending.forEach((o,i) => {
+    const rowId = 'ord-'+i;
+    const pendingCount = o.pending_lines.length;
+    html += `<tr class="expandable-row" id="${rowId}" onclick="toggleBillDetail('${rowId}')">
+      <td><span class="expand-icon">▶</span></td>
+      <td><strong>${esc(o.order_ref)}</strong></td>
+      <td>${fmt.date(o.order_dt)}</td>
+      <td>${o.due_dt ? fmt.date(o.due_dt) : '—'}</td>
+      <td>${esc(o.supplier)}</td>
+      <td style="font-size:12px;color:var(--text-dim)">${esc(o.dest)||'—'}</td>
+      <td><span class="tag tag-gold">${pendingCount} item${pendingCount>1?'s':''}</span></td>
+    </tr>`;
+
+    const lineRows = o.pending_lines.map(l=>`<tr>
+      <td>${esc(l.item_name)}</td>
+      <td style="color:var(--text-dim)">${esc(l.group)}</td>
+      <td style="color:var(--text-dim)">${esc(l.company)}</td>
+      <td class="num">${fmt.num(l.ordered,1)}</td>
+      <td class="num" style="color:var(--green)">${fmt.num(l.received,1)}</td>
+      <td class="num" style="color:var(--yellow)">${fmt.num(l.pending,1)}</td>
+      <td class="num">${fmt.inr(l.rate)}</td>
+      <td style="font-size:11px;color:var(--text-dim)">${esc(l.delivery)}</td>
+    </tr>`).join('');
+
+    html += `<tr class="detail-row" id="${rowId}-detail"><td colspan="7">
+      <div class="bill-detail"><div class="bill-items-table"><table>
+        <thead><tr><th>Item</th><th>Group</th><th>Co.</th><th class="num">Ordered</th><th class="num">Rcvd</th><th class="num">Pending</th><th class="num">Rate</th><th>Delivery</th></tr></thead>
+        <tbody>${lineRows}</tbody>
+      </table></div></div>
+    </td></tr>`;
+  });
+
+  html += '</tbody>';
+  tbl.innerHTML = html;
+}
+
+// ── Dispatch History ──────────────────────────────────────────────────────────
+function renderDispatchTable(bills){
+  const tbl = document.getElementById('tbl-dispatch');
+  if(!bills.length){ tbl.innerHTML='<tr><td class="empty">No settled bills</td></tr>'; return; }
+
+  let html = `<thead><tr>
+    <th></th><th>Bill No</th><th>Date</th><th>Supplier</th>
+    <th class="num">Amount</th><th>LR No</th><th>Destination</th>
+  </tr></thead><tbody>`;
+
+  bills.forEach((b,i) => {
+    const rowId = 'dis-'+i;
+    html += `<tr class="expandable-row" id="${rowId}" onclick="toggleBillDetail('${rowId}')">
+      <td><span class="expand-icon">▶</span></td>
+      <td>${esc(b.inv_no)}</td>
+      <td>${fmt.date(b.inv_dt)}</td>
+      <td>${esc(b.supplier)}</td>
+      <td class="num">${fmt.inr(b.nett)}</td>
+      <td style="font-size:11px">${esc(b.lr_no)||'—'}</td>
+      <td style="font-size:12px;color:var(--text-dim)">${esc(b.dest)||'—'}</td>
+    </tr>`;
+    html += `<tr class="detail-row" id="${rowId}-detail"><td colspan="7">${buildBillDetail(b)}</td></tr>`;
+  });
+
+  html += '</tbody>';
+  tbl.innerHTML = html;
+}
+
+// ── Ledger ────────────────────────────────────────────────────────────────────
+function renderLedgerTable(entries){
+  const tbl = document.getElementById('tbl-ledger');
+  if(!entries.length){ tbl.innerHTML='<tr><td class="empty">No ledger entries</td></tr>'; return; }
+
+  // Compute running balance
+  let balance = 0;
+  let html = `<thead><tr>
+    <th>Date</th><th>Type</th><th>Supplier</th><th>Narration</th><th>Inv No</th>
+    <th class="num">Debit</th><th class="num">Credit</th><th class="num">Balance</th>
+  </tr></thead><tbody>`;
+
+  // Sort by date asc for ledger
+  const sorted = [...entries].sort((a,b)=>a.date.localeCompare(b.date));
+  sorted.forEach(e => {
+    const isDebit = e.dr_cr === 'D';
+    balance += isDebit ? e.amount : -e.amount;
+    const typeTag = e.type==='bill'? `<span class="tag tag-red">Bill</span>` :
+                    e.type==='payment'? `<span class="tag tag-green">Pymt</span>` :
+                    `<span class="tag tag-gray">Other</span>`;
+    html += `<tr>
+      <td>${fmt.date(e.date)}</td>
+      <td>${typeTag}</td>
+      <td style="font-size:12px;color:var(--text-dim)">${esc(e.supplier)}</td>
+      <td style="font-size:12px;color:var(--text-dim)">${esc(e.narr)}</td>
+      <td style="font-size:12px">${esc(e.inv_no)}</td>
+      <td class="num ledger-dr">${isDebit ? fmt.inr(e.amount) : ''}</td>
+      <td class="num ledger-cr">${!isDebit ? fmt.inr(e.amount) : ''}</td>
+      <td class="num ledger-balance" style="color:${balance>=0?'var(--red)':'var(--green)'}">
+        ${fmt.inr(Math.abs(balance))} ${balance>=0?'Dr':'Cr'}
+      </td>
+    </tr>`;
+  });
+
+  html += '</tbody>';
+  tbl.innerHTML = html;
+}
+
+// ── Payment History ───────────────────────────────────────────────────────────
+function renderPaymentsTable(payments){
+  const tbl = document.getElementById('tbl-payments');
+  if(!payments.length){ tbl.innerHTML='<tr><td class="empty">No payment records</td></tr>'; return; }
+
+  let html = `<thead><tr>
+    <th>Paid Date</th><th>Bill No</th><th>Bill Date</th><th>Supplier</th>
+    <th class="num">Bill Amt</th><th class="num">CD</th><th class="num">Paid</th><th class="num">Days</th>
+  </tr></thead><tbody>`;
+
+  payments.forEach(p => {
+    const days = p.days||0;
+    const daysColor = days<=30?'var(--green)':days<=60?'var(--yellow)':'var(--red)';
+    html += `<tr>
+      <td>${fmt.date(p.paid_dt)}</td>
+      <td>${esc(p.bill_no)}</td>
+      <td>${fmt.date(p.bill_dt)}</td>
+      <td style="font-size:12px;color:var(--text-dim)">${esc(p.supplier)}</td>
+      <td class="num">${fmt.inr(p.bill_amt)}</td>
+      <td class="num" style="color:var(--text-dim)">${p.cd_amt?fmt.inr(Math.abs(p.cd_amt)):''}</td>
+      <td class="num" style="color:var(--green)">${fmt.inr(p.paid_amt)}</td>
+      <td class="num" style="color:${daysColor};font-weight:600">${days||'—'}</td>
+    </tr>`;
+  });
+
+  html += '</tbody>';
+  tbl.innerHTML = html;
+}
+
+// ── Trend Chart ───────────────────────────────────────────────────────────────
+function renderTrendChart(trend){
+  const wrap = document.getElementById('trend-chart');
+  if(!trend || !trend.length){ wrap.innerHTML='<div class="empty">No trend data</div>'; return; }
+
+  const W = wrap.parentElement.clientWidth - 28;
+  const H = 160;
+  const PAD = {top:20,right:10,bottom:35,left:0};
+  const innerW = W - PAD.left - PAD.right;
+  const innerH = H - PAD.top - PAD.bottom;
+
+  const maxV = Math.max(...trend.map(t=>t.amount));
+  const barW = Math.max(8, Math.min(40, (innerW / trend.length) - 4));
+  const gap   = (innerW - barW * trend.length) / (trend.length + 1);
+
+  let bars = '', labels = '', values = '';
+  trend.forEach((t, i) => {
+    const x = PAD.left + gap + i * (barW + gap);
+    const bh = maxV ? (t.amount / maxV * innerH) : 0;
+    const y  = PAD.top + innerH - bh;
+    const cx = x + barW/2;
+    bars    += `<rect x="${x.toFixed(1)}" y="${y.toFixed(1)}" width="${barW}" height="${bh.toFixed(1)}" rx="3" fill="url(#barGrad)" opacity=".9"/>`;
+    labels  += `<text x="${cx.toFixed(1)}" y="${(PAD.top+innerH+16).toFixed(1)}" text-anchor="middle" class="chart-bar-label">${esc(fmt.monthLabel(t.month))}</text>`;
+    if(bh > 20){
+      values += `<text x="${cx.toFixed(1)}" y="${(y-4).toFixed(1)}" text-anchor="middle" class="chart-bar-value">${fmt.inrK(t.amount)}</text>`;
+    }
+  });
+
+  wrap.innerHTML = `<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" style="overflow:visible">
+    <defs>
+      <linearGradient id="barGrad" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#f5a623"/>
+        <stop offset="100%" stop-color="#e8735a" stop-opacity=".7"/>
+      </linearGradient>
+    </defs>
+    ${bars}${labels}${values}
+  </svg>`;
+}
+
+// ── Returns Table ─────────────────────────────────────────────────────────────
+function renderReturnsTable(returns){
+  const tbl = document.getElementById('tbl-returns');
+  if(!returns.length){ tbl.innerHTML='<tr><td class="empty">No return / damage records</td></tr>'; return; }
+
+  let html = `<thead><tr>
+    <th></th><th>Inv No</th><th>Date</th><th>Supplier</th>
+    <th class="num">Amount</th><th>Ref Bill</th><th>Type</th>
+  </tr></thead><tbody>`;
+
+  returns.forEach((r,i) => {
+    const rowId = 'ret-'+i;
+    html += `<tr class="expandable-row" id="${rowId}" onclick="toggleBillDetail('${rowId}')">
+      <td><span class="expand-icon">▶</span></td>
+      <td>${esc(r.inv_no)}</td>
+      <td>${fmt.date(r.inv_dt||r.entry_dt)}</td>
+      <td>${esc(r.supplier)}</td>
+      <td class="num">${fmt.inr(r.nett)}</td>
+      <td style="font-size:12px;color:var(--text-dim)">${esc(r.ref_bill)||'—'}</td>
+      <td><span class="tag tag-gray">${esc(r.type)}</span></td>
+    </tr>`;
+
+    const lineRows = r.lines.map(l=>`<tr>
+      <td>${esc(l.item_name)}</td>
+      <td style="color:var(--text-dim)">${esc(l.group)}</td>
+      <td class="num">${fmt.num(l.metres,1)}</td>
+      <td class="num">${fmt.inr(l.rate)}</td>
+      <td class="num">${fmt.inr(l.amount)}</td>
+    </tr>`).join('');
+
+    html += `<tr class="detail-row" id="${rowId}-detail"><td colspan="7">
+      <div class="bill-detail"><div class="bill-items-table"><table>
+        <thead><tr><th>Item</th><th>Group</th><th class="num">Metres</th><th class="num">Rate</th><th class="num">Amount</th></tr></thead>
+        <tbody>${lineRows||'<tr><td colspan="5" class="empty">No line items</td></tr>'}</tbody>
+      </table></div></div>
+    </td></tr>`;
+  });
+
+  html += '</tbody>';
+  tbl.innerHTML = html;
+}
+
+// ── Supplier View ─────────────────────────────────────────────────────────────
+function buildSupplierSelect(){
+  const sel = document.getElementById('supplier-select');
+  const sups = Object.values(DATA.suppliers).sort((a,b)=>a.info.name.localeCompare(b.info.name));
+  sel.innerHTML = '<option value="">— Select Supplier —</option>' +
+    sups.map(s=>`<option value="${esc(s.info.code)}">${esc(s.info.name)} (${esc(s.info.code)})</option>`).join('');
+}
+
+function renderSupplierView(code){
+  const infoCard = document.getElementById('sup-info-card');
+  const kpiRow = document.getElementById('sup-kpi-row');
+  if(!code){ infoCard.style.display='none'; kpiRow.style.display='none'; return; }
+
+  const sup = DATA.suppliers[code];
+  if(!sup){ return; }
+  currentSupplier = sup;
+
+  infoCard.style.display = 'block';
+  kpiRow.style.display = 'grid';
+
+  document.getElementById('sup-name').textContent = sup.info.name;
+  const chips = [];
+  if(sup.info.city) chips.push(`<span class="cust-chip">${esc(sup.info.city)}</span>`);
+  if(sup.info.gstno) chips.push(`<span class="cust-chip">GST: ${esc(sup.info.gstno)}</span>`);
+  document.getElementById('sup-chips').innerHTML = chips.join('');
+
+  document.getElementById('sup-kpi-os').textContent = fmt.inrK(sup.total_outstanding);
+  document.getElementById('sup-kpi-os-sub').textContent = sup.customers.filter(c=>c.outstanding_bills>0).length + ' customers';
+  document.getElementById('sup-kpi-total').textContent = fmt.inrK(sup.total_business);
+  document.getElementById('sup-kpi-total-sub').textContent = sup.customers.length + ' customers total';
+  document.getElementById('sup-kpi-cust').textContent = sup.customers.length;
+
+  document.getElementById('sec-sup-customers-meta').textContent = sup.customers.length + ' customers';
+
+  renderSupplierCustomersTable(sup.customers);
+}
+
+function renderSupplierCustomersTable(customers){
+  const tbl = document.getElementById('tbl-sup-customers');
+  if(!customers.length){ tbl.innerHTML='<tr><td class="empty">No customer data</td></tr>'; return; }
+
+  let html = `<thead><tr>
+    <th>Customer</th><th>City</th>
+    <th class="num">Outstanding</th><th>Bills (OS)</th>
+    <th class="num">Settled</th><th class="num">Total Business</th>
+  </tr></thead><tbody>`;
+
+  customers.forEach(c => {
+    const hasOs = c.outstanding_amt > 0;
+    html += `<tr style="cursor:pointer" onclick="jumpToCustomer('${esc(c.cust_cd)}')">
+      <td>
+        <div style="font-weight:600">${esc(c.cust_name)}</div>
+        <div style="font-size:11px;color:var(--text-faint)">${esc(c.cust_cd)}</div>
+      </td>
+      <td style="font-size:12px;color:var(--text-dim)">${esc(c.city)}</td>
+      <td class="num" style="color:${hasOs?'var(--red)':'var(--text-dim)'}">
+        <strong>${fmt.inr(c.outstanding_amt)}</strong>
+      </td>
+      <td>
+        ${hasOs ? `<span class="tag tag-red">${c.outstanding_bills}</span>` : '<span class="tag tag-gray">0</span>'}
+      </td>
+      <td class="num" style="color:var(--text-dim)">${fmt.inr(c.settled_amt)}</td>
+      <td class="num" style="color:var(--gold)">${fmt.inr(c.total_amt)}</td>
+    </tr>`;
+  });
+
+  html += '</tbody>';
+  tbl.innerHTML = html;
+}
+
+function jumpToCustomer(code){
+  selectCustomer(code);
+}
+
+</script>
+</body>
+</html>
