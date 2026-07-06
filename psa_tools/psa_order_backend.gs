@@ -25,9 +25,10 @@ const SHEET_ID = '';
 const ORDERS_TAB = 'orders';
 const COUNTERS_TAB = 'counters';
 
-// Shared "PSA Master Data" backend — suppliers/parties/transports live there,
-// not in this spreadsheet. See psa_masterdata_backend.gs.
-const MASTERDATA_URL = 'https://script.google.com/macros/s/AKfycbx9VpJNCEE6N9voWTusBvbEM100kyJH3yQNVLkI-RucjhhBnPZbFNpux9LTXTNLzZ5TIg/exec';
+// Shared "PSA Master Data" spreadsheet — suppliers/parties/transports live
+// there, not in this spreadsheet. Read directly by ID (same Google account),
+// no web-app call needed. See psa_masterdata_backend.gs for how it's filled.
+const MASTER_SHEET_ID = '1J8sS3dD8QnGjTV9NEEyEJwrohOofWgbu4nGfPgG-Pn8';
 
 function jsonResponse(obj) {
   return ContentService
@@ -162,19 +163,30 @@ function updateCounter(key, value) {
 // generator's front-end (MasterData object) expects.
 // ─────────────────────────────────────────────
 
+function readMasterTab(ss, tabName) {
+  const sheet = ss.getSheetByName(tabName);
+  if (!sheet) return [];
+  const values = sheet.getDataRange().getValues();
+  if (values.length < 2) return [];
+  const headers = values[0];
+  return values.slice(1).map(function(row) {
+    const obj = {};
+    headers.forEach(function(h, i) { obj[h] = row[i]; });
+    return obj;
+  });
+}
+
 function getMasterData() {
-  if (!MASTERDATA_URL) return { ok: false, error: 'MASTERDATA_URL not configured' };
+  if (!MASTER_SHEET_ID) return { ok: false, error: 'MASTER_SHEET_ID not configured' };
 
-  let raw;
+  let allParties, rawTransports;
   try {
-    const resp = UrlFetchApp.fetch(MASTERDATA_URL + '?action=getMasterData', { muteHttpExceptions: true });
-    raw = JSON.parse(resp.getContentText());
+    const ss = SpreadsheetApp.openById(MASTER_SHEET_ID);
+    allParties    = readMasterTab(ss, 'parties');
+    rawTransports = readMasterTab(ss, 'transports');
   } catch (err) {
-    return { ok: false, error: 'Master data fetch failed: ' + err.toString() };
+    return { ok: false, error: 'Master sheet read failed: ' + err.toString() };
   }
-  if (!raw || !raw.ok) return { ok: false, error: 'Master data backend returned an error' };
-
-  const allParties = raw.parties || [];
 
   const suppliers = allParties
     .filter(function(p) { return p['Party Type'] === 'Supplier'; })
@@ -201,7 +213,7 @@ function getMasterData() {
       };
     });
 
-  const transports = (raw.transports || []).map(function(t) {
+  const transports = (rawTransports || []).map(function(t) {
     return { name: t['Transport Name'] || '', destination_station: '' };
   });
 
@@ -213,7 +225,7 @@ function getMasterData() {
     transports: transports,
     items: [], // ERP item catalog not wired in yet (different shape — needs its own mapping)
     docOptions: [],
-    generatedAt: raw.generatedAt || new Date().toISOString()
+    generatedAt: new Date().toISOString()
   };
 }
 
@@ -401,6 +413,7 @@ function testGetCounters() { Logger.log(JSON.stringify(getCounters())); }
 function testGetMasterData() {
   const result = getMasterData();
   Logger.log('ok: ' + result.ok);
+  Logger.log('error: ' + (result.error || 'none'));
   Logger.log('suppliers: ' + (result.suppliers || []).length);
   Logger.log('parties: ' + (result.parties || []).length);
   Logger.log('transports: ' + (result.transports || []).length);

@@ -1,0 +1,3545 @@
+{
+  "ok": true,
+  "masterGroups": [],
+  "suppliers": [
+    {
+      "firm_code": "BP",
+      "brand_name": "Bhagwati Prints",
+      "brand_code": "BP",
+      "city": "Surat",
+      "active": true
+    },
+    {
+      "firm_code": "MF",
+      "brand_name": "Maruti Fashion",
+      "brand_code": "MF",
+      "city": "Surat",
+      "active": true
+    },
+    {
+      "firm_code": "KSS",
+      "brand_name": "Khushboo Synthetics",
+      "brand_code": "KSS",
+      "city": "Surat",
+      "active": true
+    },
+    {
+      "firm_code": "ASC",
+      "brand_name": "Anupam Saree Centre",
+      "brand_code": "ASC",
+      "city": "Mathura",
+      "active": true
+    },
+    {
+      "firm_code": "NGP",
+      "brand_name": "Nand Gopal Print - Msme",
+      "brand_code": "NGP",
+      "city": "Jetpur",
+      "active": true
+    },
+    {
+      "firm_code": "ATA",
+      "brand_name": "Anand Textile Agency - Msme",
+      "brand_code": "ATA",
+      "city": "Burhanpur",
+      "active": true
+    },
+    {
+      "firm_code": "GSB",
+      "brand_name": "Ganpati Sales",
+      "brand_code": "GSB",
+      "city": "Balotra",
+      "active": true
+    },
+    {
+      "firm_code": "MTI",
+      "brand_name": "Mehta Texmills India Private Limited - M",
+      "brand_code": "MTI",
+      "city": "Pali-Marwar",
+      "active": true
+    },
+    {
+      "firm_code": "RI",
+      "brand_name": "Rajasthan Industries",
+      "brand_code": "RI",
+      "city": "Pali-Marwar",
+      "active": true
+    },
+    {
+      "firm_code": "PPP",
+      "brand_name": "Paresh Print Private Limited",
+      "brand_code": "PPP",
+      "city": "Jetpur",
+      "active": true
+    },
+    {
+      "firm_code": "JKP",
+      "brand_name": "Jay Khodiyar Mills",
+      "brand_code": "JKM",
+      "city": "Jetpur",
+      "active": true
+    },
+    {
+      "firm_code": "AF",
+      "brand_name": "Acm Fabricot - Msme",
+      "brand_code": "AF",
+      "city": "Balotra",
+      "active": true
+    },
+    {
+      "firm_code": "MS",
+      "brand_name": "Malchand Sons",
+      "brand_code": "MS",
+      "city": "Mumbai",
+      "active": true
+    },
+    {
+      "firm_code": "RTC",
+      "brand_name": "Ruthvik Trading Co",
+      "brand_code": "RTC",
+      "city": "Ahmedabad",
+      "active": true
+    },
+    {
+      "firm_code": "RTM",
+      "brand_name": "Rahul Textiles Mills",
+      "brand_code": "RTM",
+      "city": "Erode",
+      "active": true
+    },
+    {
+      "firm_code": "KCMI",
+      "brand_name": "Kanchan Cotton Mills",
+      "brand_code": "KCMI",
+      "city": "Ichalkaranji",
+      "active": true
+    },
+    {
+      "firm_code": "MP",
+      "brand_name": "Manglam Prints - Msme",
+      "brand_code": "MP",
+      "city": "Pali-Marwar",
+      "active": true
+    },
+    {
+      "firm_code": "PF",
+      "brand_name": "Pragati Fabrics",
+      "brand_code": "PF",
+      "city": "Pali-Marwar",
+      "active": true
+    },
+    {
+      "firm_code": "SSS",
+      "brand_name": "Shree Sadguru Sarees",
+      "brand_code": "SSS",
+      "city": "Surat",
+      "active": true
+    },
+    {
+      "firm_code": "SM",
+      "brand_name": "Shubh Mandir",
+      "brand_code": "SM",
+      "city": "Surat",
+      "active": true
+    },
+    {
+      "firm_code": "TFS",
+      "brand_name": "Tanu Fashion",
+      "brand_code": "TFS",
+      "city": "Surat",
+      "active": true
+    },
+    {
+      "firm_code": "MRF",
+      "brand_name": "Manish Ratan Fabrics - Msme",
+      "brand_code": "MRF",
+      "city": "Balotra",
+      "active": true
+    },
+    {
+      "firm_code": "SST",
+      "brand_name": "Sunshine Textile",
+      "brand_code": "SST",
+      "city": "Pali-Marwar",
+      "active": true
+    },
+    {
+      "firm_code": "SLFS",
+      "brand_name": "Shubh Lakshmi Fashion Llp",
+      "brand_code": "SLFS",
+      "city": "Surat",
+      "active": true
+    },
+    {
+      "firm_code": "BBP",
+      "brand_name": "Brij Bansuri Prints",
+      "brand_code": "BBP",
+      "city": "Surat",
+      "active": true
+    },
+    {
+      "firm_code": "VCS",
+      "brand_name": "Vasuki Creations",
+      "brand_code": "VCS",
+      "city": "Surat",
+      "active": true
+    },
+    {
+      "firm_code": "TTF",
+      "brand_name": "Tirupati Tex Fab",
+      "brand_code": "TTF",
+      "city": "Surat",
+      "active": true
+    },
+    {
+      "firm_code": "ASL",
+      "brand_name": "Amrit Shawls - Msme",
+      "brand_code": "ASL",
+      "city": "Ludhiana",
+      "active": true
+    },
+    {
+      "firm_code": "SS",
+      "brand_name": "Sairam Synthetics",
+      "brand_code": "SS",
+      "city": "Indore",
+      "active": true
+    },
+    {
+      "firm_code": "NDT",
+      "brand_name": "Nandani Tex",
+      "brand_code": "NDT",
+      "city": "Surat",
+      "active": true
+    },
+    {
+      "firm_code": "DTC",
+      "brand_name": "Durga Trading Company - Msme",
+      "brand_code": "DTC",
+      "city": "Gorakhpur",
+      "active": true
+    },
+    {
+      "firm_code": "MI",
+      "brand_name": "Mangilal Industries",
+      "brand_code": "MI",
+      "city": "Balotra",
+      "active": true
+    },
+    {
+      "firm_code": "SBFS",
+      "brand_name": "Shyam Bihari Fashion",
+      "brand_code": "SBFS",
+      "city": "Surat",
+      "active": true
+    },
+    {
+      "firm_code": "MSS",
+      "brand_name": "Muskan Sarees",
+      "brand_code": "MSS",
+      "city": "Surat",
+      "active": true
+    },
+    {
+      "firm_code": "SSS5",
+      "brand_name": "Shubh Sindoor",
+      "brand_code": "SSS5",
+      "city": "Surat",
+      "active": true
+    },
+    {
+      "firm_code": "OF",
+      "brand_name": "Oscar Fabrics",
+      "brand_code": "OF",
+      "city": "Chennimalai",
+      "active": true
+    },
+    {
+      "firm_code": "HOT",
+      "brand_name": "Hari Om Textile",
+      "brand_code": "HOT",
+      "city": "Panipat",
+      "active": true
+    },
+    {
+      "firm_code": "ATG",
+      "brand_name": "A.Tex",
+      "brand_code": "ATG",
+      "city": "Gorakhpur",
+      "active": false
+    },
+    {
+      "firm_code": "AS",
+      "brand_name": "Aaradhya Suits",
+      "brand_code": "AS",
+      "city": "Surat",
+      "active": false
+    },
+    {
+      "firm_code": "ASS",
+      "brand_name": "Aarav Sarees",
+      "brand_code": "ASS",
+      "city": "Surat",
+      "active": false
+    },
+    {
+      "firm_code": "ALF",
+      "brand_name": "Akash Leela Fashions",
+      "brand_code": "ALF",
+      "city": "Surat",
+      "active": false
+    },
+    {
+      "firm_code": "ASS1",
+      "brand_name": "Ambaji Sarees",
+      "brand_code": "ASS1",
+      "city": "Surat",
+      "active": false
+    },
+    {
+      "firm_code": "ATC",
+      "brand_name": "Amruta Texcom",
+      "brand_code": "ATC",
+      "city": "Ichalkaranji",
+      "active": false
+    },
+    {
+      "firm_code": "BCJ",
+      "brand_name": "Balaji Cotton",
+      "brand_code": "BCJ",
+      "city": "Jetpur",
+      "active": false
+    },
+    {
+      "firm_code": "MF",
+      "brand_name": "Chandrakala Sarees",
+      "brand_code": "CSS1",
+      "city": "Surat",
+      "active": false
+    },
+    {
+      "firm_code": "DI",
+      "brand_name": "Deepvin Industries - Msme",
+      "brand_code": "DI",
+      "city": "Jetpur",
+      "active": false
+    },
+    {
+      "firm_code": "FT",
+      "brand_name": "Floreon Trends",
+      "brand_code": "FT",
+      "city": "Surat",
+      "active": false
+    },
+    {
+      "firm_code": "GMN",
+      "brand_name": "G M Non Wovens",
+      "brand_code": "GMN",
+      "city": "Panipat",
+      "active": false
+    },
+    {
+      "firm_code": "GT",
+      "brand_name": "Garg Textiles - Msme",
+      "brand_code": "GT",
+      "city": "Mathura",
+      "active": false
+    },
+    {
+      "firm_code": "NS",
+      "brand_name": "Girish Synthetics",
+      "brand_code": "GS",
+      "city": "Surat",
+      "active": false
+    },
+    {
+      "firm_code": "MF",
+      "brand_name": "Gokila Sarees",
+      "brand_code": "GSS1",
+      "city": "Surat",
+      "active": false
+    },
+    {
+      "firm_code": "MF",
+      "brand_name": "Hari Leela",
+      "brand_code": "HLS",
+      "city": "Surat",
+      "active": false
+    },
+    {
+      "firm_code": "JMS",
+      "brand_name": "Jai Matadi Silk Mills",
+      "brand_code": "JMS",
+      "city": "Surat",
+      "active": false
+    },
+    {
+      "firm_code": "JMT",
+      "brand_name": "Jai Minakshi Textile - Msme",
+      "brand_code": "JMT",
+      "city": "Pali-Marwar",
+      "active": false
+    },
+    {
+      "firm_code": "JF",
+      "brand_name": "Janki Fabrics",
+      "brand_code": "JF",
+      "city": "Indore",
+      "active": false
+    },
+    {
+      "firm_code": "JS",
+      "brand_name": "Jasbeer Synthetics - Msme",
+      "brand_code": "JS",
+      "city": "Surat",
+      "active": false
+    },
+    {
+      "firm_code": "JKP",
+      "brand_name": "Jay Khodiyar Processors",
+      "brand_code": "JKP",
+      "city": "Jetpur",
+      "active": false
+    },
+    {
+      "firm_code": "KFA",
+      "brand_name": "Karnavati Fabco",
+      "brand_code": "KFA",
+      "city": "Ahmedabad",
+      "active": false
+    },
+    {
+      "firm_code": "KSM",
+      "brand_name": "Kaveri Silk Mills Pvt Ltd",
+      "brand_code": "KSM",
+      "city": "Surat",
+      "active": false
+    },
+    {
+      "firm_code": "KKS",
+      "brand_name": "Khatu Kripa",
+      "brand_code": "KKS",
+      "city": "Surat",
+      "active": false
+    },
+    {
+      "firm_code": "NGP1",
+      "brand_name": "Khushi",
+      "brand_code": "NGP1",
+      "city": "Jetpur",
+      "active": false
+    },
+    {
+      "firm_code": "KSB",
+      "brand_name": "Krishna Suitings",
+      "brand_code": "KSB",
+      "city": "Bhilwara",
+      "active": false
+    },
+    {
+      "firm_code": "KFS",
+      "brand_name": "Kundan Fabric",
+      "brand_code": "KFS",
+      "city": "Surat",
+      "active": false
+    },
+    {
+      "firm_code": "KSKSM",
+      "brand_name": "Kundan Sarees",
+      "brand_code": "KSKSM",
+      "city": "Surat",
+      "active": false
+    },
+    {
+      "firm_code": "LRTB",
+      "brand_name": "Laxmi Ratan Textiles - Msme",
+      "brand_code": "LRTB",
+      "city": "Balotra",
+      "active": false
+    },
+    {
+      "firm_code": "LTJ",
+      "brand_name": "Laxmipati Textile",
+      "brand_code": "LTJ",
+      "city": "Jetpur",
+      "active": false
+    },
+    {
+      "firm_code": "MDC",
+      "brand_name": "M Devendra & Co. - Msme",
+      "brand_code": "MDC",
+      "city": "Mumbai",
+      "active": false
+    },
+    {
+      "firm_code": "MBT",
+      "brand_name": "Maa Baneshwari Texofine - Msme",
+      "brand_code": "MBT",
+      "city": "Balotra",
+      "active": false
+    },
+    {
+      "firm_code": "MFA",
+      "brand_name": "Mahajan Fabrics- Msme",
+      "brand_code": "MFA",
+      "city": "Amritsar",
+      "active": false
+    },
+    {
+      "firm_code": "MT",
+      "brand_name": "Manju Textile",
+      "brand_code": "MT",
+      "city": "Panipat",
+      "active": false
+    },
+    {
+      "firm_code": "MSP",
+      "brand_name": "Manjushree Prints",
+      "brand_code": "MSP",
+      "city": "Surat",
+      "active": false
+    },
+    {
+      "firm_code": "MTM",
+      "brand_name": "Mayoor Textile Mills Llp",
+      "brand_code": "MTM",
+      "city": "Pali-Marwar",
+      "active": false
+    },
+    {
+      "firm_code": "MHS",
+      "brand_name": "Mehta Silk",
+      "brand_code": "MHS",
+      "city": "Surat",
+      "active": false
+    },
+    {
+      "firm_code": "MHT",
+      "brand_name": "Mohit Textile",
+      "brand_code": "MHT",
+      "city": "Surat",
+      "active": false
+    },
+    {
+      "firm_code": "MFS",
+      "brand_name": "Muskan Fashion",
+      "brand_code": "MFS",
+      "city": "Surat",
+      "active": false
+    },
+    {
+      "firm_code": "NS",
+      "brand_name": "Naisha Synthetics",
+      "brand_code": "NS",
+      "city": "Surat",
+      "active": false
+    },
+    {
+      "firm_code": "NTI",
+      "brand_name": "Nandan Textile Industries",
+      "brand_code": "NTI",
+      "city": "Jetpur",
+      "active": false
+    },
+    {
+      "firm_code": "NES",
+      "brand_name": "Nandani Enterprises",
+      "brand_code": "NES",
+      "city": "Surat",
+      "active": false
+    },
+    {
+      "firm_code": "NSS1",
+      "brand_name": "Nandini Sarees",
+      "brand_code": "NSS1",
+      "city": "Surat",
+      "active": false
+    },
+    {
+      "firm_code": "NF",
+      "brand_name": "Nargis Fashion Private Limited",
+      "brand_code": "NF",
+      "city": "Kolkata",
+      "active": false
+    },
+    {
+      "firm_code": "NP",
+      "brand_name": "National Process",
+      "brand_code": "NP",
+      "city": "Mathura",
+      "active": false
+    },
+    {
+      "firm_code": "NFT",
+      "brand_name": "Navkar Fab Tex",
+      "brand_code": "NFT",
+      "city": "Ahmedabad",
+      "active": false
+    },
+    {
+      "firm_code": "NSS2",
+      "brand_name": "Nischay Sarees",
+      "brand_code": "NSS2",
+      "city": "Surat",
+      "active": false
+    },
+    {
+      "firm_code": "PCHS",
+      "brand_name": "Perfect Chunari House Pvt Ltd - Msme",
+      "brand_code": "PCHS",
+      "city": "Surat",
+      "active": false
+    },
+    {
+      "firm_code": "PLF",
+      "brand_name": "Priyalaxmi Fabrics",
+      "brand_code": "PLF",
+      "city": "Pali-Marwar",
+      "active": false
+    },
+    {
+      "firm_code": "RFB",
+      "brand_name": "Raigur Fabrics",
+      "brand_code": "RFB",
+      "city": "Bhiwandi",
+      "active": false
+    },
+    {
+      "firm_code": "RIP",
+      "brand_name": "Raj Industries - Msme",
+      "brand_code": "RIP",
+      "city": "Pali-Marwar",
+      "active": false
+    },
+    {
+      "firm_code": "RJH",
+      "brand_name": "Rajeev Mahajan Huf",
+      "brand_code": "RJH",
+      "city": "Amritsar",
+      "active": false
+    },
+    {
+      "firm_code": "SAV",
+      "brand_name": "Savamani",
+      "brand_code": "SAV",
+      "city": "Surat",
+      "active": false
+    },
+    {
+      "firm_code": "SRH",
+      "brand_name": "Shah Rikhabchand Hazarimal",
+      "brand_code": "SRH",
+      "city": "Ahmedabad",
+      "active": false
+    },
+    {
+      "firm_code": "SAS1",
+      "brand_name": "Showlook Apparels",
+      "brand_code": "SAS1",
+      "city": "Surat",
+      "active": false
+    },
+    {
+      "firm_code": "SGF",
+      "brand_name": "Shree Ganesh Fabrics",
+      "brand_code": "SGF",
+      "city": "Surat",
+      "active": false
+    },
+    {
+      "firm_code": "SRPF",
+      "brand_name": "Shree Ram Pavan Fashions",
+      "brand_code": "SRPF",
+      "city": "Kolkata",
+      "active": false
+    },
+    {
+      "firm_code": "SSPS",
+      "brand_name": "Shreehari Sarees Pvt Ltd",
+      "brand_code": "SSPS",
+      "city": "Surat",
+      "active": false
+    },
+    {
+      "firm_code": "SGI",
+      "brand_name": "Shri Gopal Industries - Msme",
+      "brand_code": "SGI",
+      "city": "Pali-Marwar",
+      "active": false
+    },
+    {
+      "firm_code": "SLF",
+      "brand_name": "Shubh Lakshmi Fashion - Msme",
+      "brand_code": "SLF",
+      "city": "Surat",
+      "active": false
+    },
+    {
+      "firm_code": "SYS",
+      "brand_name": "Siya Sarees",
+      "brand_code": "SYS",
+      "city": "Kolkata",
+      "active": false
+    },
+    {
+      "firm_code": "ST",
+      "brand_name": "Somnath Textile - Msme",
+      "brand_code": "ST",
+      "city": "Pali-Marwar",
+      "active": false
+    },
+    {
+      "firm_code": "SC",
+      "brand_name": "Sunray Creation",
+      "brand_code": "SC",
+      "city": "Jetpur",
+      "active": false
+    },
+    {
+      "firm_code": "TJP",
+      "brand_name": "Teja Prints",
+      "brand_code": "TJP",
+      "city": "Surat",
+      "active": false
+    },
+    {
+      "firm_code": "VSS",
+      "brand_name": "Vaishnavi Sarees",
+      "brand_code": "VSS",
+      "city": "Surat",
+      "active": false
+    },
+    {
+      "firm_code": "VFS",
+      "brand_name": "Vasuki Fashion",
+      "brand_code": "VFS",
+      "city": "Surat",
+      "active": false
+    },
+    {
+      "firm_code": "VS&S",
+      "brand_name": "Veda Silk & Sarees",
+      "brand_code": "VS&S",
+      "city": "Surat",
+      "active": false
+    },
+    {
+      "firm_code": "NV",
+      "brand_name": "Nandanvan",
+      "brand_code": "NV",
+      "city": "Jetpur",
+      "active": true
+    }
+  ],
+  "items": [
+    {
+      "brand_code": "BP",
+      "category": "",
+      "item_name": "Banjo",
+      "aliases": "",
+      "rate": 365,
+      "use_count": 2
+    },
+    {
+      "brand_code": "BP",
+      "category": "",
+      "item_name": "gulabo",
+      "aliases": "",
+      "rate": 636,
+      "use_count": 2
+    },
+    {
+      "brand_code": "CSS1",
+      "category": "Sarees",
+      "item_name": "Janshatabdi",
+      "aliases": "",
+      "rate": 210,
+      "use_count": 5
+    },
+    {
+      "brand_code": "CSS1",
+      "category": "Saree",
+      "item_name": "Bullet Train",
+      "aliases": "",
+      "rate": 230,
+      "use_count": 3
+    },
+    {
+      "brand_code": "CSS1",
+      "category": "",
+      "item_name": "Mix Items - half parcel each",
+      "aliases": "",
+      "rate": 0,
+      "use_count": 6
+    },
+    {
+      "brand_code": "RI",
+      "category": "Suit",
+      "item_name": "Niharika [Pouch+Bag]",
+      "aliases": "",
+      "rate": 385,
+      "use_count": 4
+    },
+    {
+      "brand_code": "RI",
+      "category": "Suit",
+      "item_name": "Patiyala Pari [Pouch+Bag]",
+      "aliases": "",
+      "rate": 445,
+      "use_count": 3
+    },
+    {
+      "brand_code": "KFS",
+      "category": "",
+      "item_name": "Mix Items - half parcel each",
+      "aliases": "",
+      "rate": 0,
+      "use_count": 2
+    },
+    {
+      "brand_code": "KFS",
+      "category": "",
+      "item_name": "Mix items",
+      "aliases": "",
+      "rate": 0,
+      "use_count": 3
+    },
+    {
+      "brand_code": "NGP",
+      "category": "",
+      "item_name": "Patiyala Express [Pouch]",
+      "aliases": "",
+      "rate": 315,
+      "use_count": 1
+    },
+    {
+      "brand_code": "GSB",
+      "category": "",
+      "item_name": "Kesar 100L",
+      "aliases": "",
+      "rate": 39,
+      "use_count": 4
+    },
+    {
+      "brand_code": "SYS",
+      "category": "",
+      "item_name": "Ladli",
+      "aliases": "",
+      "rate": 415,
+      "use_count": 1
+    },
+    {
+      "brand_code": "CSS1",
+      "category": "",
+      "item_name": "Mix Retail Pack",
+      "aliases": "",
+      "rate": 0,
+      "use_count": 2
+    },
+    {
+      "brand_code": "NSS1",
+      "category": "Saree",
+      "item_name": "Rudra",
+      "aliases": "",
+      "rate": 310,
+      "use_count": 2
+    },
+    {
+      "brand_code": "HLS",
+      "category": "Saree",
+      "item_name": "Citizen - 4 matching",
+      "aliases": "",
+      "rate": 345,
+      "use_count": 5
+    },
+    {
+      "brand_code": "HLS",
+      "category": "Saree",
+      "item_name": "Citizen - Gold Spl",
+      "aliases": "",
+      "rate": 345,
+      "use_count": 2
+    },
+    {
+      "brand_code": "TJP",
+      "category": "Suit",
+      "item_name": "Guljar",
+      "aliases": "",
+      "rate": 118,
+      "use_count": 3
+    },
+    {
+      "brand_code": "HLS",
+      "category": "",
+      "item_name": "Mix 2 items",
+      "aliases": "",
+      "rate": 0,
+      "use_count": 1
+    },
+    {
+      "brand_code": "CSS1",
+      "category": "",
+      "item_name": "Solid Masti",
+      "aliases": "",
+      "rate": 256,
+      "use_count": 2
+    },
+    {
+      "brand_code": "CSS1",
+      "category": "",
+      "item_name": "Animal",
+      "aliases": "",
+      "rate": 0,
+      "use_count": 1
+    },
+    {
+      "brand_code": "NSS1",
+      "category": "Saree",
+      "item_name": "Sholay",
+      "aliases": "",
+      "rate": 190,
+      "use_count": 8
+    },
+    {
+      "brand_code": "NSS1",
+      "category": "",
+      "item_name": "Mix items",
+      "aliases": "",
+      "rate": 0,
+      "use_count": 6
+    },
+    {
+      "brand_code": "NS",
+      "category": "",
+      "item_name": "Kalamkari Chiku 5.25 Box",
+      "aliases": "",
+      "rate": 200,
+      "use_count": 1
+    },
+    {
+      "brand_code": "HLS",
+      "category": "Saree",
+      "item_name": "Tana Bana",
+      "aliases": "",
+      "rate": 320,
+      "use_count": 3
+    },
+    {
+      "brand_code": "HLS",
+      "category": "Saree",
+      "item_name": "Bagicha",
+      "aliases": "",
+      "rate": 405,
+      "use_count": 3
+    },
+    {
+      "brand_code": "NSS1",
+      "category": "Saree",
+      "item_name": "Rudra Green",
+      "aliases": "",
+      "rate": 0,
+      "use_count": 3
+    },
+    {
+      "brand_code": "NSS1",
+      "category": "",
+      "item_name": "Bumper Draw",
+      "aliases": "",
+      "rate": 0,
+      "use_count": 2
+    },
+    {
+      "brand_code": "NSS1",
+      "category": "",
+      "item_name": "Gulabo",
+      "aliases": "",
+      "rate": 0,
+      "use_count": 2
+    },
+    {
+      "brand_code": "NSS1",
+      "category": "",
+      "item_name": "Mario",
+      "aliases": "",
+      "rate": 0,
+      "use_count": 2
+    },
+    {
+      "brand_code": "NSS1",
+      "category": "",
+      "item_name": "Roop Laxmi",
+      "aliases": "",
+      "rate": 0,
+      "use_count": 2
+    },
+    {
+      "brand_code": "NSS1",
+      "category": "",
+      "item_name": "Super Hero",
+      "aliases": "",
+      "rate": 0,
+      "use_count": 2
+    },
+    {
+      "brand_code": "MTI",
+      "category": "Rubia",
+      "item_name": "Silfil 78cm",
+      "aliases": "",
+      "rate": 46.18,
+      "use_count": 3
+    },
+    {
+      "brand_code": "SRH",
+      "category": "",
+      "item_name": "Mix patta items",
+      "aliases": "",
+      "rate": 0,
+      "use_count": 1
+    },
+    {
+      "brand_code": "SM",
+      "category": "",
+      "item_name": "Mix hit items",
+      "aliases": "",
+      "rate": 0,
+      "use_count": 4
+    },
+    {
+      "brand_code": "NSS1",
+      "category": "",
+      "item_name": "Mix chundri items",
+      "aliases": "",
+      "rate": 0,
+      "use_count": 2
+    },
+    {
+      "brand_code": "NSS1",
+      "category": "",
+      "item_name": "Mix catalog items",
+      "aliases": "",
+      "rate": 0,
+      "use_count": 2
+    },
+    {
+      "brand_code": "AS",
+      "category": "",
+      "item_name": "Mix selected items",
+      "aliases": "",
+      "rate": 0,
+      "use_count": 2
+    },
+    {
+      "brand_code": "MFS",
+      "category": "",
+      "item_name": "Mix selected items",
+      "aliases": "",
+      "rate": 0,
+      "use_count": 2
+    },
+    {
+      "brand_code": "NGP1",
+      "category": "Stich suit",
+      "item_name": "Kara [Stiched]",
+      "aliases": "",
+      "rate": 460,
+      "use_count": 6
+    },
+    {
+      "brand_code": "NGP1",
+      "category": "Suit",
+      "item_name": "Zara [Stiched]",
+      "aliases": "",
+      "rate": 460,
+      "use_count": 5
+    },
+    {
+      "brand_code": "NSS1",
+      "category": "",
+      "item_name": "Mix 4 items",
+      "aliases": "",
+      "rate": 0,
+      "use_count": 2
+    },
+    {
+      "brand_code": "NGP1",
+      "category": "Stiched Suit",
+      "item_name": "Anarkali",
+      "aliases": "",
+      "rate": 500,
+      "use_count": 9
+    },
+    {
+      "brand_code": "CSS1",
+      "category": "Saree",
+      "item_name": "Shakira",
+      "aliases": "",
+      "rate": 273,
+      "use_count": 2
+    },
+    {
+      "brand_code": "CSS1",
+      "category": "Saree",
+      "item_name": "Vande Bharat",
+      "aliases": "",
+      "rate": 195,
+      "use_count": 2
+    },
+    {
+      "brand_code": "CSS1",
+      "category": "Saree",
+      "item_name": "Noble",
+      "aliases": "",
+      "rate": 395,
+      "use_count": 3
+    },
+    {
+      "brand_code": "CSS1",
+      "category": "Saree",
+      "item_name": "Startup",
+      "aliases": "",
+      "rate": 245,
+      "use_count": 2
+    },
+    {
+      "brand_code": "CSS1",
+      "category": "Saree",
+      "item_name": "Masala Soda",
+      "aliases": "",
+      "rate": 253,
+      "use_count": 2
+    },
+    {
+      "brand_code": "GSS1",
+      "category": "",
+      "item_name": "Chitchor",
+      "aliases": "",
+      "rate": 510,
+      "use_count": 2
+    },
+    {
+      "brand_code": "JS",
+      "category": "",
+      "item_name": "Green Valley",
+      "aliases": "",
+      "rate": 270,
+      "use_count": 1
+    },
+    {
+      "brand_code": "ASC",
+      "category": "Saree",
+      "item_name": "Chaiwala",
+      "aliases": "",
+      "rate": 180,
+      "use_count": 5
+    },
+    {
+      "brand_code": "ASC",
+      "category": "",
+      "item_name": "Modi Ji on Dhanvarsha",
+      "aliases": "",
+      "rate": 180,
+      "use_count": 3
+    },
+    {
+      "brand_code": "CSS1",
+      "category": "Saree",
+      "item_name": "Cotton Candy",
+      "aliases": "",
+      "rate": 0,
+      "use_count": 2
+    },
+    {
+      "brand_code": "ASC",
+      "category": "",
+      "item_name": "Riddhi Siddhi on Dhanvarsha",
+      "aliases": "",
+      "rate": 180,
+      "use_count": 2
+    },
+    {
+      "brand_code": "TJP",
+      "category": "",
+      "item_name": "Anarkali",
+      "aliases": "",
+      "rate": 375,
+      "use_count": 1
+    },
+    {
+      "brand_code": "TJP",
+      "category": "",
+      "item_name": "Anarkali",
+      "aliases": "",
+      "rate": 375,
+      "use_count": 1
+    },
+    {
+      "brand_code": "TJP",
+      "category": "Suit",
+      "item_name": "Masakali",
+      "aliases": "",
+      "rate": 375,
+      "use_count": 5
+    },
+    {
+      "brand_code": "NSS1",
+      "category": "",
+      "item_name": "Mix Retail Pack",
+      "aliases": "",
+      "rate": 0,
+      "use_count": 1
+    },
+    {
+      "brand_code": "NGP",
+      "category": "Suit",
+      "item_name": "Patiyala Kudi [Pouch]",
+      "aliases": "",
+      "rate": 260,
+      "use_count": 2
+    },
+    {
+      "brand_code": "ASC",
+      "category": "",
+      "item_name": "Chunnilal",
+      "aliases": "",
+      "rate": 193,
+      "use_count": 1
+    },
+    {
+      "brand_code": "NV",
+      "category": "Saree",
+      "item_name": "Lenskart 5.50mtr",
+      "aliases": "",
+      "rate": 205,
+      "use_count": 4
+    },
+    {
+      "brand_code": "TJP",
+      "category": "Rayon",
+      "item_name": "Kohinoor 95L",
+      "aliases": "",
+      "rate": 74,
+      "use_count": 3
+    },
+    {
+      "brand_code": "PPP",
+      "category": "",
+      "item_name": "Aarika Chuari 5.50 mtr",
+      "aliases": "",
+      "rate": 205,
+      "use_count": 1
+    },
+    {
+      "brand_code": "PPP",
+      "category": "",
+      "item_name": "Lenskart 5.50mtr",
+      "aliases": "",
+      "rate": 205,
+      "use_count": 1
+    },
+    {
+      "brand_code": "RI",
+      "category": "",
+      "item_name": "Astar - Hiramoti 75cm SPP",
+      "aliases": "",
+      "rate": 17.87,
+      "use_count": 1
+    },
+    {
+      "brand_code": "MTI",
+      "category": "",
+      "item_name": "Vandita 78cm",
+      "aliases": "",
+      "rate": 45.25,
+      "use_count": 2
+    },
+    {
+      "brand_code": "NSS1",
+      "category": "Saree",
+      "item_name": "Mix Selected items",
+      "aliases": "",
+      "rate": 0,
+      "use_count": 2
+    },
+    {
+      "brand_code": "MRF",
+      "category": "",
+      "item_name": "Mayuri",
+      "aliases": "",
+      "rate": 20.51,
+      "use_count": 1
+    },
+    {
+      "brand_code": "MRF",
+      "category": "",
+      "item_name": "Neelkamal",
+      "aliases": "",
+      "rate": 22.51,
+      "use_count": 1
+    },
+    {
+      "brand_code": "CSS1",
+      "category": "",
+      "item_name": "Mix gold items",
+      "aliases": "",
+      "rate": 0,
+      "use_count": 1
+    },
+    {
+      "brand_code": "CSS1",
+      "category": "",
+      "item_name": "Mix green items",
+      "aliases": "",
+      "rate": 0,
+      "use_count": 2
+    },
+    {
+      "brand_code": "CSS1",
+      "category": "",
+      "item_name": "Pankhuri",
+      "aliases": "",
+      "rate": 265,
+      "use_count": 1
+    },
+    {
+      "brand_code": "GSS1",
+      "category": "",
+      "item_name": "Roopshringar",
+      "aliases": "",
+      "rate": 590,
+      "use_count": 1
+    },
+    {
+      "brand_code": "NSS1",
+      "category": "",
+      "item_name": "Rangriti",
+      "aliases": "",
+      "rate": 270,
+      "use_count": 1
+    },
+    {
+      "brand_code": "NSS1",
+      "category": "",
+      "item_name": "Laxmi Bomb",
+      "aliases": "",
+      "rate": 350,
+      "use_count": 1
+    },
+    {
+      "brand_code": "NSS1",
+      "category": "",
+      "item_name": "Govardhan",
+      "aliases": "",
+      "rate": 380,
+      "use_count": 1
+    },
+    {
+      "brand_code": "NSS1",
+      "category": "",
+      "item_name": "Fursat",
+      "aliases": "",
+      "rate": 315,
+      "use_count": 1
+    },
+    {
+      "brand_code": "ASC",
+      "category": "",
+      "item_name": "Modi no 1 on Dhanvarsha",
+      "aliases": "",
+      "rate": 180,
+      "use_count": 3
+    },
+    {
+      "brand_code": "MS",
+      "category": "",
+      "item_name": "Devanshi",
+      "aliases": "",
+      "rate": 320,
+      "use_count": 1
+    },
+    {
+      "brand_code": "MS",
+      "category": "",
+      "item_name": "Purnima Green",
+      "aliases": "",
+      "rate": 330,
+      "use_count": 1
+    },
+    {
+      "brand_code": "SYS",
+      "category": "",
+      "item_name": "Dhurandhar",
+      "aliases": "",
+      "rate": 365,
+      "use_count": 1
+    },
+    {
+      "brand_code": "NV",
+      "category": "",
+      "item_name": "Aarika Chundari",
+      "aliases": "",
+      "rate": 205,
+      "use_count": 1
+    },
+    {
+      "brand_code": "NGP",
+      "category": "",
+      "item_name": "Royal Patiyala [Pouch]",
+      "aliases": "",
+      "rate": 260,
+      "use_count": 1
+    },
+    {
+      "brand_code": "SSPS",
+      "category": "",
+      "item_name": "Mix Items - half parcel each",
+      "aliases": "",
+      "rate": 0,
+      "use_count": 2
+    },
+    {
+      "brand_code": "TTF",
+      "category": "Suit",
+      "item_name": "Mix items upto 250",
+      "aliases": "",
+      "rate": 0,
+      "use_count": 2
+    },
+    {
+      "brand_code": "AS",
+      "category": "",
+      "item_name": "Mix items",
+      "aliases": "",
+      "rate": 0,
+      "use_count": 1
+    },
+    {
+      "brand_code": "SSPS",
+      "category": "",
+      "item_name": "Mix items",
+      "aliases": "",
+      "rate": 0,
+      "use_count": 2
+    },
+    {
+      "brand_code": "RTM",
+      "category": "",
+      "item_name": "Lovino Mix Colors",
+      "aliases": "",
+      "rate": 55,
+      "use_count": 2
+    },
+    {
+      "brand_code": "PF",
+      "category": "",
+      "item_name": "Banarasi Babu - Red",
+      "aliases": "",
+      "rate": 55,
+      "use_count": 1
+    },
+    {
+      "brand_code": "PF",
+      "category": "",
+      "item_name": "Banarasi Babu - Orange",
+      "aliases": "",
+      "rate": 55,
+      "use_count": 1
+    }
+  ],
+  "parties": [
+    {
+      "name": "Akash Ganga",
+      "city": "Sujawalpur",
+      "station": "Muzaffarpur",
+      "gstin": "10CBGPK6106C1ZF"
+    },
+    {
+      "name": "Pramod Kumar Suresh Kumar",
+      "city": "Sitamarhi",
+      "station": "Sitamarhi",
+      "gstin": "10AAGPH0722C1ZS"
+    },
+    {
+      "name": "Ashish Vastralay",
+      "city": "Barachakia",
+      "station": "Muzaffarpur",
+      "gstin": "10AGPPC6116J1ZP"
+    },
+    {
+      "name": "Vijay Vastralaya",
+      "city": "Sakra",
+      "station": "Muzaffarpur",
+      "gstin": "10APBPC0077P1Z8"
+    },
+    {
+      "name": "Chiranjiv Synthetics",
+      "city": "Simri",
+      "station": "Simri",
+      "gstin": "10AUCPD3762G1Z9"
+    },
+    {
+      "name": "Jagdish Vastralaya",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10AAEFJ8239J1ZE"
+    },
+    {
+      "name": "Arun Textiles",
+      "city": "Madhubani",
+      "station": "Madhubani",
+      "gstin": "10AAJFA3927B1Z6"
+    },
+    {
+      "name": "Mahira Creation",
+      "city": "Samastipur",
+      "station": "Samastipur",
+      "gstin": "10BLEPA7322M1ZI"
+    },
+    {
+      "name": "Sri Pragati Textiles",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10ACPPS6412B1ZZ"
+    },
+    {
+      "name": "Kajal Saree Centre",
+      "city": "Madhuban",
+      "station": "Muzaffarpur",
+      "gstin": "10DVYPS4834L1ZT"
+    },
+    {
+      "name": "Maa Durga Saree Centre",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10BVBPG8663C1Z2"
+    },
+    {
+      "name": "Pawan Vastralaya",
+      "city": "Bajitpur",
+      "station": "Bajitpur",
+      "gstin": "10AJLPS3511L1Z9"
+    },
+    {
+      "name": "Cash Center",
+      "city": "Tajpur",
+      "station": "Muzaffarpur",
+      "gstin": "10ADVPM1732B1Z0"
+    },
+    {
+      "name": "Dwarka Prasad Sushil Kumar & Co.",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10AAPFD0768D1ZS"
+    },
+    {
+      "name": "Sitaram Pawan Kumar",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10AEVPK1304E1Z2"
+    },
+    {
+      "name": "M Chaudhary Saree Center",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10AGLPK4683Q1ZV"
+    },
+    {
+      "name": "Sri Ganesh Sri Laxmi",
+      "city": "Motihari",
+      "station": "Motihari",
+      "gstin": "10BTMPK0119A1ZK"
+    },
+    {
+      "name": "Sri Vidyanand Animesh Kishore",
+      "city": "Jandaha",
+      "station": "Muzaffarpur",
+      "gstin": "10AEVPK1666F1ZJ"
+    },
+    {
+      "name": "Sanvi Synthetics",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10ANOPK2368L1ZT"
+    },
+    {
+      "name": "Tikmani Synthetics",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10BAQPT2339N1Z9"
+    },
+    {
+      "name": "Sati Textile",
+      "city": "Samastipur",
+      "station": "Samastipur",
+      "gstin": "10GHZPP3940N1ZK"
+    },
+    {
+      "name": "Vatika",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10AAMFV8000B1ZS"
+    },
+    {
+      "name": "Priyanka Khadi Bhandar",
+      "city": "Bettiah",
+      "station": "Bettiah",
+      "gstin": "10AIWPK8400G1ZD"
+    },
+    {
+      "name": "Suit House",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10AFJPJ4690P1Z3"
+    },
+    {
+      "name": "Vinay Kumar Pramod Kumar",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10AEVPK1298R1ZQ"
+    },
+    {
+      "name": "Sri Pramod Handloom",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10AIHPS1618P1Z3"
+    },
+    {
+      "name": "Shankar Vastralaya",
+      "city": "Khutauna",
+      "station": "Khutauna",
+      "gstin": "10ACHPA8360Q1ZJ"
+    },
+    {
+      "name": "Suraj Synthetic",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10ACTPB9326M1ZE"
+    },
+    {
+      "name": "Kanhaiya Textiles",
+      "city": "Pupri",
+      "station": "Pupri",
+      "gstin": "10ALKPD8575E1ZA"
+    },
+    {
+      "name": "Sajjan Kumar Sharwan Kumar",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10AAVFS8366G1ZR"
+    },
+    {
+      "name": "Ganesh Textiles",
+      "city": "Jainagar",
+      "station": "Jainagar",
+      "gstin": "10AZYPM0971D1ZD"
+    },
+    {
+      "name": "Ram Kishundas Dhandharia",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10AAMPD3519K1Z0"
+    },
+    {
+      "name": "Murlidhar Shankar Lal",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10ACTPB7242C1Z4"
+    },
+    {
+      "name": "Sri Dholi Sati Synthetics",
+      "city": "Samastipur",
+      "station": "Samastipur",
+      "gstin": "10CDNPS6538K1Z3"
+    },
+    {
+      "name": "Lucky Textiles",
+      "city": "Bettiah",
+      "station": "Bettiah",
+      "gstin": "10AJZPK1313N1Z3"
+    },
+    {
+      "name": "Gopal Shree",
+      "city": "Tajpur",
+      "station": "Muzaffarpur",
+      "gstin": "10AJWPM8621L1ZR"
+    },
+    {
+      "name": "Raj Kumar Pramod Kumar (Rkpk)",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10AAVFR9602E1Z7"
+    },
+    {
+      "name": "Rajesh Kumar Ranjeet Kumar",
+      "city": "Jhanjharpur",
+      "station": "Darbhanga",
+      "gstin": "10AFHPK3392K1ZH"
+    },
+    {
+      "name": "Radha Krishna Textiles",
+      "city": "Bettiah",
+      "station": "Bettiah",
+      "gstin": "10AQXPS1950N1Z8"
+    },
+    {
+      "name": "Sri Sati Synthetics",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10ABTPC3926D1Z4"
+    },
+    {
+      "name": "Sri Ranisati Handloom",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10ADQPJ4534R1Z5"
+    },
+    {
+      "name": "Maa Ambe Saree Centre",
+      "city": "Samastipur",
+      "station": "Samastipur",
+      "gstin": "10AFSPM0918G1ZN"
+    },
+    {
+      "name": "Sri Vinayak Traders",
+      "city": "Chapra",
+      "station": "Chapra",
+      "gstin": "10ADFFS8187G1ZY"
+    },
+    {
+      "name": "Kishan Lal Pramod Kumar",
+      "city": "Nirmali",
+      "station": "Nirmali",
+      "gstin": "10ACBPC1009N1ZD"
+    },
+    {
+      "name": "Sri Ram Vastralaya",
+      "city": "Laukaha",
+      "station": "Laukaha",
+      "gstin": "10ASRPS4104L1ZM"
+    },
+    {
+      "name": "Tibrewal Textile",
+      "city": "Bettiah",
+      "station": "Bettiah",
+      "gstin": "10ABRPT8915H1ZA"
+    },
+    {
+      "name": "Sushil Handloom",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "1QATEPS8160Q127"
+    },
+    {
+      "name": "Kunal Textile",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10BISPD6275M1ZX"
+    },
+    {
+      "name": "Sri Shankar Textile",
+      "city": "Sitamarhi",
+      "station": "Sitamarhi",
+      "gstin": "10ADXFS2346H1ZX"
+    },
+    {
+      "name": "Bishwanath And Company",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10ABCPL5921A1ZJ"
+    },
+    {
+      "name": "Jai Mata Di Handloom",
+      "city": "Pathrahi",
+      "station": "Jainagar",
+      "gstin": "10ARBPC3314M1ZG"
+    },
+    {
+      "name": "Mehta Enterprises",
+      "city": "Runni Saidpur",
+      "station": "Runni Saidpur",
+      "gstin": "10DEXPK9298J1ZL"
+    },
+    {
+      "name": "Vijay Kumar Pawan Kr.",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10AAGFM3403P1ZH"
+    },
+    {
+      "name": "Sadan Lal Rajvansh",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10BEWPR8509E1Z8"
+    },
+    {
+      "name": "Bhagirath Prasad Mahesh Kumar",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10AHZPP8036H1ZY"
+    },
+    {
+      "name": "Hanuman Prasad Biharilal",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10AADFH5340M1ZN"
+    },
+    {
+      "name": "Geeta Textile",
+      "city": "Bettiah",
+      "station": "Bettiah",
+      "gstin": "10AFQPK2285N1Z4"
+    },
+    {
+      "name": "Bajrang Khadi Bhandar",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10ACOPD2064M1ZS"
+    },
+    {
+      "name": "Nathmal Damodar",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10AGHPP2954P1Z2"
+    },
+    {
+      "name": "Jainarain Sitaram",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10AAIFJ6760C1ZR"
+    },
+    {
+      "name": "Sri Raimata Textiles",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10ANJPB6474B1ZL"
+    },
+    {
+      "name": "Sri Kishan Arun Kumar",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10ABSFS6015Q1ZP"
+    },
+    {
+      "name": "Suit Creation",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10AHNPA1025D1ZE"
+    },
+    {
+      "name": "Hanumanbux Gaurishankar",
+      "city": "Jainagar",
+      "station": "Jainagar",
+      "gstin": "10AABFH1347L1ZS"
+    },
+    {
+      "name": "Janata Cloth Stores",
+      "city": "Raiganj",
+      "station": "Raiganj",
+      "gstin": "19AKOPS5692J1Z4"
+    },
+    {
+      "name": "Saree Sansar",
+      "city": "Bettiah",
+      "station": "Bettiah",
+      "gstin": "10AGZPJ3567A1ZI"
+    },
+    {
+      "name": "Vinod Kumar Abhishek Kumar",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10AMKPJ3437E1ZJ"
+    },
+    {
+      "name": "Banwarilal Omprakash",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10ABEPT3603M1ZT"
+    },
+    {
+      "name": "Siddhi Vinayak Enterprises",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10ALIPT7036N1ZR"
+    },
+    {
+      "name": "Sri Krishna Vastra Bhandar",
+      "city": "Barachakia",
+      "station": "Barachakia",
+      "gstin": "10ABJPC4287F2Z1"
+    },
+    {
+      "name": "Sri Jagdamba Saree",
+      "city": "Motihari",
+      "station": "Motihari",
+      "gstin": "10BOWPP6249H1ZI"
+    },
+    {
+      "name": "Jagdamba Textile",
+      "city": "Bettiah",
+      "station": "Bettiah",
+      "gstin": "10AAYPR4963P1ZQ"
+    },
+    {
+      "name": "Dhandharia Brothers",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10AAMPD3518J1Z3"
+    },
+    {
+      "name": "Nutan Vastralaya",
+      "city": "Jainagar",
+      "station": "Jainagar",
+      "gstin": "10ABFPP7683Q1Z0"
+    },
+    {
+      "name": "Raj Kumar Pramod Kumar (Rp)",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10AAVFR9602E1Z7"
+    },
+    {
+      "name": "Praveen Textile Co.",
+      "city": "Sitamarhi",
+      "station": "Sitamarhi",
+      "gstin": "10ABDFP3715B1Z1"
+    },
+    {
+      "name": "Bihar Kargha Khadi Bhandar",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10AAZPM6805A1ZW"
+    },
+    {
+      "name": "Sri Ranisati Textiles",
+      "city": "Jainagar",
+      "station": "Jainagar",
+      "gstin": "10AFJFS9787E1ZM"
+    },
+    {
+      "name": "Jalan Trading Co",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10AADFJ2402L1ZY"
+    },
+    {
+      "name": "Zishan Ali Handloom Store",
+      "city": "Tajpur",
+      "station": "Tajpur",
+      "gstin": "10BCTPA7663M1ZA"
+    },
+    {
+      "name": "Kishori Lal Sanjay Kumar",
+      "city": "Motihari",
+      "station": "Motihari",
+      "gstin": "10AAYFK6269P1ZF"
+    },
+    {
+      "name": "Vyahut Vastra Niketan",
+      "city": "Sitamarhi",
+      "station": "Sitamarhi",
+      "gstin": "10ACDPP1623P1ZQ"
+    },
+    {
+      "name": "Anil Textiles",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10ABPPH9917B1ZW"
+    },
+    {
+      "name": "Laxmi Trading Company",
+      "city": "Sitamarhi",
+      "station": "Sitamarhi",
+      "gstin": "10ADCPG0761H1ZA"
+    },
+    {
+      "name": "Haridarshan",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10AEUPC4437P1Z8"
+    },
+    {
+      "name": "Shiv Shakti Textiles",
+      "city": "Bettiah",
+      "station": "Bettiah",
+      "gstin": "10ABFPM7642E1Z1"
+    },
+    {
+      "name": "Surat Saree Kendra",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10AEUPC2591N1Z9"
+    },
+    {
+      "name": "Kakrania Brothers",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10AEVPK1312A1ZA"
+    },
+    {
+      "name": "Sahu & Sons",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10AMBPK1853A1ZZ"
+    },
+    {
+      "name": "Badri Prasad Binod Kumar",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10AABHM5982Q1ZS"
+    },
+    {
+      "name": "Binod Kumar Vijay Kumar",
+      "city": "Pupri",
+      "station": "Pupri",
+      "gstin": "10AEPPA1243J1Z1"
+    },
+    {
+      "name": "Om Prakash Hari Prakash",
+      "city": "Ghoghardiha",
+      "station": "Ghoghardiha",
+      "gstin": "10AAAFO8416G1ZP"
+    },
+    {
+      "name": "Sri Shankar Khadi Bhandar",
+      "city": "Barachakia",
+      "station": "Barachakia",
+      "gstin": "10AESPC3707Q1ZD"
+    },
+    {
+      "name": "Hiralal Pawan Kumar",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10AHOPS8703R1ZN"
+    },
+    {
+      "name": "Satyanarayan Sawarmal & Co.",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10AAAHU2943N1Z4"
+    },
+    {
+      "name": "Laxmi Hari",
+      "city": "Motihari",
+      "station": "Motihari",
+      "gstin": "10AACFL5724C1Z1"
+    },
+    {
+      "name": "Gopi Krishna Textiles",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10AAFPL4941G1Z4"
+    },
+    {
+      "name": "Krishna Textiles",
+      "city": "Sitamarhi",
+      "station": "Sitamarhi",
+      "gstin": "10ABEFK1835A1Z6"
+    },
+    {
+      "name": "Oswal Stores",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10AMNPS8433N1ZI"
+    },
+    {
+      "name": "Shambhu Trading Company",
+      "city": "Sitamarhi",
+      "station": "Sitamarhi",
+      "gstin": "10ADQFS1540Q1ZR"
+    },
+    {
+      "name": "Sri Rani Sati Cloth Store",
+      "city": "Basopatty",
+      "station": "Basopatty",
+      "gstin": "10AGVPM4736A1ZM"
+    },
+    {
+      "name": "Yashoda Handloom",
+      "city": "Dalsingsarai",
+      "station": "Dalsingsarai",
+      "gstin": "10AZVPS6496G1ZO"
+    },
+    {
+      "name": "Rajasthan Trading Agency",
+      "city": "Madhubani",
+      "station": "Madhubani",
+      "gstin": "10AACFR9682D1ZC"
+    },
+    {
+      "name": "Sri Maruti Collection",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10ACIPS0982P1Z6"
+    },
+    {
+      "name": "Ganesh Silk House",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10AAZFR2622J1Z2"
+    },
+    {
+      "name": "Laxmi Handloom",
+      "city": "Bettiah",
+      "station": "Bettiah",
+      "gstin": "10ANEPK6595P1ZI"
+    },
+    {
+      "name": "Poonam Synthetics",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10ACWPT6809L1ZX"
+    },
+    {
+      "name": "Sawarmal Kanhaiyalal",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10ADVPP3842K1Z7"
+    },
+    {
+      "name": "Nirmal Vastralaya",
+      "city": "Nirmali",
+      "station": "Nirmali",
+      "gstin": "10AUKPM5839R1ZZ"
+    },
+    {
+      "name": "Sri Fashion Textiles",
+      "city": "Biraul",
+      "station": "Biraul",
+      "gstin": "10AEQPJ1337P1ZC"
+    },
+    {
+      "name": "Super Handloom",
+      "city": "Vidhyapati Nagar",
+      "station": "Samastipur",
+      "gstin": "10BPCPD8947P1ZM"
+    },
+    {
+      "name": "Ritesh Kumar Amit Kumar",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10ALBPM7388P1ZM"
+    },
+    {
+      "name": "Prahlad Cloth Emporium",
+      "city": "Samastipur",
+      "station": "Samastipur",
+      "gstin": "10AHCPB5501C1ZL"
+    },
+    {
+      "name": "Sri Bharat Trading Company",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10AAFPT9883M1Z0"
+    },
+    {
+      "name": "Pushpa Synthetics",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10AFMPK1044F1Z2"
+    },
+    {
+      "name": "Subh Laxmi Textiles",
+      "city": "Sitamarhi",
+      "station": "Sitamarhi",
+      "gstin": "10ATEPK8410H1Z5"
+    },
+    {
+      "name": "Rajasthan Textile Agency",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10AEKPS8855B1ZH"
+    },
+    {
+      "name": "Amit Enterprises",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10AEBPP8597C1ZK"
+    },
+    {
+      "name": "Gopal Prasad Bishnu Kumar",
+      "city": "Madhepur",
+      "station": "Madhepur",
+      "gstin": "10ALHPK8677P1ZG"
+    },
+    {
+      "name": "Devjyoti Synthetics",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10AOEPN5889A1Z5"
+    },
+    {
+      "name": "Rajesh Trading Company",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10ADIPT6748D1ZK"
+    },
+    {
+      "name": "Sunil Textiles",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10AFJPA9495D1ZO"
+    },
+    {
+      "name": "Rajlaxmi Textiles",
+      "city": "Mahua",
+      "station": "Mahua",
+      "gstin": "10ABPPC2966F1ZY"
+    },
+    {
+      "name": "Santosh Vastralaya",
+      "city": "Dalsingsarai",
+      "station": "Dalsingsarai",
+      "gstin": "10AOUPS2392K1ZF"
+    },
+    {
+      "name": "Uma Synthetics",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10ANJPK3998B1Z5"
+    },
+    {
+      "name": "Maruti Textiles",
+      "city": "Barachakia",
+      "station": "Barachakia",
+      "gstin": "10ACNPJ0156F1Z5"
+    },
+    {
+      "name": "Suraj Handloom Center",
+      "city": "Kurhani",
+      "station": "Kurhani",
+      "gstin": "10BFDPG1649L1ZQ"
+    },
+    {
+      "name": "Sri Harishankar Khadi Bhandar",
+      "city": "Sitamarhi",
+      "station": "Sitamarhi",
+      "gstin": "10ADSFS1127M1ZY"
+    },
+    {
+      "name": "Saras Textiles",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10AFXPM6256J1Z0"
+    },
+    {
+      "name": "Dheeraj & Neeraj Handloom",
+      "city": "Goraul",
+      "station": "Muzaffarpur",
+      "gstin": "10AZKPC1287A1Z4"
+    },
+    {
+      "name": "Sanjay Vastralay",
+      "city": "Bajitpur",
+      "station": "Bajitpur",
+      "gstin": "10ABPPT0957P1Z1"
+    },
+    {
+      "name": "Hardwar Prasad Dawarka Prasad",
+      "city": "Bettiah",
+      "station": "Bettiah",
+      "gstin": "10FWOPK9832D1ZG"
+    },
+    {
+      "name": "Geeta Shree",
+      "city": "Barachakia",
+      "station": "Barachakia",
+      "gstin": "10AECPC7927C1Z8"
+    },
+    {
+      "name": "Jagdish Prasad Amit Kumar",
+      "city": "Barachakia",
+      "station": "Barachakia",
+      "gstin": "10ACVPT1195J1Z5"
+    },
+    {
+      "name": "Mahesh Textiles",
+      "city": "Bettiah",
+      "station": "Bettiah",
+      "gstin": "10ADAPJ7059F1Z0"
+    },
+    {
+      "name": "Poddar Vastralaya",
+      "city": "Bettiah",
+      "station": "Bettiah",
+      "gstin": "10AEJPP6731Q1Z3"
+    },
+    {
+      "name": "Subh Labh",
+      "city": "Bettiah",
+      "station": "Bettiah",
+      "gstin": "10ADMFS0012M1ZE"
+    },
+    {
+      "name": "Handloom House",
+      "city": "Darbhanga",
+      "station": "Darbhanga",
+      "gstin": "10ABJPK0686Q1ZC"
+    },
+    {
+      "name": "Vanshika Handloom",
+      "city": "Deoria Kothi",
+      "station": "Deoria Kothi",
+      "gstin": "10CLSPP7050E1Z4"
+    },
+    {
+      "name": "Swastik Synthetics",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10APFPS3972M1ZK"
+    },
+    {
+      "name": "Indu Textiles",
+      "city": "Bettiah",
+      "station": "Bettiah",
+      "gstin": "10BDBPK2831G1Z9"
+    },
+    {
+      "name": "Jalan Saree House",
+      "city": "Bettiah",
+      "station": "Bettiah",
+      "gstin": "10AARPJ9466E1ZK"
+    },
+    {
+      "name": "Ghanshyam Das Hukmichand",
+      "city": "Bargania",
+      "station": "Bargania",
+      "gstin": "10AAFHA1831E1Z9"
+    },
+    {
+      "name": "Shama Handloom",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10APOPH2056J1Z3"
+    },
+    {
+      "name": "Sri Balaji Handloom",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": ""
+    },
+    {
+      "name": "Sri Shyam Textile",
+      "city": "Biraul",
+      "station": "Muzaffarpur",
+      "gstin": "10ADCPC0101D1Z4"
+    },
+    {
+      "name": "S.G.Enterprises",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10ADNPA5816A1ZD"
+    },
+    {
+      "name": "Maha Shakti Synthetics",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10AGJPN6690C1ZK"
+    },
+    {
+      "name": "Agarwal Handloom",
+      "city": "Jainagar",
+      "station": "Jainagar",
+      "gstin": "10AANHS7252K2ZU"
+    },
+    {
+      "name": "Raj Kumar Sachin Kumar",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10AJSPC5390A1ZO"
+    },
+    {
+      "name": "Shyam Brothers",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10DYAPS0595H1ZI"
+    },
+    {
+      "name": "Sumit Store",
+      "city": "Samastipur",
+      "station": "Samastipur",
+      "gstin": "10ARMPG5908N1ZN"
+    },
+    {
+      "name": "Error",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": ""
+    },
+    {
+      "name": "Shankar Lal Arun Kumar & Co.",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10ABTPP7798J1ZS"
+    },
+    {
+      "name": "Gopal Handloom Centre",
+      "city": "Jainagar",
+      "station": "Jainagar",
+      "gstin": "10BPNPS0619L1ZR"
+    },
+    {
+      "name": "Parwati Traders",
+      "city": "Sultanganj",
+      "station": "Bhagalpur",
+      "gstin": ""
+    },
+    {
+      "name": "Sri Bhagwati Trading Co.",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10ABTPC3909J1ZS"
+    },
+    {
+      "name": "Jhunjhunwala & Co.",
+      "city": "Nawada",
+      "station": "Nawada",
+      "gstin": "10AGWPA3092N1Z7"
+    },
+    {
+      "name": "Amit Saree Center",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10ABEPA0700C1Z5"
+    },
+    {
+      "name": "Amit Syntex",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10ALAPK6475A1ZQ"
+    },
+    {
+      "name": "Ganga Synthetics",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "1QAMPPK8958C1ZX"
+    },
+    {
+      "name": "Paridhan Vastralya",
+      "city": "Ghoghardiha",
+      "station": "Ghoghardiha",
+      "gstin": "1QAMGPKQ614AZ5"
+    },
+    {
+      "name": "Vishwanath Pd Aman Kumar",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": ""
+    },
+    {
+      "name": "Shiv Shakti Saree Centre",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10ABGPK2468P1ZH"
+    },
+    {
+      "name": "Geeta Traders",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10AJMPS5550L1ZX"
+    },
+    {
+      "name": "Vijay Trading Co.",
+      "city": "Motipur",
+      "station": "Motipur",
+      "gstin": "1QEFNPK2687K2Z2"
+    },
+    {
+      "name": "Fabrica Sales Corp.",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10AATHP2702F1ZI"
+    },
+    {
+      "name": "Aditya Manglam Synthetics",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": ""
+    },
+    {
+      "name": "Jay Shree Vastralaya",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10BDCPS1950H1ZW"
+    },
+    {
+      "name": "Kedia Textiles",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10AEIPK9993C1ZG"
+    },
+    {
+      "name": "Laxmi Narayan Dinesh Kumar",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10ABFPK3868A1Z7"
+    },
+    {
+      "name": "Maa Durga Handloom",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10BFNPK4412F1ZY"
+    },
+    {
+      "name": "Madhu Saree Centre",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10ACCPT8761D1ZR"
+    },
+    {
+      "name": "Goenka Handloom",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10AAHFG7452M1ZB"
+    },
+    {
+      "name": "Hari Narayan Ravi Prasad",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10AADFH3294C1ZZ"
+    },
+    {
+      "name": "Ganpat Rai Jugal Kishore",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10ACPPA6196G1ZQ"
+    },
+    {
+      "name": "Mithulal Jayprakash",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10AAPPA3181M1ZU"
+    },
+    {
+      "name": "Morvi Nandan Textiles",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10ABWFM2932J1Z3"
+    },
+    {
+      "name": "Mittal Trading Co",
+      "city": "Sitamarhi",
+      "station": "Sitamarhi",
+      "gstin": "10AGXPA4199D1ZH"
+    },
+    {
+      "name": "Poddar Synthetics",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10AADHP8128H1ZE"
+    },
+    {
+      "name": "Pawan Trading Company",
+      "city": "Sitamarhi",
+      "station": "Sitamarhi",
+      "gstin": "10ADVPP3737H1ZC"
+    },
+    {
+      "name": "Praveen Trading Co",
+      "city": "Sitamarhi",
+      "station": "Sitamarhi",
+      "gstin": "10AANPH5110M1Z0"
+    },
+    {
+      "name": "Saket Synthetics",
+      "city": "Sitamarhi",
+      "station": "Sitamarhi",
+      "gstin": "10AFWPC6082R1ZV"
+    },
+    {
+      "name": "Mohan Textiles",
+      "city": "Sitamarhi",
+      "station": "Sitamarhi",
+      "gstin": "10AATPH4480N1ZD"
+    },
+    {
+      "name": "Shiv Kumar Sushil Kumar",
+      "city": "Sitamarhi",
+      "station": "Sitamarhi",
+      "gstin": "10AHOPS8078B1Z8"
+    },
+    {
+      "name": "Sri Shyam Trading Company",
+      "city": "Sitamarhi",
+      "station": "Sitamarhi",
+      "gstin": "10AAEHB4206K1ZX"
+    },
+    {
+      "name": "Shyam Synthetics",
+      "city": "Sitamarhi",
+      "station": "Sitamarhi",
+      "gstin": "10BAYPK8176J1Z3"
+    },
+    {
+      "name": "Banwari Lal Binod Kumar",
+      "city": "Nirmali",
+      "station": "Nirmali",
+      "gstin": "10ESEPK7518F1Z0"
+    },
+    {
+      "name": "Bishnu Trading Company",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10AASPB8316J1ZT"
+    },
+    {
+      "name": "Maruti Creation",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10AKWPK3775C1Z5"
+    },
+    {
+      "name": "Milan Textiles",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10ATUPS5862P1ZQ"
+    },
+    {
+      "name": "Harsh And Kunal Co",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10AEVPC5605C1Z2"
+    },
+    {
+      "name": "Chhaparia Trading Company",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10AEPPC8176A1ZW"
+    },
+    {
+      "name": "Neha Synthetics",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10AAZPK8441Q1ZX"
+    },
+    {
+      "name": "Ranisati Lungi House",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10ABNFM8190K1ZW"
+    },
+    {
+      "name": "Sri Shankar Saree House",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10AALHS7991B1Z2"
+    },
+    {
+      "name": "Navneet Textiles",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10AKEPP4501H1ZQ"
+    },
+    {
+      "name": "Basudev Beni Prasad",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": ""
+    },
+    {
+      "name": "R Bhimseria",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10AAZFR2622J1Z2"
+    },
+    {
+      "name": "Saree Sangam",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10ADVPM4673K1Z3"
+    },
+    {
+      "name": "Sunil Lungi Emporium",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10AAFPT9880J1Z9"
+    },
+    {
+      "name": "Ravi Handloom",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10ADKPG5248F2ZX"
+    },
+    {
+      "name": "Veena Hosiery",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10AHXPC1943N1Z6"
+    },
+    {
+      "name": "Sri Poddar Brothers",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10AEGPP3973F1ZN"
+    },
+    {
+      "name": "Shivnath Trading Co",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10ACUPG5582D1ZP"
+    },
+    {
+      "name": "Anand Kumar Amit Kumar",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10AMGPK8469F1Z2"
+    },
+    {
+      "name": "Sri Harsh Textiles",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10AFEPT0389J1ZE"
+    },
+    {
+      "name": "Rakesh Trading Company",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10ALLPK1338D1ZP"
+    },
+    {
+      "name": "Prem And Company",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10AAGFP5462K1Z9"
+    },
+    {
+      "name": "Sri Anand Saree Kendra",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10AGHPK9808M1Z6"
+    },
+    {
+      "name": "Sri Jeen Mata Fabtex",
+      "city": "Motihari",
+      "station": "Motihari",
+      "gstin": "10AELPL9053M1Z8"
+    },
+    {
+      "name": "Suresh Vastralay",
+      "city": "Motihari",
+      "station": "Motihari",
+      "gstin": "10ADKPG6599D1ZM"
+    },
+    {
+      "name": "Rina Enterprises",
+      "city": "Motipur",
+      "station": "Motipur",
+      "gstin": "10ABEPJ5112B1ZQ"
+    },
+    {
+      "name": "Rangoli Vastralay",
+      "city": "Pupri",
+      "station": "Pupri",
+      "gstin": "10ABNPP0547R1Z9"
+    },
+    {
+      "name": "Ganesh Synthetics",
+      "city": "Samastipur",
+      "station": "Samastipur",
+      "gstin": "10APAPS5260H1Z7"
+    },
+    {
+      "name": "Gupta Textiles",
+      "city": "Samastipur",
+      "station": "Samastipur",
+      "gstin": "10ADBPG8829R1Z9"
+    },
+    {
+      "name": "Jai Dadiji Creation",
+      "city": "Samastipur",
+      "station": "Samastipur",
+      "gstin": "10BYUPD8839D1ZC"
+    },
+    {
+      "name": "Jain Handloom Store",
+      "city": "Samastipur",
+      "station": "Samastipur",
+      "gstin": "10ADZPJ4983B1ZG"
+    },
+    {
+      "name": "Neelkanth",
+      "city": "Samastipur",
+      "station": "Samastipur",
+      "gstin": "10ALRPD1567F1ZF"
+    },
+    {
+      "name": "Pawan Store",
+      "city": "Samastipur",
+      "station": "Samastipur",
+      "gstin": "10AOAPM8931L1ZY"
+    },
+    {
+      "name": "Puja Saree",
+      "city": "Samastipur",
+      "station": "Samastipur",
+      "gstin": "10CDHPM4662E1ZV"
+    },
+    {
+      "name": "Bishwanath Dhiraj Kumar",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10AIIPM5445R1ZV"
+    },
+    {
+      "name": "Bishwanath Sharwan Kumar",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10AKXPD7667D1Z2"
+    },
+    {
+      "name": "Chanda Textile",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10BAGPK0707F1ZH"
+    },
+    {
+      "name": "Maa Kalyani Handloom",
+      "city": "Sarfuddinpur",
+      "station": "Muzaffarpur",
+      "gstin": "10BJLPJ1476N1Z1"
+    },
+    {
+      "name": "Vicky Handloom",
+      "city": "Samastipur",
+      "station": "Samastipur",
+      "gstin": "10AGFPS4272H1ZJ"
+    },
+    {
+      "name": "Ruby Store",
+      "city": "Samastipur",
+      "station": "Samastipur",
+      "gstin": "10ADOPA1515H1ZA"
+    },
+    {
+      "name": "Anand Handloom",
+      "city": "Sitamarhi",
+      "station": "Sitamarhi",
+      "gstin": "10ADAPM7163P1ZF"
+    },
+    {
+      "name": "O.H. Mega Mart",
+      "city": "Ghoghardiha",
+      "station": "Ghoghardiha",
+      "gstin": "10ASHPS4939F1ZQ"
+    },
+    {
+      "name": "Shubham",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10AKUPK6918R1ZD"
+    },
+    {
+      "name": "Mahima Saree Kendra",
+      "city": "Sitamarhi",
+      "station": "Sitamarhi",
+      "gstin": "10DDQPK4438C1ZT"
+    },
+    {
+      "name": "Geeta Shree",
+      "city": "Sitamarhi",
+      "station": "Sitamarhi",
+      "gstin": "10AEVPK1702L1ZL"
+    },
+    {
+      "name": "Aditya Synthetics",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10ACPPA4934N1ZL"
+    },
+    {
+      "name": "Sanjay Khadi Bhandar",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10ANNPS1493F1ZZ"
+    },
+    {
+      "name": "Mahabir Khadi Bhandar",
+      "city": "Pupri",
+      "station": "Pupri",
+      "gstin": "10BGVPA5510P1ZC"
+    },
+    {
+      "name": "Shree Ranisati Textile",
+      "city": "Nawada",
+      "station": "Nawada",
+      "gstin": "10ACRPA5589P1Z2"
+    },
+    {
+      "name": "Ashok Textiles",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10AGLPM5420B1Z3"
+    },
+    {
+      "name": "Shakambhari Sarees",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10AGEPC5696C1ZW"
+    },
+    {
+      "name": "Paliwal Vastralaya",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10AEGPP6561F1ZP"
+    },
+    {
+      "name": "Shiv Shanker Textiles",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10ACVFS6910L1ZQ"
+    },
+    {
+      "name": "Suresh Vastralya",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10AAIHS8640A1ZJ"
+    },
+    {
+      "name": "Aastha Trading Company",
+      "city": "Jainagar",
+      "station": "Jainagar",
+      "gstin": "10HZUPK0624L1Z5"
+    },
+    {
+      "name": "Sri Sureka Trading Company",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10AHOPS8614D1ZE"
+    },
+    {
+      "name": "New Nirmal Handloom",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10AHWPK8404B1ZM"
+    },
+    {
+      "name": "Prem Handloom",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10AECPP8384C1ZQ"
+    },
+    {
+      "name": "Janki Das Purushotam Lal",
+      "city": "Ghoghardiha",
+      "station": "Ghoghardiha",
+      "gstin": "10AADFJ6456C1ZV"
+    },
+    {
+      "name": "Sushil Kumar Anjani Kumar",
+      "city": "Ghoghardiha",
+      "station": "Ghoghardiha",
+      "gstin": "10AKZPS2786G1ZL"
+    },
+    {
+      "name": "Rangoon Cloth Store",
+      "city": "Gorakhpur",
+      "station": "Gorakhpur",
+      "gstin": "09BPGPK5098Q1ZW"
+    },
+    {
+      "name": "S S Synthetics",
+      "city": "Jandaha",
+      "station": "Jandaha",
+      "gstin": "10AZGPG6531M1ZI"
+    },
+    {
+      "name": "Singhi Textile",
+      "city": "Islampur",
+      "station": "Islampur",
+      "gstin": "19APVPS2220Q1ZZ"
+    },
+    {
+      "name": "Jagdish Prasad Ramesh Kumar",
+      "city": "Jainagar",
+      "station": "Jainagar",
+      "gstin": "10AZIPG7673C1ZO"
+    },
+    {
+      "name": "Jagdish Textiles",
+      "city": "Jainagar",
+      "station": "Jainagar",
+      "gstin": "10AAIFJ4684K1Z7"
+    },
+    {
+      "name": "Oswaal Stores",
+      "city": "Jainagar",
+      "station": "Jainagar",
+      "gstin": "10ACIPJ3836B1Z9"
+    },
+    {
+      "name": "Sagarmal Kedarnath",
+      "city": "Jainagar",
+      "station": "Jainagar",
+      "gstin": "10ACUPD0310L1Z3"
+    },
+    {
+      "name": "Sri Sarawagi Trading Company",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10AAEHS5559J1Z0"
+    },
+    {
+      "name": "Paliwal Synthetics",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10AAXPP9272C1ZG"
+    },
+    {
+      "name": "Sri Karni Textiles",
+      "city": "Jainagar",
+      "station": "Jainagar",
+      "gstin": "10AVGPS9161D1ZP"
+    },
+    {
+      "name": "Sant Kumar Banka & Sons",
+      "city": "Jainagar",
+      "station": "Jainagar",
+      "gstin": "10AAIHS9710H1Z8"
+    },
+    {
+      "name": "S S Synthetics",
+      "city": "Jetpur",
+      "station": "Jetpur",
+      "gstin": "10AZGPG6531M1ZI"
+    },
+    {
+      "name": "Shyam Prasad Krishna Kumar",
+      "city": "Jainagar",
+      "station": "Jainagar",
+      "gstin": "10ABFPM7729L1ZI"
+    },
+    {
+      "name": "Chandan Kumar",
+      "city": "Khutauna",
+      "station": "Khutauna",
+      "gstin": "10EIEPK5406G1ZR"
+    },
+    {
+      "name": "Vinod Vastralaya",
+      "city": "Khutauna",
+      "station": "Khutauna",
+      "gstin": "10AEUPK6269D1ZF"
+    },
+    {
+      "name": "Harendra Prasad Raj",
+      "city": "Madhuban",
+      "station": "Madhuban",
+      "gstin": "10CIOPS9994R1ZV"
+    },
+    {
+      "name": "Singhaniya Textiles",
+      "city": "Jainagar",
+      "station": "Jainagar",
+      "gstin": "10CRUPS4839J1Z5"
+    },
+    {
+      "name": "Ram Bhawan Ram Yamuna Prasad",
+      "city": "Motihari",
+      "station": "Motihari",
+      "gstin": "10AFKPK6419G1ZP"
+    },
+    {
+      "name": "Sri Chachan Brothers",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10ABTPC2333A1ZJ"
+    },
+    {
+      "name": "Roop Saree Kendra",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10AAOFR2480H1ZA"
+    },
+    {
+      "name": "Raghav Trading Co",
+      "city": "Pupri",
+      "station": "Pupri",
+      "gstin": "10EQJPK4335K1ZV"
+    },
+    {
+      "name": "Priyam Sales Agency",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": ""
+    },
+    {
+      "name": "New Aman Textile",
+      "city": "Samastipur",
+      "station": "Samastipur",
+      "gstin": "10BBKPP7344C1ZX"
+    },
+    {
+      "name": "Deepak Textiles",
+      "city": "Darbhanga",
+      "station": "Darbhanga",
+      "gstin": "10DTBPK0728N2ZU"
+    },
+    {
+      "name": "Neeraj Handloom",
+      "city": "Mahua",
+      "station": "Hajipur",
+      "gstin": "10BIUPK7528Q1ZI"
+    },
+    {
+      "name": "Amba Vastralay",
+      "city": "Tamkuhi Road",
+      "station": "Tamkuhi Road",
+      "gstin": "09ASGPD4802R1ZE"
+    },
+    {
+      "name": "Gandhi Textile",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10AUPPS0468P1Z1"
+    },
+    {
+      "name": "Jhunjhunwala Brothers",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10AFFPA8230C1ZF"
+    },
+    {
+      "name": "Sunita Textile",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": ""
+    },
+    {
+      "name": "Shiv Saree Centre",
+      "city": "Pupri",
+      "station": "Pupri",
+      "gstin": "10BVKPK6084Q1Z1"
+    },
+    {
+      "name": "Vidhyanand Pankaj Kishore",
+      "city": "Jandaha",
+      "station": "Muzaffarpur",
+      "gstin": "10ADNPP2331B1Z8"
+    },
+    {
+      "name": "Vatika Saree Centre",
+      "city": "Mahua",
+      "station": "Mahua",
+      "gstin": "10CQCPK4987L1ZK"
+    },
+    {
+      "name": "Ravi Hosiery",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10AADHD7074A1Z1"
+    },
+    {
+      "name": "Shanti Syntex",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10BHFPG4991K1ZB"
+    },
+    {
+      "name": "Sarawagi Sarees",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10AUJPS2194J1ZG"
+    },
+    {
+      "name": "Shreeji Enterprises",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": "10AEAPK6252L1ZR"
+    },
+    {
+      "name": "Mithulal Ramgopal",
+      "city": "Muzaffarpur",
+      "station": "Muzaffarpur",
+      "gstin": ""
+    },
+    {
+      "name": "Bimal Handloom",
+      "city": "Laheriasarai",
+      "station": "Darbhanga",
+      "gstin": ""
+    },
+    {
+      "name": "Narayan Kumar",
+      "city": "Laukaha",
+      "station": "Laukaha",
+      "gstin": ""
+    },
+    {
+      "name": "Sri Shyam Saree Kendra",
+      "city": "Barachakia",
+      "station": "Muzaffarpur",
+      "gstin": "10AJBPP7384C1ZI"
+    },
+    {
+      "name": "Pali Sati Traders",
+      "city": "Motihari",
+      "station": "Motihari",
+      "gstin": ""
+    }
+  ],
+  "transports": [
+    {
+      "name": "Pasupati Transport",
+      "destination_station": ""
+    },
+    {
+      "name": "Aanchal Logistic",
+      "destination_station": ""
+    },
+    {
+      "name": "Mata Transport",
+      "destination_station": ""
+    },
+    {
+      "name": "Sri Khatu Shyam Cargo",
+      "destination_station": ""
+    },
+    {
+      "name": "Sri Shyam Express",
+      "destination_station": ""
+    },
+    {
+      "name": "Azad Transport",
+      "destination_station": ""
+    },
+    {
+      "name": "East India Transport",
+      "destination_station": ""
+    },
+    {
+      "name": "RK Transport",
+      "destination_station": ""
+    },
+    {
+      "name": "On Train Cargo Servi",
+      "destination_station": ""
+    },
+    {
+      "name": "Necc Transport",
+      "destination_station": ""
+    },
+    {
+      "name": "Mehta Interstate",
+      "destination_station": ""
+    },
+    {
+      "name": "Sai Baba Transport",
+      "destination_station": ""
+    },
+    {
+      "name": "Suraj Transport",
+      "destination_station": ""
+    },
+    {
+      "name": "Sri Shalasar Cargo",
+      "destination_station": ""
+    },
+    {
+      "name": "Shyam Roadline",
+      "destination_station": ""
+    },
+    {
+      "name": "Tulsi Road Line",
+      "destination_station": ""
+    },
+    {
+      "name": "Transco Transport",
+      "destination_station": ""
+    },
+    {
+      "name": "Maa Kali",
+      "destination_station": ""
+    },
+    {
+      "name": "NER",
+      "destination_station": ""
+    },
+    {
+      "name": "Jai Maa Bhaw",
+      "destination_station": ""
+    },
+    {
+      "name": "Narayani Logistic",
+      "destination_station": ""
+    },
+    {
+      "name": "Ctc Eco",
+      "destination_station": ""
+    },
+    {
+      "name": "Goodluck Courier",
+      "destination_station": ""
+    },
+    {
+      "name": "Ritco (Rajdhani Inte",
+      "destination_station": ""
+    },
+    {
+      "name": "Sbcc (Supreme Bihar)",
+      "destination_station": ""
+    },
+    {
+      "name": "Guru Om Carrier",
+      "destination_station": ""
+    },
+    {
+      "name": "VRC",
+      "destination_station": ""
+    },
+    {
+      "name": "Delhi Gkp",
+      "destination_station": ""
+    },
+    {
+      "name": "Gandhi",
+      "destination_station": ""
+    },
+    {
+      "name": "Ambaji",
+      "destination_station": ""
+    },
+    {
+      "name": "Great East",
+      "destination_station": ""
+    },
+    {
+      "name": "Mithila",
+      "destination_station": ""
+    },
+    {
+      "name": "Sugam Pariwa",
+      "destination_station": ""
+    },
+    {
+      "name": "Jai Mata Di",
+      "destination_station": ""
+    },
+    {
+      "name": "Jai Dev Cargo",
+      "destination_station": ""
+    },
+    {
+      "name": "Associated Road Carr",
+      "destination_station": ""
+    },
+    {
+      "name": "Regal Movers",
+      "destination_station": ""
+    },
+    {
+      "name": "Tridev Express",
+      "destination_station": ""
+    },
+    {
+      "name": "Yadav",
+      "destination_station": ""
+    },
+    {
+      "name": "Safe Express",
+      "destination_station": ""
+    },
+    {
+      "name": "Balaji",
+      "destination_station": ""
+    },
+    {
+      "name": "Vrl Logistic",
+      "destination_station": ""
+    },
+    {
+      "name": "Brij Bhumi Triveni",
+      "destination_station": ""
+    },
+    {
+      "name": "Radhey",
+      "destination_station": ""
+    },
+    {
+      "name": "Necc+Eita",
+      "destination_station": ""
+    },
+    {
+      "name": "New Dhillon",
+      "destination_station": ""
+    },
+    {
+      "name": "Nayak Transport",
+      "destination_station": ""
+    },
+    {
+      "name": "TCI",
+      "destination_station": ""
+    },
+    {
+      "name": "Narayan",
+      "destination_station": ""
+    },
+    {
+      "name": "Gera",
+      "destination_station": ""
+    },
+    {
+      "name": "Jharkhand Be",
+      "destination_station": ""
+    },
+    {
+      "name": "Hajipur",
+      "destination_station": ""
+    },
+    {
+      "name": "Bengal Jhark",
+      "destination_station": ""
+    },
+    {
+      "name": "Sky King",
+      "destination_station": ""
+    },
+    {
+      "name": "Maa Rudra",
+      "destination_station": ""
+    },
+    {
+      "name": "Guru Kripa",
+      "destination_station": ""
+    },
+    {
+      "name": "Tridev Cargo",
+      "destination_station": ""
+    },
+    {
+      "name": "Dhillon Freight",
+      "destination_station": ""
+    },
+    {
+      "name": "Hand To Hand",
+      "destination_station": ""
+    },
+    {
+      "name": "Direct",
+      "destination_station": ""
+    },
+    {
+      "name": "Narayani",
+      "destination_station": ""
+    },
+    {
+      "name": "Vaishali Road Carrie",
+      "destination_station": ""
+    },
+    {
+      "name": "Ctc Insta",
+      "destination_station": ""
+    },
+    {
+      "name": "Raju Transport",
+      "destination_station": ""
+    },
+    {
+      "name": "Ministry Of Railways",
+      "destination_station": ""
+    },
+    {
+      "name": "Tapti Ganga",
+      "destination_station": ""
+    },
+    {
+      "name": "Apollo",
+      "destination_station": ""
+    },
+    {
+      "name": "Local",
+      "destination_station": ""
+    },
+    {
+      "name": "Shiv Shakti",
+      "destination_station": ""
+    },
+    {
+      "name": "Choudhary Transport",
+      "destination_station": ""
+    },
+    {
+      "name": "Shree Bajrangbali Ca",
+      "destination_station": ""
+    },
+    {
+      "name": "S G Cargo",
+      "destination_station": ""
+    },
+    {
+      "name": "Lav Kush Trasport",
+      "destination_station": ""
+    },
+    {
+      "name": "Royal Roadways",
+      "destination_station": ""
+    },
+    {
+      "name": "Regency Carrier",
+      "destination_station": ""
+    },
+    {
+      "name": "Jai Hanuman Carrier",
+      "destination_station": ""
+    },
+    {
+      "name": "New Royal Roadways",
+      "destination_station": ""
+    },
+    {
+      "name": "Bhagirathi",
+      "destination_station": ""
+    },
+    {
+      "name": "Kataria",
+      "destination_station": ""
+    },
+    {
+      "name": "Great X",
+      "destination_station": ""
+    },
+    {
+      "name": "Jai Logistic",
+      "destination_station": ""
+    },
+    {
+      "name": "Nanku Transport Serv",
+      "destination_station": ""
+    },
+    {
+      "name": "Safe & Secure",
+      "destination_station": ""
+    },
+    {
+      "name": "Gandhi Roadline",
+      "destination_station": ""
+    },
+    {
+      "name": "Post Master Surat",
+      "destination_station": ""
+    },
+    {
+      "name": "Pankaj Vimal",
+      "destination_station": ""
+    },
+    {
+      "name": "Indian Freight",
+      "destination_station": ""
+    },
+    {
+      "name": "Padam Shri",
+      "destination_station": ""
+    },
+    {
+      "name": "Rail Gati",
+      "destination_station": ""
+    }
+  ],
+  "docOptions": [
+    "Skyking to Our Office",
+    "Skyking to party",
+    "Goodluck to Our Office",
+    "Goodluck to party",
+    "SpeedPost to Our Office",
+    "SpeedPost to party",
+    "WhatsApp/Email"
+  ]
+}

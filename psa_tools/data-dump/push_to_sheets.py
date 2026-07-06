@@ -13,7 +13,7 @@ import json, os, sys, urllib.request
 # Paste your deployed psa_masterdata_backend.gs Web App /exec URL here.
 BACKEND_URL = os.environ.get(
     "PSA_MASTERDATA_URL",
-    "https://script.google.com/macros/s/AKfycbx9VpJNCEE6N9voWTusBvbEM100kyJH3yQNVLkI-RucjhhBnPZbFNpux9LTXTNLzZ5TIg/exec"
+    "https://script.google.com/macros/s/AKfycbyj_R7d3FJF4Wy-N4c5yCAmO9A9e6aLVxdRoTY4jTeKvnA7x-kzYCVjnYYQ7PdrxeR2UA/exec"
 )
 DATA_DIR = os.path.dirname(os.path.abspath(__file__))
 
