@@ -1,286 +1,286 @@
-[
+﻿[
   {
-    "Station": "AHMEDABAD",
-    "Status": "S"
+    "Station/City": "AHMEDABAD",
+    "Status Code": "S"
   },
   {
-    "Station": "AMRITSAR",
-    "Status": "S"
+    "Station/City": "AMRITSAR",
+    "Status Code": "S"
   },
   {
-    "Station": "BAJITPUR",
-    "Status": "C"
+    "Station/City": "BAJITPUR",
+    "Status Code": "C"
   },
   {
-    "Station": "BALOTRA",
-    "Status": "S"
+    "Station/City": "BALOTRA",
+    "Status Code": "S"
   },
   {
-    "Station": "BARACHAKIA",
-    "Status": "C"
+    "Station/City": "BARACHAKIA",
+    "Status Code": "C"
   },
   {
-    "Station": "BASOPATTY",
-    "Status": "C"
+    "Station/City": "BASOPATTY",
+    "Status Code": "C"
   },
   {
-    "Station": "BETTIAH",
-    "Status": "C"
+    "Station/City": "BETTIAH",
+    "Status Code": "C"
   },
   {
-    "Station": "BHILWARA",
-    "Status": "S"
+    "Station/City": "BHILWARA",
+    "Status Code": "S"
   },
   {
-    "Station": "BIRAUL",
-    "Status": "C"
+    "Station/City": "BIRAUL",
+    "Status Code": "C"
   },
   {
-    "Station": "BURHANPUR",
-    "Status": "S"
+    "Station/City": "BURHANPUR",
+    "Status Code": "S"
   },
   {
-    "Station": "CHENNIMALAI",
-    "Status": "S"
+    "Station/City": "CHENNIMALAI",
+    "Status Code": "S"
   },
   {
-    "Station": "DALSINGSARAI",
-    "Status": "C"
+    "Station/City": "DALSINGSARAI",
+    "Status Code": "C"
   },
   {
-    "Station": "DARBHANGA",
-    "Status": "C"
+    "Station/City": "DARBHANGA",
+    "Status Code": "C"
   },
   {
-    "Station": "DEORIA KOTHI",
-    "Status": "C"
+    "Station/City": "DEORIA KOTHI",
+    "Status Code": "C"
   },
   {
-    "Station": "ERODE",
-    "Status": "S"
+    "Station/City": "ERODE",
+    "Status Code": "S"
   },
   {
-    "Station": "GHOGHARDIHA",
-    "Status": "C"
+    "Station/City": "GHOGHARDIHA",
+    "Status Code": "C"
   },
   {
-    "Station": "GORAKHPUR",
-    "Status": "C"
+    "Station/City": "GORAKHPUR",
+    "Status Code": "C"
   },
   {
-    "Station": "GORAKHPUR",
-    "Status": "S"
+    "Station/City": "GORAKHPUR",
+    "Status Code": "S"
   },
   {
-    "Station": "GORAUL",
-    "Status": "C"
+    "Station/City": "GORAUL",
+    "Status Code": "C"
   },
   {
-    "Station": "ICHALKARANJI",
-    "Status": "S"
+    "Station/City": "ICHALKARANJI",
+    "Status Code": "S"
   },
   {
-    "Station": "INDORE",
-    "Status": "S"
+    "Station/City": "INDORE",
+    "Status Code": "S"
   },
   {
-    "Station": "ISLAMPUR",
-    "Status": "C"
+    "Station/City": "ISLAMPUR",
+    "Status Code": "C"
   },
   {
-    "Station": "JAINAGAR",
-    "Status": "C"
+    "Station/City": "JAINAGAR",
+    "Status Code": "C"
   },
   {
-    "Station": "JANDAHA",
-    "Status": "C"
+    "Station/City": "JANDAHA",
+    "Status Code": "C"
   },
   {
-    "Station": "JETPUR",
-    "Status": "C"
+    "Station/City": "JETPUR",
+    "Status Code": "C"
   },
   {
-    "Station": "JETPUR",
-    "Status": "S"
+    "Station/City": "JETPUR",
+    "Status Code": "S"
   },
   {
-    "Station": "JHANJHARPUR",
-    "Status": "C"
+    "Station/City": "JHANJHARPUR",
+    "Status Code": "C"
   },
   {
-    "Station": "KHUTAUNA",
-    "Status": "C"
+    "Station/City": "KHUTAUNA",
+    "Status Code": "C"
   },
   {
-    "Station": "KOLKATA",
-    "Status": "S"
+    "Station/City": "KOLKATA",
+    "Status Code": "S"
   },
   {
-    "Station": "KURHANI",
-    "Status": "C"
+    "Station/City": "KURHANI",
+    "Status Code": "C"
   },
   {
-    "Station": "LAUKAHA",
-    "Status": "C"
+    "Station/City": "LAUKAHA",
+    "Status Code": "C"
   },
   {
-    "Station": "LUDHIANA",
-    "Status": "S"
+    "Station/City": "LUDHIANA",
+    "Status Code": "S"
   },
   {
-    "Station": "MADHUBAN",
-    "Status": "C"
+    "Station/City": "MADHUBAN",
+    "Status Code": "C"
   },
   {
-    "Station": "MADHUBANI",
-    "Status": "C"
+    "Station/City": "MADHUBANI",
+    "Status Code": "C"
   },
   {
-    "Station": "MAHUA",
-    "Status": "C"
+    "Station/City": "MAHUA",
+    "Status Code": "C"
   },
   {
-    "Station": "MATHURA",
-    "Status": "S"
+    "Station/City": "MATHURA",
+    "Status Code": "S"
   },
   {
-    "Station": "MOTIHARI",
-    "Status": "C"
+    "Station/City": "MOTIHARI",
+    "Status Code": "C"
   },
   {
-    "Station": "MOTIPUR",
-    "Status": "C"
+    "Station/City": "MOTIPUR",
+    "Status Code": "C"
   },
   {
-    "Station": "MUMBAI",
-    "Status": "S"
+    "Station/City": "MUMBAI",
+    "Status Code": "S"
   },
   {
-    "Station": "MUZAFFARPUR",
-    "Status": "C"
+    "Station/City": "MUZAFFARPUR",
+    "Status Code": "C"
   },
   {
-    "Station": "NAWADA",
-    "Status": "C"
+    "Station/City": "NAWADA",
+    "Status Code": "C"
   },
   {
-    "Station": "NIRMALI",
-    "Status": "C"
+    "Station/City": "NIRMALI",
+    "Status Code": "C"
   },
   {
-    "Station": "PALI-MARWAR",
-    "Status": "S"
+    "Station/City": "PALI-MARWAR",
+    "Status Code": "S"
   },
   {
-    "Station": "PANIPAT",
-    "Status": "S"
+    "Station/City": "PANIPAT",
+    "Status Code": "S"
   },
   {
-    "Station": "PATHRAHI",
-    "Status": "C"
+    "Station/City": "PATHRAHI",
+    "Status Code": "C"
   },
   {
-    "Station": "PUPRI",
-    "Status": "C"
+    "Station/City": "PUPRI",
+    "Status Code": "C"
   },
   {
-    "Station": "RAIGANJ",
-    "Status": "C"
+    "Station/City": "RAIGANJ",
+    "Status Code": "C"
   },
   {
-    "Station": "RUNNI SAIDPUR",
-    "Status": "C"
+    "Station/City": "RUNNI SAIDPUR",
+    "Status Code": "C"
   },
   {
-    "Station": "SAKRA",
-    "Status": "C"
+    "Station/City": "SAKRA",
+    "Status Code": "C"
   },
   {
-    "Station": "SAMASTIPUR",
-    "Status": "C"
+    "Station/City": "SAMASTIPUR",
+    "Status Code": "C"
   },
   {
-    "Station": "SARFUDDINPUR",
-    "Status": "C"
+    "Station/City": "SARFUDDINPUR",
+    "Status Code": "C"
   },
   {
-    "Station": "SIMRI",
-    "Status": "C"
+    "Station/City": "SIMRI",
+    "Status Code": "C"
   },
   {
-    "Station": "SITAMARHI",
-    "Status": "C"
+    "Station/City": "SITAMARHI",
+    "Status Code": "C"
   },
   {
-    "Station": "SUJAWALPUR",
-    "Status": "C"
+    "Station/City": "SUJAWALPUR",
+    "Status Code": "C"
   },
   {
-    "Station": "SURAT",
-    "Status": "S"
+    "Station/City": "SURAT",
+    "Status Code": "S"
   },
   {
-    "Station": "TAJPUR",
-    "Status": "C"
+    "Station/City": "TAJPUR",
+    "Status Code": "C"
   },
   {
-    "Station": "TAMKUHI ROAD",
-    "Status": "C"
+    "Station/City": "TAMKUHI ROAD",
+    "Status Code": "C"
   },
   {
-    "Station": "VIDHYAPATI NAGAR",
-    "Status": "C"
+    "Station/City": "VIDHYAPATI NAGAR",
+    "Status Code": "C"
   },
   {
-    "Station": "LAHERIASARAI",
-    "Status": "C"
+    "Station/City": "LAHERIASARAI",
+    "Status Code": "C"
   },
   {
-    "Station": "KISHANGANJ",
-    "Status": ""
+    "Station/City": "KISHANGANJ",
+    "Status Code": ""
   },
   {
-    "Station": "HAJIPUR",
-    "Status": "C"
+    "Station/City": "HAJIPUR",
+    "Status Code": "C"
   },
   {
-    "Station": "BARGANIA",
-    "Status": "C"
+    "Station/City": "BARGANIA",
+    "Status Code": "C"
   },
   {
-    "Station": "BHIWANDI",
-    "Status": "S"
+    "Station/City": "BHIWANDI",
+    "Status Code": "S"
   },
   {
-    "Station": "MADHEPUR",
-    "Status": ""
+    "Station/City": "MADHEPUR",
+    "Status Code": ""
   },
   {
-    "Station": "MADHVAPUR",
-    "Status": "C"
+    "Station/City": "MADHVAPUR",
+    "Status Code": "C"
   },
   {
-    "Station": "RAXAUL",
-    "Status": ""
+    "Station/City": "RAXAUL",
+    "Status Code": ""
   },
   {
-    "Station": "SULTANGANJ",
-    "Status": ""
+    "Station/City": "SULTANGANJ",
+    "Status Code": ""
   },
   {
-    "Station": "BHAGALPUR",
-    "Status": ""
+    "Station/City": "BHAGALPUR",
+    "Status Code": ""
   },
   {
-    "Station": "CHAPRA",
-    "Status": ""
+    "Station/City": "CHAPRA",
+    "Status Code": ""
   },
   {
-    "Station": "JAIPUR",
-    "Status": ""
+    "Station/City": "JAIPUR",
+    "Status Code": ""
   },
   {
-    "Station": "SAROLI",
-    "Status": ""
+    "Station/City": "SAROLI",
+    "Status Code": ""
   }
 ]

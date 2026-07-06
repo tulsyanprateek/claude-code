@@ -25,6 +25,10 @@ const SHEET_ID = '';
 const ORDERS_TAB = 'orders';
 const COUNTERS_TAB = 'counters';
 
+// Shared "PSA Master Data" backend — suppliers/parties/transports live there,
+// not in this spreadsheet. See psa_masterdata_backend.gs.
+const MASTERDATA_URL = 'https://script.google.com/macros/s/AKfycbx9VpJNCEE6N9voWTusBvbEM100kyJH3yQNVLkI-RucjhhBnPZbFNpux9LTXTNLzZ5TIg/exec';
+
 function jsonResponse(obj) {
   return ContentService
     .createTextOutput(JSON.stringify(obj))
@@ -53,6 +57,9 @@ function doGet(e) {
         break;
       case 'getcounters':
         result = getCounters();
+        break;
+      case 'getmasterdata':
+        result = getMasterData();
         break;
       case 'list':
         result = listOrders({
@@ -147,6 +154,67 @@ function updateCounter(key, value) {
     }
   }
   sheet.appendRow([key, value]);
+}
+
+// ─────────────────────────────────────────────
+// MASTER DATA — suppliers/parties/transports, sourced from the shared
+// PSA Master Data sheet (ERP export), reshaped into what the order
+// generator's front-end (MasterData object) expects.
+// ─────────────────────────────────────────────
+
+function getMasterData() {
+  if (!MASTERDATA_URL) return { ok: false, error: 'MASTERDATA_URL not configured' };
+
+  let raw;
+  try {
+    const resp = UrlFetchApp.fetch(MASTERDATA_URL + '?action=getMasterData', { muteHttpExceptions: true });
+    raw = JSON.parse(resp.getContentText());
+  } catch (err) {
+    return { ok: false, error: 'Master data fetch failed: ' + err.toString() };
+  }
+  if (!raw || !raw.ok) return { ok: false, error: 'Master data backend returned an error' };
+
+  const allParties = raw.parties || [];
+
+  const suppliers = allParties
+    .filter(function(p) { return p['Party Type'] === 'Supplier'; })
+    .map(function(p) {
+      return {
+        firm_code:  p['Party Code'] || '',
+        firm_name:  p['Party Name'] || '',
+        brand_name: p['Party Name'] || '', // ERP has no separate brand alias yet — same as firm_name
+        brand_code: p['Party Code'] || '',
+        city:       p['City'] || '',
+        active:     true
+      };
+    });
+
+  const parties = allParties
+    .filter(function(p) { return p['Party Type'] === 'Customer'; })
+    .map(function(p) {
+      return {
+        name:    p['Party Name'] || '',
+        city:    p['City'] || '',
+        station: p['City'] || '',
+        gstin:   p['GST No'] || '',
+        active:  true
+      };
+    });
+
+  const transports = (raw.transports || []).map(function(t) {
+    return { name: t['Transport Name'] || '', destination_station: '' };
+  });
+
+  return {
+    ok: true,
+    masterGroups: [],
+    suppliers: suppliers,
+    parties: parties,
+    transports: transports,
+    items: [], // ERP item catalog not wired in yet (different shape — needs its own mapping)
+    docOptions: [],
+    generatedAt: raw.generatedAt || new Date().toISOString()
+  };
 }
 
 // ─────────────────────────────────────────────
@@ -329,6 +397,15 @@ function listOrders(opts) {
 // ─────────────────────────────────────────────
 
 function testGetCounters() { Logger.log(JSON.stringify(getCounters())); }
+
+function testGetMasterData() {
+  const result = getMasterData();
+  Logger.log('ok: ' + result.ok);
+  Logger.log('suppliers: ' + (result.suppliers || []).length);
+  Logger.log('parties: ' + (result.parties || []).length);
+  Logger.log('transports: ' + (result.transports || []).length);
+  Logger.log('sample supplier: ' + JSON.stringify(result.suppliers && result.suppliers[0]));
+}
 
 function testSaveOrder() {
   const result = saveOrder({

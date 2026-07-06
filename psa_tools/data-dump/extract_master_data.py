@@ -1,98 +1,97 @@
 #!/usr/bin/env python3
-"""
-KP master-data extractor.
-Reads FoxPro/dBASE .dbf tables from the shadow backup (current fiscal year)
-and writes clean CSV + JSON to the data-dump folder for downstream apps.
-
-Source (read-only) : D:\PSA - Essentials\Kpbkup\raw  -> shadow -> D:\claude_cowork\kp raw data
-Output             : D:\claude_code\psa_tools\data-dump
-Run nightly after the shadow backup. Overwrites in place (stable filenames).
-"""
-import csv, json, os, sys, glob
+"""Extract KP master tables from the shadow's highest fiscal-year folder.
+Writes CSV (utf-8-sig) + JSON with plain-English headers, overwriting in place."""
+import os, csv, json, glob
 from dbfread import DBF
 
-# --- paths (Linux mount form for bash runs; adjust YEAR if fiscal year rolls) ---
-SHADOW = os.environ.get("KP_SHADOW", "/sessions/stoic-dazzling-volta/mnt/kp raw data")
-OUT    = os.environ.get("KP_OUT",    "/sessions/stoic-dazzling-volta/mnt/data-dump")
+SHADOW = os.environ.get("KP_SHADOW", "/sessions/eloquent-nice-hopper/mnt/kp raw data")
+OUTDIR = os.environ.get("KP_DATADUMP", os.path.dirname(os.path.abspath(__file__)))
 
-def pick_year(shadow):
-    """Use the highest-numbered fiscal-year subfolder (e.g. 2627 > 2526)."""
-    yrs = [d for d in os.listdir(shadow) if d.isdigit() and len(d)==4]
-    if not yrs:
-        raise SystemExit(f"No fiscal-year folder found in {shadow}")
-    return os.path.join(shadow, max(yrs))
+def highest_fy(root):
+    yrs = [d for d in os.listdir(root)
+           if len(d) == 4 and d.isdigit() and os.path.isdir(os.path.join(root, d))]
+    return os.path.join(root, sorted(yrs)[-1])
+
+def load(path, table):
+    return list(DBF(os.path.join(path, table), ignore_missing_memofile=True,
+                    char_decode_errors='ignore'))
 
 def clean(v):
-    return v.strip() if isinstance(v, str) else v
+    if v is None: return ""
+    if isinstance(v, str): return v.strip()
+    return v
 
-def write_outputs(name, heads, rows):
-    csv_p = os.path.join(OUT, f"{name}.csv")
-    json_p = os.path.join(OUT, f"{name}.json")
-    with open(csv_p, "w", newline="", encoding="utf-8-sig") as f:
-        w = csv.DictWriter(f, fieldnames=heads); w.writeheader(); w.writerows(rows)
-    with open(json_p, "w", encoding="utf-8") as f:
-        json.dump(rows, f, ensure_ascii=False, indent=2, default=str)
+def write(name, headers, rows):
+    csv_path = os.path.join(OUTDIR, name + ".csv")
+    json_path = os.path.join(OUTDIR, name + ".json")
+    cols = list(headers.values())
+    with open(csv_path, "w", newline="", encoding="utf-8-sig") as f:
+        w = csv.writer(f)
+        w.writerow(cols)
+        for r in rows:
+            w.writerow([clean(r.get(k, "")) for k in headers])
+    objs = [{lbl: clean(r.get(k, "")) for k, lbl in headers.items()} for r in rows]
+    with open(json_path, "w", encoding="utf-8-sig") as f:
+        json.dump(objs, f, ensure_ascii=False, indent=2, default=str)
     return len(rows)
 
-def extract(src):
-    counts = {}
+fy = highest_fy(SHADOW)
+counts = {}
 
-    # 1. PARTY MASTER (customers + suppliers) -- from ptm.dbf (NOT master.dbf)
-    party_map = [("STATUS","Type"),("PTCODE","Code"),("PTNM","Name"),("PTSNM","ShortName"),
-        ("PTADD1","Address1"),("PTADD2","Address2"),("PTADD3","Address3"),("CITY","Station"),
-        ("DISTT","District"),("STATE","State"),("STATE_CD","StateCode"),("PIN","PIN"),
-        ("GSTNO","GSTIN"),("PANNO","PAN"),("TINNO","TIN"),("CSTNO","CST"),("MOBILE","Mobile"),
-        ("MOB1","Mobile2"),("MOB2","Mobile3"),("HEL","Phone"),("EMAIL","Email"),("EMAIL2","Email2"),
-        ("CONT_PER","ContactPerson"),("TRANS","Transport"),("COURIER","Courier"),("DESTI","Destination"),
-        ("CREDIT","CreditDays"),("LIMIT","CreditLimit"),("OPBAL","OpeningBalance"),("DC","OpBalDrCr"),
-        ("MAST_GR","MasterGroup"),("MSMEID","MSMEID"),("AADHAR","Aadhaar"),("REMARKS","Remarks")]
-    d = DBF(os.path.join(src,"ptm.dbf"), ignore_missing_memofile=True, char_decode_errors='ignore')
-    rows=[]
-    for r in d:
-        o={}
-        for raw,plain in party_map:
-            v=clean(r.get(raw,""))
-            if raw=="STATUS":
-                v={"C":"Customer","S":"Supplier"}.get((v or "").strip().upper(), v)
-            o[plain]=v
-        rows.append(o)
-    counts["customers_suppliers_master"]=write_outputs("customers_suppliers_master",[p for _,p in party_map],rows)
+# customers_suppliers_master <- ptm.dbf (STATUS C=Customer, S=Supplier)
+ptm = load(fy, "ptm.dbf")
+for r in ptm:
+    st = (r.get("STATUS") or "").strip().upper()
+    r["_PARTY_TYPE"] = "Customer" if st == "C" else "Supplier" if st == "S" else st
+ptm_headers = {
+    "_PARTY_TYPE": "Party Type", "STATUS": "Status Code", "PTCODE": "Party Code",
+    "PTNM": "Party Name", "PTSNM": "Short Name", "PTADD1": "Address 1",
+    "PTADD2": "Address 2", "PTADD3": "Address 3", "CITY": "City",
+    "DISTT": "District", "STATE": "State", "PIN": "PIN Code",
+    "CONT_PER": "Contact Person 1", "CONT_PER2": "Contact Person 2",
+    "MOBILE": "Mobile", "MOB1": "Mobile 1", "MOB2": "Mobile 2",
+    "WAPP": "WhatsApp", "EMAIL": "Email", "EMAIL2": "Email 2",
+    "WEBADD": "Website", "FAX": "Fax", "GSTNO": "GST No", "PANNO": "PAN No",
+    "AADHAR": "Aadhaar", "TINNO": "TIN No", "CSTNO": "CST No", "CINNO": "CIN No",
+    "MSME": "MSME Flag", "MSMEID": "MSME ID", "IFSC": "Bank IFSC",
+    "CBSBANK": "Bank Name", "CBSAC": "Bank Account", "RTGSNO": "RTGS No",
+    "CREDIT": "Credit Days", "LIMIT": "Credit Limit", "OPBAL": "Opening Balance",
+    "DC": "Dr/Cr", "CLBAL": "Closing Balance", "TRANS": "Transport",
+    "COURIER": "Courier", "DESTI": "Destination", "REMARKS": "Remarks",
+    "REMARKS1": "Remarks 2", "OUT_STATE": "Out of State",
+}
+counts["customers_suppliers_master"] = write("customers_suppliers_master", ptm_headers, ptm)
 
-    # 2. ITEMS -- from itm.dbf
-    item_map=[("ITCODE","ItemCode"),("ITNM","ItemName"),("B_CODE","BarcodeName"),("GRCODE","Quality"),
-        ("QLTY","QualityCode"),("COMPANY","Company"),("UNIT","Unit"),("FIX_SL","SaleRate"),
-        ("WH_SL_RT","WholesaleRate"),("P_RT","PurchaseRate"),("HSNCODE","HSNCode"),("GSTPS","GSTPercent"),
-        ("BOX","BoxQty"),("MIN_LVL","MinLevel"),("REO_LVL","ReorderLevel"),("TQTY","TotalQty"),
-        ("ITTY","ItemType"),("MARK","Mark"),("ACT_YN","Active"),("DATE","LastUpdated")]
-    d = DBF(os.path.join(src,"itm.dbf"), ignore_missing_memofile=True, char_decode_errors='ignore')
-    rows=[{plain:clean(r.get(raw,"")) for raw,plain in item_map} for r in d]
-    counts["items_master"]=write_outputs("items_master",[p for _,p in item_map],rows)
+# items_master <- itm.dbf
+itm = load(fy, "itm.dbf")
+itm_headers = {
+    "ITCODE": "Item Code", "GRCODE": "Group Code", "ITNM": "Item Name",
+    "B_CODE": "Barcode/Print Name", "COMPANY": "Company", "QLTY": "Quality",
+    "UNIT": "Unit", "OPQTY": "Opening Qty", "OPVLU": "Opening Value",
+    "MIN_LVL": "Min Level", "REO_LVL": "Reorder Level",
+    "FIX_SL": "Fixed Sale Rate", "FIX_PR": "Fixed Purchase Rate",
+    "WH_SL_RT": "Wholesale Rate", "P_RT": "Purchase Rate",
+    "C_RATE_A": "Cost Rate A", "C_RATE_B": "Cost Rate B", "C_RATE_C": "Cost Rate C",
+    "HSNCODE": "HSN Code", "GSTPS": "GST %", "BOX": "Box", "CUT": "Cut",
+    "MARK": "Mark", "DATE": "Date", "ACT_YN": "Active",
+}
+counts["items_master"] = write("items_master", itm_headers, itm)
 
-    # 3. TRANSPORTS -- merge transport.dbf + transpor.dbf, dedup by name
-    trows=[]
-    for fn in ["transport.dbf","transpor.dbf"]:
-        p=os.path.join(src,fn)
-        if os.path.exists(p):
-            for r in DBF(p, ignore_missing_memofile=True, char_decode_errors='ignore'):
-                nm=clean(r.get("NAME",""))
-                if nm: trows.append({"TransportName":nm,"Source":fn})
-    seen=set(); uniq=[]
-    for r in trows:
-        k=r["TransportName"].upper()
-        if k not in seen: seen.add(k); uniq.append(r)
-    counts["transports"]=write_outputs("transports",["TransportName","Source"],uniq)
+# transports <- transport.dbf + transpor.dbf merged, dedup by name
+tr = load(fy, "transport.dbf") + load(fy, "transpor.dbf")
+seen, merged = set(), []
+for r in tr:
+    nm = (r.get("NAME") or "").strip()
+    key = nm.upper()
+    if nm and key not in seen:
+        seen.add(key); merged.append({"NAME": nm})
+counts["transports"] = write("transports", {"NAME": "Transport Name"}, merged)
 
-    # 4. STATIONS reference -- from city.dbf
-    d = DBF(os.path.join(src,"city.dbf"), ignore_missing_memofile=True, char_decode_errors='ignore')
-    srows=[{"Station":clean(r.get("CITY","")),"Status":clean(r.get("STATUS",""))} for r in d if clean(r.get("CITY",""))]
-    counts["stations"]=write_outputs("stations",["Station","Status"],srows)
+# stations <- city.dbf
+city = load(fy, "city.dbf")
+city_headers = {"CITY": "Station/City", "STATUS": "Status Code"}
+counts["stations"] = write("stations", city_headers, city)
 
-    return counts
-
-if __name__=="__main__":
-    src=pick_year(SHADOW)
-    os.makedirs(OUT, exist_ok=True)
-    counts=extract(src)
-    print(f"Extracted from {src}")
-    for k,v in counts.items():
-        print(f"  {k}: {v} rows")
+print("FY folder:", fy)
+for k, v in counts.items():
+    print(f"{k}: {v} rows")

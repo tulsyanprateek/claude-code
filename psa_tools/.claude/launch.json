@@ -4,7 +4,7 @@
     {
       "name": "psa-order-generator",
       "runtimeExecutable": "npx",
-      "runtimeArgs": ["serve", "-p", "3456", "-s", "."],
+      "runtimeArgs": ["serve", "-p", "3456", "."],
       "port": 3456
     },
     {

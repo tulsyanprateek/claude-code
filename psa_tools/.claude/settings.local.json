@@ -8,7 +8,12 @@
       "PowerShell(python \"C:\\\\Users\\\\PRATEE~1\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\D--claude-code-psa-tools\\\\25c3036b-ed06-42f8-b66a-d1b811ec0665\\\\scratchpad\\\\probe.py\" 2>&1)",
       "PowerShell(python \"C:\\\\Users\\\\PRATEE~1\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\D--claude-code-psa-tools\\\\25c3036b-ed06-42f8-b66a-d1b811ec0665\\\\scratchpad\\\\probe2.py\" 2>&1)",
       "PowerShell(python \"C:\\\\Users\\\\PRATEE~1\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\D--claude-code-psa-tools\\\\25c3036b-ed06-42f8-b66a-d1b811ec0665\\\\scratchpad\\\\probe3.py\" 2>&1)",
-      "mcp__Claude_Preview__preview_start"
+      "mcp__Claude_Preview__preview_start",
+      "Bash(curl -sI -L http://localhost:3456/psa_order_generator.html)",
+      "Bash(curl -sI http://localhost:3456/psa_order_generator)",
+      "Bash(python3 -c \"import ast; ast.parse\\(open\\('push_to_sheets.py', encoding='utf-8'\\).read\\(\\)\\)\")",
+      "Bash(python push_to_sheets.py)",
+      "Bash(python3 -)"
     ]
   }
 }
