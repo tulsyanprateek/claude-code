@@ -109,13 +109,15 @@ const DOC_TYPES = ['Bill','CN','DN','JV','Outstanding','Cheque','Other'];
 const DEFAULT_CHANNELS = ['Speed Post','Courier','By Hand', ...];
 ```
 
-**localStorage keys:** `psa_dispatch_channels` (custom channels list), `psa_dispatch_theme`
+**localStorage keys:** `psa_dispatch_channels` (custom channels list), `psa_dispatch_theme`, `psa_dispatch_records` (offline record cache), `psa_dispatch_master` (cached customers/suppliers from master sheet)
+
+**Master data:** customers/suppliers autocomplete is fed from the shared PSA Master Data sheet via the backend's `getMasterData` action (localStorage-cached; hardcoded `SUPPLIERS`/`PARTIES` arrays are the offline fallback).
 
 ### Dispatch Logger Backend (`psa_dispatch_backend.gs`)
 
 Google Sheet columns: `id | timestamp | date | recipientType | recipientName | channel | suppliersJson | remarks | waMessage`
 
-Actions: `ping`, `save` (POST, `mode: 'no-cors'`), `list` (GET), `get` (GET), `delete` (GET).
+Actions: `ping`, `save` (POST, `mode: 'no-cors'`), `list` (GET), `get` (GET), `delete` (GET), `getMasterData` (GET — customers/suppliers from the shared PSA Master Data sheet's `parties` tab, sorted by Bills FY).
 
 ## Critical Invariants — Order Generator (Do Not Break)
 

@@ -6,6 +6,11 @@
 const SHEET_NAME = 'dispatches';
 const HEADERS = ['id','timestamp','date','recipientType','recipientName','channel','suppliersJson','remarks','waMessage'];
 
+// Shared "PSA Master Data" spreadsheet — customers/suppliers live there,
+// not in this spreadsheet. Read directly by ID (same Google account),
+// no web-app call needed. See psa_masterdata_backend.gs for how it's filled.
+const MASTER_SHEET_ID = '1J8sS3dD8QnGjTV9NEEyEJwrohOofWgbu4nGfPgG-Pn8';
+
 function doGet(e) {
   const action = e.parameter.action || '';
   try {
@@ -13,6 +18,7 @@ function doGet(e) {
     if (action === 'list')   return json(listRecords(e.parameter));
     if (action === 'get')    return json(getRecord(e.parameter.id));
     if (action === 'delete') return json(deleteRecord(e.parameter.id));
+    if (action === 'getMasterData') return json(getMasterData());
     return json({ error: 'Unknown action' });
   } catch(err) {
     return json({ error: err.message });
@@ -97,6 +103,44 @@ function deleteRecord(id) {
   return { error: 'Not found' };
 }
 
+// ── MASTER DATA ───────────────────────────────────────────────
+// Customers + suppliers for the autocomplete fields, sourced from the
+// shared PSA Master Data sheet's `parties` tab (ERP export). Sorted by
+// "Bills FY" so the most-billed parties surface first.
+function getMasterData() {
+  if (!MASTER_SHEET_ID) return { ok: false, error: 'MASTER_SHEET_ID not configured' };
+
+  let rows;
+  try {
+    const ss = SpreadsheetApp.openById(MASTER_SHEET_ID);
+    const sheet = ss.getSheetByName('parties');
+    if (!sheet) return { ok: false, error: 'parties tab not found in master sheet' };
+    const values = sheet.getDataRange().getValues();
+    if (values.length < 2) return { ok: true, customers: [], suppliers: [] };
+    const headers = values[0];
+    rows = values.slice(1).map(r => {
+      const obj = {};
+      headers.forEach((h, i) => obj[h] = r[i]);
+      return obj;
+    });
+  } catch (err) {
+    return { ok: false, error: 'Master sheet read failed: ' + err.toString() };
+  }
+
+  const bills = p => parseInt(p['Bills FY']) || 0;
+  const pick = type => rows
+    .filter(p => p['Party Type'] === type && p['Party Name'])
+    .sort((a, b) => bills(b) - bills(a))
+    .map(p => ({ name: String(p['Party Name'] || ''), city: String(p['City'] || '') }));
+
+  return {
+    ok: true,
+    customers: pick('Customer'),
+    suppliers: pick('Supplier'),
+    generatedAt: new Date().toISOString()
+  };
+}
+
 // ── HELPERS ───────────────────────────────────────────────────
 function getSheet() {
   const ss = SpreadsheetApp.getActiveSpreadsheet();
@@ -137,4 +181,13 @@ function testSave() {
 function testList() {
   const result = listRecords({ limit: '10', offset: '0' });
   Logger.log(JSON.stringify(result));
+}
+
+function testGetMasterData() {
+  const result = getMasterData();
+  Logger.log('ok: ' + result.ok);
+  Logger.log('error: ' + (result.error || 'none'));
+  Logger.log('customers: ' + (result.customers || []).length);
+  Logger.log('suppliers: ' + (result.suppliers || []).length);
+  Logger.log('sample customer: ' + JSON.stringify(result.customers && result.customers[0]));
 }

@@ -605,6 +605,35 @@ const DEFAULT_CHANNELS = [
 ];
 
 // ════════════════════════════════════════════════════════════
+//  MASTER DATA — customers/suppliers synced from the shared
+//  PSA Master Data sheet via this tool's backend (getMasterData).
+//  localStorage-cached; hardcoded arrays above are the offline fallback.
+// ════════════════════════════════════════════════════════════
+let MASTER={customers:[],suppliers:[]};
+function getCustomers(){return MASTER.customers.length?MASTER.customers:PARTIES;}
+function getSuppliers(){return MASTER.suppliers.length?MASTER.suppliers:SUPPLIERS;}
+function applyMaster(m){
+  if(!m)return;
+  MASTER.customers=Array.isArray(m.customers)?m.customers:[];
+  MASTER.suppliers=Array.isArray(m.suppliers)?m.suppliers:[];
+  setupRecipientAC();
+  document.querySelectorAll('.sup-block input[type=text]').forEach(inp=>{
+    inp._acItems=getSuppliers().map(s=>({label:s.name,value:`${s.name}, ${s.city}`,sub:s.city}));
+  });
+}
+async function loadMasterData(){
+  try{applyMaster(JSON.parse(localStorage.getItem('psa_dispatch_master')||'null'));}catch{}
+  if(!BACKEND_URL||!navigator.onLine)return;
+  try{
+    const j=await(await fetch(`${BACKEND_URL}?action=getMasterData`)).json();
+    if(j.ok&&((j.customers||[]).length||(j.suppliers||[]).length)){
+      localStorage.setItem('psa_dispatch_master',JSON.stringify({customers:j.customers||[],suppliers:j.suppliers||[],fetchedAt:new Date().toISOString()}));
+      applyMaster(j);
+    }
+  }catch{}
+}
+
+// ════════════════════════════════════════════════════════════
 //  STATE
 // ════════════════════════════════════════════════════════════
 let supBlockId=0, currentWAMsg='', pendingDelId=null, searchTimer=null;
@@ -706,7 +735,7 @@ function acSelect(inputId,listId,val){document.getElementById(inputId).value=val
 function setupAC(inp,list,items){inp._acItems=items;inp.addEventListener('blur',()=>setTimeout(()=>list.classList.remove('open'),180));}
 function setupRecipientAC(){
   const isC=document.querySelector('input[name=rtype]:checked').value==='Customer';
-  const items=(isC?PARTIES:SUPPLIERS).map(p=>({label:`${p.name}, ${p.city}`,value:`${p.name}, ${p.city}`,sub:''}));
+  const items=(isC?getCustomers():getSuppliers()).map(p=>({label:`${p.name}, ${p.city}`,value:`${p.name}, ${p.city}`,sub:''}));
   setupAC(document.getElementById('iRecipient'),document.getElementById('acRecipient'),items);
 }
 
@@ -735,7 +764,7 @@ function addSupplierBlock(){
     <button class="add-doc-btn" onclick="addDocRow(${id})">＋ Add Document</button>`;
   document.getElementById('supBlocks').appendChild(block);
   const inpEl=document.getElementById(inpId),listEl=document.getElementById(listId);
-  setupAC(inpEl,listEl,SUPPLIERS.map(s=>({label:s.name,value:`${s.name}, ${s.city}`,sub:s.city})));
+  setupAC(inpEl,listEl,getSuppliers().map(s=>({label:s.name,value:`${s.name}, ${s.city}`,sub:s.city})));
   addDocRow(id);
 }
 function removeSupplierBlock(id){document.getElementById(`supBlock${id}`)?.remove();}
@@ -796,9 +825,9 @@ function validate(d){
 // ════════════════════════════════════════════════════════════
 function buildWA(d){
   const ds=formatDate(d.date);
-  let msg=`📮 *DISPATCH NOTE*\nDate: ${ds}\nTo: *${d.recipientName}* (${d.recipientType})\nVia: ${d.channel}\n\n`;
+  let msg=`📮 *DISPATCH NOTE*\nDate: ${ds}\nTo: *${displayCase(d.recipientName)}* (${d.recipientType})\nVia: ${displayCase(d.channel)}\n\n`;
   d.suppliers.forEach((s,i)=>{
-    msg+=`📄 *${s.supName||'(Supplier not named)'}*\n`;
+    msg+=`📄 *${displayCase(s.supName)||'(Supplier not named)'}*\n`;
     s.docs.forEach(doc=>{msg+=`   • ${doc.type}: ${doc.num}`;if(doc.lr)msg+=`  ✅ LR`;msg+=`\n`;});
     if(i<d.suppliers.length-1)msg+=`\n`;
   });
@@ -907,15 +936,15 @@ function renderHistory(records){
   historyCache=records;
   document.getElementById('histList').innerHTML=records.map((r,idx)=>{
     let sups=[];try{sups=JSON.parse(r.suppliersJson||'[]');}catch{}
-    const supNames=sups.map(s=>s.supName).filter(Boolean).join(', ')||'—';
+    const supNames=sups.map(s=>displayCase(s.supName)).filter(Boolean).join(', ')||'—';
     const docCount=sups.reduce((n,s)=>n+(s.docs?.length||0),0);
     const ds=formatDate(r.date);
     const bc=r.recipientType==='Customer'?'badge-c':'badge-s';
-    const ch=r.channel?`<span class="hist-ch">📬 ${escH(r.channel)}</span>`:'';
+    const ch=r.channel?`<span class="hist-ch">📬 ${escH(displayCase(r.channel))}</span>`:'';
     const pending=r._pending?`<span class="hist-ch" style="color:var(--tc)">⏳ Pending sync</span>`:'';
     return`<div class="hist-item">
       <div class="hist-hdr">
-        <div><span class="hist-recipient">${escH(r.recipientName)}</span><span class="badge ${bc}">${escH(r.recipientType)}</span></div>
+        <div><span class="hist-recipient">${escH(displayCase(r.recipientName))}</span><span class="badge ${bc}">${escH(r.recipientType)}</span></div>
         <span class="hist-date">${ds}</span>
       </div>
       <div class="hist-meta">${ch}${pending}<span>📦 ${escH(supNames)}</span><span style="color:var(--t3)">· ${docCount} doc${docCount!==1?'s':''}</span></div>
@@ -975,6 +1004,16 @@ async function pingBackend(){
 //  UTILS
 // ════════════════════════════════════════════════════════════
 function escH(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');}
+// ALL-CAPS values → Title Case in outputs/displays only (same rules as order generator).
+// Mixed-case strings pass through untouched; stored data is never changed.
+const DISPLAY_ACRONYMS=new Set(['MSME','GST','GSTIN','HUF','LLP','VPP','PSA']);
+function displayCase(s){
+  if(!s)return s;
+  const str=String(s);
+  if(str!==str.toUpperCase())return str;
+  return str.replace(/[A-Za-z0-9]+/g,tok=>
+    (/\d/.test(tok)||DISPLAY_ACRONYMS.has(tok))?tok:tok.charAt(0)+tok.slice(1).toLowerCase());
+}
 function escA(s){return escH(s);}
 function todayISO(){const d=new Date();return`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;}
 function showToast(msg,ms=2600){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),ms);}
@@ -1049,6 +1088,7 @@ function init(){
   setupRecipientAC();
   document.getElementById('iRecipient').addEventListener('blur',()=>setTimeout(()=>document.getElementById('acRecipient').classList.remove('open'),180));
   addSupplierBlock();
+  loadMasterData();
   pingBackend();
 }
 init();
