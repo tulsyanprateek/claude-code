@@ -44,7 +44,8 @@
     "Destination": "BURHANPUR",
     "Remarks": "30 DAYS NETT PAYMENT",
     "Remarks 2": "NO GR ACCEPTABLE",
-    "Out of State": "Y"
+    "Out of State": "Y",
+    "Bills FY": 213
   },
   {
     "Party Type": "Supplier",
@@ -91,7 +92,8 @@
     "Destination": "BALOTRA",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": "Y"
+    "Out of State": "Y",
+    "Bills FY": 48
   },
   {
     "Party Type": "Customer",
@@ -138,7 +140,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 2
   },
   {
     "Party Type": "Customer",
@@ -185,7 +188,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -232,7 +236,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 11
   },
   {
     "Party Type": "Supplier",
@@ -279,7 +284,8 @@
     "Destination": "",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 18
   },
   {
     "Party Type": "Supplier",
@@ -326,7 +332,8 @@
     "Destination": "",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 9
   },
   {
     "Party Type": "Supplier",
@@ -373,7 +380,8 @@
     "Destination": "",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 4
   },
   {
     "Party Type": "Supplier",
@@ -420,7 +428,8 @@
     "Destination": "ICHALKARANJI",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Supplier",
@@ -467,7 +476,8 @@
     "Destination": "SURAT",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 303
   },
   {
     "Party Type": "Supplier",
@@ -514,7 +524,8 @@
     "Destination": "JETPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 1
   },
   {
     "Party Type": "Supplier",
@@ -561,7 +572,8 @@
     "Destination": "GORAKHPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 4
   },
   {
     "Party Type": "Supplier",
@@ -608,7 +620,8 @@
     "Destination": "SURAT",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Supplier",
@@ -655,7 +668,8 @@
     "Destination": "MATHURA",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Supplier",
@@ -702,7 +716,8 @@
     "Destination": "JETPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Supplier",
@@ -749,7 +764,8 @@
     "Destination": "PALI-MARWAR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Supplier",
@@ -796,7 +812,8 @@
     "Destination": "PALI-MARWAR",
     "Remarks": "PRICELIST 15-01-2026",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 75
   },
   {
     "Party Type": "Supplier",
@@ -843,7 +860,8 @@
     "Destination": "SURAT",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 1
   },
   {
     "Party Type": "Supplier",
@@ -890,7 +908,8 @@
     "Destination": "",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 264
   },
   {
     "Party Type": "Supplier",
@@ -937,7 +956,8 @@
     "Destination": "BALOTRA",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Supplier",
@@ -984,7 +1004,8 @@
     "Destination": "PALI-MARWAR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 43
   },
   {
     "Party Type": "Supplier",
@@ -1031,7 +1052,8 @@
     "Destination": "BALOTRA",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 13
   },
   {
     "Party Type": "Supplier",
@@ -1078,7 +1100,8 @@
     "Destination": "SURAT",
     "Remarks": "SUPER NETT RATES.",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 282
   },
   {
     "Party Type": "Supplier",
@@ -1125,7 +1148,8 @@
     "Destination": "MUMBAI",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 48
   },
   {
     "Party Type": "Supplier",
@@ -1172,7 +1196,8 @@
     "Destination": "JETPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 243
   },
   {
     "Party Type": "Supplier",
@@ -1219,7 +1244,8 @@
     "Destination": "JETPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 75
   },
   {
     "Party Type": "Supplier",
@@ -1266,7 +1292,8 @@
     "Destination": "PALI-MARWAR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 169
   },
   {
     "Party Type": "Supplier",
@@ -1313,7 +1340,8 @@
     "Destination": "PALI-MARWAR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 25
   },
   {
     "Party Type": "Supplier",
@@ -1360,7 +1388,8 @@
     "Destination": "PALI-MARWAR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Supplier",
@@ -1407,7 +1436,8 @@
     "Destination": "PALI-MARWAR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": "Y"
+    "Out of State": "Y",
+    "Bills FY": 0
   },
   {
     "Party Type": "Supplier",
@@ -1454,7 +1484,8 @@
     "Destination": "ERODE",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 21
   },
   {
     "Party Type": "Supplier",
@@ -1501,7 +1532,8 @@
     "Destination": "PALI-MARWAR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 14
   },
   {
     "Party Type": "Supplier",
@@ -1548,7 +1580,8 @@
     "Destination": "AHMEDABAD",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 15
   },
   {
     "Party Type": "Supplier",
@@ -1595,7 +1628,8 @@
     "Destination": "INDORE",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 32
   },
   {
     "Party Type": "Supplier",
@@ -1642,7 +1676,8 @@
     "Destination": "MATHURA",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Supplier",
@@ -1689,7 +1724,8 @@
     "Destination": "CHENNIMALAI",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 3
   },
   {
     "Party Type": "Supplier",
@@ -1736,7 +1772,8 @@
     "Destination": "SURAT",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Supplier",
@@ -1783,7 +1820,8 @@
     "Destination": "SURAT",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Supplier",
@@ -1830,7 +1868,8 @@
     "Destination": "PANIPAT",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 1
   },
   {
     "Party Type": "Supplier",
@@ -1877,7 +1916,8 @@
     "Destination": "PANIPAT",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 1
   },
   {
     "Party Type": "Supplier",
@@ -1924,7 +1964,8 @@
     "Destination": "JETPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Supplier",
@@ -1971,7 +2012,8 @@
     "Destination": "SURAT",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Supplier",
@@ -2018,7 +2060,8 @@
     "Destination": "BHILWARA",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 1
   },
   {
     "Party Type": "Supplier",
@@ -2065,7 +2108,8 @@
     "Destination": "",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Supplier",
@@ -2112,7 +2156,8 @@
     "Destination": "AMRITSAR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Supplier",
@@ -2159,7 +2204,8 @@
     "Destination": "AMRITSAR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Supplier",
@@ -2206,7 +2252,8 @@
     "Destination": "KOLKATA",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Supplier",
@@ -2253,7 +2300,8 @@
     "Destination": "SURAT",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 2
   },
   {
     "Party Type": "Supplier",
@@ -2300,7 +2348,8 @@
     "Destination": "AHMEDABAD",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 1
   },
   {
     "Party Type": "Supplier",
@@ -2347,7 +2396,8 @@
     "Destination": "AHMEDABAD",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 18
   },
   {
     "Party Type": "Supplier",
@@ -2394,7 +2444,8 @@
     "Destination": "INDORE",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Supplier",
@@ -2441,7 +2492,8 @@
     "Destination": "JETPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 3
   },
   {
     "Party Type": "Supplier",
@@ -2488,7 +2540,8 @@
     "Destination": "PALI-MARWAR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Supplier",
@@ -2535,7 +2588,8 @@
     "Destination": "PANIPAT",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Supplier",
@@ -2582,7 +2636,8 @@
     "Destination": "BALOTRA",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 3
   },
   {
     "Party Type": "Supplier",
@@ -2629,7 +2684,8 @@
     "Destination": "SURAT",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Supplier",
@@ -2676,7 +2732,8 @@
     "Destination": "PALI-MARWAR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -2723,7 +2780,8 @@
     "Destination": "BAJITPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 44
   },
   {
     "Party Type": "Customer",
@@ -2770,7 +2828,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 83
   },
   {
     "Party Type": "Customer",
@@ -2817,7 +2876,8 @@
     "Destination": "BARACHAKIA",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 1
   },
   {
     "Party Type": "Customer",
@@ -2864,7 +2924,8 @@
     "Destination": "BARACHAKIA",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 1
   },
   {
     "Party Type": "Customer",
@@ -2911,7 +2972,8 @@
     "Destination": "BARACHAKIA",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 1
   },
   {
     "Party Type": "Customer",
@@ -2958,7 +3020,8 @@
     "Destination": "BAJITPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -3005,7 +3068,8 @@
     "Destination": "BARACHAKIA",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 7
   },
   {
     "Party Type": "Customer",
@@ -3052,7 +3116,8 @@
     "Destination": "BARACHAKIA",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 10
   },
   {
     "Party Type": "Customer",
@@ -3099,7 +3164,8 @@
     "Destination": "BASOPATTY",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 5
   },
   {
     "Party Type": "Customer",
@@ -3146,7 +3212,8 @@
     "Destination": "BETTIAH",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 29
   },
   {
     "Party Type": "Customer",
@@ -3193,7 +3260,8 @@
     "Destination": "BETTIAH",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -3240,7 +3308,8 @@
     "Destination": "BETTIAH",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -3287,7 +3356,8 @@
     "Destination": "BETTIAH",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 2
   },
   {
     "Party Type": "Customer",
@@ -3334,7 +3404,8 @@
     "Destination": "",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 2
   },
   {
     "Party Type": "Customer",
@@ -3381,7 +3452,8 @@
     "Destination": "BETTIAH",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 20
   },
   {
     "Party Type": "Customer",
@@ -3428,7 +3500,8 @@
     "Destination": "BETTIAH",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -3475,7 +3548,8 @@
     "Destination": "BETTIAH",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -3522,7 +3596,8 @@
     "Destination": "BETTIAH",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 14
   },
   {
     "Party Type": "Customer",
@@ -3569,7 +3644,8 @@
     "Destination": "BETTIAH",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 12
   },
   {
     "Party Type": "Customer",
@@ -3616,7 +3692,8 @@
     "Destination": "BETTIAH",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 9
   },
   {
     "Party Type": "Customer",
@@ -3663,7 +3740,8 @@
     "Destination": "BETTIAH",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 6
   },
   {
     "Party Type": "Customer",
@@ -3710,7 +3788,8 @@
     "Destination": "BETTIAH",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -3757,7 +3836,8 @@
     "Destination": "BETTIAH",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 31
   },
   {
     "Party Type": "Customer",
@@ -3804,7 +3884,8 @@
     "Destination": "BIRAUL",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 1
   },
   {
     "Party Type": "Customer",
@@ -3851,7 +3932,8 @@
     "Destination": "SAMASTIPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 1
   },
   {
     "Party Type": "Customer",
@@ -3898,7 +3980,8 @@
     "Destination": "DALSINGSARAI",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 2
   },
   {
     "Party Type": "Customer",
@@ -3945,7 +4028,8 @@
     "Destination": "DARBHANGA",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -3992,7 +4076,8 @@
     "Destination": "DEORIA KOTHI",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -4039,7 +4124,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 76
   },
   {
     "Party Type": "Customer",
@@ -4086,7 +4172,8 @@
     "Destination": "GHOGHARDIHA",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 2
   },
   {
     "Party Type": "Customer",
@@ -4133,7 +4220,8 @@
     "Destination": "GHOGHARDIHA",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 18
   },
   {
     "Party Type": "Customer",
@@ -4180,7 +4268,8 @@
     "Destination": "GHOGHARDIHA",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -4227,7 +4316,8 @@
     "Destination": "GORAKHPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -4274,7 +4364,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 7
   },
   {
     "Party Type": "Customer",
@@ -4321,7 +4412,8 @@
     "Destination": "JANDAHA",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -4368,7 +4460,8 @@
     "Destination": "ISLAMPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -4415,7 +4508,8 @@
     "Destination": "JAINAGAR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 7
   },
   {
     "Party Type": "Customer",
@@ -4462,7 +4556,8 @@
     "Destination": "JAINAGAR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 1
   },
   {
     "Party Type": "Customer",
@@ -4509,7 +4604,8 @@
     "Destination": "JAINAGAR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -4556,7 +4652,8 @@
     "Destination": "JAINAGAR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 21
   },
   {
     "Party Type": "Customer",
@@ -4603,7 +4700,8 @@
     "Destination": "JAINAGAR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -4650,7 +4748,8 @@
     "Destination": "JAINAGAR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -4697,7 +4796,8 @@
     "Destination": "JAINAGAR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -4744,7 +4844,8 @@
     "Destination": "JAINAGAR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 7
   },
   {
     "Party Type": "Customer",
@@ -4791,7 +4892,8 @@
     "Destination": "JAINAGAR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -4838,7 +4940,8 @@
     "Destination": "JAINAGAR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 4
   },
   {
     "Party Type": "Customer",
@@ -4885,7 +4988,8 @@
     "Destination": "JETPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -4932,7 +5036,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 73
   },
   {
     "Party Type": "Customer",
@@ -4979,7 +5084,8 @@
     "Destination": "DARBHANGA",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 15
   },
   {
     "Party Type": "Customer",
@@ -5026,7 +5132,8 @@
     "Destination": "KHUTAUNA",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -5073,7 +5180,8 @@
     "Destination": "KHUTAUNA",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 12
   },
   {
     "Party Type": "Customer",
@@ -5120,7 +5228,8 @@
     "Destination": "KHUTAUNA",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -5167,7 +5276,8 @@
     "Destination": "",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 2
   },
   {
     "Party Type": "Customer",
@@ -5214,7 +5324,8 @@
     "Destination": "",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 13
   },
   {
     "Party Type": "Customer",
@@ -5261,7 +5372,8 @@
     "Destination": "MADHUBAN",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 3
   },
   {
     "Party Type": "Customer",
@@ -5308,7 +5420,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 103
   },
   {
     "Party Type": "Customer",
@@ -5355,7 +5468,8 @@
     "Destination": "MADHUBANI",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 71
   },
   {
     "Party Type": "Customer",
@@ -5402,7 +5516,8 @@
     "Destination": "MADHUBANI",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 8
   },
   {
     "Party Type": "Customer",
@@ -5449,7 +5564,8 @@
     "Destination": "MOTIHARI",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 5
   },
   {
     "Party Type": "Customer",
@@ -5496,7 +5612,8 @@
     "Destination": "MOTIHARI",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 2
   },
   {
     "Party Type": "Customer",
@@ -5543,7 +5660,8 @@
     "Destination": "MOTIHARI",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -5590,7 +5708,8 @@
     "Destination": "MOTIHARI",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 40
   },
   {
     "Party Type": "Customer",
@@ -5637,7 +5756,8 @@
     "Destination": "MOTIHARI",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 12
   },
   {
     "Party Type": "Customer",
@@ -5684,7 +5804,8 @@
     "Destination": "MOTIHARI",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -5731,7 +5852,8 @@
     "Destination": "MOTIHARI",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -5778,7 +5900,8 @@
     "Destination": "MOTIPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 3
   },
   {
     "Party Type": "Customer",
@@ -5825,7 +5948,8 @@
     "Destination": "NIRMALI",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 7
   },
   {
     "Party Type": "Customer",
@@ -5872,7 +5996,8 @@
     "Destination": "NIRMALI",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 5
   },
   {
     "Party Type": "Customer",
@@ -5919,7 +6044,8 @@
     "Destination": "JAINAGAR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 11
   },
   {
     "Party Type": "Customer",
@@ -5966,7 +6092,8 @@
     "Destination": "PUPRI",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 8
   },
   {
     "Party Type": "Customer",
@@ -6013,7 +6140,8 @@
     "Destination": "PUPRI",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 44
   },
   {
     "Party Type": "Customer",
@@ -6060,7 +6188,8 @@
     "Destination": "PUPRI",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -6107,7 +6236,8 @@
     "Destination": "RAIGANJ",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 7
   },
   {
     "Party Type": "Customer",
@@ -6154,7 +6284,8 @@
     "Destination": "RUNNI SAIDPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 27
   },
   {
     "Party Type": "Customer",
@@ -6201,7 +6332,8 @@
     "Destination": "SAMASTIPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 6
   },
   {
     "Party Type": "Customer",
@@ -6248,7 +6380,8 @@
     "Destination": "SAMASTIPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 2
   },
   {
     "Party Type": "Customer",
@@ -6295,7 +6428,8 @@
     "Destination": "SAMASTIPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -6342,7 +6476,8 @@
     "Destination": "SAMASTIPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 1
   },
   {
     "Party Type": "Customer",
@@ -6389,7 +6524,8 @@
     "Destination": "SAMASTIPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 13
   },
   {
     "Party Type": "Customer",
@@ -6436,7 +6572,8 @@
     "Destination": "SAMASTIPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 63
   },
   {
     "Party Type": "Customer",
@@ -6483,7 +6620,8 @@
     "Destination": "SAMASTIPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -6530,7 +6668,8 @@
     "Destination": "SAMASTIPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -6577,7 +6716,8 @@
     "Destination": "SAMASTIPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 7
   },
   {
     "Party Type": "Customer",
@@ -6624,7 +6764,8 @@
     "Destination": "SAMASTIPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 1
   },
   {
     "Party Type": "Customer",
@@ -6671,7 +6812,8 @@
     "Destination": "SAMASTIPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -6718,7 +6860,8 @@
     "Destination": "SAMASTIPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 32
   },
   {
     "Party Type": "Customer",
@@ -6765,7 +6908,8 @@
     "Destination": "SAMASTIPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 2
   },
   {
     "Party Type": "Customer",
@@ -6812,7 +6956,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -6859,7 +7004,8 @@
     "Destination": "SIMRI",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 61
   },
   {
     "Party Type": "Customer",
@@ -6906,7 +7052,8 @@
     "Destination": "SITAMARHI",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -6953,7 +7100,8 @@
     "Destination": "SITAMARHI",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 1
   },
   {
     "Party Type": "Customer",
@@ -7000,7 +7148,8 @@
     "Destination": "SITAMARHI",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 13
   },
   {
     "Party Type": "Customer",
@@ -7047,7 +7196,8 @@
     "Destination": "SITAMARHI",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -7094,7 +7244,8 @@
     "Destination": "SITAMARHI",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 15
   },
   {
     "Party Type": "Customer",
@@ -7141,7 +7292,8 @@
     "Destination": "SITAMARHI",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 40
   },
   {
     "Party Type": "Customer",
@@ -7188,7 +7340,8 @@
     "Destination": "SITAMARHI",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -7235,7 +7388,8 @@
     "Destination": "SITAMARHI",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 73
   },
   {
     "Party Type": "Customer",
@@ -7282,7 +7436,8 @@
     "Destination": "SITAMARHI",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 31
   },
   {
     "Party Type": "Customer",
@@ -7329,7 +7484,8 @@
     "Destination": "SITAMARHI",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -7376,7 +7532,8 @@
     "Destination": "SITAMARHI",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -7423,7 +7580,8 @@
     "Destination": "SITAMARHI",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 7
   },
   {
     "Party Type": "Customer",
@@ -7470,7 +7628,8 @@
     "Destination": "SITAMARHI",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -7517,7 +7676,8 @@
     "Destination": "SITAMARHI",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -7564,7 +7724,8 @@
     "Destination": "SITAMARHI",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 2
   },
   {
     "Party Type": "Customer",
@@ -7611,7 +7772,8 @@
     "Destination": "SITAMARHI",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 1
   },
   {
     "Party Type": "Customer",
@@ -7658,7 +7820,8 @@
     "Destination": "SITAMARHI",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 6
   },
   {
     "Party Type": "Customer",
@@ -7705,7 +7868,8 @@
     "Destination": "SITAMARHI",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 53
   },
   {
     "Party Type": "Customer",
@@ -7752,7 +7916,8 @@
     "Destination": "SITAMARHI",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 5
   },
   {
     "Party Type": "Customer",
@@ -7799,7 +7964,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 61
   },
   {
     "Party Type": "Customer",
@@ -7846,7 +8012,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 15
   },
   {
     "Party Type": "Customer",
@@ -7893,7 +8060,8 @@
     "Destination": "TAJPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 36
   },
   {
     "Party Type": "Customer",
@@ -7940,7 +8108,8 @@
     "Destination": "NIRMALI",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -7987,7 +8156,8 @@
     "Destination": "",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 7
   },
   {
     "Party Type": "Customer",
@@ -8034,7 +8204,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 9
   },
   {
     "Party Type": "Customer",
@@ -8081,7 +8252,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 7
   },
   {
     "Party Type": "Customer",
@@ -8128,7 +8300,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 10
   },
   {
     "Party Type": "Customer",
@@ -8175,7 +8348,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 14
   },
   {
     "Party Type": "Customer",
@@ -8222,7 +8396,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 9
   },
   {
     "Party Type": "Customer",
@@ -8269,7 +8444,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -8316,7 +8492,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 6
   },
   {
     "Party Type": "Customer",
@@ -8363,7 +8540,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -8410,7 +8588,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 3
   },
   {
     "Party Type": "Customer",
@@ -8457,7 +8636,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -8504,7 +8684,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 2
   },
   {
     "Party Type": "Customer",
@@ -8551,7 +8732,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 5
   },
   {
     "Party Type": "Customer",
@@ -8598,7 +8780,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 8
   },
   {
     "Party Type": "Customer",
@@ -8645,7 +8828,8 @@
     "Destination": "",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 59
   },
   {
     "Party Type": "Customer",
@@ -8692,7 +8876,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 2
   },
   {
     "Party Type": "Customer",
@@ -8739,7 +8924,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -8786,7 +8972,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -8833,7 +9020,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -8880,7 +9068,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 3
   },
   {
     "Party Type": "Customer",
@@ -8927,7 +9116,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 14
   },
   {
     "Party Type": "Customer",
@@ -8974,7 +9164,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 5
   },
   {
     "Party Type": "Customer",
@@ -9021,7 +9212,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 6
   },
   {
     "Party Type": "Customer",
@@ -9068,7 +9260,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -9115,7 +9308,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 4
   },
   {
     "Party Type": "Customer",
@@ -9162,7 +9356,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 54
   },
   {
     "Party Type": "Customer",
@@ -9209,7 +9404,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -9256,7 +9452,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 11
   },
   {
     "Party Type": "Customer",
@@ -9303,7 +9500,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 18
   },
   {
     "Party Type": "Customer",
@@ -9350,7 +9548,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 6
   },
   {
     "Party Type": "Customer",
@@ -9397,7 +9596,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -9444,7 +9644,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 13
   },
   {
     "Party Type": "Customer",
@@ -9491,7 +9692,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -9538,7 +9740,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 15
   },
   {
     "Party Type": "Customer",
@@ -9585,7 +9788,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -9632,7 +9836,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 86
   },
   {
     "Party Type": "Customer",
@@ -9679,7 +9884,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -9726,7 +9932,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 12
   },
   {
     "Party Type": "Customer",
@@ -9773,7 +9980,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -9820,7 +10028,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 1
   },
   {
     "Party Type": "Customer",
@@ -9867,7 +10076,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 2
   },
   {
     "Party Type": "Customer",
@@ -9914,7 +10124,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 25
   },
   {
     "Party Type": "Customer",
@@ -9961,7 +10172,8 @@
     "Destination": "",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 1
   },
   {
     "Party Type": "Customer",
@@ -10008,7 +10220,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -10055,7 +10268,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 35
   },
   {
     "Party Type": "Customer",
@@ -10102,7 +10316,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 22
   },
   {
     "Party Type": "Customer",
@@ -10149,7 +10364,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 11
   },
   {
     "Party Type": "Customer",
@@ -10196,7 +10412,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 2
   },
   {
     "Party Type": "Customer",
@@ -10243,7 +10460,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 32
   },
   {
     "Party Type": "Customer",
@@ -10290,7 +10508,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 18
   },
   {
     "Party Type": "Customer",
@@ -10337,7 +10556,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -10384,7 +10604,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -10431,7 +10652,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -10478,7 +10700,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 24
   },
   {
     "Party Type": "Customer",
@@ -10525,7 +10748,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -10572,7 +10796,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 16
   },
   {
     "Party Type": "Customer",
@@ -10619,7 +10844,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 2
   },
   {
     "Party Type": "Customer",
@@ -10666,7 +10892,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 21
   },
   {
     "Party Type": "Supplier",
@@ -10713,7 +10940,8 @@
     "Destination": "KOLKATA",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 76
   },
   {
     "Party Type": "Customer",
@@ -10760,7 +10988,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -10807,7 +11036,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -10854,7 +11084,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -10901,7 +11132,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 17
   },
   {
     "Party Type": "Customer",
@@ -10948,7 +11180,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -10995,7 +11228,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 1
   },
   {
     "Party Type": "Customer",
@@ -11042,7 +11276,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 7
   },
   {
     "Party Type": "Customer",
@@ -11089,7 +11324,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 2
   },
   {
     "Party Type": "Customer",
@@ -11136,7 +11372,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 12
   },
   {
     "Party Type": "Customer",
@@ -11183,7 +11420,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -11230,7 +11468,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 41
   },
   {
     "Party Type": "Customer",
@@ -11277,7 +11516,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -11324,7 +11564,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -11371,7 +11612,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 3
   },
   {
     "Party Type": "Customer",
@@ -11418,7 +11660,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -11465,7 +11708,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 21
   },
   {
     "Party Type": "Supplier",
@@ -11512,7 +11756,8 @@
     "Destination": "JETPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -11559,7 +11804,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -11606,7 +11852,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 2
   },
   {
     "Party Type": "Customer",
@@ -11653,7 +11900,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -11700,7 +11948,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 33
   },
   {
     "Party Type": "Customer",
@@ -11747,7 +11996,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -11794,7 +12044,8 @@
     "Destination": "GHOGHARDIHA",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -11841,7 +12092,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 7
   },
   {
     "Party Type": "Customer",
@@ -11888,7 +12140,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -11935,7 +12188,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -11982,7 +12236,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 3
   },
   {
     "Party Type": "Customer",
@@ -12029,7 +12284,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 4
   },
   {
     "Party Type": "Customer",
@@ -12076,7 +12332,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 8
   },
   {
     "Party Type": "Customer",
@@ -12123,7 +12380,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 8
   },
   {
     "Party Type": "Customer",
@@ -12170,7 +12428,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 10
   },
   {
     "Party Type": "Customer",
@@ -12217,7 +12476,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 4
   },
   {
     "Party Type": "Customer",
@@ -12264,7 +12524,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 20
   },
   {
     "Party Type": "Customer",
@@ -12311,7 +12572,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 26
   },
   {
     "Party Type": "Customer",
@@ -12358,7 +12620,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 1
   },
   {
     "Party Type": "Supplier",
@@ -12405,7 +12668,8 @@
     "Destination": "PALI-MARWAR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -12452,7 +12716,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 58
   },
   {
     "Party Type": "Customer",
@@ -12499,7 +12764,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 4
   },
   {
     "Party Type": "Customer",
@@ -12546,7 +12812,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 1
   },
   {
     "Party Type": "Customer",
@@ -12593,7 +12860,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Supplier",
@@ -12640,7 +12908,8 @@
     "Destination": "SURAT",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -12687,7 +12956,8 @@
     "Destination": "PUPRI",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -12734,7 +13004,8 @@
     "Destination": "",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Supplier",
@@ -12781,7 +13052,8 @@
     "Destination": "SURAT",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Supplier",
@@ -12828,7 +13100,8 @@
     "Destination": "SURAT",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -12875,7 +13148,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 21
   },
   {
     "Party Type": "Customer",
@@ -12922,7 +13196,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 3
   },
   {
     "Party Type": "Customer",
@@ -12969,7 +13244,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -13016,7 +13292,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -13063,7 +13340,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 6
   },
   {
     "Party Type": "Customer",
@@ -13110,7 +13388,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 1
   },
   {
     "Party Type": "Customer",
@@ -13157,7 +13436,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -13204,7 +13484,8 @@
     "Destination": "JAINAGAR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -13251,7 +13532,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -13298,7 +13580,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -13345,7 +13628,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -13392,7 +13676,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 9
   },
   {
     "Party Type": "Customer",
@@ -13439,7 +13724,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 36
   },
   {
     "Party Type": "Customer",
@@ -13486,7 +13772,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 1
   },
   {
     "Party Type": "Supplier",
@@ -13533,7 +13820,8 @@
     "Destination": "BALOTRA",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 182
   },
   {
     "Party Type": "Customer",
@@ -13580,7 +13868,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -13627,7 +13916,8 @@
     "Destination": "SAMASTIPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 24
   },
   {
     "Party Type": "Customer",
@@ -13674,7 +13964,8 @@
     "Destination": "PUPRI",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Supplier",
@@ -13721,7 +14012,8 @@
     "Destination": "AHMEDABAD",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Supplier",
@@ -13768,7 +14060,8 @@
     "Destination": "MATHURA",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 311
   },
   {
     "Party Type": "Customer",
@@ -13815,7 +14108,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -13862,7 +14156,8 @@
     "Destination": "SAMASTIPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -13909,7 +14204,8 @@
     "Destination": "DARBHANGA",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -13956,7 +14252,8 @@
     "Destination": "DALSINGSARAI",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 5
   },
   {
     "Party Type": "Customer",
@@ -14003,7 +14300,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 15
   },
   {
     "Party Type": "Customer",
@@ -14050,7 +14348,8 @@
     "Destination": "HAJIPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -14097,7 +14396,8 @@
     "Destination": "JAINAGAR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 2
   },
   {
     "Party Type": "Customer",
@@ -14144,7 +14444,8 @@
     "Destination": "",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 3
   },
   {
     "Party Type": "Customer",
@@ -14191,7 +14492,8 @@
     "Destination": "TAMKUHI ROAD",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -14238,7 +14540,8 @@
     "Destination": "",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -14285,7 +14588,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Supplier",
@@ -14332,7 +14636,8 @@
     "Destination": "JETPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -14379,7 +14684,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -14426,7 +14732,8 @@
     "Destination": "BETTIAH",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 11
   },
   {
     "Party Type": "Customer",
@@ -14473,7 +14780,8 @@
     "Destination": "PUPRI",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -14520,7 +14828,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -14567,7 +14876,8 @@
     "Destination": "MAHUA",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 5
   },
   {
     "Party Type": "Supplier",
@@ -14614,7 +14924,8 @@
     "Destination": "SURAT",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -14661,7 +14972,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 81
   },
   {
     "Party Type": "Customer",
@@ -14708,7 +15020,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -14755,7 +15068,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Supplier",
@@ -14802,7 +15116,8 @@
     "Destination": "SURAT",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -14849,7 +15164,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -14896,7 +15212,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -14943,7 +15260,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -14990,7 +15308,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -15037,7 +15356,8 @@
     "Destination": "DARBHANGA",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Supplier",
@@ -15084,7 +15404,8 @@
     "Destination": "SURAT",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 7
   },
   {
     "Party Type": "Supplier",
@@ -15131,7 +15452,8 @@
     "Destination": "SURAT",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 1
   },
   {
     "Party Type": "Supplier",
@@ -15178,7 +15500,8 @@
     "Destination": "",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -15225,7 +15548,8 @@
     "Destination": "LAUKAHA",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Supplier",
@@ -15272,7 +15596,8 @@
     "Destination": "",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 7
   },
   {
     "Party Type": "Customer",
@@ -15319,7 +15644,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Supplier",
@@ -15366,7 +15692,8 @@
     "Destination": "SURAT",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 4
   },
   {
     "Party Type": "Supplier",
@@ -15413,7 +15740,8 @@
     "Destination": "BALOTRA",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -15460,7 +15788,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -15507,7 +15836,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 1
   },
   {
     "Party Type": "Customer",
@@ -15554,7 +15884,8 @@
     "Destination": "NAWADA",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -15601,7 +15932,8 @@
     "Destination": "BARGANIA",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Supplier",
@@ -15648,7 +15980,8 @@
     "Destination": "BHIWANDI",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Supplier",
@@ -15695,7 +16028,8 @@
     "Destination": "SURAT",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Supplier",
@@ -15742,7 +16076,8 @@
     "Destination": "ICHALKARANJI",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 26
   },
   {
     "Party Type": "Supplier",
@@ -15789,7 +16124,8 @@
     "Destination": "SURAT",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Supplier",
@@ -15836,7 +16172,8 @@
     "Destination": "SURAT",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 5
   },
   {
     "Party Type": "Customer",
@@ -15883,7 +16220,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 2
   },
   {
     "Party Type": "Customer",
@@ -15930,7 +16268,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 2
   },
   {
     "Party Type": "Customer",
@@ -15977,7 +16316,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -16024,7 +16364,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -16071,7 +16412,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 7
   },
   {
     "Party Type": "Customer",
@@ -16118,7 +16460,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 1
   },
   {
     "Party Type": "Supplier",
@@ -16165,7 +16508,8 @@
     "Destination": "SURAT",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -16212,7 +16556,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -16259,7 +16604,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -16306,7 +16652,8 @@
     "Destination": "JAINAGAR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 5
   },
   {
     "Party Type": "Customer",
@@ -16353,7 +16700,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Supplier",
@@ -16400,7 +16748,8 @@
     "Destination": "SURAT",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -16447,7 +16796,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -16494,7 +16844,8 @@
     "Destination": "JAINAGAR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 21
   },
   {
     "Party Type": "Customer",
@@ -16541,7 +16892,8 @@
     "Destination": "SITAMARHI",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 20
   },
   {
     "Party Type": "Supplier",
@@ -16588,7 +16940,8 @@
     "Destination": "JETPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 57
   },
   {
     "Party Type": "Supplier",
@@ -16635,7 +16988,8 @@
     "Destination": "SURAT",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -16682,7 +17036,8 @@
     "Destination": "SAMASTIPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Supplier",
@@ -16729,7 +17084,8 @@
     "Destination": "SURAT",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 3
   },
   {
     "Party Type": "Supplier",
@@ -16776,7 +17132,8 @@
     "Destination": "SURAT",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -16823,7 +17180,8 @@
     "Destination": "MADHEPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 3
   },
   {
     "Party Type": "Supplier",
@@ -16870,7 +17228,8 @@
     "Destination": "SURAT",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Supplier",
@@ -16917,7 +17276,8 @@
     "Destination": "SURAT",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Supplier",
@@ -16964,7 +17324,8 @@
     "Destination": "JETPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Supplier",
@@ -17011,7 +17372,8 @@
     "Destination": "SURAT",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Supplier",
@@ -17058,7 +17420,8 @@
     "Destination": "SURAT",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 2
   },
   {
     "Party Type": "Supplier",
@@ -17105,7 +17468,8 @@
     "Destination": "SURAT",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -17152,7 +17516,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 1
   },
   {
     "Party Type": "Customer",
@@ -17199,7 +17564,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 4
   },
   {
     "Party Type": "Customer",
@@ -17246,7 +17612,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -17293,7 +17660,8 @@
     "Destination": "JAINAGAR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Supplier",
@@ -17340,7 +17708,8 @@
     "Destination": "SURAT",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 20
   },
   {
     "Party Type": "Supplier",
@@ -17387,7 +17756,8 @@
     "Destination": "GORAKHPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Supplier",
@@ -17434,7 +17804,8 @@
     "Destination": "SURAT",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 3
   },
   {
     "Party Type": "Supplier",
@@ -17481,7 +17852,8 @@
     "Destination": "SURAT",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -17528,7 +17900,8 @@
     "Destination": "BHAGALPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -17575,7 +17948,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -17622,7 +17996,8 @@
     "Destination": "CHAPRA",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 30
   },
   {
     "Party Type": "Customer",
@@ -17669,7 +18044,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Supplier",
@@ -17716,7 +18092,8 @@
     "Destination": "SURAT",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -17763,7 +18140,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 6
   },
   {
     "Party Type": "Customer",
@@ -17810,7 +18188,8 @@
     "Destination": "GHOGHARDIHA",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -17857,7 +18236,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Supplier",
@@ -17904,7 +18284,8 @@
     "Destination": "SURAT",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -17951,7 +18332,8 @@
     "Destination": "MOTIPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 17
   },
   {
     "Party Type": "Supplier",
@@ -17998,7 +18380,8 @@
     "Destination": "SURAT",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Supplier",
@@ -18045,7 +18428,8 @@
     "Destination": "SURAT",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 6
   },
   {
     "Party Type": "Supplier",
@@ -18092,7 +18476,8 @@
     "Destination": "SURAT",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Supplier",
@@ -18139,7 +18524,8 @@
     "Destination": "SURAT",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 5
   },
   {
     "Party Type": "Supplier",
@@ -18186,7 +18572,8 @@
     "Destination": "SURAT",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 9
   },
   {
     "Party Type": "Supplier",
@@ -18233,7 +18620,8 @@
     "Destination": "SURAT",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 2
   },
   {
     "Party Type": "Supplier",
@@ -18280,7 +18668,8 @@
     "Destination": "",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 1
   },
   {
     "Party Type": "Supplier",
@@ -18327,7 +18716,8 @@
     "Destination": "KOLKATA",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Customer",
@@ -18374,7 +18764,8 @@
     "Destination": "MUZAFFARPUR",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Supplier",
@@ -18421,7 +18812,8 @@
     "Destination": "KOLKATA",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 4
   },
   {
     "Party Type": "Supplier",
@@ -18468,7 +18860,8 @@
     "Destination": "",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": "Y"
+    "Out of State": "Y",
+    "Bills FY": 4
   },
   {
     "Party Type": "Supplier",
@@ -18515,7 +18908,8 @@
     "Destination": "",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 1
   },
   {
     "Party Type": "Customer",
@@ -18562,7 +18956,8 @@
     "Destination": "",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 0
   },
   {
     "Party Type": "Supplier",
@@ -18609,6 +19004,7 @@
     "Destination": "",
     "Remarks": "",
     "Remarks 2": "",
-    "Out of State": ""
+    "Out of State": "",
+    "Bills FY": 1
   }
 ]

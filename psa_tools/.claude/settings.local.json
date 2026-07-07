@@ -14,7 +14,8 @@
       "Bash(python3 -c \"import ast; ast.parse\\(open\\('push_to_sheets.py', encoding='utf-8'\\).read\\(\\)\\)\")",
       "Bash(python push_to_sheets.py)",
       "Bash(python3 -)",
-      "Bash(node -e ' *)"
+      "Bash(node -e ' *)",
+      "Bash(python3 -c ' *)"
     ]
   }
 }

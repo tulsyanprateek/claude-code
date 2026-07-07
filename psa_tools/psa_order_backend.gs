@@ -179,17 +179,23 @@ function readMasterTab(ss, tabName) {
 function getMasterData() {
   if (!MASTER_SHEET_ID) return { ok: false, error: 'MASTER_SHEET_ID not configured' };
 
-  let allParties, rawTransports;
+  let allParties, rawTransports, rawItems;
   try {
     const ss = SpreadsheetApp.openById(MASTER_SHEET_ID);
     allParties    = readMasterTab(ss, 'parties');
     rawTransports = readMasterTab(ss, 'transports');
+    rawItems      = readMasterTab(ss, 'items');
   } catch (err) {
     return { ok: false, error: 'Master sheet read failed: ' + err.toString() };
   }
 
+  // "Bills FY" (count of current-year bills) drives both the active flag and
+  // the ordering — most-billed first, so frequent parties surface on top.
+  const bills = function(p) { return parseInt(p['Bills FY']) || 0; };
+
   const suppliers = allParties
     .filter(function(p) { return p['Party Type'] === 'Supplier'; })
+    .sort(function(a, b) { return bills(b) - bills(a); })
     .map(function(p) {
       return {
         firm_code:  p['Party Code'] || '',
@@ -197,25 +203,48 @@ function getMasterData() {
         brand_name: p['Party Name'] || '', // ERP has no separate brand alias yet — same as firm_name
         brand_code: p['Party Code'] || '',
         city:       p['City'] || '',
-        active:     true
+        active:     bills(p) > 0
       };
     });
 
   const parties = allParties
     .filter(function(p) { return p['Party Type'] === 'Customer'; })
+    .sort(function(a, b) { return bills(b) - bills(a); })
     .map(function(p) {
       return {
         name:    p['Party Name'] || '',
         city:    p['City'] || '',
         station: p['City'] || '',
         gstin:   p['GST No'] || '',
-        active:  true
+        active:  bills(p) > 0
       };
     });
 
-  const transports = (rawTransports || []).map(function(t) {
-    return { name: t['Transport Name'] || '', destination_station: '' };
-  });
+  const transports = (rawTransports || [])
+    .slice()
+    .sort(function(a, b) { return bills(b) - bills(a); })
+    .map(function(t) {
+      return { name: t['Transport Name'] || '', destination_station: '' };
+    });
+
+  // ERP item catalog: Company = supplier party code, Barcode/Print Name is
+  // the customer-facing name. use_count starts at 0 and grows on-device.
+  const items = (rawItems || [])
+    .filter(function(i) {
+      const act = i['Active'];
+      return act === true || String(act).toLowerCase() === 'true';
+    })
+    .map(function(i) {
+      return {
+        brand_code: String(i['Company'] || ''),
+        item_name:  String(i['Barcode/Print Name'] || i['Item Name'] || ''),
+        category:   String(i['Quality'] || i['Group Code'] || ''),
+        aliases:    '',
+        rate:       parseFloat(i['Fixed Sale Rate']) || 0,
+        use_count:  0
+      };
+    })
+    .filter(function(i) { return i.item_name && i.brand_code; });
 
   return {
     ok: true,
@@ -223,7 +252,7 @@ function getMasterData() {
     suppliers: suppliers,
     parties: parties,
     transports: transports,
-    items: [], // ERP item catalog not wired in yet (different shape — needs its own mapping)
+    items: items,
     docOptions: [],
     generatedAt: new Date().toISOString()
   };

@@ -4,7 +4,7 @@ Writes CSV (utf-8-sig) + JSON with plain-English headers, overwriting in place."
 import os, csv, json, glob
 from dbfread import DBF
 
-SHADOW = os.environ.get("KP_SHADOW", "/sessions/eloquent-nice-hopper/mnt/kp raw data")
+SHADOW = os.environ.get("KP_SHADOW", r"D:\PSA - Essentials\Kpbkup\raw")
 OUTDIR = os.environ.get("KP_DATADUMP", os.path.dirname(os.path.abspath(__file__)))
 
 def highest_fy(root):
@@ -38,11 +38,27 @@ def write(name, headers, rows):
 fy = highest_fy(SHADOW)
 counts = {}
 
+# current-FY activity <- billmain.dbf (bills per supplier / customer / transport)
+try:
+    billmain = load(fy, "billmain.dbf")
+except Exception:
+    billmain = []
+supp_bills, cust_bills, trans_bills = {}, {}, {}
+for r in billmain:
+    co = (r.get("CO_CODE") or "").strip()
+    cu = (r.get("CUST_CD") or "").strip()
+    tr = (r.get("TRANSPORT") or "").strip().upper()
+    if co: supp_bills[co] = supp_bills.get(co, 0) + 1
+    if cu: cust_bills[cu] = cust_bills.get(cu, 0) + 1
+    if tr: trans_bills[tr] = trans_bills.get(tr, 0) + 1
+
 # customers_suppliers_master <- ptm.dbf (STATUS C=Customer, S=Supplier)
 ptm = load(fy, "ptm.dbf")
 for r in ptm:
     st = (r.get("STATUS") or "").strip().upper()
     r["_PARTY_TYPE"] = "Customer" if st == "C" else "Supplier" if st == "S" else st
+    code = (r.get("PTCODE") or "").strip()
+    r["_BILLS_FY"] = (supp_bills if st == "S" else cust_bills).get(code, 0)
 ptm_headers = {
     "_PARTY_TYPE": "Party Type", "STATUS": "Status Code", "PTCODE": "Party Code",
     "PTNM": "Party Name", "PTSNM": "Short Name", "PTADD1": "Address 1",
@@ -59,6 +75,7 @@ ptm_headers = {
     "DC": "Dr/Cr", "CLBAL": "Closing Balance", "TRANS": "Transport",
     "COURIER": "Courier", "DESTI": "Destination", "REMARKS": "Remarks",
     "REMARKS1": "Remarks 2", "OUT_STATE": "Out of State",
+    "_BILLS_FY": "Bills FY",
 }
 counts["customers_suppliers_master"] = write("customers_suppliers_master", ptm_headers, ptm)
 
@@ -84,8 +101,9 @@ for r in tr:
     nm = (r.get("NAME") or "").strip()
     key = nm.upper()
     if nm and key not in seen:
-        seen.add(key); merged.append({"NAME": nm})
-counts["transports"] = write("transports", {"NAME": "Transport Name"}, merged)
+        seen.add(key)
+        merged.append({"NAME": nm, "_BILLS_FY": trans_bills.get(key, 0)})
+counts["transports"] = write("transports", {"NAME": "Transport Name", "_BILLS_FY": "Bills FY"}, merged)
 
 # stations <- city.dbf
 city = load(fy, "city.dbf")
