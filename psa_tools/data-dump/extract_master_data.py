@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Extract KP master tables from the shadow's highest fiscal-year folder.
 Writes CSV (utf-8-sig) + JSON with plain-English headers, overwriting in place."""
-import os, csv, json, glob
+import os, csv, json, glob, re
 from dbfread import DBF
 
 SHADOW = os.environ.get("KP_SHADOW", r"D:\PSA - Essentials\Kpbkup\raw")
@@ -21,7 +21,25 @@ def clean(v):
     if isinstance(v, str): return v.strip()
     return v
 
-def write(name, headers, rows):
+ACRONYMS = {"MSME", "LLP", "HUF", "GST"}
+
+def smart_title(s):
+    # ALLCAPS -> Title Case; tokens with digits (A-1, 450331, 1ST) and known acronyms left as-is
+    def cap(tok):
+        if not tok or any(c.isdigit() for c in tok) or tok.upper() in ACRONYMS:
+            return tok
+        return tok[0].upper() + tok[1:].lower()
+    parts = re.split(r'([^A-Za-z0-9]+)', s)
+    return ''.join(p if i % 2 else cap(p) for i, p in enumerate(parts))
+
+def fmt(k, v, title_fields, lower_fields):
+    v = clean(v)
+    if isinstance(v, str):
+        if k in title_fields: return smart_title(v)
+        if k in lower_fields: return v.lower()
+    return v
+
+def write(name, headers, rows, title_fields=(), lower_fields=()):
     csv_path = os.path.join(OUTDIR, name + ".csv")
     json_path = os.path.join(OUTDIR, name + ".json")
     cols = list(headers.values())
@@ -29,8 +47,9 @@ def write(name, headers, rows):
         w = csv.writer(f)
         w.writerow(cols)
         for r in rows:
-            w.writerow([clean(r.get(k, "")) for k in headers])
-    objs = [{lbl: clean(r.get(k, "")) for k, lbl in headers.items()} for r in rows]
+            w.writerow([fmt(k, r.get(k, ""), title_fields, lower_fields) for k in headers])
+    objs = [{lbl: fmt(k, r.get(k, ""), title_fields, lower_fields)
+             for k, lbl in headers.items()} for r in rows]
     with open(json_path, "w", encoding="utf-8-sig") as f:
         json.dump(objs, f, ensure_ascii=False, indent=2, default=str)
     return len(rows)
@@ -77,7 +96,12 @@ ptm_headers = {
     "REMARKS1": "Remarks 2", "OUT_STATE": "Out of State",
     "_BILLS_FY": "Bills FY",
 }
-counts["customers_suppliers_master"] = write("customers_suppliers_master", ptm_headers, ptm)
+ptm_title = {"PTNM", "PTADD1", "PTADD2", "PTADD3", "CITY", "DISTT",
+             "STATE", "CONT_PER", "CONT_PER2", "CBSBANK", "TRANS", "COURIER",
+             "DESTI", "REMARKS", "REMARKS1"}
+ptm_lower = {"EMAIL", "EMAIL2", "WEBADD"}
+counts["customers_suppliers_master"] = write("customers_suppliers_master", ptm_headers, ptm,
+                                             title_fields=ptm_title, lower_fields=ptm_lower)
 
 # items_master <- itm.dbf
 itm = load(fy, "itm.dbf")
@@ -92,7 +116,8 @@ itm_headers = {
     "HSNCODE": "HSN Code", "GSTPS": "GST %", "BOX": "Box", "CUT": "Cut",
     "MARK": "Mark", "DATE": "Date", "ACT_YN": "Active",
 }
-counts["items_master"] = write("items_master", itm_headers, itm)
+counts["items_master"] = write("items_master", itm_headers, itm,
+                               title_fields={"ITNM", "B_CODE", "COMPANY", "QLTY", "MARK"})
 
 # transports <- transport.dbf + transpor.dbf merged, dedup by name
 tr = load(fy, "transport.dbf") + load(fy, "transpor.dbf")
@@ -103,12 +128,13 @@ for r in tr:
     if nm and key not in seen:
         seen.add(key)
         merged.append({"NAME": nm, "_BILLS_FY": trans_bills.get(key, 0)})
-counts["transports"] = write("transports", {"NAME": "Transport Name", "_BILLS_FY": "Bills FY"}, merged)
+counts["transports"] = write("transports", {"NAME": "Transport Name", "_BILLS_FY": "Bills FY"},
+                             merged, title_fields={"NAME"})
 
 # stations <- city.dbf
 city = load(fy, "city.dbf")
 city_headers = {"CITY": "Station/City", "STATUS": "Status Code"}
-counts["stations"] = write("stations", city_headers, city)
+counts["stations"] = write("stations", city_headers, city, title_fields={"CITY"})
 
 print("FY folder:", fy)
 for k, v in counts.items():

@@ -15,7 +15,8 @@
       "Bash(python push_to_sheets.py)",
       "Bash(python3 -)",
       "Bash(node -e ' *)",
-      "Bash(python3 -c ' *)"
+      "Bash(python3 -c ' *)",
+      "Bash(python extract_master_data.py)"
     ]
   }
 }
