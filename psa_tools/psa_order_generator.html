@@ -3653,9 +3653,39 @@ function numToWords(num) {
   return words.trim();
 }
 
+// ── Display casing for outputs ──
+// Master data synced from KP/Sheets arrives ALL CAPS; soften it to Title Case
+// in the WA/WB outputs only. Values already in mixed case (hand-typed names,
+// "WhatsApp / Email") pass through untouched, and stored data is never changed.
+const DISPLAY_ACRONYMS = new Set(['MSME', 'GST', 'GSTIN', 'HUF', 'LLP', 'VPP', 'PSA']);
+function displayCase(s) {
+  if (!s) return s;
+  const str = String(s);
+  if (str !== str.toUpperCase()) return str; // already mixed case — leave alone
+  return str.replace(/[A-Za-z0-9]+/g, tok =>
+    (/\d/.test(tok) || DISPLAY_ACRONYMS.has(tok)) ? tok
+      : tok.charAt(0) + tok.slice(1).toLowerCase());
+}
+
+// Copy of a readForm() result with display-cased text fields
+function displayForm(f) {
+  return {
+    ...f,
+    party: displayCase(f.party),
+    supp:  displayCase(f.supp),
+    trans: displayCase(f.trans),
+    docs:  displayCase(f.docs),
+    items: f.items.map(it => ({
+      ...it,
+      name: displayCase(it.name),
+      subs: it.subs.map(s => ({ ...s, name: displayCase(s.name) }))
+    }))
+  };
+}
+
 // Plain text for WhatsApp copy
 function buildMessage() {
-  const f = readForm();
+  const f = displayForm(readForm());
   const L = [];
   L.push('*PRIYAM SALES AGENCY*');
   L.push(`_Quick Order \u00B7 ${FY}_`);
@@ -3696,7 +3726,7 @@ function buildMessage() {
 
 // Rich HTML preview
 function buildPreviewHTML() {
-  const f = readForm();
+  const f = displayForm(readForm());
   const valid = f.items.filter(i => i.bales > 0 || i.name);
   const ts = `${NOW.getHours()}:${pad(NOW.getMinutes())}`;
   const total = Math.round(f.totalBales);
@@ -3771,7 +3801,7 @@ function buildPreviewHTML() {
 
 // ── BUILD A4 FORM PREVIEW (image output) ──
 function buildA4HTML() {
-  const f = readForm();
+  const f = displayForm(readForm());
   const valid = f.items.filter(i => i.bales > 0 || i.name);
   const total = f.totalBales;
   const totalStr = total % 1 === 0 ? total : total.toFixed(1);
