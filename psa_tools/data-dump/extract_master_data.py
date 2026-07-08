@@ -4,8 +4,10 @@ Writes CSV (utf-8-sig) + JSON with plain-English headers, overwriting in place."
 import os, csv, json, glob, re
 from dbfread import DBF
 
-SHADOW = os.environ.get("KP_SHADOW", r"D:\PSA - Essentials\Kpbkup\raw")
-OUTDIR = os.environ.get("KP_DATADUMP", os.path.dirname(os.path.abspath(__file__)))
+_HERE = os.path.dirname(os.path.abspath(__file__))
+# shadow lives next to data-dump: psa_tools/data-shadow (works on Windows and in sandbox mounts)
+SHADOW = os.environ.get("KP_SHADOW", os.path.normpath(os.path.join(_HERE, "..", "data-shadow")))
+OUTDIR = os.environ.get("KP_DATADUMP", _HERE)
 
 def highest_fy(root):
     yrs = [d for d in os.listdir(root)

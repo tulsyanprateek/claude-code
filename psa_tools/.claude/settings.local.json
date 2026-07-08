@@ -16,7 +16,11 @@
       "Bash(python3 -)",
       "Bash(node -e ' *)",
       "Bash(python3 -c ' *)",
-      "Bash(python extract_master_data.py)"
+      "Bash(python extract_master_data.py)",
+      "Bash(git show *)",
+      "Read(//tmp/**)",
+      "Bash(cd \"D:/claude_code/psa_tools\" && git show \"11045ef:psa_tools/kp raw data/psa_dashboard.html\" > /tmp/psa_dashboard_old.html && wc -l /tmp/psa_dashboard_old.html)",
+      "Bash(grep -v \"^commit\\\\|^Author\\\\|^Date\\\\|^Merge\\\\|^ \\\\|^$\")"
     ]
   }
 }
