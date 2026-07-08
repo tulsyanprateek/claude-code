@@ -252,7 +252,7 @@
 251,PATTA,Citigold,Citigold,Srh,,M,0,0,0,0,66.5,0.0,0.0,0.0,0,0,0,,5.0,0,,,2024-03-31,True
 252,PATTA,Solicitor,Citigold,Srh,,M,0,0,0,0,67.51,0.0,0.0,0.0,0,0,0,,5.0,0,,,2024-03-31,True
 253,PATTA,Park Avenue,Park Avenue,Srh,,M,0,0,0,0,75.5,0.0,0.0,0.0,0,0,0,,5.0,0,,,2024-03-31,True
-254,PATTA,Rothmans,Park Avenue,Srh,,M,0,0,0,0,72.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2024-03-31,True
+254,PATTA,Rothmans,Park Avenue,Srh,,M,0,0,0,0,75.5,0.0,0.0,0.0,0,0,0,,5.0,0,,,2024-03-31,True
 255,PATTA,Millenium,Millenium,Srh,,M,0,0,0,0,80.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2024-03-31,True
 256,PATTA,Royalmenon,Millenium,Srh,,M,0,0,0,0,79.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2024-03-31,True
 257,PATTA,Nc 89009,Nc 89009,Srh,,M,0,0,0,0,82.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2024-03-31,True
@@ -1719,7 +1719,7 @@
 1721,SAREE,Maithili Style,Maithili Style,Ppp,,P,0,0,0,0,270.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2024-08-17,True
 1722,SAREE,Flim Fare,Flim Fare,Ppp,,P,0,0,0,0,415.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2024-08-17,True
 1723,SUIT,Dark Colour,Dark Colour,Ttf,,P,0,0,0,0,0.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2024-08-21,True
-1724,PATTA,Bolero,Inspector,Srh,,P,0,0,0,0,58.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2024-08-21,True
+1724,PATTA,Bolero,Inspector,Srh,,P,0,0,0,0,61.5,0.0,0.0,0.0,0,0,0,,5.0,0,,,2024-08-21,True
 1725,PATTA,Dunhill,Rolex,Srh,,P,0,0,0,0,54.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2024-08-21,True
 1726,SAREE,Coin Master,Coin Master,Ns,,P,0,0,0,0,285.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2024-08-21,True
 1727,SAREE,Sada Bahar,Super Liberty,Ppp,,P,0,0,0,0,262.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2024-08-21,True
@@ -4142,8 +4142,8 @@
 4147,SAREE,Charukriti,Charukriti,Sss,,P,0,0,0,0,530.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2025-04-22,True
 4148,SAREE,Kishori,Kishori,Sss,,P,0,0,0,0,620.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2025-04-22,True
 4149,SAREE,Rang Mahal,Rang Mahal,Sss,,P,0,0,0,0,610.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2025-04-22,True
-4150,PATTA,Gold,Stargold,Srh,,P,0,0,0,0,64.5,0.0,0.0,0.0,0,0,0,,5.0,0,,,2025-04-23,True
-4151,PATTA,Airjet,Rolex,Srh,,P,0,0,0,0,54.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2025-04-23,True
+4150,PATTA,Gold,Stargold,Srh,,P,0,0,0,0,68.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2025-04-23,True
+4151,PATTA,Airjet,Rolex,Srh,,P,0,0,0,0,57.5,0.0,0.0,0.0,0,0,0,,5.0,0,,,2025-04-23,True
 4152,PATTA,Madhumati,Madhumati,Srh,,P,0,0,0,0,46.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2025-04-23,True
 4153,PATTA,Bihar Beauty,Bihar Beauty,Srh,,P,0,0,0,0,57.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2025-04-23,True
 4154,SAREE,Mix Item,Mix Item,Srpf,,P,0,0,0,0,0.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2025-04-23,True
@@ -7036,7 +7036,7 @@
 7041,SAREE,Dhan Laxmi-8,Dhan Laxmi-8,Ksm,,P,0,0,0,0,1499.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2026-01-27,True
 7042,SAREE,Hi Demand-4,Hi Demand-4,Ksm,,P,0,0,0,0,1095.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2026-01-27,True
 7043,SAREE,Kohra,Kohra,Mfs,,P,0,0,0,0,605.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2026-01-27,True
-7044,SAREE,Dhurandhar 5.50+Bag,Dhurandhar 5.50+Bag,Ri,,P,0,0,0,0,194.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2026-01-27,True
+7044,SAREE,Dhurandhar 5.50+Bag,Dhurandhar 5.50+Bag,Ri,,P,0,0,0,0,199.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2026-01-27,True
 7045,SAREE,Poonam Goli 5.50,Poonam Goli 5.50,Ri,,P,0,0,0,0,207.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2026-01-27,True
 7046,SAREE,Premium Mitwa,Premium Mitwa,NSS1,,P,0,0,0,0,265.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2026-01-28,True
 7047,SAREE,Premium Magnet,Premium Magnet,NSS1,,P,0,0,0,0,305.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2026-01-28,True
@@ -9084,3 +9084,8 @@
 9090,SUIT,Sui Dhaga(Stitched),Sui Dhaga(Stitched),Bcj,,P,0,0,0,0,380.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2026-07-06,True
 9091,SAREE,Nandanvan,Aarika Chundri H/F,Sc,,P,0,0,0,0,205.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2026-07-06,True
 9092,SUIT,Anjali,Anjali,Ppp,,P,0,0,0,0,560.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2026-07-07,True
+9093,SUIT,Zubed(Stitched),Zubed(Stitched),Ri,,P,0,0,0,0,515.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2026-07-08,True
+9094,SUIT,Preeti (Top+Bottom),Preeti (Top+Bottom),Ri,,P,0,0,0,0,0.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2026-07-08,True
+9095,DUPATTA,Preeti (Top+Bottom+Dupatta),Preeti (Top+Bottom+Dupatta),Ri,,P,0,0,0,0,0.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2026-07-08,True
+9096,SAREE,Dhurandar (H/F),Dhurandar (H/F),Ri,,P,0,0,0,0,203.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2026-07-08,True
+9097,SUIT,Chocobar,Chocobar,Tjp,,P,0,0,0,0,25.5,0.0,0.0,0.0,0,0,0,,5.0,0,,,2026-07-08,True
