@@ -22,6 +22,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 | `psa_attendance_logger.html` | Staff attendance logger — calendar grid, reports, PIN lock. |
 | `psa_attendance_backend.gs` | Apps Script backend for attendance logger. |
 | `psa_color_generator.html` | Standalone color utility tool. |
+| `customer-dashboard/` | Offline customer/supplier dashboard (own project — see its README). Reads DBFs from `data-shadow/`. |
+| `data-dump/` | Master-data extraction pipeline — reads `data-shadow/`, outputs customer/supplier/item/transport/station CSV+JSON masters. |
+| `data-shadow/<FY>/` | Raw FoxPro DBF backups, synced nightly, one folder per fiscal year (e.g. `2627/`). Source for both `customer-dashboard/` and `data-dump/`. Not a tool. |
 | `priyam-brand/priyam-brand.css` | PSA brand stylesheet — tokens, fonts, base styles. Link in every tool. |
 | `priyam-brand/fonts/` | Self-hosted font files (Outfit, Hanken Grotesk, IBM Plex Mono, Noto Sans Devanagari). |
 | `BACKEND_SETUP.md` | Step-by-step Google Sheets + Apps Script setup guide. |
