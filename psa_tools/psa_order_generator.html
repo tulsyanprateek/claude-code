@@ -807,8 +807,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .a4-doc-type {
   font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   font-size: 14px;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
+  letter-spacing: 0.02em;
   color: #2B2B33;
   font-weight: 800;
   margin-bottom: 4px;
@@ -832,9 +831,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .a4-cell.full { grid-column: 1 / -1; }
 .a4-label {
   font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  font-size: 9.5px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
+  font-size: 10.5px;
+  letter-spacing: 0.02em;
   color: #8B8B95;
   font-weight: 700;
 }
@@ -873,9 +871,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 .a4-items-title {
   font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  font-size: 10px;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 0.02em;
   color: #2B2B33;
   font-weight: 800;
   padding: 0 0 14px 0;
@@ -894,8 +891,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 .a4-items-title-count {
   font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  font-size: 9.5px;
-  letter-spacing: 0.18em;
+  font-size: 10.5px;
+  letter-spacing: 0.02em;
   color: #8B8B95;
   font-weight: 600;
 }
@@ -909,9 +906,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 .a4-items-head > div {
   font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  font-size: 9.5px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
+  font-size: 10.5px;
+  letter-spacing: 0.02em;
   color: #8B7E5F;
   font-weight: 700;
 }
@@ -1020,9 +1016,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 .a4-total-label {
   font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  font-size: 9.5px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
+  font-size: 10.5px;
+  letter-spacing: 0.02em;
   color: #8B7E5F;
   font-weight: 700;
 }
@@ -1043,9 +1038,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 .a4-total-words-label {
   font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  font-size: 9.5px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
+  font-size: 10.5px;
+  letter-spacing: 0.02em;
   color: #8B7E5F;
   font-weight: 700;
 }
@@ -1071,9 +1065,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   justify-content: space-between;
   align-items: center;
   font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  font-size: 10px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
+  font-size: 11px;
+  letter-spacing: 0.02em;
   color: #8B8B95;
 }
 .a4-footer-brand {
@@ -3374,9 +3367,15 @@ function getCurrentBrandCode() {
   return match?.brand_code || match?.code || '';
 }
 
-function itemAcFilter(id) {
-  const input   = document.getElementById(`name-${id}`);
-  const list    = document.getElementById(`item-list-${id}`);
+// Element ids differ for the main item-name field vs a mix sub-item field.
+function itemAcEls(key, kind) {
+  return kind === 'sub'
+    ? { input: document.getElementById(`sname-${key}`), list: document.getElementById(`sub-item-list-${key}`), rate: document.getElementById(`sprice-${key}`) }
+    : { input: document.getElementById(`name-${key}`),  list: document.getElementById(`item-list-${key}`),      rate: document.getElementById(`rate-${key}`) };
+}
+
+function itemAcFilter(key, kind='main') {
+  const { input, list } = itemAcEls(key, kind);
   if (!input || !list) return;
 
   const q         = input.value.toLowerCase().trim();
@@ -3418,7 +3417,7 @@ function itemAcFilter(id) {
           ? `<span class="ac-meta" style="display:block;font-size:10px;color:var(--ink3);">${item.aliases}</span>` : '';
         const safe = (item.item_name || '').replace(/'/g,"\\'");
         html += `<div class="ac-item" style="display:flex;justify-content:space-between;align-items:flex-start;"
-          onmousedown="itemAcSelect(${id},'${safe}',${item.rate || 0})">
+          onmousedown="itemAcSelect('${key}','${kind}','${safe}',${item.rate || 0})">
           <div>${item.item_name}${aliasHint}</div>
           ${item.rate ? `<span style="font-family:var(--mono);font-size:0.8rem;color:var(--orange);flex-shrink:0;margin-left:8px;">₹${item.rate}</span>` : ''}
         </div>`;
@@ -3426,12 +3425,12 @@ function itemAcFilter(id) {
     });
   }
 
-  // "+ Add new item" — shown when typed text has no exact match and is 2+ chars
-  if (q.length >= 2) {
+  // "+ Add new item" — only for the main item field (subs skip the quick-add form)
+  if (q.length >= 2 && kind === 'main') {
     const hasExact = pool.some(item => (item.item_name || '').toLowerCase() === q);
     if (!hasExact) {
       const shortQ = q.length > 24 ? q.slice(0, 24) + '…' : q;
-      html += `<div class="ac-add-new" onmousedown="itemAcAddNew(event,${id})">
+      html += `<div class="ac-add-new" onmousedown="itemAcAddNew(event,${key})">
         <span class="ac-add-new-icon">+</span> Save "<strong>${shortQ}</strong>" as new item
       </div>`;
     }
@@ -3439,7 +3438,7 @@ function itemAcFilter(id) {
 
   list.innerHTML = html;
   list.classList.toggle('open', html.length > 0);
-  itemAcHighlight[id] = -1;
+  itemAcHighlight[kind + ':' + key] = -1;
 }
 
 // Explicit save of a new item — shows quick-add form
@@ -3491,33 +3490,33 @@ function cancelItemQuickAdd(itemId) {
   if (form) form.classList.remove('show');
 }
 
-function itemAcSelect(id, itemName, rate) {
-  const input  = document.getElementById(`name-${id}`);
-  const rateEl = document.getElementById(`rate-${id}`);
+function itemAcSelect(key, kind, itemName, rate) {
+  const { input, rate: rateEl } = itemAcEls(key, kind);
   if (input)  input.value  = itemName;
   // Auto-fill rate only if field is empty
   if (rateEl && rate && !rateEl.value) rateEl.value = rate;
-  itemAcClose(id);
+  itemAcClose(key, kind);
   refreshPreview();
 }
 
-function itemAcClose(id) {
-  const list = document.getElementById(`item-list-${id}`);
+function itemAcClose(key, kind='main') {
+  const { list } = itemAcEls(key, kind);
   if (list) list.classList.remove('open');
 }
 
-function itemAcKey(e, id) {
-  const list = document.getElementById(`item-list-${id}`);
+function itemAcKey(e, key, kind='main') {
+  const { list } = itemAcEls(key, kind);
   if (!list || !list.classList.contains('open')) return;
   const items = list.querySelectorAll('.ac-item, .ac-add-new');
   if (!items.length) return;
-  let h = itemAcHighlight[id] || -1;
+  const hKey = kind + ':' + key;
+  let h = itemAcHighlight[hKey] || -1;
   if (e.key === 'ArrowDown') { h = Math.min(h + 1, items.length - 1); e.preventDefault(); }
   else if (e.key === 'ArrowUp') { h = Math.max(h - 1, 0); e.preventDefault(); }
   else if (e.key === 'Enter' && h >= 0) { items[h].dispatchEvent(new MouseEvent('mousedown')); return; }
-  else if (e.key === 'Escape') { itemAcClose(id); return; }
+  else if (e.key === 'Escape') { itemAcClose(key, kind); return; }
   else { return; }
-  itemAcHighlight[id] = h;
+  itemAcHighlight[hKey] = h;
   items.forEach((el, i) => el.classList.toggle('highlighted', i === h));
 }
 
@@ -3547,11 +3546,19 @@ function addSub(itemId) {
   const sid = ++subCounters[itemId];
   const list = document.getElementById(`sublist-${itemId}`);
   if (!list) return;
+  const subKey = `${itemId}-${sid}`;
   const row = document.createElement('div');
   row.className = 'sub-row'; row.id = `subrow-${itemId}-${sid}`;
   row.innerHTML = `
-    <input class="sub-name-in" type="text" id="sname-${itemId}-${sid}"
-      placeholder="Item name..." oninput="refreshPreview()">
+    <div class="item-name-wrap" style="position:relative;min-width:0;">
+      <input class="sub-name-in" type="text" id="sname-${itemId}-${sid}" style="width:100%;box-sizing:border-box;"
+        placeholder="Item name..." autocomplete="off"
+        oninput="itemAcFilter('${subKey}','sub'); refreshPreview();"
+        onfocus="itemAcFilter('${subKey}','sub')"
+        onblur="setTimeout(()=>itemAcClose('${subKey}','sub'),180)"
+        onkeydown="itemAcKey(event,'${subKey}','sub')">
+      <div class="ac-list" id="sub-item-list-${itemId}-${sid}" style="position:absolute;top:calc(100% + 4px);left:0;right:0;z-index:500;"></div>
+    </div>
     <input class="sub-price-in" type="number" id="sprice-${itemId}-${sid}"
       placeholder="rate" step="0.01" oninput="refreshPreview()">
     <button class="sub-del" onclick="removeSub(${itemId},${sid})">✕</button>
@@ -3887,7 +3894,7 @@ function buildA4HTML() {
         <div class="a4-items-section">
           <div class="a4-items-title">
             <span><span class="a4-items-title-bar"></span>Order Items</span>
-            <span class="a4-items-title-count">${valid.length} ${valid.length === 1 ? 'ITEM' : 'ITEMS'}</span>
+            <span class="a4-items-title-count">${valid.length} ${valid.length === 1 ? 'item' : 'items'}</span>
           </div>
 
           <div class="a4-items-head">
@@ -3914,7 +3921,7 @@ function buildA4HTML() {
       </div>
 
       <div class="a4-footer">
-        <span class="a4-footer-brand">PRIYAM SALES AGENCY</span>
+        <span class="a4-footer-brand">Priyam Sales Agency</span>
         <span>Muzaffarpur, Bihar</span>
       </div>
 
@@ -4049,6 +4056,11 @@ function autoSaveOrderItems(f) {
         '' // category unknown at order time
       );
     }
+    (item.subs || []).forEach(sub => {
+      if (sub.name && sub.name.trim()) {
+        autoSaveItem(brandCode || '', sub.name.trim(), parseFloat(sub.price) || 0, '');
+      }
+    });
   });
 }
 

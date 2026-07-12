@@ -21,7 +21,9 @@
       "Read(//tmp/**)",
       "Bash(cd \"D:/claude_code/psa_tools\" && git show \"11045ef:psa_tools/kp raw data/psa_dashboard.html\" > /tmp/psa_dashboard_old.html && wc -l /tmp/psa_dashboard_old.html)",
       "Bash(grep -v \"^commit\\\\|^Author\\\\|^Date\\\\|^Merge\\\\|^ \\\\|^$\")",
-      "mcp__visualize__read_me"
+      "mcp__visualize__read_me",
+      "Bash(grep -n \"item-name\\\\|iname\\\\|subs\\\\.push\\\\|addSubItem\\\\|class=\\\\\"sub\\\\|mix-sub\\\\|renderItems\\\\|function renderItem\\\\|itemsForBrand\\\\|resolveItem\\\\|datalist\\\\|ac-list.*item\\\\|name-\\\\${\" \"D:\\\\claude_code\\\\psa_tools\\\\psa_order_generator.html\")",
+      "Bash(grep -n \"isMix, subs\\\\|isMix,\\\\s*subs\\\\|return {.*bales.*name.*rate\" \"D:\\\\claude_code\\\\psa_tools\\\\psa_order_generator.html\")"
     ]
   }
 }
