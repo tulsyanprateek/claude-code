@@ -546,7 +546,13 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   border-top: 1px solid rgba(225,110,53,0.2);
   display: flex; flex-direction: column; gap: 0.4rem;
 }
-.sub-row { display: grid; grid-template-columns: 1fr 72px 22px; gap: 0.4rem; align-items: center; }
+.sub-row {
+  display: flex; flex-direction: column; gap: 0.3rem;
+  padding-bottom: 0.4rem; margin-bottom: 0.4rem;
+  border-bottom: 1px dashed rgba(225,110,53,0.18);
+}
+.sub-row:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+.sub-row-meta { display: grid; grid-template-columns: 56px 1fr 72px 22px; gap: 0.4rem; align-items: center; }
 .sub-name-in {
   background: transparent !important; border: none !important;
   border-bottom: 1px solid rgba(225,110,53,0.25) !important;
@@ -555,6 +561,14 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   color: var(--ink) !important;
 }
 .sub-name-in:focus { border-bottom-color: var(--orange) !important; }
+.sub-qty-in, .sub-unit-in {
+  background: transparent !important; border: none !important;
+  border-bottom: 1px solid rgba(225,110,53,0.25) !important;
+  border-radius: 0 !important; padding: 0.3rem 0.25rem !important;
+  font-size: 0.78rem !important; font-weight: 500 !important;
+  color: var(--ink2) !important;
+}
+.sub-qty-in { font-family: var(--mono) !important; text-align: center; }
 .sub-price-in {
   background: transparent !important; border: none !important;
   border-bottom: 1px solid rgba(225,110,53,0.25) !important;
@@ -977,6 +991,14 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   content: '·';
   margin-right: 8px;
   color: #C0C0C8;
+}
+.a4-sub-qty {
+  font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: #9090A0;
+  font-weight: 500;
+  font-style: italic;
+  margin-left: 8px;
+  white-space: nowrap;
 }
 .a4-sub-price {
   flex: 0 0 auto;
@@ -1563,13 +1585,13 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .print-btn:active { transform: translateY(1px); }
 
 /* ── ITEM DROPDOWN — constrained height, structured ── */
-.item-name-wrap .ac-list {
+.item-name-wrap .ac-list, .item-row .ac-list {
   max-height: 220px;
   overflow-y: auto;
   border-radius: 6px !important;
   box-shadow: var(--shadow) !important;
 }
-.item-name-wrap .ac-item {
+.item-name-wrap .ac-item, .item-row .ac-item {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -1577,7 +1599,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   padding: 0.5rem 0.75rem;
   font-size: 0.88rem;
 }
-.item-name-wrap .ac-meta {
+.item-name-wrap .ac-meta, .item-row .ac-meta {
   display: block;
   font-size: 10px;
   color: var(--ink4);
@@ -1937,6 +1959,14 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
     <div class="items-wrap" id="itemsWrap"></div>
     <button class="add-item" onclick="addItem()">＋ Add Item</button>
+    <datalist id="subUnitOptions">
+      <option value="Pcs">
+      <option value="Thaan">
+      <option value="Set">
+      <option value="Dzn">
+      <option value="Mtr">
+      <option value="Bundle">
+    </datalist>
 
     <!-- Validation banner — soft warnings before save -->
     <div class="validation-banner" id="validationBanner">
@@ -3298,11 +3328,11 @@ function addItem(prefillBales='', openMix=false, autoFocus=true) {
   card.className = 'item-card';
   card.id = `card-${id}`;
   card.innerHTML = `
-    <div class="item-row">
+    <div class="item-row" style="position:relative;">
       <input class="bales-in" type="number" id="bales-${id}" min="1" step="1"
         value="${prefillBales}" placeholder="qty"
         oninput="updateBaleCount();refreshPreview()">
-      <div class="item-name-wrap" style="position:relative;min-width:0;flex:1;">
+      <div class="item-name-wrap" style="min-width:0;">
         <input class="name-in" type="text" id="name-${id}"
           value="" placeholder="Item name..."
           autocomplete="off"
@@ -3310,7 +3340,6 @@ function addItem(prefillBales='', openMix=false, autoFocus=true) {
           onfocus="itemAcFilter(${id})"
           onblur="setTimeout(()=>itemAcClose(${id}),180)"
           onkeydown="itemAcKey(event,${id})">
-        <div class="ac-list" id="item-list-${id}" style="position:absolute;top:calc(100% + 4px);left:0;right:0;z-index:500;"></div>
       </div>
       <input class="rate-in" type="number" id="rate-${id}"
         placeholder="₹ rate" step="0.01" oninput="refreshPreview()">
@@ -3318,6 +3347,7 @@ function addItem(prefillBales='', openMix=false, autoFocus=true) {
         <button class="ibtn" id="mixbtn-${id}" onclick="toggleMix(${id})">MIX</button>
         <button class="ibtn del" onclick="removeItem(${id})">✕</button>
       </div>
+      <div class="ac-list" id="item-list-${id}" style="position:absolute;top:calc(100% + 4px);left:0;right:0;z-index:500;"></div>
     </div>
     <div class="subitems-wrap" id="subs-${id}" style="display:none;flex-direction:column;gap:0.3rem;">
       <div id="sublist-${id}"></div>
@@ -3559,9 +3589,15 @@ function addSub(itemId) {
         onkeydown="itemAcKey(event,'${subKey}','sub')">
       <div class="ac-list" id="sub-item-list-${itemId}-${sid}" style="position:absolute;top:calc(100% + 4px);left:0;right:0;z-index:500;"></div>
     </div>
-    <input class="sub-price-in" type="number" id="sprice-${itemId}-${sid}"
-      placeholder="rate" step="0.01" oninput="refreshPreview()">
-    <button class="sub-del" onclick="removeSub(${itemId},${sid})">✕</button>
+    <div class="sub-row-meta">
+      <input class="sub-qty-in" type="number" id="squty-${itemId}-${sid}"
+        placeholder="qty" min="0" step="any" oninput="refreshPreview()">
+      <input class="sub-unit-in" type="text" id="sunit-${itemId}-${sid}"
+        placeholder="unit" list="subUnitOptions" autocomplete="off" oninput="refreshPreview()">
+      <input class="sub-price-in" type="number" id="sprice-${itemId}-${sid}"
+        placeholder="rate" step="0.01" oninput="refreshPreview()">
+      <button class="sub-del" onclick="removeSub(${itemId},${sid})">✕</button>
+    </div>
   `;
   list.appendChild(row);
   setTimeout(() => document.getElementById(`sname-${itemId}-${sid}`)?.focus(), 20);
@@ -3600,7 +3636,9 @@ function readForm() {
       document.getElementById(`sublist-${id}`)?.querySelectorAll('.sub-row').forEach(row => {
         const sname  = row.querySelector('[id^="sname-"]')?.value.trim() || '';
         const sprice = row.querySelector('[id^="sprice-"]')?.value.trim() || '';
-        if (sname) subs.push({ name: sname, price: sprice });
+        const sqty   = row.querySelector('[id^="squty-"]')?.value.trim() || '';
+        const sunit  = row.querySelector('[id^="sunit-"]')?.value.trim() || '';
+        if (sname) subs.push({ name: sname, price: sprice, qty: sqty, unit: sunit });
       });
     }
     return { bales, name, rate, isMix, subs };
@@ -3612,6 +3650,14 @@ function fmtR(r) {
   const n = parseFloat(r);
   if (isNaN(n) || n <= 0) return '';
   return '\u20B9' + (n % 1 === 0 ? n : n.toFixed(2));
+}
+
+// Sub-item qty + unit, e.g. "5 Pcs" \u2014 blank if no qty entered
+function fmtSubQty(sub) {
+  const n = parseFloat(sub.qty);
+  if (isNaN(n) || n <= 0) return '';
+  const unit = (sub.unit || '').trim();
+  return unit ? `${n % 1 === 0 ? n : n.toFixed(1)} ${unit}` : String(n % 1 === 0 ? n : n.toFixed(1));
 }
 
 // ── Number to English words (Indian style) ──
@@ -3715,8 +3761,9 @@ function buildMessage() {
     if (item.isMix && item.subs.length > 0) {
       L.push(`_${bStr}_  *${item.name || 'Mix Items'}*${rStr}`);
       item.subs.forEach(s => {
+        const sq = fmtSubQty(s) ? `  _${fmtSubQty(s)}_` : '';
         const sp = s.price ? `  *${fmtR(s.price)}*` : '';
-        L.push(`  \u00B7  ${s.name}${sp}`);
+        L.push(`  \u00B7  ${s.name}${sq}${sp}`);
       });
     } else {
       L.push(`_${bStr}_  *${item.name || '\u2014'}*${rStr}`);
@@ -3751,8 +3798,9 @@ function buildPreviewHTML() {
 
     if (item.isMix && item.subs.length > 0) {
       const subsHTML = item.subs.map(s => {
+        const sq = fmtSubQty(s) ? `<span style="color:#888;font-style:italic;margin-left:6px;">${fmtSubQty(s)}</span>` : '';
         const sp = s.price ? `<span style="color:#1a7a3a;font-weight:600;"> ${fmtR(s.price)}</span>` : '';
-        return `<div style="display:flex;justify-content:space-between;padding-right:2px;"><span>· ${s.name}</span>${sp ? `<span>${sp}</span>` : ''}</div>`;
+        return `<div style="display:flex;justify-content:space-between;padding-right:2px;"><span>· ${s.name}${sq}</span>${sp ? `<span>${sp}</span>` : ''}</div>`;
       }).join('');
       return `
         <div style="margin-bottom:9px;">
@@ -3845,8 +3893,9 @@ function buildA4HTML() {
 
         if (item.isMix && item.subs.length > 0) {
           const subsHTML = item.subs.map(s => {
+            const sq = fmtSubQty(s) ? `<span class="a4-sub-qty">${fmtSubQty(s)}</span>` : '';
             const sp = s.price ? `<span class="a4-sub-price">${fmtR(s.price)}</span>` : '<span></span>';
-            return `<div class="a4-sub"><span class="a4-sub-name">${s.name}</span>${sp}</div>`;
+            return `<div class="a4-sub"><span class="a4-sub-name">${s.name}${sq}</span>${sp}</div>`;
           }).join('');
           return `
             <div class="a4-item">
@@ -4497,8 +4546,12 @@ function populateFormFromOrder(o) {
           const sid = subCounters[id];
           const sNameEl = document.querySelector(`#subrow-${id}-${sid} [id^="sname-"]`);
           const sPriceEl = document.querySelector(`#subrow-${id}-${sid} [id^="sprice-"]`);
+          const sQtyEl = document.querySelector(`#subrow-${id}-${sid} [id^="squty-"]`);
+          const sUnitEl = document.querySelector(`#subrow-${id}-${sid} [id^="sunit-"]`);
           if (sNameEl) sNameEl.value = sub.name || '';
           if (sPriceEl) sPriceEl.value = sub.price || '';
+          if (sQtyEl) sQtyEl.value = sub.qty || '';
+          if (sUnitEl) sUnitEl.value = sub.unit || '';
         });
       }
     });
