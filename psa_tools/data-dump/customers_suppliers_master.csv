@@ -4,8 +4,8 @@ Supplier,S,AF,Acm Fabricot - MSME,SCR,E-200 2ND Phase,Industrial Area,Balotra Ra
 Customer,C,AES,Amit Enterprises,SDR,Holding No. 308,"Shyam Mandir Lane, Sutapatty",Muzaffarpur 842001,Muzaffarpur,,Bihar,842001,Kusum Devi Poddar,,,,,,,,,,10AEBPP8597C1ZK,AEBPP8597C,,,,,,,,,,,0,0.0,0.0,,0.0,,,Muzaffarpur,,,,2
 Customer,C,ASCM,Amit Saree Center,SDR,"Doma Pokhar, Shyam Mandir Road",Sutapatti,Muzaffarpur 842001,Muzaffarpur,,Bihar,842001,Gopal Prasad Agrawal,,,,,,,,,,10ABEPA0700C1Z5,ABEPA0700C,,,,,,,,,,,0,0.0,0.0,,0.0,,,Muzaffarpur,,,,0
 Customer,C,ASM,Amit Syntex,SDR,Sureka Market,Sutapaty,Muzaffarpur 842001,Muzaffarpur,,Bihar,842001,Dinesh Kumar Mahato,,,,,,,,,,10ALAPK6475A1ZQ,ALAPK6475A,,,,,,,,,,,0,0.0,0.0,,0.0,,,Muzaffarpur,,,,12
-Supplier,S,AS,Aaradhya Suits,SCR,Shop No 6010,Near Regent Market Ring Road,Surat Gujarat 395002,Surat,,Gujarat,395002,Ashutosh Agarwal,,,,,,,,,,24AJNPA1621P1Z9,AJNPA1621P,,,,,,,,,,,0,0.0,0.0,,0.0,,Skyking Courier,,,,,19
-Supplier,S,TTF,Tirupati Tex Fab,SCR,6010,"Kamela Darwaja,Ring Road",Surat Gujarat 395002,Surat,,Gujarat,395002,Neha Ashutosh Agrawa,,,,,,,,,,24AUGPA1424L1Z1,AUGPA1424L,,,,,,,,,,,0,0.0,0.0,,0.0,,,,,,,9
+Supplier,S,AS,Aaradhya Suits,SCR,Shop No 6010,Near Regent Market Ring Road,Surat Gujarat 395002,Surat,,Gujarat,395002,Ashutosh Agarwal,,,,,,,,,,24AJNPA1621P1Z9,AJNPA1621P,,,,,,,,,,,0,0.0,0.0,,0.0,,Skyking Courier,,,,,20
+Supplier,S,TTF,Tirupati Tex Fab,SCR,6010,"Kamela Darwaja,Ring Road",Surat Gujarat 395002,Surat,,Gujarat,395002,Neha Ashutosh Agrawa,,,,,,,,,,24AUGPA1424L1Z1,AUGPA1424L,,,,,,,,,,,0,0.0,0.0,,0.0,,,,,,,12
 Supplier,S,ASL,Amrit Shawls - MSME,SCR,"557-Naya Mohalla,Near Ekta Mrkt",Mochpura Bazaar,Ludhiana Punjab 141008,Ludhiana,,Punjab,141008,Mohinder Pal Singh,,,,,9417201359,,,,,03AEFPS6634H1ZG,AEFPS6634H,,,,,Y,,,,,,0,0.0,0.0,,0.0,,,,,,,4
 Supplier,S,ATC,Amruta Texcom,SCR,"18/475,",New Industrial Estate,Ichalkaranji Maharashtra 416115,Ichalkaranji,,Maharashtra,416115,Ramprakash Biyani,,,,,,,,,,27AJBPB8516G1ZH,AJBPB8516G,,,,,,,,,,,0,0.0,0.0,,0.0,Mata Trans,,Ichalkaranji,,,,0
 Supplier,S,BP,Bhagwati Prints,SCR,"A/1-3003,Regent Textile Market","Kamela Darwaza, Ring Road",Surat Gujarat 395002,Surat,,Gujarat,395002,Kailash  Agrawal,Ankit,,,,,,,,,24AAPPA3267N1ZG,AAPPA3267N,,,,,,,,,,,0,0.0,0.0,,0.0,,Skyking Courier,Surat,,,,325
@@ -21,15 +21,15 @@ Supplier,S,KSS,Khushboo Synthetics,SCR,"460-461, Millenium 2 Textile Market",Rin
 Supplier,S,MBT,Maa Baneshwari Texofine - MSME,SCR,"A-3/A-4, New Cloth Market",Jerla Road,Balotra Rajasthan 344022,Balotra,,Rajasthan,344022,Ganga Ram,Laxman,,,,,,,,,08BSVPR0755F1Z7,BSVPR0755F,,,,,Y,,,,,,0,0.0,0.0,,0.0,East India,Skyking Courier,Balotra,,,,0
 Supplier,S,MP,Manglam Prints - MSME,SCR,201-202,Anand Nagar,Pali Rajasthan 306401,Pali-Marwar,,Rajasthan,306401,Shashi Bhansali,Sourav Bhanshali,,,,,,,,,08AATPB4044Q1Z6,AATPB4044Q,,,,,Y,,,,,,0,0.0,0.0,,0.0,East India,Skyking Courier,Pali-Marwar,,,,43
 Supplier,S,MRF,Manish Ratan Fabrics - MSME,SCR,"G - 194, 3RD Phase",Industrial Area,Balotra Rajasthan 344022,Balotra,,Rajasthan,344022,Nand Lal,,,,,,,,,,08AAEPL9627N1Z2,AAEPL9627N,,,,,Y,,,,,,0,0.0,0.0,,0.0,,Skyking Courier,Balotra,,,,14
-Supplier,S,MF,Maruti Fashion,SCR,"Shop No 407, Millenium 2",Ring Road,Surat Gujarat 394210,Surat,,Gujarat,394210,Maruti Fashion,,,,,,,,,,24ABMFM6369F1ZY,ABMFM6369F,,,,,,,,,,,0,0.0,0.0,,0.0,,Skyking Courier,Surat,Super Nett Rates.,,,294
+Supplier,S,MF,Maruti Fashion,SCR,"Shop No 407, Millenium 2",Ring Road,Surat Gujarat 394210,Surat,,Gujarat,394210,Maruti Fashion,,,,,,,,,,24ABMFM6369F1ZY,ABMFM6369F,,,,,,,,,,,0,0.0,0.0,,0.0,,Skyking Courier,Surat,Super Nett Rates.,,,295
 Supplier,S,MS,Malchand Sons,SCR,"85/87, 2ND Floor","Old Hanuman Lane, Kalbadevi",Mumbai Maharashtra 400002,Mumbai,,Maharashtra,400002,Purushottam Dhanuka,Niraj Kedia,9930819190,,,,,,,,27AAEPD8351P1ZB,AAEPD8351P,,,,,,,,,,,0,0.0,0.0,,0.0,Mata Trans,Skyking Courier,Mumbai,,,,49
-Supplier,S,NGP,Nand Gopal Print - MSME,SCR,Umapati Lati,Navagadh,Jetpur Gujarat 360370,Jetpur,,Gujarat,360370,Jitendrabhai Bhimjib,Ankit Radadiya,,,,,,,,,24AKJPR0913J1Z5,AKJPR0913J,,,,,Y,,,,,,0,0.0,0.0,,0.0,,Skyking Courier,Jetpur,,,,253
+Supplier,S,NGP,Nand Gopal Print - MSME,SCR,Umapati Lati,Navagadh,Jetpur Gujarat 360370,Jetpur,,Gujarat,360370,Jitendrabhai Bhimjib,Ankit Radadiya,,,,,,,,,24AKJPR0913J1Z5,AKJPR0913J,,,,,Y,,,,,,0,0.0,0.0,,0.0,,Skyking Courier,Jetpur,,,,255
 Supplier,S,PPP,Paresh Print Private Limited,SCR,"Fulwadi, Opp: Ramji Mandir Road","Navagadh,Jetpur Gujarat 360370",,Jetpur,,Gujarat,360370,Sunil Chawla,Sunny Chawla,,,,,,,,,24AAGCP2843R1ZX,AAGCP2843R,,,,,,,,,,,0,0.0,0.0,,0.0,,Skyking Courier,Jetpur,,,,81
-Supplier,S,RI,Rajasthan Industries,SCR,E-90,"Industrial Area, 2ND Phase",Pali Rajasthan 306401,Pali-Marwar,,Rajasthan,306401,Rajasthan Industries,,,,,,,,,,08AABFR2504B1ZV,AABFR2504B,,,,,,,,Cbs,,RTGS,0,0.0,0.0,,0.0,East India,Skyking Courier,Pali-Marwar,,,,190
+Supplier,S,RI,Rajasthan Industries,SCR,E-90,"Industrial Area, 2ND Phase",Pali Rajasthan 306401,Pali-Marwar,,Rajasthan,306401,Rajasthan Industries,,,,,,,,,,08AABFR2504B1ZV,AABFR2504B,,,,,,,,Cbs,,RTGS,0,0.0,0.0,,0.0,East India,Skyking Courier,Pali-Marwar,,,,195
 Supplier,S,SST,Sunshine Textile,SCR,"25, Mahaveer Nagar Vistar",Behind Baliya Girls School,Pali Rajasthan 306401,Pali-Marwar,,Rajasthan,306401,Ritesh Dhariwal,,,,,,,,,,08AFBPD5174L1ZD,AFBPD5174L,,,,,,,,,,,0,0.0,0.0,,0.0,East India,Skyking Courier,Pali-Marwar,,,,25
 Supplier,S,ST,Somnath Textile - MSME,SCR,"F-254,Punayata Industrial Area,",,Pali Rajasthan 306401,Pali-Marwar,,Rajasthan,306401,Bhanwar Lal Panwar,Kishan Panwar,,,,,,,,,08ABFPP0396N1Z3,ABFPP0396N,,,,,Y,,,,,,0,0.0,0.0,,0.0,East India,Skyking Courier,Pali-Marwar,,,,0
 Supplier,S,SGI,Shri Gopal Industries - MSME,SCR,144,Jai Nagar,Pali Rajasthan 306401,Pali-Marwar,,Rajasthan,306401,Bheem Raj Panwar,,,,,,,,,,08AICPP5851E1Z8,AICPP5851E,,,,,Y,,,,,,0,0.0,0.0,,0.0,East India,Skyking Courier,Pali-Marwar,,,Y,0
-Supplier,S,RTM,Rahul Textiles Mills,SCR,"25/4, Laxmi Narayan Nagar",Indira Nagar,Erode Tamil Nadu 638003,Erode,,Tamil Nadu,638003,Jaikumar Suthar,Tarachand Suthar,,,,,,,,,33AIJPS3780N1ZM,AIJPS3780N,,,,,,,,,,,0,0.0,0.0,,0.0,Mata Trans,Speed Post,Erode,,,,21
+Supplier,S,RTM,Rahul Textiles Mills,SCR,"25/4, Laxmi Narayan Nagar",Indira Nagar,Erode Tamil Nadu 638003,Erode,,Tamil Nadu,638003,Jaikumar Suthar,Tarachand Suthar,,,,,,,,,33AIJPS3780N1ZM,AIJPS3780N,,,,,,,,,,,0,0.0,0.0,,0.0,Mata Trans,Speed Post,Erode,,,,25
 Supplier,S,PF,Pragati Fabrics,SCR,"""Pragati"" 27, Kamdhenu Vihar","Gandhi Nagar, Mandia Road","Pali, (Rajasthan) 306401",Pali-Marwar,,Rajasthan,306401,Paras Mal Mutha,,,,,,,,,,08AAYPM7510K1Z1,AAYPM7510K,,,,,,,,,,,0,0.0,0.0,,0.0,East India,Skyking Courier,Pali-Marwar,,,,18
 Supplier,S,SRH,Shah Rikhabchand Hazarimal,SCR,"675/3, Sir Chinubhai Building",Revdi Bazar,Ahmedabad Gujarat 380002,Ahmedabad,,Gujarat,380002,Shah Champalal Rikha,,,,,,,,,,24AADHS4827E1ZA,AADHS4827E,,,,,,,,,,,0,0.0,0.0,,0.0,,Skyking Courier,Ahmedabad,,,,18
 Supplier,S,SS,Sairam Synthetics,SCR,"393 C, Vidur Nagar",Near Hawa Bunglow,Indore Madhya Pradesh 452013,Indore,,Madhya Prade,452013,Dilip Vaswani,,,,,,,,,,23AAEPW3561E2ZS,AAEPW3561E,,,,,,,,,,,0,0.0,0.0,,0.0,Mata Trans,Skyking Courier,Indore,,,,32
@@ -64,7 +64,7 @@ Customer,C,MTE,Maruti Textiles,SDR,Bara Chakia,Bara Chakia,East Champaran Bihar 
 Customer,C,SVB,Sanjay Vastralay,SDR,Ward No. 4,Kesaria Road,Bara Chakia Bihar 845412,Bajitpur,,Bihar,845412,Amit Kumar Tulsyan,,,,,,,,,,10ABPPT0957P1Z1,ABPPT0957P,,,,,,,,,,,0,0.0,0.0,,0.0,,,Bajitpur,,,,0
 Customer,C,SKVC,Sri Krishna Vastra Bhandar,SDR,Ward No-04,Keshariya Road,Chakia Bihar 845412,Barachakia,,Bihar,845412,Shanker Kumar Chanan,,,,,,,,,,10ABJPC4287F2Z1,ABJPC4287F,,,,,,,,,,,0,0.0,0.0,,0.0,,,Barachakia,,,,7
 Customer,C,SSKC,Sri Shankar Khadi Bhandar,SDR,Na,Kesariya Road,Chakia Bihar 845412,Barachakia,,Bihar,845412,Praveen Kumar Chanan,,,,,,,,,,10AESPC3707Q1ZD,AESPC3707Q,,,,,,,,,,,0,0.0,0.0,,0.0,,,Barachakia,,,,10
-Customer,C,SRSB,Sri Rani Sati Cloth Store,SDR,Na,Main Road Basopatti,Basopatti Bihar 847225,Basopatty,,Bihar,847225,Bharat Prasad Murark,,,,,,,,,,10AGVPM4736A1ZM,AGVPM4736A,,,,,,,,,,,0,0.0,0.0,,0.0,,,Basopatty,,,,7
+Customer,C,SRSB,Sri Rani Sati Cloth Store,SDR,Na,Main Road Basopatti,Basopatti Bihar 847225,Basopatty,,Bihar,847225,Bharat Prasad Murark,,,,,,,,,,10AGVPM4736A1ZM,AGVPM4736A,,,,,,,,,,,0,0.0,0.0,,0.0,,,Basopatty,,,,9
 Customer,C,GTB,Geeta Textile,SDR,0,Lal Bazar,Bettiah Bihar 845438,Bettiah,,Bihar,845438,Arvind  Kumar,,,,,,,,,,10AFQPK2285N1Z4,AFQPK2285N,,,,,,,,,,,0,0.0,0.0,,0.0,,,Bettiah,,,,40
 Customer,C,HPDB,Hardwar Prasad Dawarka Prasad,SDR,-,-,Bettiah Bihar 845438,Bettiah,,Bihar,845438,Sunil Kumar,,,,,,,,,,10FWOPK9832D1ZG,FWOPK9832D,,,,,,,,,,,0,0.0,0.0,,0.0,Mata Trans,,Bettiah,,,,0
 Customer,C,ITB,Indu Textiles,SDR,S/O Wakil Prasad,Bettiah,Bettiah Bihar 845438,Bettiah,,Bihar,845438,Ranjeet Kumar,,,,,,,,,,10BDBPK2831G1Z9,BDBPK2831G,,,,,,,,,,,0,0.0,0.0,,0.0,,,Bettiah,,,,0
@@ -75,7 +75,7 @@ Customer,C,MTB,Mahesh Textiles,SDR,Ward No-24,"Shyam Kumar Jhunjhunwala, Lal Baz
 Customer,C,PVB,Poddar Vastralaya,SDR,Ward No.24,"Lal Bazar,Bettiah",Bettiah Bihar 845438,Bettiah,,Bihar,845438,Sanjeev Kumar Poddar,,,,,,,,,,10AEJPP6731Q1Z3,AEJPP6731Q,,,,,,,,,,,0,0.0,0.0,,0.0,,,Bettiah,,,,0
 Customer,C,PKBB,Priyanka Khadi Bhandar,SDR,Near Teen Lalteen Chowk,Lal Bazar,Bettiah Bihar 845438,Bettiah,,Bihar,845438,Vinay Kumar Gupta,,,,,,,,,,10AIWPK8400G1ZD,AIWPK8400G,,,,,,,,,,,0,0.0,0.0,,0.0,,,Bettiah,,,,14
 Customer,C,RKTB,Radha Krishna Textiles,SDR,Lal Bazar,Lal Bazar,Bettiah Bihar 845438,Bettiah,,Bihar,845438,Rajesh Kumar Sikaria,,,,,,,,,,10AQXPS1950N1Z8,AQXPS1950N,,,,,,,,,,,0,0.0,0.0,,0.0,,,Bettiah,,,,12
-Customer,C,SSB,Saree Sansar,SDR,Lal Bazar,Lal Bazar,Bettiah Bihar 845438,Bettiah,,Bihar,845438,Krishna Kumar Jhunjh,,,,,,,,,,10AGZPJ3567A1ZI,AGZPJ3567A,,,,,,,,,,,0,0.0,0.0,,0.0,,,Bettiah,,,,9
+Customer,C,SSB,Saree Sansar,SDR,Lal Bazar,Lal Bazar,Bettiah Bihar 845438,Bettiah,,Bihar,845438,Krishna Kumar Jhunjh,,,,,,,,,,10AGZPJ3567A1ZI,AGZPJ3567A,,,,,,,,,,,0,0.0,0.0,,0.0,,,Bettiah,,,,10
 Customer,C,SSTB,Shiv Shakti Textiles,SDR,Shiv Shakti Textiles,Lal Bazar,Bettiah Bihar 845438,Bettiah,,Bihar,845438,Ajay Kumar Motani,,,,,,,,,,10ABFPM7642E1Z1,ABFPM7642E,,,,,,,,,,,0,0.0,0.0,,0.0,,,Bettiah,,,,8
 Customer,C,SLB,Subh Labh,SDR,Hazarimul Dharmashala,Lal Bazar,Bettiah Bihar 845438,Bettiah,,Bihar,845438,Subh Labh,,,,,,,,,,10ADMFS0012M1ZE,ADMFS0012M,,,,,,,,,,,0,0.0,0.0,,0.0,,,Bettiah,,,,0
 Customer,C,TTB,Tibrewal Textile,SDR,Lal Bazar,Lal Bazar,Bettiah Bihar 845438,Bettiah,,Bihar,845438,Shambhu Prasad Tibre,,,,,,,,,,10ABRPT8915H1ZA,ABRPT8915H,,,,,,,,,,,0,0.0,0.0,,0.0,,,Bettiah,,,,32
@@ -84,7 +84,7 @@ Customer,C,SHV,Super Handloom,SDR,Mau Bazar,Vidhyapati Nagar,Dist: Samastipur Bi
 Customer,C,YHD,Yashoda Handloom,SDR,Marwari Dharamshala Road,Marwari Dharamshala Road,Dalsingsarai Bihar 848114,Dalsingsarai,,Bihar,848114,Yamuna Sureka,,,,,,,,,,10AZVPS6496G1ZO,AZVPS6496G,,,,,,,,,,,0,0.0,0.0,,0.0,,,Dalsingsarai,,,,2
 Customer,C,HHD,Handloom House,SDR,Ward No - 10,Bara Bazar,Darbhanga Bihar 846004,Darbhanga,,Bihar,846004,Anil Kumar Khetan,,,,,,,,,,10ABJPK0686Q1ZC,ABJPK0686Q,,,,,,,,,,,0,0.0,0.0,,0.0,,,Darbhanga,,,,0
 Customer,C,VHC,Vanshika Handloom,SDR,Khata No 1662  Khesra No 11406,Deoria Kothi,Chak Deoria Bihar 843120,Deoria Kothi,,Bihar,843120,Kiran Paliwal,,7654093967,,,,,,,,10CLSPP7050E1Z4,CLSPP7050E,,,,,,,,,,,0,0.0,0.0,,0.0,,,Deoria Kothi,,,,0
-Customer,C,VVS,Vijay Vastralaya,SDR,Sarmastpur Bazar,Sakra,Sakra Bihar 843104,Sakra,,Bihar,843104,Vijay Kumar Chaudhar,,,,,,,,,,10APBPC0077P1Z8,APBPC0077P,,,,,,,,,,,0,0.0,0.0,,0.0,Mata Trans,,Muzaffarpur,,,,77
+Customer,C,VVS,Vijay Vastralaya,SDR,Sarmastpur Bazar,Sakra,Sakra Bihar 843104,Sakra,,Bihar,843104,Vijay Kumar Chaudhar,,,,,,,,,,10APBPC0077P1Z8,APBPC0077P,,,,,,,,,,,0,0.0,0.0,,0.0,Mata Trans,,Muzaffarpur,,,,78
 Customer,C,JDPG,Janki Das Purushotam Lal,SDR,Ghoghardiha,Ghoghardiha,Ghoghardiha Bihar 847402,Ghoghardiha,,Bihar,847402,Jankidas Purushottam,,,,,,,,,,10AADFJ6456C1ZV,AADFJ6456C,,,,,,,,,,,0,0.0,0.0,,0.0,,,Ghoghardiha,,,,2
 Customer,C,OPHG,Om Prakash Hari Prakash,SDR,Ghoghardiha,Station Road,Ghoghardiha Bihar 847402,Ghoghardiha,,Bihar,847402,Om Prakash Hari Prak,,,,,,,,,,10AAAFO8416G1ZP,AAAFO8416G,,,,,,,,,,,0,0.0,0.0,,0.0,,,Ghoghardiha,,,,18
 Customer,C,SKAG,Sushil Kumar Anjani Kumar,SDR,Ward No. 4,Main Market,Ghoghardiha Bihar 847402,Ghoghardiha,,Bihar,847402,Ganesh Narain Sultan,,,,,,,,,,10AKZPS2786G1ZL,AKZPS2786G,,,,,,,,,,,0,0.0,0.0,,0.0,,,Ghoghardiha,,,,0
@@ -112,7 +112,7 @@ Customer,C,SHCK,Suraj Handloom Center,SDR,00,Station Road,Kurhani Bihar 844120,K
 Customer,C,MSRL,Sri Ram Vastralaya,SDR,M/S Sri Ram Vastralay,Lukaha Khutauna,Laukaha Bihar 847421,Laukaha,,Bihar,847421,Sri Ram Vastralay,,98016 51449,,,,,,,,10ASRPS4104L1ZM,ASRPS4104L,,,,,,,,,,,0,0.0,0.0,,0.0,,,,,,,13
 Customer,C,HPRM,Harendra Prasad Raj,SDR,Madhuban,Madhuban,Madhuban Bihar 845420,Madhuban,,Bihar,845420,Harendra  Sah,,,,,,,,,,10CIOPS9994R1ZV,CIOPS9994R,,,,,,,,,,,0,0.0,0.0,,0.0,,,Madhuban,,,,3
 Customer,C,KSCM,Kajal Saree Centre,SDR,Na,Main Road Malang Chowk,Madhuban Bihar 845420,Madhuban,,Bihar,845420,Bigu Sah,,,,,,,,,,10DVYPS4834L1ZT,DVYPS4834L,,,,,,,,,,,0,0.0,0.0,,0.0,,Our Office,Muzaffarpur,,,,105
-Customer,C,ATM,Arun Textiles,SDR,8,Ward No 08 Shankar Chowk,Madhubani Bihar 847211,Madhubani,,Bihar,847211,Arun Textiles,,,,,,,,,,10AAJFA3927B1Z6,AAJFA3927B,,,,,,,,,,,0,0.0,0.0,,0.0,,,Madhubani,,,,74
+Customer,C,ATM,Arun Textiles,SDR,8,Ward No 08 Shankar Chowk,Madhubani Bihar 847211,Madhubani,,Bihar,847211,Arun Textiles,,,,,,,,,,10AAJFA3927B1Z6,AAJFA3927B,,,,,,,,,,,0,0.0,0.0,,0.0,,,Madhubani,,,,75
 Customer,C,RTAS,Rajasthan Trading Agency,SDR,N.A,Ward No-10,Shankar Chowk Bihar 847211,Madhubani,,Bihar,847211,Rajasthan Trading Ag,,,,,,,,,,10AACFR9682D1ZC,AACFR9682D,,,,,,,,,,,0,0.0,0.0,,0.0,,,Madhubani,,,,8
 Customer,C,MKLM,Kishori Lal Sanjay Kumar,SDR,Ground Floor,Near Gyan Babu Chowk,Motihari Bihar 845401,Motihari,,Bihar,845401,Kishori Lal Sanjay K,,,,,,,,,,10AAYFK6269P1ZF,AAYFK6269P,,,,,,,,,,,0,0.0,0.0,,0.0,,,Motihari,,,,5
 Customer,C,LHM,Laxmi Hari,SDR,Janpul Chowk,Motihari,Motihari Bihar 845401,Motihari,,Bihar,845401,Laxmi Hari,,,,,,,,,,10AACFL5724C1Z1,AACFL5724C,,,,,,,,,,,0,0.0,0.0,,0.0,,,Motihari,,,,2
@@ -125,7 +125,7 @@ Customer,C,REM,Rina Enterprises,SDR,Rina Enterprises,Mansarowar Chowk,Motipur Bi
 Customer,C,KLPS,Kishan Lal Pramod Kumar,SDR,Ward No.11,Nirmali,Supaul Bihar 847452,Nirmali,,Bihar,847452,Laxmi Devi Choudhary,,,,,,,,,,10ACBPC1009N1ZD,ACBPC1009N,,,,,,,,,,,0,0.0,0.0,,0.0,,,Nirmali,,,,7
 Customer,C,NVN,Nirmal Vastralaya,SDR,Na,Nirmali,Nirmali Bihar 847452,Nirmali,,Bihar,847452,Pawan Kumar More,,,,,,,,,,10AUKPM5839R1ZZ,AUKPM5839R,,,,,,,,,,,0,0.0,0.0,,0.0,,,Nirmali,,,,5
 Customer,C,JMDM1,Jai Mata Di Handloom,SDR,12,Khutauna,Madhubani Bihar 847227,Pathrahi,,Bihar,847227,Bhola Chaudhary,,,,,,,,,,10ARBPC3314M1ZG,ARBPC3314M,,,,,,,,,,,0,0.0,0.0,,0.0,Mata Trans,Speed Post,Jainagar,,,,12
-Customer,C,BKVS,Binod Kumar Vijay Kumar,SDR,Ward No-6,Janakpur Road,Sitamarhi Bihar 843320,Pupri,,Bihar,843320,Vijay Kumar Agarwal,,,,,,,,,,10AEPPA1243J1Z1,AEPPA1243J,,,,,,,,,,,0,0.0,0.0,,0.0,,,Pupri,,,,8
+Customer,C,BKVS,Binod Kumar Vijay Kumar,SDR,Ward No-6,Janakpur Road,Sitamarhi Bihar 843320,Pupri,,Bihar,843320,Vijay Kumar Agarwal,,,,,,,,,,10AEPPA1243J1Z1,AEPPA1243J,,,,,,,,,,,0,0.0,0.0,,0.0,,,Pupri,,,,11
 Customer,C,KTP,Kanhaiya Textiles,SDR,Baniya Gali,Janakpur Road,Pupri Bihar 843320,Pupri,,Bihar,843320,Mithlesh Kumar Dhand,,,,,,,,,,10ALKPD8575E1ZA,ALKPD8575E,,,,,,,,,,,0,0.0,0.0,,0.0,,,Pupri,,,,46
 Customer,C,RVP,Rangoli Vastralay,SDR,Ward-05,Pupri,Pupri Bihar 843320,Pupri,,Bihar,843320,Umesh  Prasad,,,,,,,,,,10ABNPP0547R1Z9,ABNPP0547R,,,,,,,,,,,0,0.0,0.0,,0.0,,,Pupri,,,,0
 Customer,C,JCSR,Janata Cloth Stores,SDR,Mohanbati,Mohanbati,Raiganj West Bengal 733134,Raiganj,,West Bengal,733134,Man Mal Sand,,,,,,,,,,19AKOPS5692J1Z4,AKOPS5692J,,,,,,,,,,,0,0.0,0.0,,0.0,,,Raiganj,,,,7
@@ -135,7 +135,7 @@ Customer,C,GTS,Gupta Textiles,SDR,Marwari Bazar,Samastipur,Samstipur Bihar 84810
 Customer,C,JDCM,Jai Dadiji Creation,SDR,0,Marwari Bazar,Marwari Bazar Bihar 848101,Samastipur,,Bihar,848101,Rekha Devi,,,,,,,,,,10BYUPD8839D1ZC,BYUPD8839D,,,,,,,,,,,0,0.0,0.0,,0.0,,,Samastipur,,,,0
 Customer,C,JHSS,Jain Handloom Store,SDR,Municipal Holding No 319,Marwari Bazar,Samastipur Bihar 848101,Samastipur,,Bihar,848101,Shambhu Kumar Jain,,,,,,,,,,10ADZPJ4983B1ZG,ADZPJ4983B,,,,,,,,,,,0,0.0,0.0,,0.0,,,Samastipur,,,,1
 Customer,C,MASW,Maa Ambe Saree Centre,SDR,0,Ambedkar Nagar,Ward No 24 Bihar 848101,Samastipur,,Bihar,848101,Praveen Kumar Modi,,,,,,,,,,10AFSPM0918G1ZN,AFSPM0918G,,,,,,,,,,,0,0.0,0.0,,0.0,,,Samastipur,,,,13
-Customer,C,MCS,Mahira Creation,SDR,C/O Afroz Alam,Ambedkar Nagar,Samastipur Bihar 848101,Samastipur,,Bihar,848101,Md Saif Ali,,,,,,,,,,10BLEPA7322M1ZI,BLEPA7322M,,,,,,,,,,,0,0.0,0.0,,0.0,,,Samastipur,,,,74
+Customer,C,MCS,Mahira Creation,SDR,C/O Afroz Alam,Ambedkar Nagar,Samastipur Bihar 848101,Samastipur,,Bihar,848101,Md Saif Ali,,,,,,,,,,10BLEPA7322M1ZI,BLEPA7322M,,,,,,,,,,,0,0.0,0.0,,0.0,,,Samastipur,,,,75
 Customer,C,NS1,Neelkanth,SDR,00,Marwari Bazar,Samastipur Bihar 848101,Samastipur,,Bihar,848101,Mitu  Devi,,,,,,,,,,10ALRPD1567F1ZF,ALRPD1567F,,,,,,,,,,,0,0.0,0.0,,0.0,,,Samastipur,,,,0
 Customer,C,PSS,Pawan Store,SDR,Pawan Store,Ambedkar Nagar,Samastipur Bihar 848101,Samastipur,,Bihar,848101,Abhinav Kumar Modi,,,,,,,,,,10AOAPM8931L1ZY,AOAPM8931L,,,,,,,,,,,0,0.0,0.0,,0.0,,,Samastipur,,,,1
 Customer,C,PCES,Prahlad Cloth Emporium,SDR,0,Marwari Bazar,Samastipur Bihar 848101,Samastipur,,Bihar,848101,Prahlad Mal Bohra,,,,,,,,,,10AHCPB5501C1ZL,AHCPB5501C,,,,,,,,,,,0,0.0,0.0,,0.0,,,Samastipur,,,,7
@@ -144,13 +144,13 @@ Customer,C,RSS,Ruby Store,SDR,Ambedakar Nagar,Marwari Bazar,Samastipur Bihar 848
 Customer,C,SDSM,Sri Dholi Sati Synthetics,SDR,Ward No.17,Thakurwari Gali,Marwari Bazar Bihar 848101,Samastipur,,Bihar,848101,Ravi Kumar Saraf,,,,,,,,,,10CDNPS6538K1Z3,CDNPS6538K,,,,,,,,,,,0,0.0,0.0,,0.0,,,Samastipur,,,,35
 Customer,C,VHM,Vicky Handloom,SDR,Vikky Handloom,Marwari Gali,Marwari Bazar Bihar 848101,Samastipur,,Bihar,848101,Pramod Kumar Saraf,,,,,,,,,,10AGFPS4272H1ZJ,AGFPS4272H,,,,,,,,,,,0,0.0,0.0,,0.0,,,Samastipur,,,,3
 Customer,C,MKHM,Maa Kalyani Handloom,SDR,Etwarpur Jaiti,Sarfuddinpur Bochahan,Muzaffarpur Bihar 843118,Sarfuddinpur,,Bihar,843118,Amresh Kumar Jha,,,,,,,,,,10BJLPJ1476N1Z1,BJLPJ1476N,,,,,,,,,,,0,0.0,0.0,,0.0,,,Muzaffarpur,,,,0
-Customer,C,CSS,Chiranjiv Synthetics,SDR,0,Kansi Simri,Singhwara Bihar 847106,Simri,,Bihar,847106,Chiranjiv  Das,,,,,,,,,,10AUCPD3762G1Z9,AUCPD3762G,,,,,,,,,,,0,0.0,0.0,,0.0,,,Simri,,,,65
+Customer,C,CSS,Chiranjiv Synthetics,SDR,0,Kansi Simri,Singhwara Bihar 847106,Simri,,Bihar,847106,Chiranjiv  Das,,,,,,,,,,10AUCPD3762G1Z9,AUCPD3762G,,,,,,,,,,,0,0.0,0.0,,0.0,,,Simri,,,,68
 Customer,C,AHS,Anand Handloom,SDR,113/237,"Old Exchange Road,W No 18",Sitamarhi Bihar 843302,Sitamarhi,,Bihar,843302,Muralidhar Hisariya,,,,,,,,,,10ADAPM7163P1ZF,ADAPM7163P,,,,,,,,,,,0,0.0,0.0,,0.0,,,Sitamarhi,,,,0
 Customer,C,GSS,Geeta Shree,SDR,Na,Old Exchange Road,Sitamarhi Bihar 843302,Sitamarhi,,Bihar,843302,Binod Kumar,,,,,,,,,,10AEVPK1702L1ZL,AEVPK1702L,,,,,,,,,,,0,0.0,0.0,,0.0,,,Sitamarhi,,,,2
 Customer,C,LTCS,Laxmi Trading Company,SDR,Main Road,Shanker Chowk,Sitamarhi Bihar 843302,Sitamarhi,,Bihar,843302,Ajay Kumar Gupta,,,,,,,,,,10ADCPG0761H1ZA,ADCPG0761H,,,,,,,,,,,0,0.0,0.0,,0.0,,,Sitamarhi,,,,15
 Customer,C,MSKS,Mahima Saree Kendra,SDR,Old Exchange Road,Sitamarhi,Sitamarhi Bihar 843302,Sitamarhi,,Bihar,843302,Suresh Kumar,,,,,,,,,,10DDQPK4438C1ZT,DDQPK4438C,,,,,,,,,,,0,0.0,0.0,,0.0,,,Sitamarhi,,,,0
 Customer,C,MTCW,Mittal Trading Co,SDR,Exchange Road,Exchange Road,Ward No-10 Bihar 843302,Sitamarhi,,Bihar,843302,Neeta  Agrawal,,,,,,,,,,10AGXPA4199D1ZH,AGXPA4199D,,,,,,,,,,,0,0.0,0.0,,0.0,,,Sitamarhi,,,,15
-Customer,C,MTS,Mohan Textiles,SDR,57,Vijay Shankar Chowk,Sitamarhi Bihar 843302,Sitamarhi,,Bihar,843302,Rajesh Kumar Hissari,,,,,,,,,,10AATPH4480N1ZD,AATPH4480N,,,,,,,,,,,0,0.0,0.0,,0.0,,,Sitamarhi,,,,46
+Customer,C,MTS,Mohan Textiles,SDR,57,Vijay Shankar Chowk,Sitamarhi Bihar 843302,Sitamarhi,,Bihar,843302,Rajesh Kumar Hissari,,,,,,,,,,10AATPH4480N1ZD,AATPH4480N,,,,,,,,,,,0,0.0,0.0,,0.0,,,Sitamarhi,,,,50
 Customer,C,PTCS,Pawan Trading Company,SDR,Old Exchange Road,Old Exchange Road,Sitamarhi Bihar 843302,Sitamarhi,,Bihar,843302,Kumar Pawan,,,,,,,,,,10ADVPP3737H1ZC,ADVPP3737H,,,,,,,,,,,0,0.0,0.0,,0.0,,,Sitamarhi,,,,0
 Customer,C,PKSM,Pramod Kumar Suresh Kumar,SDR,Main Road,Vijay Shankar Chowk,Main Road Bihar 843302,Sitamarhi,,Bihar,843302,Suresh Kumar Hisaria,,,,,,,,,,10AAGPH0722C1ZS,AAGPH0722C,,,,,,,,,,,0,0.0,0.0,,0.0,,,Sitamarhi,,,,73
 Customer,C,PTCS1,Praveen Textile Co.,SDR,Ward No.10,Gudri Bazar Road,Sitamarhi Bihar 843302,Sitamarhi,,Bihar,843302,Praveen Textile Co.,,,,,,,,,,10ABDFP3715B1Z1,ABDFP3715B,,,,,,,,,,,0,0.0,0.0,,0.0,,,Sitamarhi,,,,31
@@ -161,12 +161,12 @@ Customer,C,SKSS,Shiv Kumar Sushil Kumar,SDR,Ward No.18,Old Exchange Road,Sitamar
 Customer,C,SSTS,Sri Shyam Trading Company,SDR,Main Road,Main Road,Sitamarhi Bihar 843302,Sitamarhi,,Bihar,843302,Binod Kumar Rajgarhi,,,,,,,,,,10AAEHB4206K1ZX,AAEHB4206K,,,,,,,,,,,0,0.0,0.0,,0.0,,,Sitamarhi,,,,0
 Customer,C,MSLS,Subh Laxmi Textiles,SDR,Station Road,Sitamarhi,Sitamarhi Bihar 843302,Sitamarhi,,Bihar,843302,Sarwan Kumar,,,,,,,,,,10ATEPK8410H1Z5,ATEPK8410H,,,,,,,,,,,0,0.0,0.0,,0.0,,,Sitamarhi,,,,2
 Customer,C,SSN,Shyam Synthetics,SDR,Near Shiv Mandir,Old Exchange Road,Sitamarhi Bihar 843302,Sitamarhi,,Bihar,843302,Amit  Kumar,,,,,,,,,,10BAYPK8176J1Z3,BAYPK8176J,,,,,,,,,,,0,0.0,0.0,,0.0,Suraj Tran,,Sitamarhi,,,,2
-Customer,C,SHKS,Sri Harishankar Khadi Bhandar,SDR,Na,Koat Bazar,Sitamarhi Bihar 843302,Sitamarhi,,Bihar,843302,Shree Harishankar Kh,,,,,,,,,,10ADSFS1127M1ZY,ADSFS1127M,,,,,,,,,,,0,0.0,0.0,,0.0,,,Sitamarhi,,,,6
-Customer,C,SSTV,Sri Shankar Textile,SDR,Main Road,Vijay Shankar Chowk,Sitamarhi 843302,Sitamarhi,,Bihar,843302,Shree Shankar Textil,,,,,,,,,,10ADXFS2346H1ZX,ADXFS2346H,,,,,,,,,,,0,0.0,0.0,,0.0,,,Sitamarhi,,,,54
+Customer,C,SHKS,Sri Harishankar Khadi Bhandar,SDR,Na,Koat Bazar,Sitamarhi Bihar 843302,Sitamarhi,,Bihar,843302,Shree Harishankar Kh,,,,,,,,,,10ADSFS1127M1ZY,ADSFS1127M,,,,,,,,,,,0,0.0,0.0,,0.0,,,Sitamarhi,,,,7
+Customer,C,SSTV,Sri Shankar Textile,SDR,Main Road,Vijay Shankar Chowk,Sitamarhi 843302,Sitamarhi,,Bihar,843302,Shree Shankar Textil,,,,,,,,,,10ADXFS2346H1ZX,ADXFS2346H,,,,,,,,,,,0,0.0,0.0,,0.0,,,Sitamarhi,,,,55
 Customer,C,VVNS,Vyahut Vastra Niketan,SDR,Sitaram Chowk,Main Road,Sitamarhi Bihar 843302,Sitamarhi,,Bihar,843302,Suresh Prasad,,,,,,,,,,10ACDPP1623P1ZQ,ACDPP1623P,,,,,,,,,,,0,0.0,0.0,,0.0,,,Sitamarhi,,,,5
 Customer,C,CCT,Cash Center,SDR,Chudi Market,Gola Road,Tajpur Dist: Samastipur 848130,Tajpur,,Bihar,848130,Rajendra Kumar Modi,,,,,,,,,,10ADVPM1732B1Z0,ADVPM1732B,,,,,,,,,,,0,0.0,0.0,,0.0,East India,Our Office,Muzaffarpur,,,,61
 Customer,C,GSK,Gopal Shree,SDR,"254, Gola Road, Kasba Ahar",Tajpur,Dist: Samastipur 848130,Tajpur,,Bihar,848130,Rama Modi,,,,,,,,,,10AJWPM8621L1ZR,AJWPM8621L,,,,,,,,,,,0,0.0,0.0,,0.0,East India,Our Office,Muzaffarpur,,,,15
-Customer,C,JAS,Zishan Ali Handloom Store,SDR,Tajpur,Tajpur,Samastipur Bihar 848130,Tajpur,,Bihar,848130,Jishan Ali,,,,,,,,,,10BCTPA7663M1ZA,BCTPA7663M,,,,,,,,,,,0,0.0,0.0,,0.0,,,Tajpur,,,,38
+Customer,C,JAS,Zishan Ali Handloom Store,SDR,Tajpur,Tajpur,Samastipur Bihar 848130,Tajpur,,Bihar,848130,Jishan Ali,,,,,,,,,,10BCTPA7663M1ZA,BCTPA7663M,,,,,,,,,,,0,0.0,0.0,,0.0,,,Tajpur,,,,42
 Customer,C,BLBN,Banwari Lal Binod Kumar,SDR,Ward No -04,Nirmali Main Road,Nirmali Bihar 847452,Nirmali,,Bihar,847452,Binod Kumar Kelania,,8294173465,,,,,,,,10ESEPK7518F1Z0,ABJPK0742P,,,,,,,,,,,0,0.0,0.0,,0.0,,,Nirmali,,,,0
 Customer,C,ATM1,Anil Textiles,SDR,M/S Anil Textiles,Akharaghat Road,Muzaffarpur Bihar 842001,Muzaffarpur,,Bihar,842001,Kusumlata Hisaria,,,,,,,,,,10ABPPH9917B1ZW,ABPPH9917B,,,,,,,,,,,0,0.0,0.0,,0.0,,,,,,,9
 Customer,C,BPBM,Badri Prasad Binod Kumar,SDR,Modi House,Jawaharlal Road,Muzaffarpur Bihar 842001,Muzaffarpur,,Bihar,842001,Pramod Kumar Modi Hu,,,,,,,,,,10AABHM5982Q1ZS,AABHM5982Q,,,,,,,,,,,0,0.0,0.0,,0.0,,,Muzaffarpur,,,,9
@@ -197,13 +197,13 @@ Customer,C,JVS,Jagdish Vastralaya,SDR,"Ward No. 11, Holding No. 401",Bank Road,S
 Customer,C,JSVM,Jay Shree Vastralaya,SDR,Holding No. 12,Sutapatty,Muzaffarpur Bihar 842001,Muzaffarpur,,Bihar,842001,Anup Kumar Sah,,,,,,,,,,10BDCPS1950H1ZW,BDCPS1950H,,,,,,,,,,,0,0.0,0.0,,0.0,,,Muzaffarpur,,,,0
 Customer,C,JNSM,Jainarain Sitaram,SDR,C/O Jai Narain Sitaram,Suttapati,Muzaffarpur Bihar 842001,Muzaffarpur,,Bihar,842001,Jai Narain Sitaram,,,,,,,,,,10AAIFJ6760C1ZR,AAIFJ6760C,,,,,,,,,,,0,0.0,0.0,,0.0,,,Muzaffarpur,,,,15
 Customer,C,JTCM,Jalan Trading Co,SDR,Holding No. 247,Sutapatty,Muzaffarpur Bihar 842001,Muzaffarpur,,Bihar,842001,Jalan Trading Co,,,,,,,,,,10AADFJ2402L1ZY,AADFJ2402L,,,,,,,,,,,0,0.0,0.0,,0.0,,,Muzaffarpur,,,,18
-Customer,C,KBM,Kakrania Brothers,SDR,Kakrania Brothers,Sutapatti Main Road,Muzaffarpur Bihar 842001,Muzaffarpur,,Bihar,842001,Anup Kumar Kakrania,,,,,,,,,,10AEVPK1312A1ZA,AEVPK1312A,,,,,,,,,,,0,0.0,0.0,,0.0,,,Muzaffarpur,,,,6
+Customer,C,KBM,Kakrania Brothers,SDR,Kakrania Brothers,Sutapatti Main Road,Muzaffarpur Bihar 842001,Muzaffarpur,,Bihar,842001,Anup Kumar Kakrania,,,,,,,,,,10AEVPK1312A1ZA,AEVPK1312A,,,,,,,,,,,0,0.0,0.0,,0.0,,,Muzaffarpur,,,,7
 Customer,C,KTM,Kedia Textiles,SDR,0,Sutapatty,Muzaffarpur Bihar 842001,Muzaffarpur,,Bihar,842001,Pana Devi Kedia,,,,,,,,,,10AEIPK9993C1ZG,AEIPK9993C,,,,,,,,,,,0,0.0,0.0,,0.0,,,Muzaffarpur,,,,0
 Customer,C,KTM1,Kunal Textile,SDR,.,Sutapatty,Muzaffarpur Bihar 842001,Muzaffarpur,,Bihar,842001,Saroj Devi,,,,,,,,,,10BISPD6275M1ZX,BISPD6275M,,,,,,,,,,,0,0.0,0.0,,0.0,,,Muzaffarpur,,,,13
 Customer,C,LNDM,Laxmi Narayan Dinesh Kumar,SDR,Vishnu Market,Sutapatty,Muzaffarpur Bihar 842001,Muzaffarpur,,Bihar,842001,Laxmi Narain Kejriwa,,,,,,,,,,10ABFPK3868A1Z7,ABFPK3868A,,,,,,,,,,,0,0.0,0.0,,0.0,,,Muzaffarpur,,,,0
 Customer,C,MCSM,M Chaudhary Saree Center,SDR,M Chaudhary Saree Center,Sutapatty,Muzaffarpur Bihar 842001,Muzaffarpur,,Bihar,842001,Manoj Kumar,,,,,,,,,,10AGLPK4683Q1ZV,AGLPK4683Q,,,,,,,,,,,0,0.0,0.0,,0.0,,,Muzaffarpur,,,,16
 Customer,C,MDHB,Maa Durga Handloom,SDR,Na,New Market Rewa Road,Bhagwanpur Chauk Bihar 842003,Muzaffarpur,,Bihar,842003,Santosh  Kumar,,,,,,,,,,10BFNPK4412F1ZY,BFNPK4412F,,,,,,,,,,,0,0.0,0.0,,0.0,,,Muzaffarpur,,,,0
-Customer,C,MDSM,Maa Durga Saree Centre,SDR,Na,Bhagwanpur Chowk,Muzaffarpur Bihar 842001,Muzaffarpur,,Bihar,842001,Mukesh Kumar Gupta,,,,,,,,,,10BVBPG8663C1Z2,BVBPG8663C,,,,,,,,,,,0,0.0,0.0,,0.0,,,Muzaffarpur,,,,89
+Customer,C,MDSM,Maa Durga Saree Centre,SDR,Na,Bhagwanpur Chowk,Muzaffarpur Bihar 842001,Muzaffarpur,,Bihar,842001,Mukesh Kumar Gupta,,,,,,,,,,10BVBPG8663C1Z2,BVBPG8663C,,,,,,,,,,,0,0.0,0.0,,0.0,,,Muzaffarpur,,,,92
 Customer,C,MSCM,Madhu Saree Centre,SDR,Bank Road,Bank Road,Muzaffarpur Bihar 842001,Muzaffarpur,,Bihar,842001,Laxmi Devi Tulsyan,,,,,,,,,,10ACCPT8761D1ZR,ACCPT8761D,,,,,,,,,,,0,0.0,0.0,,0.0,,,Muzaffarpur,,,,0
 Customer,C,MCS1,Maruti Creation,SDR,0,Main Road,Sutapatty Bihar 842001,Muzaffarpur,,Bihar,842001,Rishi  Kumar,,,,,,,,,,10AKWPK3775C1Z5,AKWPK3775C,,,,,,,,,,,0,0.0,0.0,,0.0,,,Muzaffarpur,,,,12
 Customer,C,MTM1,Milan Textiles,SDR,Holding No-20,Bank Road,Muzaffarpur Bihar 842001,Muzaffarpur,,Bihar,842001,Ram Pravesh Sah,,,,,,,,,,10ATUPS5862P1ZQ,ATUPS5862P,,,,,,,,,,,0,0.0,0.0,,0.0,,,Muzaffarpur,,,,0
@@ -226,7 +226,7 @@ Customer,C,MTS1,Navneet Textiles,SDR,,Sutapatty,Muzaffarpur Bihar 842001,Muzaffa
 Customer,C,SKAM,Sri Kishan Arun Kumar,SDR,1st Floor,Sutapatty,Muzaffarpur Bihar 842001,Muzaffarpur,,Bihar,842001,Shree Kishan Arun Ku,,,,,,,,,,10ABSFS6015Q1ZP,ABSFS6015Q,,,,,,,,,,,0,0.0,0.0,,0.0,Khatu Shya,Our Office,Muzaffarpur,,,,17
 Customer,C,SMKL,Sawarmal Kanhaiyalal,SDR,0,Suta Patti Road,Muzaffarpur Bihar 842001,Muzaffarpur,,Bihar,842001,Rakesh Kumar Poddar,,,,,,,,,,10ADVPP3842K1Z7,ADVPP3842K,,,,,,,,,,,0,0.0,0.0,,0.0,Pasupati T,Our Office,Muzaffarpur,,,,2
 Customer,C,VKPM,Vinay Kumar Pramod Kumar,SDR,Vinay Kumar Pramod Kumar,Sutapatty,Muzaffarpur Bihar 842001,Muzaffarpur,,Bihar,842001,Vinay Kumar Kejriwal,,,,,,,,,,10AEVPK1298R1ZQ,AEVPK1298R,,,,,,,,,,,0,0.0,0.0,,0.0,Mata Trans,Our Office,Muzaffarpur,,,,21
-Supplier,S,SRPF,Shree Ram Pavan Fashions,SCR,Swastik Enclave,"Block B, Room 304","7, Ganpat Bangla Road, Kolkata",Kolkata,,,,,,,,,,,,,,,,,,,,,,,,,,0,0.0,0.0,,0.0,Ambaji,,Kolkata,,,,76
+Supplier,S,SRPF,Shree Ram Pavan Fashions,SCR,Swastik Enclave,"Block B, Room 304","7, Ganpat Bangla Road, Kolkata",Kolkata,,,,,,,,,,,,,,,,,,,,,,,,,,0,0.0,0.0,,0.0,Ambaji,,Kolkata,,,,77
 Customer,C,BBPA,Basudev Beni Prasad,SDR,"M/S Basudeo Beni Prasad,","Sutapatti, Muzaffarpur",842001,Muzaffarpur,,,,,,,,,,,,,,,,,,,,,,,,,,0,0.0,0.0,,0.0,,,Muzaffarpur,,,,0
 Customer,C,RBS,R Bhimseria,SDR,0,Sutapatty,Saraiyaganj Bihar 842001,Muzaffarpur,,Bihar,842001,R Bhimseria,,,,,,,,,,10AAZFR2622J1Z2,AAZFR2622J,,,,,,,,,,,0,0.0,0.0,,0.0,,,Muzaffarpur,,,,0
 Customer,C,SSS1,Saree Sangam,SDR,M/S Saree Sangam,Chaudhry Market,Sutapatti Bihar 842001,Muzaffarpur,,Bihar,842001,Pramod Kumar Munsi,,,,,,,,,,10ADVPM4673K1Z3,ADVPM4673K,,,,,,,,,,,0,0.0,0.0,,0.0,,,Muzaffarpur,,,,0
@@ -247,7 +247,7 @@ Supplier,S,BCJ,Balaji Cotton,SCR,Jay Khodiyar Processors,Rabarika Road,Jetpur Gu
 Customer,C,RTCM,Rakesh Trading Company,SDR,Rakesh Kumar,Sutapatti,Muzaffarpur Bihar 842001,Muzaffarpur,,Bihar,842001,Rakesh Kumar,,,,,,,,,,10ALLPK1338D1ZP,ALLPK1338D,,,,,,,,,,,0,0.0,0.0,,0.0,,,Muzaffarpur,,,,0
 Customer,C,PACM,Prem And Company,SDR,Prem And Company,Sutapatty,Muzaffarpur Bihar 842001,Muzaffarpur,,Bihar,842001,Prem And Company,,,,,,,,,,10AAGFP5462K1Z9,AAGFP5462K,,,,,,,,,,,0,0.0,0.0,,0.0,,,Muzaffarpur,,,,2
 Customer,C,SASM,Sri Anand Saree Kendra,SDR,Shree Anand Saree Kendra,Sutapatty,Muzaffarpur Bihar 842001,Muzaffarpur,,Bihar,842001,Shyam Kumar,,,,,,,,,,10AGHPK9808M1Z6,AGHPK9808M,,,,,,,,,,,0,0.0,0.0,,0.0,East India,Our Office,Muzaffarpur,,,,0
-Customer,C,SPKS,Sitaram Pawan Kumar,SDR,0,Bank Road,Sutapatti Bihar 842001,Muzaffarpur,,Bihar,842001,Pawan Kumar Kahnani,,,,,,,,,,10AEVPK1304E1Z2,AEVPK1304E,,,,,,,,,,,0,0.0,0.0,,0.0,,,Muzaffarpur,,,,33
+Customer,C,SPKS,Sitaram Pawan Kumar,SDR,0,Bank Road,Sutapatti Bihar 842001,Muzaffarpur,,Bihar,842001,Pawan Kumar Kahnani,,,,,,,,,,10AEVPK1304E1Z2,AEVPK1304E,,,,,,,,,,,0,0.0,0.0,,0.0,,,Muzaffarpur,,,,34
 Customer,C,SSTB1,Shiv Shanker Textiles,SDR,Ward 302,Sutapatti,Baldev Das Basant Lal Nathani Dharmshala,Muzaffarpur,,Bihar,842001,Shiv Shanker Textile,,,,,,,,,,10ACVFS6910L1ZQ,ACVFS6910L,,,,,,,,,,,0,0.0,0.0,,0.0,,,Muzaffarpur,,,,0
 Customer,C,OMMG,O.H. Mega Mart,SDR,Ghoghardiha,Ghoghardiha,Ghoghardiha Bihar 847402,Ghoghardiha,,Bihar,847402,Hari Prakash Sultani,,,,,,,,,,10ASHPS4939F1ZQ,ASHPS4939F,,,,,,,,,,,0,0.0,0.0,,0.0,,,Ghoghardiha,,,,0
 Customer,C,SM1,Shubham,SDR,Na,Sutapatti,Muzaffarpur Bihar 842001,Muzaffarpur,,Bihar,842001,Arun Kumar,,,,,,,,,,10AKUPK6918R1ZD,AKUPK6918R,,,,,,,,,,,0,0.0,0.0,,0.0,,,Muzaffarpur,,,,8
@@ -260,7 +260,7 @@ Customer,C,SRTM,Sri Raimata Textiles,SDR,M/S Sri Raimata Textiles,Sutapatty,Muza
 Customer,C,S&SM,Sahu & Sons,SDR,Uma Shankar Banka,Sutapatti,Muzaffarpur Bihar 842001,Muzaffarpur,,Bihar,842001,Vijay Kumar,,,,,,,,,,10AMBPK1853A1ZZ,AMBPK1853A,,,,,,,,,,,0,0.0,0.0,,0.0,,,Muzaffarpur,,,,13
 Customer,C,SVEM,Siddhi Vinayak Enterprises,SDR,Holding No 246 Ward No 20,Bank Road,Muzaffarpur Bihar 842001,Muzaffarpur,,Bihar,842001,Rishabh Kumar Tibrew,,,,,,,,,,10ALIPT7036N1ZR,ALIPT7036N,,,,,,,,,,,0,0.0,0.0,,0.0,,,Muzaffarpur,,,,8
 Customer,C,VM,Vatika,SDR,Vatika,Pandey Plaza,Motijheel Bihar 842001,Muzaffarpur,,Bihar,842001,Vatika,,,,,,,,,,10AAMFV8000B1ZS,AAMFV8000B,,,,,,,,,,,0,0.0,0.0,,0.0,,,Muzaffarpur,,,,27
-Customer,C,SSS3,Sanvi Synthetics,SDR,Na,Na,Sutapatty Bihar 842001,Muzaffarpur,,Bihar,842001,Sunil Kumar Nayak,,,,,,,,,,10ANOPK2368L1ZT,ANOPK2368L,,,,,,,,,,,0,0.0,0.0,,0.0,,,Muzaffarpur,,,,26
+Customer,C,SSS3,Sanvi Synthetics,SDR,Na,Na,Sutapatty Bihar 842001,Muzaffarpur,,Bihar,842001,Sunil Kumar Nayak,,,,,,,,,,10ANOPK2368L1ZT,ANOPK2368L,,,,,,,,,,,0,0.0,0.0,,0.0,,,Muzaffarpur,,,,28
 Customer,C,RTAM,Rajasthan Textile Agency,SDR,N/A,Sutapatti,Muzaffarpur Bihar 842001,Muzaffarpur,,Bihar,842001,Rajendra Prasad Sure,,,,,,,,,,10AEKPS8855B1ZH,AEKPS8855B,,,,,,,,,,,0,0.0,0.0,,0.0,,,Muzaffarpur,,,,1
 Supplier,S,RIP,Raj Industries - MSME,SCR,R-406,Mandia Road Ind Area,Pali Rajasthan 306401,Pali-Marwar,,Rajasthan,306401,Rajesh Kumar Kothari,,,,,,,,,,08ADJPR0152N1Z7,ADJPR0152N,,,,,Y,,,,,,0,0.0,0.0,,0.0,East India,,Pali-Marwar,,,,0
 Customer,C,AKTM,Tikmani Synthetics,SDR,Gf,Sutapatty,Muzaffarpur Bihar 842001,Muzaffarpur,,Bihar,842001,Ajay Kumar Tikmani,,,,,,,,,,10BAQPT2339N1Z9,BAQPT2339N,,,,,,,,,,,0,0.0,0.0,,0.0,,,Muzaffarpur,,,,58
@@ -288,10 +288,10 @@ Customer,C,SPTM,Sri Pragati Textiles,SDR,488,Islampur,Muzaffarpur Bihar 842001,M
 Customer,C,STM1,Saras Textiles,SDR,Saras Textiles,Sutapatty,Muzaffarpur Bihar 842001,Muzaffarpur,,Bihar,842001,Ashu Modi,,,,,,,,,,10AFXPM6256J1Z0,AFXPM6256J,,,,,,,,,,,0,0.0,0.0,,0.0,,,Muzaffarpur,,,,1
 Supplier,S,GSB,Ganpati Sales,SCR,"Plot 11, B-1","Bapu Nagar, Jerla Road",Balotra Rajasthan 344022,Balotra,,Rajasthan,344022,Ankit Kumar Singhani,,,,,,,,,,08AATHA2517B1ZL,AATHA2517B,,,,,,,,,,,0,0.0,0.0,,0.0,,,Balotra,,,,182
 Customer,C,RSKS,Roop Saree Kendra,SDR,0,Bikaner Cabin Gali,Sutapatti Bihar 842002,Muzaffarpur,,Bihar,842002,Roop Saree Kendra,,,,,,,,,,10AAOFR2480H1ZA,AAOFR2480H,,,,,,,,,,,0,0.0,0.0,,0.0,,,Muzaffarpur,,,,0
-Customer,C,STS,Sati Textile,SDR,Marwari Thakurwari Gali,Sh 55,Samastipur Bihar 848101,Samastipur,,Bihar,848101,Sahil Patodiya,,,,,,,,,,10GHZPP3940N1ZK,GHZPP3940N,,,,,,,,,,,0,0.0,0.0,,0.0,,,Samastipur,,,,27
+Customer,C,STS,Sati Textile,SDR,Marwari Thakurwari Gali,Sh 55,Samastipur Bihar 848101,Samastipur,,Bihar,848101,Sahil Patodiya,,,,,,,,,,10GHZPP3940N1ZK,GHZPP3940N,,,,,,,,,,,0,0.0,0.0,,0.0,,,Samastipur,,,,28
 Customer,C,RTCR,Raghav Trading Co,SDR,Runi Saidpur,Runi Saidpur,Rampur Saidpur Runi Bihar 843328,Pupri,,Bihar,843328,Raja Kumar,,,,,,,,,,10EQJPK4335K1ZV,EQJPK4335K,,,,,,,,,,,0,0.0,0.0,,0.0,,,Pupri,,,,0
 Supplier,S,KFA,Karnavati Fabco,SCR,A-1035,Kankaria Road,Ahmedabad Gujarat 380002,Ahmedabad,,Gujarat,380002,Svar Vijay Jain,,,,,,,,,,24BBOPJ1665G1ZM,BBOPJ1665G,,,,,,,,,,,0,0.0,0.0,,0.0,,,Ahmedabad,,,,0
-Supplier,S,ASC,Anupam Saree Centre,SCR,"Agrawal Market, Tilak Dwar",,Mathura,Mathura,,,,,,7417181122,,,,,,,,,,,,,,,,,,,,0,0.0,0.0,,0.0,Mata Trans,,Mathura,,,,337
+Supplier,S,ASC,Anupam Saree Centre,SCR,"Agrawal Market, Tilak Dwar",,Mathura,Mathura,,,,,,7417181122,,,,,,,,,,,,,,,,,,,,0,0.0,0.0,,0.0,Mata Trans,,Mathura,,,,351
 Customer,C,PSAA,Priyam Sales Agency,SDR,Muzaffarpur,842001,Bihar,Muzaffarpur,,,,,,7903281164,,,,,,,,,,,,,,,,,,,,0,0.0,0.0,,0.0,,,Muzaffarpur,,,,0
 Customer,C,MNAS,New Aman Textile,SDR,Pethiya Gachhi,Gola Road,Samastipur Bihar 848101,Samastipur,,Bihar,848101,Shyamsundar Prasad,,,,,,,,,,10BBKPP7344C1ZX,BBKPP7344C,,,,,,,,,,,0,0.0,0.0,,0.0,,,Samastipur,,,,0
 Customer,C,DTD,Deepak Textiles,SDR,01,Near Naka No-2 Banglagadh,Darbhanga Bihar 846004,Darbhanga,,Bihar,846004,Shubham Kumar Khetan,,,,,,,,,,10DTBPK0728N2ZU,DTBPK0728N,,,,,,,,,,,0,0.0,0.0,,0.0,,,Darbhanga,,,,0
@@ -345,7 +345,7 @@ Customer,C,SSTB2,Sri Shyam Textile,SDR,Cloth Merchant,Supaul Bazar,Biraul Dist: 
 Supplier,S,KSKSM,Kundan Sarees,SCR,,,,Surat,,,,,,,,,,,,,,,,,,,,,,,,,,0,0.0,0.0,,0.0,,,Surat,,,,0
 Customer,C,SM2,S.G.Enterprises,SDR,,,,Muzaffarpur,,,,,,,,,,,,,,10ADNPA5816A1ZD,ADNPA5816A,,,,,,,,,,,0,0.0,0.0,,0.0,Aanchal Lo,To Our Office,Muzaffarpur,,,,0
 Customer,C,MSSM,Maha Shakti Synthetics,SDR,"1ST Floor, Ojha Market",Suttapatti,Muzaffarpur,Muzaffarpur,,Bihar,842001,,,7979986575,,,,,,,,10AGJPN6690C1ZK,AGJPN6690C,,,,,,,,,,,0,0.0,0.0,,0.0,Aanchal Lo,To Our Office,Muzaffarpur,,,,0
-Customer,C,AHJ,Agarwal Handloom,SDR,Station Road,Jainagar,District: Madhubani,Jainagar,,,,,,,,,,,,,,10AANHS7252K2ZU,AANHS7252K,,,,,,,,,,,0,0.0,0.0,,0.0,Mata Trans,By Skyking,Jainagar,,,,5
+Customer,C,AHJ,Agarwal Handloom,SDR,Station Road,Jainagar,District: Madhubani,Jainagar,,,,,,,,,,,,,,10AANHS7252K2ZU,AANHS7252K,,,,,,,,,,,0,0.0,0.0,,0.0,Mata Trans,By Skyking,Jainagar,,,,6
 Customer,C,RKSM,Raj Kumar Sachin Kumar,SDR,,,,Muzaffarpur,,,,,,,,,,,,,,10AJSPC5390A1ZO,AJSPC5390A,,,,,,,,,,,0,0.0,0.0,,0.0,Mehta Inte,,Muzaffarpur,,,,0
 Supplier,S,GSS1,Gokila Sarees,SCR,,,,Surat,,,,,,,,,,,,,,,,,,,,,,,,,,0,0.0,0.0,,0.0,,,Surat,,,,0
 Customer,C,SBM,Shyam Brothers,SDR,Doma Pokhar,Suttapatti,Muzaffarpur,Muzaffarpur,,,,,,,,,,,,,,10DYAPS0595H1ZI,DYAPS0595H,,,,,,,,,,,0,0.0,0.0,,0.0,Rk Transpo,,Muzaffarpur,,,,0
@@ -394,4 +394,6 @@ Supplier,S,SVBK,Sri Vitthal Behari,SCR,,,,Kolkata,,,,,,,,,,,,,,,,,,,,,,,,,,0,0.0
 Supplier,S,BBPS,Brij Bansuri Prints,SCR,,Raghukul Textile Market,Surat,Surat,,,,,,,,,,,,,,,,,,,,,,,,,,0,0.0,0.0,,0.0,,,,,,Y,4
 Supplier,S,GPJ,Gopal Prints,SCR,"Shop No-41,Sunny Arcade,Telipada","Dhula House,Bapu Bazar",Jaipur,Jaipur,,,,,,,,,,,,,,,AANFG0829N,,,,,,,,,,,0,0.0,0.0,,0.0,,,,,,,1
 Customer,C,PSTM,Pali Sati Traders,SDR,,,,Motihari,,,,,,,,,,,,,,,,,,,,,,,,,,0,0.0,0.0,,0.0,,,,,,,1
-Supplier,S,PRT,P.R.Textile,SCR,,,,Saroli,,,,,,,,,,,,,,,,,,,,,,,,,,0,0.0,0.0,,0.0,,,,,,,1
+Supplier,S,PRT,P R Textile,SCR,,,,Surat,,,,,,,,,,,,,,,,,,,,,,,,,,0,0.0,0.0,,0.0,,,,,,,1
+Customer,C,SHM3,Shree Handloom,SDR,,,,Muzaffarpur,,,,,,,,,,,,,,10AGIPD7792G1ZI,AGIPD7792G,,,,,,,,,,,0,0.0,0.0,,0.0,,,,,,,0
+Customer,C,KHB,Kgn Handloom,SDR,,,,Sahebganj,,,,,,,,,,,,,,10BBYPA8298Q1ZQ,BBYPA8298Q,,,,,,,,,,,0,0.0,0.0,,0.0,,,,,,,0
