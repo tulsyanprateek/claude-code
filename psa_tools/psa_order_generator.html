@@ -834,7 +834,21 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   text-transform: uppercase;
   font-weight: 500;
 }
+.a4-edited {
+  margin: 0 48px;
+  margin-top: 20px;
+  padding: 8px 16px;
+  background: #FDF1E6;
+  border-left: 3px solid #DF6D35;
+  border-radius: 0 4px 4px 0;
+  font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  color: #C2551E;
+  letter-spacing: 0.02em;
+}
 .a4-body { padding: 36px 48px 32px; }
+.a4-edited + .a4-body { padding-top: 20px; }
 .a4-meta {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -3643,7 +3657,12 @@ function readForm() {
     }
     return { bales, name, rate, isMix, subs };
   });
-  return { orderNo, date, party, supp, trans, docs, items, totalBales };
+  return { orderNo, date, party, supp, trans, docs, items, totalBales, isEdit: !!editingRowId };
+}
+
+// Today as yyyy-mm-dd (for the "edited on" stamp — matches backend updatedAt)
+function todayISO() {
+  return `${NOW.getFullYear()}-${pad(NOW.getMonth()+1)}-${pad(NOW.getDate())}`;
 }
 
 function fmtR(r) {
@@ -3744,6 +3763,7 @@ function buildMessage() {
   L.push(`_Quick Order \u00B7 ${FY}_`);
   L.push('');
   L.push(`*OFR ${f.orderNo || '\u2014'}*  \u00B7  ${fmtDate(f.date)}`);
+  if (f.isEdit) L.push(`\u270F\uFE0F  _Edited on ${fmtDate(todayISO())}_`);
   L.push('');
   if (f.party) L.push(`\uD83E\uDDE7  *${f.party}*`);
   if (f.supp)  L.push(`\uD83C\uDFED  *${f.supp}*`);
@@ -3830,7 +3850,8 @@ function buildPreviewHTML() {
         <div style="font-size:11px;color:#888;font-style:italic;margin-bottom:10px;">Quick Order · ${FY}</div>
 
         <div style="font-size:16px;font-weight:700;color:#111;letter-spacing:-0.2px;">OFR ${f.orderNo || '\u2014'}</div>
-        <div style="font-size:12px;color:#888;margin-bottom:12px;">${fmtDate(f.date)}</div>
+        <div style="font-size:12px;color:#888;margin-bottom:${f.isEdit ? '4px' : '12px'};">${fmtDate(f.date)}</div>
+        ${f.isEdit ? `<div style="font-size:11.5px;color:#DF6D35;font-style:italic;font-weight:600;margin-bottom:12px;">\u270f\ufe0f Edited on ${fmtDate(todayISO())}</div>` : ''}
 
         <div style="height:1px;background:#F2F2F2;margin-bottom:12px;"></div>
 
@@ -3929,6 +3950,8 @@ function buildA4HTML() {
           <div class="a4-doc-fy">FY ${FY}</div>
         </div>
       </div>
+
+      ${f.isEdit ? `<div class="a4-edited">✏ Edited on ${fmtDate(todayISO())}</div>` : ''}
 
       <div class="a4-body">
         <div class="a4-meta">
@@ -4472,6 +4495,7 @@ function renderHistoryItem(o) {
         <span class="history-bales">${balesStr}</span>
         <div class="history-btns">
           <button class="hist-btn" onclick="event.stopPropagation();loadOrderForEdit('${o.id}')">✏ Edit</button>
+          <button class="hist-btn" onclick="event.stopPropagation();duplicateOrder('${o.id}')">⧉ Copy</button>
           <button class="hist-btn del" onclick="event.stopPropagation();deleteHistoryOrder('${o.id}','${o.orderNo}')">🗑</button>
         </div>
       </div>
@@ -4490,6 +4514,33 @@ function loadOrderForEdit(id) {
     closeHistory();
     enterEditMode(order);
     showFb('Loaded for editing — make changes and Copy/Download to save');
+  });
+}
+
+function duplicateOrder(id) {
+  showFb('Duplicating order...', false, true);
+  backendGetOne(id).then(order => {
+    if (!order) {
+      showFb('Could not load order', true);
+      return;
+    }
+    // Clear any existing edit state first, then fill the form
+    exitEditMode();
+    populateFormFromOrder(order);
+    editingRowId = null; // this is a NEW order, not an edit
+
+    // Fresh order number for the (possibly switched) series + today's date
+    const seriesKey = 'psa_last_' + currentSeries.toLowerCase();
+    const nextNum = LS.num(seriesKey, 999) + 1;
+    document.getElementById('iOrderNo').value = nextNum;
+    document.getElementById('iDate').value =
+      `${NOW.getFullYear()}-${pad(NOW.getMonth()+1)}-${pad(NOW.getDate())}`;
+
+    updatePrimaryButtonLabel();
+    closeHistory();
+    refreshPreview();
+    showFb(`⧉ Copied OFR ${order.orderNo} → new OFR ${nextNum} — change party & save`);
+    setTimeout(() => document.getElementById('iParty')?.focus(), 50);
   });
 }
 
