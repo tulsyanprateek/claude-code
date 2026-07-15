@@ -136,12 +136,24 @@ Actions: `ping`, `save` (POST, `mode: 'no-cors'`), `list` (GET), `get` (GET), `d
 ```javascript
 {
   bales: 3,
-  name: "Khamoshi Print",  // alias name — what customer sees, not supplier's internal name
+  name: "Riddhi Siddhi",   // TRADE NAME (main) — item master "Item Name" (ITNM)
+  partyNo: "Dhan Varsha",  // PARTY NUMBER (alias) — item master "Barcode/Print Name" (B_CODE);
+                           //   the base/print name. '' when it equals the trade name.
   rate: "365",             // string
   isMix: true,
   subs: [{ name: "Subitem One", price: "300" }]
 }
 ```
+
+**Two-name rule:** each item carries a trade name (`name`) and an optional party
+number (`partyNo`). Outputs (WA text + A4 image) render `itemLabel()`/`itemLabelHTML()`:
+`"<trade> on <party>"` when both exist and differ (e.g. `Riddhi Siddhi on Dhan Varsha`),
+otherwise just the trade name. In the item row, `partyNo` auto-fills from the master
+when an item is picked (shown as a small line under the name, editable; `+ party no.`
+reveals it for manual entry). Stored raw/uppercase; `displayCase` applied only at output.
+Backend `getMasterData` serves both `item_name` (= Item Name) and `party_no` (= Print Name,
+blanked when equal). `PARTYNO` in `bill.dbf` is a denormalized copy of Item Name — NOT a
+real per-party value — so no transaction mining is needed.
 
 ## Design Constraints (Always Apply)
 

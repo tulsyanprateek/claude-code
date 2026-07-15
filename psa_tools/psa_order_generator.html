@@ -3428,6 +3428,8 @@ function addItem(prefillBales='', openMix=false, autoFocus=true) {
           onfocus="itemAcFilter(${id})"
           onblur="setTimeout(()=>itemAcClose(${id}),180)"
           onkeydown="itemAcKey(event,${id})">
+        <!-- Party number (base / print name). Auto-filled when an item with a
+             distinct base name is picked; output shows "Trade on Party no.". -->
         <input class="partyno-in" type="text" id="partyno-${id}"
           placeholder="party no." autocomplete="off"
           style="display:none" oninput="refreshPreview()">

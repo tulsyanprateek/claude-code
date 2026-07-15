@@ -24,7 +24,9 @@
       "mcp__visualize__read_me",
       "Bash(grep -n \"item-name\\\\|iname\\\\|subs\\\\.push\\\\|addSubItem\\\\|class=\\\\\"sub\\\\|mix-sub\\\\|renderItems\\\\|function renderItem\\\\|itemsForBrand\\\\|resolveItem\\\\|datalist\\\\|ac-list.*item\\\\|name-\\\\${\" \"D:\\\\claude_code\\\\psa_tools\\\\psa_order_generator.html\")",
       "Bash(grep -n \"isMix, subs\\\\|isMix,\\\\s*subs\\\\|return {.*bales.*name.*rate\" \"D:\\\\claude_code\\\\psa_tools\\\\psa_order_generator.html\")",
-      "Bash(python -c ' *)"
+      "Bash(python -c ' *)",
+      "Bash(python -)",
+      "Bash(node --check /tmp/app.js)"
     ]
   }
 }
