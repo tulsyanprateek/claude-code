@@ -27,6 +27,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 | `data-shadow/<FY>/` | Raw FoxPro DBF backups, synced nightly, one folder per fiscal year (e.g. `2627/`). Source for both `customer-dashboard/` and `data-dump/`. Not a tool. |
 | `priyam-brand/priyam-brand.css` | PSA brand stylesheet — tokens, fonts, base styles. Link in every tool. |
 | `priyam-brand/fonts/` | Self-hosted font files (Outfit, Hanken Grotesk, IBM Plex Mono, Noto Sans Devanagari). |
+| `priyam-brand/logo-mark.png` | Cropped square logo mark (3 diagonal shapes, no text, 296×127, transparent). Header icon use — sizing via `.ps-logo-mark` (defined in `priyam-brand.css`). |
+| `priyam-brand/logo-full.png` | Full wordmark logo (mark + "PRIYAM SALES" text, 648×162, transparent). Larger/about contexts — sizing via `.ps-logo-full`. |
 | `BACKEND_SETUP.md` | Step-by-step Google Sheets + Apps Script setup guide. |
 | `PSA_ORDER_GENERATOR_KNOWLEDGE.md` | Deep knowledge file for the order generator — read before significant changes. |
 
@@ -45,6 +47,12 @@ All tools must link `./priyam-brand/priyam-brand.css` and use `--ps-*` CSS varia
 ```
 
 Fonts are self-hosted — work fully offline on phone browsers.
+
+⚠️ **`psa_color_generator.html` does not actually link `priyam-brand.css`** — it predates
+the brand package and has its own self-contained fonts (Google Fonts CDN: DM Mono, Sora)
+and CSS variables. Discovered while adding the logo there: `.ps-logo-mark` had to be
+defined locally in that file instead of relying on the shared stylesheet. Not fixed —
+migrating it to the shared package would be a larger, separate change.
 
 ## Running / Testing
 

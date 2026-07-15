@@ -64,6 +64,9 @@ body {
   background: var(--gold);
   border-radius: 50%;
 }
+/* This file predates the shared priyam-brand.css package (own fonts/tokens),
+   so the logo sizing classes are defined locally here instead. */
+.ps-logo-mark { height: 20px; width: auto; object-fit: contain; }
 .brand span { color: var(--ink3); }
 .ver {
   font-size: 0.52rem;
@@ -511,7 +514,7 @@ body {
 
 <div class="topbar">
   <div class="brand">
-    <div class="brand-dot"></div>
+    <img src="./priyam-brand/logo-mark.png" alt="Priyam Sales" class="ps-logo-mark">
     PRIYAM SALES <span>·</span> COLOR ORDER
     <span class="ver">v1.0</span>
   </div>

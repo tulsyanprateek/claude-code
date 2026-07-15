@@ -107,7 +107,7 @@ body {
   font-weight: 700;
   letter-spacing: 0.01em;
   color: var(--ink);
-  display: flex; align-items: baseline; gap: 0.5rem;
+  display: flex; align-items: center; gap: 0.5rem;
 }
 .brand-dot {
   display: inline-block; width: 7px; height: 7px;
@@ -1304,7 +1304,9 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   letter-spacing: 0;
   text-transform: none;
   color: var(--ink);
+  display: flex; align-items: center; gap: 0.5rem;
 }
+.modal-title-logo { height: 18px; }
 .modal-close {
   background: none;
   border: 1px solid var(--rule2);
@@ -1875,7 +1877,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 <div class="topbar">
   <div class="brand">
-    <span class="brand-dot"></span>
+    <img src="./priyam-brand/logo-mark.png" alt="Priyam Sales" class="ps-logo-mark">
     Priyam Sales <span class="brand-sub">· Order</span><span class="ver">v3</span>
   </div>
   <div class="topbar-right">
@@ -1929,7 +1931,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   <div class="settings-section">
     <div class="settings-label">About</div>
     <div class="settings-about">
-      <strong>Priyam Sales Agency</strong><br>
+      <img src="./priyam-brand/logo-full.png" alt="Priyam Sales Agency" class="ps-logo-full" style="margin-bottom:0.4rem;">
       Order generator
       <div class="ver-line">v3 · Muzaffarpur, Bihar</div>
     </div>
@@ -2091,7 +2093,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 <div class="modal-overlay" id="historyModal">
   <div class="modal">
     <div class="modal-head">
-      <div class="modal-title">📋 Past Orders</div>
+      <div class="modal-title"><img src="./priyam-brand/logo-mark.png" alt="" class="ps-logo-mark modal-title-logo">📋 Past Orders</div>
       <button class="modal-close" onclick="closeHistory()">✕ Close</button>
     </div>
     <div class="modal-search-row">
@@ -2111,7 +2113,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 <div class="modal-overlay" id="viewModal">
   <div class="modal view-modal">
     <div class="modal-head">
-      <div class="modal-title" id="viewTitle">👁 Order</div>
+      <div class="modal-title"><img src="./priyam-brand/logo-mark.png" alt="" class="ps-logo-mark modal-title-logo"><span id="viewTitle">👁 Order</span></div>
       <button class="modal-close" onclick="closeView()">✕ Close</button>
     </div>
     <div class="modal-body" id="viewBody"></div>

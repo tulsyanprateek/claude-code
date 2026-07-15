@@ -75,7 +75,7 @@
 74,DHOTI,Rajhans,Rajhans,Ata,,P,0,0,0,0,77.01,0.0,0.0,0.0,0,0,0,,5.0,0,,,2024-03-31,True
 75,DHOTI,Shalini,Shalini,Ata,,P,0,0,0,0,81.01,0.0,0.0,0.0,0,0,0,,5.0,0,,,2024-03-31,True
 76,DHOTI,Suhagan,Suhagan,Ata,,P,0,0,0,0,89.51,0.0,0.0,0.0,0,0,0,,5.0,0,,,2024-03-31,True
-77,DHOTI,Radhika,Radhika,Ata,,P,0,0,0,0,90.01,0.0,0.0,0.0,0,0,0,,5.0,0,,,2024-03-31,True
+77,DHOTI,Radhika,Radhika,Ata,,P,0,0,0,0,98.01,0.0,0.0,0.0,0,0,0,,5.0,0,,,2024-03-31,True
 78,DHOTI,Anamika,Anamika,Ata,,P,0,0,0,0,97.01,0.0,0.0,0.0,0,0,0,,5.0,0,,,2024-03-31,True
 79,DHOTI,Anuradha,Anuradha,Ata,,P,0,0,0,0,102.01,0.0,0.0,0.0,0,0,0,,5.0,0,,,2024-03-31,True
 80,DHOTI,Karamveer Gold,Karamveer Gold,Ata,,P,0,0,0,0,107.01,0.0,0.0,0.0,0,0,0,,5.0,0,,,2024-03-31,True
@@ -203,20 +203,20 @@
 202,RUBIA,Vimal Gold (78CM),Reliance (78CM),Mp,,P,0,0,0,0,28.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2024-03-31,True
 203,RUBIA,Vimal Shree (78CM),Reliance (78CM),Mp,,P,0,0,0,0,26.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2024-03-31,True
 204,RUBIA,Cholee (78CM Spp),Cholee (78CM Spp),Mp,,P,0,0,0,0,27.75,0.0,0.0,0.0,0,0,0,,5.0,0,,,2024-03-31,True
-205,RUBIA,Pashmina (78CM Spp),Cholee (78CM Spp),Mp,,P,0,0,0,0,27.5,0.0,0.0,0.0,0,0,0,,5.0,0,,,2024-03-31,True
+205,RUBIA,Pashmina (78CM Spp),Cholee (78CM Spp),Mp,,P,0,0,0,0,30.75,0.0,0.0,0.0,0,0,0,,5.0,0,,,2024-03-31,True
 206,RUBIA,Saheli (78CM Spp),Cholee (78CM Spp),Mp,,P,0,0,0,0,26.25,0.0,0.0,0.0,0,0,0,,5.0,0,,,2024-03-31,True
 207,RUBIA,Vimal Diamond (78CM Spp),Cholee (78CM Spp),Mp,,P,0,0,0,0,31.25,0.0,0.0,0.0,0,0,0,,5.0,0,,,2024-03-31,True
 208,RUBIA,Vimal Gold (78CM Spp),Cholee (78CM Spp),Mp,,P,0,0,0,0,26.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2024-03-31,True
 209,RUBIA,Garden (78CM Spp),Cholee (78CM Spp),Mp,,P,0,0,0,0,27.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2024-03-31,True
 210,RUBIA,Super Pashmina (78CM Spp),Cholee (78CM Spp),Mp,,P,0,0,0,0,26.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2024-03-31,True
 211,RUBIA,Vimal (78CM 3FOLD),Vimal (78CM 3FOLD),Mp,,P,0,0,0,0,32.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2024-03-31,True
-212,RUBIA,Super Vimal (78CM),Vimal (78CM),Mp,,P,0,0,0,0,27.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2024-03-31,True
+212,RUBIA,Super Vimal (78CM),Vimal (78CM),Mp,,P,0,0,0,0,31.5,0.0,0.0,0.0,0,0,0,,5.0,0,,,2024-03-31,True
 213,RUBIA,Vimal Super (78CM),Vimal (78CM),Mp,,P,0,0,0,0,27.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2024-03-31,True
 214,RUBIA,Radha (78CM),Vimal (78CM 4FOLD),Mp,,P,0,0,0,0,27.75,0.0,0.0,0.0,0,0,0,,5.0,0,,,2024-03-31,True
 215,RUBIA,Tara - Om Sri  (78CM),Vimal (78CM),Mp,,P,0,0,0,0,27.75,0.0,0.0,0.0,0,0,0,,5.0,0,,,2024-03-31,True
 216,RUBIA,Rangoli (78CM Spp),Rangoli (78CM Spp),Mp,,P,0,0,0,0,32.5,0.0,0.0,0.0,0,0,0,,5.0,0,,,2024-03-31,True
-217,RUBIA,Jio (78CM Spp),Rangoli (78CM Spp),Mp,,P,0,0,0,0,29.25,0.0,0.0,0.0,0,0,0,,5.0,0,,,2024-03-31,True
-218,RUBIA,Tini Mini (78CM 3FOLD),Tini Mini (78CM 3FOLD),Mp,,P,0,0,0,0,34.25,0.0,0.0,0.0,0,0,0,,5.0,0,,,2024-03-31,True
+217,RUBIA,Jio (78CM Spp),Rangoli (78CM Spp),Mp,,P,0,0,0,0,32.5,0.0,0.0,0.0,0,0,0,,5.0,0,,,2024-03-31,True
+218,RUBIA,Tini Mini (78CM 3FOLD),Tini Mini (78CM 3FOLD),Mp,,P,0,0,0,0,35.81,0.0,0.0,0.0,0,0,0,,5.0,0,,,2024-03-31,True
 219,RUBIA,Begum (78CM),Tini Mini (78CM 3FOLD),Mp,,P,0,0,0,0,31.5,0.0,0.0,0.0,0,0,0,,5.0,0,,,2024-03-31,True
 220,RUBIA,Pashmina (78CM),Tini Mini (78CM),Mp,,P,0,0,0,0,30.5,0.0,0.0,0.0,0,0,0,,5.0,0,,,2024-03-31,True
 221,RUBIA,Vimal Super (78CM),Tini Mini (78CM),Mp,,P,0,0,0,0,29.5,0.0,0.0,0.0,0,0,0,,5.0,0,,,2024-03-31,True
@@ -239,15 +239,15 @@
 238,RUBIA,Shalini (Thaan),Platinum (Thaan),Mp,,P,0,0,0,0,47.5,0.0,0.0,0.0,0,0,0,,5.0,0,,,2024-03-31,True
 239,PATTA,Bon Bon,Bon Bon,Srh,,M,0,0,0,0,54.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2024-03-31,True
 240,PATTA,Macroman,Bon Bon,Srh,,M,0,0,0,0,54.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2024-03-31,True
-241,PATTA,Rolex,Rolex,Srh,,M,0,0,0,0,57.5,0.0,0.0,0.0,0,0,0,,5.0,0,,,2024-03-31,True
+241,PATTA,Rolex,Rolex,Srh,,M,0,0,0,0,58.5,0.0,0.0,0.0,0,0,0,,5.0,0,,,2024-03-31,True
 242,PATTA,Rado,Rolex,Srh,,M,0,0,0,0,55.5,0.0,0.0,0.0,0,0,0,,5.0,0,,,2024-03-31,True
-243,PATTA,Inspector,Inspector,Srh,,M,0,0,0,0,61.5,0.0,0.0,0.0,0,0,0,,5.0,0,,,2024-03-31,True
+243,PATTA,Inspector,Inspector,Srh,,M,0,0,0,0,62.5,0.0,0.0,0.0,0,0,0,,5.0,0,,,2024-03-31,True
 244,PATTA,Minister,Inspector,Srh,,M,0,0,0,0,59.5,0.0,0.0,0.0,0,0,0,,5.0,0,,,2024-03-31,True
 245,PATTA,Rajpath,Rajpath,Srh,,M,0,0,0,0,63.5,0.0,0.0,0.0,0,0,0,,5.0,0,,,2024-03-31,True
 246,PATTA,Discovery,Rajpath,Srh,,M,0,0,0,0,61.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2024-03-31,True
 247,PATTA,Stargold,Stargold,Srh,,M,0,0,0,0,66.5,0.0,0.0,0.0,0,0,0,,5.0,0,,,2024-03-31,True
 248,PATTA,Leader,Stargold,Srh,,M,0,0,0,0,64.5,0.0,0.0,0.0,0,0,0,,5.0,0,,,2024-03-31,True
-249,PATTA,Galaxy,Galaxy,Srh,,M,0,0,0,0,69.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2024-03-31,True
+249,PATTA,Galaxy,Galaxy,Srh,,M,0,0,0,0,70.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2024-03-31,True
 250,PATTA,Shalimar,Galaxy,Srh,,M,0,0,0,0,68.5,0.0,0.0,0.0,0,0,0,,5.0,0,,,2024-03-31,True
 251,PATTA,Citigold,Citigold,Srh,,M,0,0,0,0,66.5,0.0,0.0,0.0,0,0,0,,5.0,0,,,2024-03-31,True
 252,PATTA,Solicitor,Citigold,Srh,,M,0,0,0,0,67.51,0.0,0.0,0.0,0,0,0,,5.0,0,,,2024-03-31,True
@@ -353,9 +353,9 @@
 352,GAMCHA,Bharat - White,Bharat - White,Rtm,,P,0,0,0,0,51.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2024-04-02,True
 353,GAMCHA,Bharat - Mix Colors,Bharat - Mix Colors,Rtm,,P,0,0,0,0,55.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2024-04-02,True
 354,SAREE,Rajdhani,Rajdhani,Gt,,P,0,0,0,0,193.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2024-04-02,True
-355,GAMCHA,Mayur - White,White Cherry - White,Rtm,,P,0,0,0,0,42.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2024-04-03,True
+355,GAMCHA,Mayur - White,White Cherry - White,Rtm,,P,0,0,0,0,41.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2024-04-03,True
 356,GAMCHA,White Cherry - Orange,White Cherry - Orange,Rtm,,P,0,0,0,0,44.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2024-04-03,True
-357,GAMCHA,Mayur - Orange,White Cherry - Orange,Rtm,,P,0,0,0,0,41.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2024-04-03,True
+357,GAMCHA,Mayur - Orange,White Cherry - Orange,Rtm,,P,0,0,0,0,43.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2024-04-03,True
 358,GAMCHA,White Cherry - Green,White Cherry - Green,Rtm,,P,0,0,0,0,41.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2024-04-03,True
 359,GAMCHA,Mayur - Green,White Cherry - Green,Rtm,,P,0,0,0,0,42.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2024-04-03,True
 360,SAREE,Anmol Beauty Dlx,Anmol Beauty Dlx,St,,P,0,0,0,0,165.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2024-04-03,True
@@ -922,8 +922,8 @@
 921,SAREE,Jacard Deluxe,Jacard Deluxe,Di,,P,0,0,0,0,300.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2024-05-04,True
 922,SAREE,Rich Look,Rich Look,Di,,P,0,0,0,0,255.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2024-05-04,True
 923,SAREE,Kaju Kishmis,Kaju Kishmis,Di,,P,0,0,0,0,285.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2024-05-04,True
-924,GAMCHA,President Red,Sahara,Rtm,,P,0,0,0,0,69.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2024-05-04,True
-925,GAMCHA,President Orange,Sahara,Rtm,,P,0,0,0,0,69.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2024-05-04,True
+924,GAMCHA,President Red,Sahara,Rtm,,P,0,0,0,0,68.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2024-05-04,True
+925,GAMCHA,President Orange,Sahara,Rtm,,P,0,0,0,0,68.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2024-05-04,True
 926,GAMCHA,President White,Sahara,Rtm,,P,0,0,0,0,67.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2024-05-04,True
 927,SAREE,Aflatoon,Aflatoon,Js,,P,0,0,0,0,221.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2024-05-04,True
 928,SAREE,Pyari Muskaan,Pyari Muskaan,Kss,,P,0,0,0,0,300.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2024-05-04,True
@@ -1412,7 +1412,7 @@
 1412,SAREE,Google Gold 5.00 Mtr,Google Gold 5.00 Mtr,Ri,,P,0,0,0,0,164.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2024-07-04,True
 1413,SAREE,T.Psaree Indo 5MTR (Abhinandan),T.Psaree Indo 5MTR (Abhinandan),Ri,,P,0,0,0,0,70.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2024-07-04,True
 1414,SAREE,Kishori Red,Kishori Red,Ms,,P,0,0,0,0,260.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2024-07-08,True
-1415,GAMCHA,President Yellow,Sahara,Rtm,,P,0,0,0,0,69.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2024-07-08,True
+1415,GAMCHA,President Yellow,Sahara,Rtm,,P,0,0,0,0,68.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2024-07-08,True
 1416,SUIT,Tradition Suit 2.50MTR,Tradition Suit 2.50MTR,Ppp,,P,0,0,0,0,485.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2024-07-09,True
 1417,SUIT,Sadhna,Sadhna,Ttf,,P,0,0,0,0,223.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2024-07-09,True
 1418,SUIT,School Life,School Life,Ttf,,P,0,0,0,0,225.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2024-07-09,True
@@ -1691,7 +1691,7 @@
 1693,GAMCHA,Minister-Lemon,Minister-Lemon,Rtm,,P,0,0,0,0,71.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2024-08-14,True
 1694,GAMCHA,Bharat-Red,Bharat-Red,Rtm,,P,0,0,0,0,53.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2024-08-14,True
 1695,RUBIA,Lado Rani,Lado Rani,Rip,,P,0,0,0,0,40.01,0.0,0.0,0.0,0,0,0,,5.0,0,,,2024-08-15,True
-1696,MARKIN,Jeewan Sagar,51519-95,Ata,,P,0,0,0,0,11.95,0.0,0.0,0.0,0,0,0,,5.0,0,,,2024-08-15,True
+1696,MARKIN,Jeewan Sagar,51519-95,Ata,,P,0,0,0,0,12.91,0.0,0.0,0.0,0,0,0,,5.0,0,,,2024-08-15,True
 1697,MARKIN,Pakiza,Nandgopal,Ata,,P,0,0,0,0,18.51,0.0,0.0,0.0,0,0,0,,5.0,0,,,2024-08-15,True
 1698,DHOTI,Sri Krishna,Sardar,Ata,,P,0,0,0,0,157.01,0.0,0.0,0.0,0,0,0,,5.0,0,,,2024-08-15,True
 1699,RUBIA,Checks Border,Checks Border,Ri,,P,0,0,0,0,27.5,0.0,0.0,0.0,0,0,0,,5.0,0,,,2024-08-15,True
@@ -1878,7 +1878,7 @@
 1880,SAREE,Subh Kalash,Subh Kalash,Ri,,P,0,0,0,0,165.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2024-09-09,True
 1881,SAREE,Pankh,Pankh,Bp,,P,0,0,0,0,385.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2024-09-09,True
 1882,GAMCHA,Red Rose-Red,Lovino,Rtm,,P,0,0,0,0,57.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2024-09-09,True
-1883,GAMCHA,President Gold,Sahara,Rtm,,P,0,0,0,0,66.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2024-09-09,True
+1883,GAMCHA,President Gold,Sahara,Rtm,,P,0,0,0,0,68.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2024-09-09,True
 1884,EKRANGA,Mix Items,Mix Items,Ata,,P,0,0,0,0,0.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2024-09-10,True
 1885,RAYON,New Number,New Number,Ata,,P,0,0,0,0,42.5,0.0,0.0,0.0,0,0,0,,5.0,0,,,2024-09-10,True
 1886,SAREE,Banke Bihari,Banke Bihari,Bp,,P,0,0,0,0,550.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2024-09-10,True
@@ -4786,7 +4786,7 @@
 4791,SAREE,Tiranga Gold,Gold Star 5.00 Mtr,Ri,,P,0,0,0,0,171.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2025-06-27,True
 4792,SAREE,Piya Ki Diwani,Air India Sst,Ri,,P,0,0,0,0,88.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2025-06-27,True
 4793,EKRANGA,Jiwan Jyoti,Jiwan Sathi,Mrf,,P,0,0,0,0,12.51,0.0,0.0,0.0,0,0,0,,5.0,0,,,2025-06-28,True
-4794,GAMCHA,Mahakal,Mahakal,Pf,,P,0,0,0,0,51.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2025-06-28,True
+4794,GAMCHA,Mahakal,Mahakal,Pf,,P,0,0,0,0,56.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2025-06-28,True
 4795,GAMCHA,Tribhuvan Red,Tribhuvan Red,Pf,,P,0,0,0,0,56.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2025-06-28,True
 4796,GAMCHA,Tribhuvan Black,Tribhuvan Black,Pf,,P,0,0,0,0,56.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2025-06-28,True
 4797,DARI,5*7.5 Single 1200GM,5*7.5 Single 1200GM,Hot,,P,0,0,0,0,120.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2025-06-28,True
@@ -4823,7 +4823,7 @@
 4828,GAMCHA,Pashupatinath,Pashupatinath,Pf,,P,0,0,0,0,53.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2025-06-30,True
 4829,GAMCHA,Tribhhuvan,Tribhhuvan,Pf,,P,0,0,0,0,50.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2025-06-30,True
 4830,GAMCHA,Bagchalla,Bagchalla,Pf,,P,0,0,0,0,55.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2025-06-30,True
-4831,GAMCHA,Kedarnath Mahakal,Kedarnath Mahakal,Pf,,P,0,0,0,0,55.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2025-06-30,True
+4831,GAMCHA,Kedarnath Mahakal,Kedarnath Mahakal,Pf,,P,0,0,0,0,57.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2025-06-30,True
 4832,GAMCHA,Radha Rani,Radha Rani,Pf,,P,0,0,0,0,53.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2025-06-30,True
 4833,SAREE,Begum Butta,Begum Butta,Kcmi,,P,0,0,0,0,310.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2025-06-30,True
 4834,SAREE,Rainbow,Nirvana,Asc,,P,0,0,0,0,174.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2025-06-30,True
@@ -5047,7 +5047,7 @@
 5052,RUBIA,Aarti,Aarti,Mti,,P,0,0,0,0,42.01,0.0,0.0,0.0,0,0,0,,5.0,0,,,2025-07-29,True
 5053,SAREE,Mix Jimmy Choo,Mix Jimmy Choo,Kss,,P,0,0,0,0,0.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2025-07-29,True
 5054,SAREE,Frandi,Frandi,Kss,,P,0,0,0,0,0.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2025-07-29,True
-5055,GAMCHA,Mayur Yellow,White Cherry Yellow,Rtm,,P,0,0,0,0,44.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2025-07-29,True
+5055,GAMCHA,Mayur Yellow,White Cherry Yellow,Rtm,,P,0,0,0,0,43.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2025-07-29,True
 5056,SAREE,Mitali Chunari,Mitali Chunari,Ppp,,P,0,0,0,0,305.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2025-07-29,True
 5057,SUIT,Maharani Patiyala B/F,Maharani Patiyala B/F,Ngp,,P,0,0,0,0,230.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2025-07-29,True
 5058,SAREE,Monalisa,Monalisa,Asc,,P,0,0,0,0,196.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2025-07-29,True
@@ -5351,7 +5351,7 @@
 5356,SAREE,Girdhari,Girdhari,Mf,,P,0,0,0,0,440.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2025-09-10,True
 5357,SAREE,Kamakhya,Kamakhya,Mf,,P,0,0,0,0,410.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2025-09-10,True
 5358,SAREE,Indumati,Indumati,Mf,,P,0,0,0,0,405.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2025-09-10,True
-5359,SAREE,Manjulika,Manjulika,Mf,,P,0,0,0,0,360.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2025-09-10,True
+5359,SAREE,Manjulika,Manjulika,Mf,,P,0,0,0,0,370.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2025-09-10,True
 5360,SAREE,Jodha,Jodha,Mf,,P,0,0,0,0,395.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2025-09-10,True
 5361,SAREE,Lavisha,Lavisha,Mf,,P,0,0,0,0,360.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2025-09-10,True
 5362,SAREE,Kachori,Kachori,Mf,,P,0,0,0,0,355.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2025-09-10,True
@@ -7860,7 +7860,7 @@
 7865,SUIT,Fast Track,Fast Track,As,,P,0,0,0,0,410.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2026-03-23,True
 7866,SUIT,Champak Chacha,Champak Chacha,As,,P,0,0,0,0,425.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2026-03-23,True
 7867,SUIT,Chakradev,Chakradev,As,,P,0,0,0,0,390.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2026-03-23,True
-7868,SUIT,Charvi,Charvi,As,,P,0,0,0,0,390.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2026-03-23,True
+7868,SUIT,Charvi,Charvi,As,,P,0,0,0,0,410.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2026-03-23,True
 7869,SUIT,Damruwala,Damruwala,As,,P,0,0,0,0,415.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2026-03-23,True
 7870,SUIT,Crazy Fancy,Crazy Fancy,As,,P,0,0,0,0,425.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2026-03-23,True
 7871,SUIT,Jamai Raja,Jamai Raja,As,,P,0,0,0,0,405.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2026-03-23,True
@@ -9137,3 +9137,14 @@
 9143,SUIT,Bhelpuri,Bhelpuri,Ttf,,P,0,0,0,0,270.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2026-07-13,True
 9144,SUIT,Shiv Tandav,Shiv Tandav,Ttf,,P,0,0,0,0,244.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2026-07-13,True
 9145,SUIT,1ST Choice,1ST Choice,Ttf,,P,0,0,0,0,242.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2026-07-13,True
+9146,SUIT,Super Parker,Super Parker,As,,P,0,0,0,0,440.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2026-07-14,True
+9147,SUIT,Heydar,Heydar,As,,P,0,0,0,0,405.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2026-07-14,True
+9148,SUIT,Tufan,Tufan,As,,P,0,0,0,0,415.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2026-07-14,True
+9149,SUIT,Tata,Tata,As,,P,0,0,0,0,386.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2026-07-14,True
+9150,SUIT,Raw*,Raw*,As,,P,0,0,0,0,411.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2026-07-14,True
+9151,SUIT,High Court,High Court,As,,P,0,0,0,0,401.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2026-07-14,True
+9152,SUIT,Keshar Malai,Keshar Malai,As,,P,0,0,0,0,399.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2026-07-14,True
+9153,SUIT,Supreme Court,Supreme Court,As,,P,0,0,0,0,395.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2026-07-14,True
+9154,SUIT,Sakambari,Sakambari,As,,P,0,0,0,0,399.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2026-07-14,True
+9155,SAREE,Digital,Digital,Ssps,,P,0,0,0,0,475.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2026-07-15,True
+9156,SAREE,Lenskart (H/F),Lenskart (H/F),Sc,,P,0,0,0,0,205.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2026-07-15,True

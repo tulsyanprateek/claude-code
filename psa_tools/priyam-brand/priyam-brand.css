@@ -89,6 +89,11 @@ body.ps-root{
 }
 .ps-root ::selection{background:var(--ps-gold);color:var(--ps-ink);}
 
+/* ---- Logo assets — priyam-brand/logo-mark.png (icon only, 296x127) and
+   priyam-brand/logo-full.png (mark + wordmark, 648x162). Both transparent PNG. */
+.ps-logo-mark{height:22px;width:auto;display:block;object-fit:contain;}
+.ps-logo-full{height:32px;width:auto;display:block;object-fit:contain;}
+
 /* ---- 4. TYPE HELPERS --------------------------------------- */
 .ps-display{font-family:var(--ps-font-display);font-weight:var(--ps-w-extrabold);font-size:var(--ps-text-display);line-height:var(--ps-lh-display);letter-spacing:-0.02em;}
 .ps-h1{font-family:var(--ps-font-display);font-weight:var(--ps-w-bold);font-size:var(--ps-text-h1);line-height:var(--ps-lh-h1);letter-spacing:-0.02em;}

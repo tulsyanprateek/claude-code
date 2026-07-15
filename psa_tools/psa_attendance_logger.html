@@ -21,7 +21,8 @@ body{font-family:'Hanken Grotesk',-apple-system,BlinkMacSystemFont,'Segoe UI',Ro
 .app{max-width:620px;margin:0 auto;}
 header{padding:16px 18px 12px;position:sticky;top:0;background:var(--bg);z-index:20;border-bottom:0.5px solid var(--border);}
 .h-top{display:flex;align-items:flex-start;justify-content:space-between;}
-.h-title{font-family:'Outfit',sans-serif;font-size:22px;font-weight:600;letter-spacing:-0.02em;}
+.h-title{font-family:'Outfit',sans-serif;font-size:22px;font-weight:600;letter-spacing:-0.02em;display:flex;align-items:center;gap:8px;}
+.h-title-logo{height:24px;width:auto;object-fit:contain;}
 .sync{font-size:12px;color:var(--text3);margin-top:3px;display:flex;align-items:center;gap:6px;}
 .sync .d{width:7px;height:7px;border-radius:50%;background:var(--text3);}
 .sync.ok .d{background:var(--green);} .sync.busy .d{background:#e8a33d;} .sync.off .d{background:var(--text3);}
@@ -161,7 +162,7 @@ nav{position:fixed;bottom:0;left:0;right:0;background:rgba(13,13,15,0.92);backdr
   <header>
     <div class="h-top">
       <div>
-        <div class="h-title">Attendance</div>
+        <div class="h-title"><img src="./priyam-brand/logo-mark.png" alt="Priyam Sales" class="h-title-logo">Attendance</div>
         <div class="sync" id="sync"><span class="d"></span><span id="syncText">Connecting&#8230;</span></div>
       </div>
       <div class="h-actions">
