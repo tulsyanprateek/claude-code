@@ -228,24 +228,26 @@ function getMasterData() {
     });
 
   // ERP item catalog: Company = supplier party code. Each item carries two
-  // names — Item Name is the trade name (primary), Barcode/Print Name is the
-  // party number (the base/print name). party_no is blanked when it just
-  // duplicates the trade name (single-name item). use_count grows on-device.
+  // names — Item Name is the party/merchant number (primary — what's typed
+  // and searched, e.g. "Chai Wala"), Barcode/Print Name is the trade number
+  // (the shared/canonical name, e.g. "Dhan Varsha" — one trade number can
+  // have many party-number aliases). trade_no is blanked when it just
+  // duplicates the party number (single-name item). use_count grows on-device.
   const items = (rawItems || [])
     .filter(function(i) {
       const act = i['Active'];
       return act === true || String(act).toLowerCase() === 'true';
     })
     .map(function(i) {
-      const trade = String(i['Item Name'] || '').trim();
-      const print = String(i['Barcode/Print Name'] || '').trim();
-      const name  = trade || print;
-      let party   = print;
-      if (!party || party.toLowerCase() === name.toLowerCase()) party = '';
+      const partyNo = String(i['Item Name'] || '').trim();
+      const tradeNo = String(i['Barcode/Print Name'] || '').trim();
+      const name    = partyNo || tradeNo;
+      let trade     = tradeNo;
+      if (!trade || trade.toLowerCase() === name.toLowerCase()) trade = '';
       return {
         brand_code: String(i['Company'] || ''),
         item_name:  name,
-        party_no:   party,
+        trade_no:   trade,
         category:   String(i['Quality'] || i['Group Code'] || ''),
         aliases:    '',
         rate:       parseFloat(i['Fixed Sale Rate']) || 0,

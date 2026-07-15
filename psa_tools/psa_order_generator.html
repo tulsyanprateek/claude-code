@@ -516,8 +516,9 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 .name-in:focus { border-bottom-color: var(--orange) !important; }
 
-/* Party number (secondary "print"/base name) — sits under the item name */
-.partyno-in {
+/* Trade number (the shared/canonical name — e.g. "Dhan Varsha") — sits under
+   the item name field, which holds the party/merchant number (e.g. "Chai Wala"). */
+.tradeno-in {
   background: transparent !important; border: none !important;
   border-bottom: 1px dashed var(--rule2) !important;
   border-radius: 0 !important; padding: 0.28rem 0.35rem !important;
@@ -525,18 +526,21 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   font-size: 0.8rem !important; font-weight: 500 !important;
   color: var(--ink3) !important;
 }
-.partyno-in::placeholder { color: var(--ink3); opacity: 0.6; }
-.partyno-in:focus { border-bottom-color: var(--orange) !important; color: var(--ink) !important; }
-.partyno-add {
+.tradeno-in::placeholder { color: var(--ink3); opacity: 0.6; }
+.tradeno-in:focus { border-bottom-color: var(--orange) !important; color: var(--ink) !important; }
+.tradeno-add {
   align-self: flex-start; background: none; border: none;
   color: var(--ink3); font-family: var(--sans);
   font-size: 0.68rem; padding: 1px 2px; margin-top: 1px;
   cursor: pointer; opacity: 0.55;
 }
-.partyno-add:hover { opacity: 1; color: var(--orange); }
+.tradeno-add:hover { opacity: 1; color: var(--orange); }
 
-/* "on <party number>" suffix in WA preview + A4 output — visually secondary */
+/* "on <trade number>" suffix in WA preview + A4 output — visually secondary */
 .item-on { color: #8a8a8a; font-weight: 500; }
+
+/* Trade-number part of an autocomplete suggestion line — muted, like .item-on */
+.ac-tradeno { color: var(--ink3); font-weight: 400; }
 
 .rate-in {
   background: transparent !important; border: none !important;
@@ -3428,13 +3432,15 @@ function addItem(prefillBales='', openMix=false, autoFocus=true) {
           onfocus="itemAcFilter(${id})"
           onblur="setTimeout(()=>itemAcClose(${id}),180)"
           onkeydown="itemAcKey(event,${id})">
-        <!-- Party number (base / print name). Auto-filled when an item with a
-             distinct base name is picked; output shows "Trade on Party no.". -->
-        <input class="partyno-in" type="text" id="partyno-${id}"
-          placeholder="party no." autocomplete="off"
+        <!-- Trade number (the shared/canonical name, e.g. "Dhan Varsha"). The
+             field above holds the party/merchant number (e.g. "Chai Wala") —
+             one trade number can have many party-number aliases. Auto-filled
+             when a matching item is picked; output shows "Party on Trade". -->
+        <input class="tradeno-in" type="text" id="tradeno-${id}"
+          placeholder="trade no." autocomplete="off"
           style="display:none" oninput="refreshPreview()">
-        <button type="button" class="partyno-add" id="partyno-add-${id}"
-          onclick="revealPartyNo(${id})">+ party no.</button>
+        <button type="button" class="tradeno-add" id="tradeno-add-${id}"
+          onclick="revealTradeNo(${id})">+ trade no.</button>
       </div>
       <input class="rate-in" type="number" id="rate-${id}"
         placeholder="₹ rate" step="0.01" oninput="refreshPreview()">
@@ -3510,10 +3516,13 @@ function itemAcFilter(key, kind='main') {
   const brandPool = brandCode ? MasterData.itemsForBrand(brandCode) : [];
   const pool      = brandPool.length > 0 ? brandPool : MasterData.items;
 
-  // Filter: match item_name or any alias
+  // Filter: match item_name (party no.), trade_no, or any alias — so typing
+  // either the party number ("Chai Wala") or the trade number ("Dhan Varsha")
+  // surfaces the item.
   let filtered = pool.filter(item => {
     if (!q) return true;
     if ((item.item_name || '').toLowerCase().includes(q)) return true;
+    if ((item.trade_no  || '').toLowerCase().includes(q)) return true;
     const aliases = (item.aliases || '').split(',').map(a => a.trim().toLowerCase());
     return aliases.some(a => a && a.includes(q));
   }).slice(0, 30);
@@ -3538,14 +3547,17 @@ function itemAcFilter(key, kind='main') {
         html += `<div class="item-cat-sep">${cat}</div>`;
       }
       categories[cat].forEach(item => {
-        const hintText = item.party_no || item.aliases || '';
-        const hint = hintText
-          ? `<span class="ac-meta" style="display:block;font-size:10px;color:var(--ink3);">${item.party_no ? 'on ' : ''}${hintText}</span>` : '';
+        // Suggestion always reads "Party no. on Trade no." — falls back to
+        // itself when the item has no distinct trade number, so the user can
+        // see at a glance whether one is already registered.
+        const tradeNoDisplay = item.trade_no || item.item_name || '';
+        const aliasHint = item.aliases
+          ? `<span class="ac-meta" style="display:block;font-size:10px;color:var(--ink3);">aka ${item.aliases}</span>` : '';
         const safe  = (item.item_name || '').replace(/'/g,"\\'");
-        const safeP = (item.party_no  || '').replace(/'/g,"\\'");
+        const safeT = (item.trade_no  || '').replace(/'/g,"\\'");
         html += `<div class="ac-item" style="display:flex;justify-content:space-between;align-items:flex-start;"
-          onmousedown="itemAcSelect('${key}','${kind}','${safe}',${item.rate || 0},'${safeP}')">
-          <div>${item.item_name}${hint}</div>
+          onmousedown="itemAcSelect('${key}','${kind}','${safe}',${item.rate || 0},'${safeT}')">
+          <div>${item.item_name}<span class="ac-tradeno"> on ${tradeNoDisplay}</span>${aliasHint}</div>
           ${item.rate ? `<span style="font-family:var(--mono);font-size:0.8rem;color:var(--orange);flex-shrink:0;margin-left:8px;">₹${item.rate}</span>` : ''}
         </div>`;
       });
@@ -3617,32 +3629,34 @@ function cancelItemQuickAdd(itemId) {
   if (form) form.classList.remove('show');
 }
 
-function itemAcSelect(key, kind, itemName, rate, partyNo='') {
+function itemAcSelect(key, kind, itemName, rate, tradeNo='') {
   const { input, rate: rateEl } = itemAcEls(key, kind);
   if (input)  input.value  = itemName;
   // Auto-fill rate only if field is empty
   if (rateEl && rate && !rateEl.value) rateEl.value = rate;
-  // Only the main item row carries a party number (sub-items don't)
-  if (kind === 'main') setRowPartyNo(key, partyNo);
+  // Only the main item row carries a trade number (sub-items don't)
+  if (kind === 'main') setRowTradeNo(key, tradeNo);
   itemAcClose(key, kind);
   refreshPreview();
 }
 
-// Set (and reveal) an item row's party-number field. Never clobbers an existing
-// manual value with a blank — selecting an item without a base name leaves it.
-function setRowPartyNo(id, partyNo) {
-  const el = document.getElementById(`partyno-${id}`);
-  if (!el || !partyNo) return;
-  el.value = partyNo;
+// Set (and reveal) an item row's trade-number field. Never clobbers an existing
+// manual value with a blank — selecting an item without a distinct trade
+// number (tradeNo === '') leaves whatever the user already typed untouched.
+function setRowTradeNo(id, tradeNo) {
+  const el = document.getElementById(`tradeno-${id}`);
+  if (!el || !tradeNo) return;
+  el.value = tradeNo;
   el.style.display = '';
-  const addBtn = document.getElementById(`partyno-add-${id}`);
+  const addBtn = document.getElementById(`tradeno-add-${id}`);
   if (addBtn) addBtn.style.display = 'none';
 }
 
-// "+ party no." affordance — reveal the field for manual entry.
-function revealPartyNo(id) {
-  const el = document.getElementById(`partyno-${id}`);
-  const addBtn = document.getElementById(`partyno-add-${id}`);
+// "+ trade no." affordance — reveal the field for manual entry (e.g. to link
+// a brand-new party number to an existing trade number).
+function revealTradeNo(id) {
+  const el = document.getElementById(`tradeno-${id}`);
+  const addBtn = document.getElementById(`tradeno-add-${id}`);
   if (el) { el.style.display = ''; el.focus(); }
   if (addBtn) addBtn.style.display = 'none';
 }
@@ -3746,7 +3760,7 @@ function readForm() {
   const items = itemIds.map(id => {
     const bales = parseFloat(document.getElementById(`bales-${id}`)?.value) || 0;
     const name  = document.getElementById(`name-${id}`)?.value.trim() || '';
-    const partyNo = document.getElementById(`partyno-${id}`)?.value.trim() || '';
+    const tradeNo = document.getElementById(`tradeno-${id}`)?.value.trim() || '';
     const rate  = document.getElementById(`rate-${id}`)?.value.trim() || '';
     const isMix = !!mixState[id];
     totalBales += bales;
@@ -3760,7 +3774,7 @@ function readForm() {
         if (sname) subs.push({ name: sname, price: sprice, qty: sqty, unit: sunit });
       });
     }
-    return { bales, name, partyNo, rate, isMix, subs };
+    return { bales, name, tradeNo, rate, isMix, subs };
   });
   // editedOn: shown as an "Edited on …" stamp in outputs. Live-editing an order
   // stamps today (matches the updatedAt the backend will record on save).
@@ -3874,32 +3888,34 @@ function displayForm(f) {
     items: f.items.map(it => ({
       ...it,
       name: displayCase(it.name),
-      partyNo: displayCase(it.partyNo),
+      tradeNo: displayCase(it.tradeNo),
       subs: it.subs.map(s => ({ ...s, name: displayCase(s.name) }))
     }))
   };
 }
 
-// Combined item label. When an item has a distinct party number (the base /
-// print name), outputs "Trade on Party" (trade name first). Otherwise just the
-// trade name. `emptyLabel` is used when the trade name is blank (e.g. Mix).
+// Combined item label. `item.name` holds the party/merchant number (what's
+// typed/searched, e.g. "Chai Wala"); `item.tradeNo` holds the shared trade
+// number (e.g. "Dhan Varsha") one trade number can have many party aliases.
+// Outputs "Party on Trade" when the two differ, otherwise just the party
+// number. `emptyLabel` is used when the party number is blank (e.g. Mix).
 function itemLabel(item, emptyLabel = '') {
-  const trade = (item.name || '').trim();
-  const party = (item.partyNo || '').trim();
-  const base = trade || emptyLabel;
-  if (party && party.toLowerCase() !== trade.toLowerCase()) {
-    return base ? `${base} on ${party}` : party;
+  const partyNo = (item.name || '').trim();
+  const tradeNo = (item.tradeNo || '').trim();
+  const base = partyNo || emptyLabel;
+  if (tradeNo && tradeNo.toLowerCase() !== partyNo.toLowerCase()) {
+    return base ? `${base} on ${tradeNo}` : tradeNo;
   }
   return base;
 }
 
-// HTML variant — the " on <party>" suffix is rendered muted/secondary.
+// HTML variant — the " on <trade no.>" suffix is rendered muted/secondary.
 function itemLabelHTML(item, emptyLabel = '') {
-  const trade = (item.name || '').trim();
-  const party = (item.partyNo || '').trim();
-  const base = trade || emptyLabel;
-  if (party && party.toLowerCase() !== trade.toLowerCase()) {
-    return `${base}<span class="item-on"> on ${party}</span>`;
+  const partyNo = (item.name || '').trim();
+  const tradeNo = (item.tradeNo || '').trim();
+  const base = partyNo || emptyLabel;
+  if (tradeNo && tradeNo.toLowerCase() !== partyNo.toLowerCase()) {
+    return `${base}<span class="item-on"> on ${tradeNo}</span>`;
   }
   return base;
 }
@@ -4835,7 +4851,8 @@ function populateFormFromOrder(o) {
       const rateEl = document.getElementById(`rate-${id}`);
       if (nameEl) nameEl.value = item.name || '';
       if (rateEl) rateEl.value = item.rate || '';
-      if (item.partyNo) setRowPartyNo(id, item.partyNo);
+      // item.partyNo is the pre-rename field name from orders saved earlier today
+      if (item.tradeNo || item.partyNo) setRowTradeNo(id, item.tradeNo || item.partyNo);
       // If mix, populate sub-items
       if (item.isMix && Array.isArray(item.subs)) {
         // Clear the default sub that openMix added

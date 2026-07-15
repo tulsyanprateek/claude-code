@@ -136,24 +136,34 @@ Actions: `ping`, `save` (POST, `mode: 'no-cors'`), `list` (GET), `get` (GET), `d
 ```javascript
 {
   bales: 3,
-  name: "Riddhi Siddhi",   // TRADE NAME (main) — item master "Item Name" (ITNM)
-  partyNo: "Dhan Varsha",  // PARTY NUMBER (alias) — item master "Barcode/Print Name" (B_CODE);
-                           //   the base/print name. '' when it equals the trade name.
-  rate: "365",             // string
+  name: "Chai Wala",        // PARTY / MERCHANT NUMBER (main, typed/searched) —
+                             //   item master "Item Name" (ITNM)
+  tradeNo: "Dhan Varsha",    // TRADE NUMBER (shared/canonical) — item master
+                             //   "Barcode/Print Name" (B_CODE). One trade number
+                             //   can have many party-number aliases. '' when it
+                             //   equals the party number (single-name item).
+  rate: "365",               // string
   isMix: true,
   subs: [{ name: "Subitem One", price: "300" }]
 }
 ```
 
-**Two-name rule:** each item carries a trade name (`name`) and an optional party
-number (`partyNo`). Outputs (WA text + A4 image) render `itemLabel()`/`itemLabelHTML()`:
-`"<trade> on <party>"` when both exist and differ (e.g. `Riddhi Siddhi on Dhan Varsha`),
-otherwise just the trade name. In the item row, `partyNo` auto-fills from the master
-when an item is picked (shown as a small line under the name, editable; `+ party no.`
-reveals it for manual entry). Stored raw/uppercase; `displayCase` applied only at output.
-Backend `getMasterData` serves both `item_name` (= Item Name) and `party_no` (= Print Name,
-blanked when equal). `PARTYNO` in `bill.dbf` is a denormalized copy of Item Name — NOT a
-real per-party value — so no transaction mining is needed.
+**Two-number rule:** the item-name field the user types/searches (`name`) is the
+**party/merchant number** — e.g. "Chai Wala", "Riddhi Siddhi". `tradeNo` is the
+**trade number** — the shared/canonical name (e.g. "Dhan Varsha") that many party
+numbers can alias to. Outputs (WA text + A4 image) render `itemLabel()`/`itemLabelHTML()`:
+`"<party> on <trade>"` when both exist and differ (e.g. `Riddhi Siddhi on Dhan Varsha`),
+otherwise just the party number. Autocomplete suggestions always show `"<party> on <trade>"`,
+falling back to the party number itself when no trade number is registered (e.g.
+`Chai Wala on Chai Wala`) — this signals at a glance whether one exists yet.
+In the item row, `tradeNo` auto-fills from the master when a matching item is picked
+(shown as a small editable line under the name); `+ trade no.` reveals it for manual
+entry — this is how you link a brand-new party name to an existing trade number.
+Stored raw/uppercase; `displayCase` applied only at output.
+Backend `getMasterData` serves both `item_name` (= Item Name, party number) and
+`trade_no` (= Print Name, trade number; blanked when equal to item_name).
+`PARTYNO` in `bill.dbf` is a denormalized copy of Item Name — NOT a real per-party
+value — so no transaction mining is needed.
 
 ## Design Constraints (Always Apply)
 
