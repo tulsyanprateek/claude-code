@@ -136,34 +136,62 @@ Actions: `ping`, `save` (POST, `mode: 'no-cors'`), `list` (GET), `get` (GET), `d
 ```javascript
 {
   bales: 3,
-  name: "Chai Wala",        // PARTY / MERCHANT NUMBER (main, typed/searched) —
-                             //   item master "Item Name" (ITNM)
-  tradeNo: "Dhan Varsha",    // TRADE NUMBER (shared/canonical) — item master
-                             //   "Barcode/Print Name" (B_CODE). One trade number
-                             //   can have many party-number aliases. '' when it
-                             //   equals the party number (single-name item).
-  rate: "365",               // string
+  name: "Riddhi Siddhi",  // whatever was typed/searched — an alias OR a bare main name.
+  aka:  "Dhan Varsha",    // the OTHER name this item goes by, if any. Bidirectional:
+                           //   auto-fills with the main name when `name` is an alias;
+                           //   left for manual entry of a NEW alias when `name` is
+                           //   already a bare main name. '' when there is no other name.
+  rate: "365",             // string
   isMix: true,
   subs: [{ name: "Subitem One", price: "300" }]
 }
 ```
 
-**Two-number rule:** the item-name field the user types/searches (`name`) is the
-**party/merchant number** — e.g. "Chai Wala", "Riddhi Siddhi". `tradeNo` is the
-**trade number** — the shared/canonical name (e.g. "Dhan Varsha") that many party
-numbers can alias to. Outputs (WA text + A4 image) render `itemLabel()`/`itemLabelHTML()`:
-`"<party> on <trade>"` when both exist and differ (e.g. `Riddhi Siddhi on Dhan Varsha`),
-otherwise just the party number. Autocomplete suggestions always show `"<party> on <trade>"`,
-falling back to the party number itself when no trade number is registered (e.g.
-`Chai Wala on Chai Wala`) — this signals at a glance whether one exists yet.
-In the item row, `tradeNo` auto-fills from the master when a matching item is picked
-(shown as a small editable line under the name); `+ trade no.` reveals it for manual
-entry — this is how you link a brand-new party name to an existing trade number.
+**Alias model:** one main/original item name (e.g. "Dhan Varsha") can have many
+aliases (e.g. "Riddhi Siddhi", "Modi Ji", "Chai Wala"). Source-of-truth mapping
+(confirmed against real data, item code 7901 = Dhan Varsha/Riddhi Siddhi):
+- Master sheet **"Item Name"** column = the **main/original item name** (e.g.
+  "Dhan Varsha") — sourced from ERP field `B_CODE` (Barcode/Print Name).
+- Master sheet **"Alias Name"** column = the **alias** (e.g. "Riddhi Siddhi") —
+  sourced from ERP field `ITNM` (Item Name). Many `ITNM` rows can share one
+  `B_CODE`, i.e. many aliases can point to one main name.
+- ⚠️ These sheet header labels are the OPPOSITE of the raw ERP field names
+  (`ITNM`="Item Name" in FoxPro, but our sheet's "Item Name" column holds the
+  `B_CODE` value) — this swap is intentional, set in
+  `data-dump/extract_master_data.py`'s `itm_headers` dict, to match business
+  terminology rather than the ERP's internal field names.
+
+The single item-name field (`name`) accepts either kind of name — type an alias or
+the bare main name, autocomplete matches both. The `aka` field is a generic "also
+known as" slot, bidirectional by design (see `setRowAka`/`revealAka`):
+- Typed/picked value is a tagged alias → `aka` auto-fills with its main name (e.g.
+  picking "Riddhi Siddhi" auto-fills "Dhan Varsha"), shown as a small line under
+  the name field.
+- Typed/picked value is a bare main name with no alias yet → `aka` stays empty;
+  `+ aka` reveals it so a NEW alias can be typed and tagged to that main name.
+
+Autocomplete suggestions show `"<name> on <aka>"` only when a distinct aka exists
+(e.g. `Riddhi Siddhi on Dhan Varsha`) — bare main names with no alias show unadorned
+(just `Century`, no self-duplicate).
+
+Output rendering (WA text + A4 image, via `itemLabel()`/`itemLabelHTML()`) is a
+**separate, not-yet-finalized decision** — currently `"<name> on <aka>"` when they
+differ, else just `<name>`, but this may change once the alias/input model settles.
 Stored raw/uppercase; `displayCase` applied only at output.
-Backend `getMasterData` serves both `item_name` (= Item Name, party number) and
-`trade_no` (= Print Name, trade number; blanked when equal to item_name).
-`PARTYNO` in `bill.dbf` is a denormalized copy of Item Name — NOT a real per-party
-value — so no transaction mining is needed.
+Backend `getMasterData` reads sheet columns `"Item Name"` (main) and `"Alias Name"`
+(alias) and serves them generically as `item_name` (alias-preferred, else bare main)
+and `trade_no` (the main name; blanked when equal to item_name) — the frontend
+treats these as "name"/"aka" rather than fixed trade/party roles.
+`PARTYNO` in `bill.dbf` is a denormalized copy of `ITNM` (Alias Name) — NOT a real
+per-party value — so no transaction mining is needed.
+
+**Pipeline note:** `data-dump/extract_master_data.py` was regenerated with the
+corrected header mapping (`items_master.json`/`.csv` now have "Item Name"/"Alias
+Name" swapped per above). This is a *local* file regen only — the live Google
+Sheet still has the old headers/values until `push_to_sheets.py` is re-run against
+it (ask before running — it overwrites shared sheet data), and the deployed
+`psa_order_backend.gs` Web App needs a new deployment version to pick up this
+file's mapping change.
 
 ## Design Constraints (Always Apply)
 

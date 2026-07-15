@@ -1,4 +1,4 @@
-﻿Item Code,Group Code,Item Name,Barcode/Print Name,Company,Quality,Unit,Opening Qty,Opening Value,Min Level,Reorder Level,Fixed Sale Rate,Fixed Purchase Rate,Wholesale Rate,Purchase Rate,Cost Rate A,Cost Rate B,Cost Rate C,HSN Code,GST %,Box,Cut,Mark,Date,Active
+﻿Item Code,Group Code,Alias Name,Item Name,Company,Quality,Unit,Opening Qty,Opening Value,Min Level,Reorder Level,Fixed Sale Rate,Fixed Purchase Rate,Wholesale Rate,Purchase Rate,Cost Rate A,Cost Rate B,Cost Rate C,HSN Code,GST %,Box,Cut,Mark,Date,Active
 1,RAMNAMA,Ram Ram G,Ram Ram G,Sst,,P,0,0,0,0,19.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2024-03-31,True
 2,RAMNAMA,Casino (Pcs),Casino (Pcs),Sst,,P,0,0,0,0,27.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2024-03-31,True
 3,RAMNAMA,Shree,Shree,Sst,,P,0,0,0,0,29.0,0.0,0.0,0.0,0,0,0,,5.0,0,,,2024-03-31,True

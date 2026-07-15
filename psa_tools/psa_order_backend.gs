@@ -228,21 +228,22 @@ function getMasterData() {
     });
 
   // ERP item catalog: Company = supplier party code. Each item carries two
-  // names — Item Name is the party/merchant number (primary — what's typed
-  // and searched, e.g. "Chai Wala"), Barcode/Print Name is the trade number
-  // (the shared/canonical name, e.g. "Dhan Varsha" — one trade number can
-  // have many party-number aliases). trade_no is blanked when it just
-  // duplicates the party number (single-name item). use_count grows on-device.
+  // names — "Item Name" is the main/trade name (e.g. "Dhan Varsha" — the
+  // original, canonical identity), "Alias Name" is the specific alias tagged
+  // to it (e.g. "Riddhi Siddhi" — one main name can have many aliases).
+  // The order form searches/types against whichever is present, preferring
+  // the alias; trade_no (the main name) is blanked when it just duplicates
+  // the alias (single-name item, no alias tagged). use_count grows on-device.
   const items = (rawItems || [])
     .filter(function(i) {
       const act = i['Active'];
       return act === true || String(act).toLowerCase() === 'true';
     })
     .map(function(i) {
-      const partyNo = String(i['Item Name'] || '').trim();
-      const tradeNo = String(i['Barcode/Print Name'] || '').trim();
-      const name    = partyNo || tradeNo;
-      let trade     = tradeNo;
+      const mainName  = String(i['Item Name']  || '').trim();
+      const aliasName = String(i['Alias Name'] || '').trim();
+      const name  = aliasName || mainName;
+      let trade   = mainName;
       if (!trade || trade.toLowerCase() === name.toLowerCase()) trade = '';
       return {
         brand_code: String(i['Company'] || ''),

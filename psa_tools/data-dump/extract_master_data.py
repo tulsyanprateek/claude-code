@@ -106,10 +106,13 @@ counts["customers_suppliers_master"] = write("customers_suppliers_master", ptm_h
                                              title_fields=ptm_title, lower_fields=ptm_lower)
 
 # items_master <- itm.dbf
+# ITNM is the specific/varying name (the alias, e.g. "Riddhi Siddhi") — many
+# ITNM rows can share one B_CODE. B_CODE is the shared/canonical name (the
+# main item name, e.g. "Dhan Varsha") that those aliases are all tagged to.
 itm = load(fy, "itm.dbf")
 itm_headers = {
-    "ITCODE": "Item Code", "GRCODE": "Group Code", "ITNM": "Item Name",
-    "B_CODE": "Barcode/Print Name", "COMPANY": "Company", "QLTY": "Quality",
+    "ITCODE": "Item Code", "GRCODE": "Group Code", "ITNM": "Alias Name",
+    "B_CODE": "Item Name", "COMPANY": "Company", "QLTY": "Quality",
     "UNIT": "Unit", "OPQTY": "Opening Qty", "OPVLU": "Opening Value",
     "MIN_LVL": "Min Level", "REO_LVL": "Reorder Level",
     "FIX_SL": "Fixed Sale Rate", "FIX_PR": "Fixed Purchase Rate",

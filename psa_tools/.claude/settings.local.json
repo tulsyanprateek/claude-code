@@ -26,7 +26,11 @@
       "Bash(grep -n \"isMix, subs\\\\|isMix,\\\\s*subs\\\\|return {.*bales.*name.*rate\" \"D:\\\\claude_code\\\\psa_tools\\\\psa_order_generator.html\")",
       "Bash(python -c ' *)",
       "Bash(python -)",
-      "Bash(node --check /tmp/app.js)"
+      "Bash(node --check /tmp/app.js)",
+      "Bash(node --check psa_order_backend.gs)",
+      "Bash(cp psa_order_backend.gs /tmp_check.js)",
+      "Bash(cp psa_order_backend.gs \"$\\(pwd\\)/scratch_check.js\")",
+      "Bash(node --check scratch_check.js)"
     ]
   }
 }

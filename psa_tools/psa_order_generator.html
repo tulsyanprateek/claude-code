@@ -516,9 +516,10 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 .name-in:focus { border-bottom-color: var(--orange) !important; }
 
-/* Trade number (the shared/canonical name — e.g. "Dhan Varsha") — sits under
-   the item name field, which holds the party/merchant number (e.g. "Chai Wala"). */
-.tradeno-in {
+/* "Also known as" — the other name this item goes by. Bidirectional: holds
+   the main/trade name when the item field above is an alias, or a new alias
+   when the item field above is a bare main name. Sits under the item name. */
+.aka-in {
   background: transparent !important; border: none !important;
   border-bottom: 1px dashed var(--rule2) !important;
   border-radius: 0 !important; padding: 0.28rem 0.35rem !important;
@@ -526,17 +527,17 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   font-size: 0.8rem !important; font-weight: 500 !important;
   color: var(--ink3) !important;
 }
-.tradeno-in::placeholder { color: var(--ink3); opacity: 0.6; }
-.tradeno-in:focus { border-bottom-color: var(--orange) !important; color: var(--ink) !important; }
-.tradeno-add {
+.aka-in::placeholder { color: var(--ink3); opacity: 0.6; }
+.aka-in:focus { border-bottom-color: var(--orange) !important; color: var(--ink) !important; }
+.aka-add {
   align-self: flex-start; background: none; border: none;
   color: var(--ink3); font-family: var(--sans);
   font-size: 0.68rem; padding: 1px 2px; margin-top: 1px;
   cursor: pointer; opacity: 0.55;
 }
-.tradeno-add:hover { opacity: 1; color: var(--orange); }
+.aka-add:hover { opacity: 1; color: var(--orange); }
 
-/* "on <trade number>" suffix in WA preview + A4 output — visually secondary */
+/* "on <main name>" suffix in WA preview + A4 output — visually secondary */
 .item-on { color: #8a8a8a; font-weight: 500; }
 
 /* Trade-number part of an autocomplete suggestion line — muted, like .item-on */
@@ -3432,15 +3433,16 @@ function addItem(prefillBales='', openMix=false, autoFocus=true) {
           onfocus="itemAcFilter(${id})"
           onblur="setTimeout(()=>itemAcClose(${id}),180)"
           onkeydown="itemAcKey(event,${id})">
-        <!-- Trade number (the shared/canonical name, e.g. "Dhan Varsha"). The
-             field above holds the party/merchant number (e.g. "Chai Wala") —
-             one trade number can have many party-number aliases. Auto-filled
-             when a matching item is picked; output shows "Party on Trade". -->
-        <input class="tradeno-in" type="text" id="tradeno-${id}"
-          placeholder="trade no." autocomplete="off"
+        <!-- "Also known as" — the OTHER name this item goes by. Bidirectional:
+             if the field above holds an alias (e.g. "Chai Wala"), this
+             auto-fills with its tagged main name (e.g. "Dhan Varsha"); if the
+             field above holds a bare main name with no alias yet, this stays
+             empty and "+ aka" reveals it for typing a NEW alias to tag. -->
+        <input class="aka-in" type="text" id="aka-${id}"
+          placeholder="aka..." autocomplete="off"
           style="display:none" oninput="refreshPreview()">
-        <button type="button" class="tradeno-add" id="tradeno-add-${id}"
-          onclick="revealTradeNo(${id})">+ trade no.</button>
+        <button type="button" class="aka-add" id="aka-add-${id}"
+          onclick="revealAka(${id})">+ aka</button>
       </div>
       <input class="rate-in" type="number" id="rate-${id}"
         placeholder="₹ rate" step="0.01" oninput="refreshPreview()">
@@ -3547,17 +3549,17 @@ function itemAcFilter(key, kind='main') {
         html += `<div class="item-cat-sep">${cat}</div>`;
       }
       categories[cat].forEach(item => {
-        // Suggestion always reads "Party no. on Trade no." — falls back to
-        // itself when the item has no distinct trade number, so the user can
-        // see at a glance whether one is already registered.
-        const tradeNoDisplay = item.trade_no || item.item_name || '';
+        // "Alias on Main" only when a distinct main/trade name is actually
+        // tagged; otherwise show the bare name — no self-duplicate.
+        const tradeNo = (item.trade_no || '').trim();
+        const onSuffix = tradeNo ? `<span class="ac-tradeno"> on ${tradeNo}</span>` : '';
         const aliasHint = item.aliases
           ? `<span class="ac-meta" style="display:block;font-size:10px;color:var(--ink3);">aka ${item.aliases}</span>` : '';
         const safe  = (item.item_name || '').replace(/'/g,"\\'");
-        const safeT = (item.trade_no  || '').replace(/'/g,"\\'");
+        const safeT = tradeNo.replace(/'/g,"\\'");
         html += `<div class="ac-item" style="display:flex;justify-content:space-between;align-items:flex-start;"
           onmousedown="itemAcSelect('${key}','${kind}','${safe}',${item.rate || 0},'${safeT}')">
-          <div>${item.item_name}<span class="ac-tradeno"> on ${tradeNoDisplay}</span>${aliasHint}</div>
+          <div>${item.item_name}${onSuffix}${aliasHint}</div>
           ${item.rate ? `<span style="font-family:var(--mono);font-size:0.8rem;color:var(--orange);flex-shrink:0;margin-left:8px;">₹${item.rate}</span>` : ''}
         </div>`;
       });
@@ -3629,34 +3631,35 @@ function cancelItemQuickAdd(itemId) {
   if (form) form.classList.remove('show');
 }
 
-function itemAcSelect(key, kind, itemName, rate, tradeNo='') {
+function itemAcSelect(key, kind, itemName, rate, aka='') {
   const { input, rate: rateEl } = itemAcEls(key, kind);
   if (input)  input.value  = itemName;
   // Auto-fill rate only if field is empty
   if (rateEl && rate && !rateEl.value) rateEl.value = rate;
-  // Only the main item row carries a trade number (sub-items don't)
-  if (kind === 'main') setRowTradeNo(key, tradeNo);
+  // Only the main item row carries an "aka" (sub-items don't)
+  if (kind === 'main') setRowAka(key, aka);
   itemAcClose(key, kind);
   refreshPreview();
 }
 
-// Set (and reveal) an item row's trade-number field. Never clobbers an existing
-// manual value with a blank — selecting an item without a distinct trade
-// number (tradeNo === '') leaves whatever the user already typed untouched.
-function setRowTradeNo(id, tradeNo) {
-  const el = document.getElementById(`tradeno-${id}`);
-  if (!el || !tradeNo) return;
-  el.value = tradeNo;
+// Set (and reveal) an item row's "aka" field. Never clobbers an existing
+// manual value with a blank — selecting a bare item with no tagged alias
+// (aka === '') leaves whatever the user already typed there untouched.
+function setRowAka(id, aka) {
+  const el = document.getElementById(`aka-${id}`);
+  if (!el || !aka) return;
+  el.value = aka;
   el.style.display = '';
-  const addBtn = document.getElementById(`tradeno-add-${id}`);
+  const addBtn = document.getElementById(`aka-add-${id}`);
   if (addBtn) addBtn.style.display = 'none';
 }
 
-// "+ trade no." affordance — reveal the field for manual entry (e.g. to link
-// a brand-new party number to an existing trade number).
-function revealTradeNo(id) {
-  const el = document.getElementById(`tradeno-${id}`);
-  const addBtn = document.getElementById(`tradeno-add-${id}`);
+// "+ aka" affordance — reveal the field for manual entry. Works both ways:
+// type a trade name here to link a new alias, or type a new alias here to
+// tag it onto an existing bare main name.
+function revealAka(id) {
+  const el = document.getElementById(`aka-${id}`);
+  const addBtn = document.getElementById(`aka-add-${id}`);
   if (el) { el.style.display = ''; el.focus(); }
   if (addBtn) addBtn.style.display = 'none';
 }
@@ -3760,7 +3763,7 @@ function readForm() {
   const items = itemIds.map(id => {
     const bales = parseFloat(document.getElementById(`bales-${id}`)?.value) || 0;
     const name  = document.getElementById(`name-${id}`)?.value.trim() || '';
-    const tradeNo = document.getElementById(`tradeno-${id}`)?.value.trim() || '';
+    const aka   = document.getElementById(`aka-${id}`)?.value.trim() || '';
     const rate  = document.getElementById(`rate-${id}`)?.value.trim() || '';
     const isMix = !!mixState[id];
     totalBales += bales;
@@ -3774,7 +3777,7 @@ function readForm() {
         if (sname) subs.push({ name: sname, price: sprice, qty: sqty, unit: sunit });
       });
     }
-    return { bales, name, tradeNo, rate, isMix, subs };
+    return { bales, name, aka, rate, isMix, subs };
   });
   // editedOn: shown as an "Edited on …" stamp in outputs. Live-editing an order
   // stamps today (matches the updatedAt the backend will record on save).
@@ -3888,34 +3891,33 @@ function displayForm(f) {
     items: f.items.map(it => ({
       ...it,
       name: displayCase(it.name),
-      tradeNo: displayCase(it.tradeNo),
+      aka: displayCase(it.aka),
       subs: it.subs.map(s => ({ ...s, name: displayCase(s.name) }))
     }))
   };
 }
 
-// Combined item label. `item.name` holds the party/merchant number (what's
-// typed/searched, e.g. "Chai Wala"); `item.tradeNo` holds the shared trade
-// number (e.g. "Dhan Varsha") one trade number can have many party aliases.
-// Outputs "Party on Trade" when the two differ, otherwise just the party
-// number. `emptyLabel` is used when the party number is blank (e.g. Mix).
+// Combined item label. `item.name` holds whatever was typed (an alias or a
+// bare main name); `item.aka` holds the other name it's tagged with, if any
+// — output format/order is still TBD, kept as "Name on Aka" for now.
+// `emptyLabel` is used when the name is blank (e.g. Mix).
 function itemLabel(item, emptyLabel = '') {
-  const partyNo = (item.name || '').trim();
-  const tradeNo = (item.tradeNo || '').trim();
-  const base = partyNo || emptyLabel;
-  if (tradeNo && tradeNo.toLowerCase() !== partyNo.toLowerCase()) {
-    return base ? `${base} on ${tradeNo}` : tradeNo;
+  const name = (item.name || '').trim();
+  const aka  = (item.aka  || '').trim();
+  const base = name || emptyLabel;
+  if (aka && aka.toLowerCase() !== name.toLowerCase()) {
+    return base ? `${base} on ${aka}` : aka;
   }
   return base;
 }
 
-// HTML variant — the " on <trade no.>" suffix is rendered muted/secondary.
+// HTML variant — the " on <aka>" suffix is rendered muted/secondary.
 function itemLabelHTML(item, emptyLabel = '') {
-  const partyNo = (item.name || '').trim();
-  const tradeNo = (item.tradeNo || '').trim();
-  const base = partyNo || emptyLabel;
-  if (tradeNo && tradeNo.toLowerCase() !== partyNo.toLowerCase()) {
-    return `${base}<span class="item-on"> on ${tradeNo}</span>`;
+  const name = (item.name || '').trim();
+  const aka  = (item.aka  || '').trim();
+  const base = name || emptyLabel;
+  if (aka && aka.toLowerCase() !== name.toLowerCase()) {
+    return `${base}<span class="item-on"> on ${aka}</span>`;
   }
   return base;
 }
@@ -4851,8 +4853,9 @@ function populateFormFromOrder(o) {
       const rateEl = document.getElementById(`rate-${id}`);
       if (nameEl) nameEl.value = item.name || '';
       if (rateEl) rateEl.value = item.rate || '';
-      // item.partyNo is the pre-rename field name from orders saved earlier today
-      if (item.tradeNo || item.partyNo) setRowTradeNo(id, item.tradeNo || item.partyNo);
+      // item.tradeNo / item.partyNo are pre-rename field names from orders saved earlier today
+      const akaVal = item.aka || item.tradeNo || item.partyNo;
+      if (akaVal) setRowAka(id, akaVal);
       // If mix, populate sub-items
       if (item.isMix && Array.isArray(item.subs)) {
         // Clear the default sub that openMix added
@@ -5321,10 +5324,15 @@ function initPWA() {
     document.head.appendChild(appleIcon);
   }
 
-  // 4. Register service worker (offline cache)
+  // 4. Register service worker (offline cache).
+  // Network-first, falling back to cache only when the network fetch fails —
+  // so edits show up immediately when online, while the app still works
+  // offline from the last-fetched copy. (A cache-first strategy here would
+  // serve the same stale page forever, since a reload can't bypass an
+  // already-active service worker.)
   if ('serviceWorker' in navigator) {
     const swCode = `
-      const CACHE = 'psa-orders-v3';
+      const CACHE = 'psa-orders-v4';
       self.addEventListener('install', e => {
         e.waitUntil(
           caches.open(CACHE).then(c => c.add(self.location.href.split('?')[0]))
@@ -5332,11 +5340,21 @@ function initPWA() {
         self.skipWaiting();
       });
       self.addEventListener('activate', e => {
-        e.waitUntil(clients.claim());
+        e.waitUntil(
+          caches.keys()
+            .then(keys => Promise.all(keys.filter(k => k !== CACHE).map(k => caches.delete(k))))
+            .then(() => clients.claim())
+        );
       });
       self.addEventListener('fetch', e => {
         e.respondWith(
-          caches.match(e.request).then(r => r || fetch(e.request))
+          fetch(e.request)
+            .then(r => {
+              const copy = r.clone();
+              caches.open(CACHE).then(c => c.put(e.request, copy));
+              return r;
+            })
+            .catch(() => caches.match(e.request))
         );
       });
     `;
