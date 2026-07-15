@@ -30,7 +30,11 @@
       "Bash(node --check psa_order_backend.gs)",
       "Bash(cp psa_order_backend.gs /tmp_check.js)",
       "Bash(cp psa_order_backend.gs \"$\\(pwd\\)/scratch_check.js\")",
-      "Bash(node --check scratch_check.js)"
+      "Bash(node --check scratch_check.js)",
+      "Bash(node --check scratch_app.js)",
+      "Bash(gh repo *)",
+      "Bash(curl -s https://api.github.com/repos/tulsyanprateek/claude-code)",
+      "Bash(python -c \"import json,sys; d=json.load\\(sys.stdin\\); print\\('private:', d.get\\('private'\\), '| message:', d.get\\('message'\\)\\)\")"
     ]
   }
 }

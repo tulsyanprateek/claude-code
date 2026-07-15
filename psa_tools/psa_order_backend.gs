@@ -193,14 +193,19 @@ function getMasterData() {
   // the ordering — most-billed first, so frequent parties surface on top.
   const bills = function(p) { return parseInt(p['Bills FY']) || 0; };
 
+  // Supplier groups: a "Main Company" column (optional — blank for standalone
+  // suppliers) tags a sister-firm/brand-name party under its parent company's
+  // name, e.g. "Chandrakala Sarees" tagged with Main Company = "Maruti
+  // Fashion". No ERP field encodes this — it's manually entered in the sheet.
   const suppliers = allParties
     .filter(function(p) { return p['Party Type'] === 'Supplier'; })
     .sort(function(a, b) { return bills(b) - bills(a); })
     .map(function(p) {
+      const mainCompany = (p['Main Company'] || '').trim();
       return {
         firm_code:  p['Party Code'] || '',
-        firm_name:  p['Party Name'] || '',
-        brand_name: p['Party Name'] || '', // ERP has no separate brand alias yet — same as firm_name
+        firm_name:  mainCompany || p['Party Name'] || '',
+        brand_name: p['Party Name'] || '',
         brand_code: p['Party Code'] || '',
         city:       p['City'] || '',
         active:     bills(p) > 0

@@ -2296,7 +2296,7 @@ const SUPPLIERS = [
   {name:"Ambaji Sarees",code:"ASS1",city:"Surat",active:false},
   {name:"Amruta Texcom",code:"ATC",city:"Ichalkaranji",active:false},
   {name:"Balaji Cotton",code:"BCJ",city:"Jetpur",active:false},
-  {name:"Chandrakala Sarees",code:"CSS1",city:"Surat",active:false},
+  {name:"Chandrakala Sarees",code:"CSS1",city:"Surat",active:false,parent:"Maruti Fashion"},
   {name:"Deepvin Industries - Msme",code:"DI",city:"Jetpur",active:false},
   {name:"Floreon Trends",code:"FT",city:"Surat",active:false},
   {name:"G M Non Wovens",code:"GMN",city:"Panipat",active:false},
@@ -2312,7 +2312,7 @@ const SUPPLIERS = [
   {name:"Karnavati Fabco",code:"KFA",city:"Ahmedabad",active:false},
   {name:"Kaveri Silk Mills Pvt Ltd",code:"KSM",city:"Surat",active:false},
   {name:"Khatu Kripa",code:"KKS",city:"Surat",active:false},
-  {name:"Khushi",code:"NGP1",city:"Jetpur",active:false},
+  {name:"Khushi",code:"NGP1",city:"Jetpur",active:false,parent:"Nand Gopal Print - Msme"},
   {name:"Krishna Suitings",code:"KSB",city:"Bhilwara",active:false},
   {name:"Kundan Fabric",code:"KFS",city:"Surat",active:false},
   {name:"Kundan Sarees",code:"KSKSM",city:"Surat",active:false},
@@ -2350,7 +2350,7 @@ const SUPPLIERS = [
   {name:"Shubh Lakshmi Fashion - Msme",code:"SLF",city:"Surat",active:false},
   {name:"Siya Sarees",code:"SYS",city:"Kolkata",active:false},
   {name:"Somnath Textile - Msme",code:"ST",city:"Pali-Marwar",active:false},
-  {name:"Sunray Creation",code:"SC",city:"Jetpur",active:false},
+  {name:"Sunray Creation",code:"SC",city:"Jetpur",active:false,parent:"Paresh Print Private Limited"},
   {name:"Teja Prints",code:"TJP",city:"Surat",active:false},
   {name:"Vaishnavi Sarees",code:"VSS",city:"Surat",active:false},
   {name:"Vasuki Fashion",code:"VFS",city:"Surat",active:false},
@@ -2902,7 +2902,7 @@ const MasterData = {
   // Build from hardcoded fallback arrays (always available)
   fromFallback() {
     this.suppliers  = SUPPLIERS.map(s => ({
-      firm_code:  s.code, firm_name:  s.name,
+      firm_code:  s.code, firm_name:  s.parent || s.name,
       brand_name: s.name, brand_code: s.code,
       city: s.city, active: s.active
     }));
@@ -3162,7 +3162,7 @@ function acFilter(fid) {
     // Use MasterData suppliers — active first, then all
     const src = MasterData.suppliers.length > 0
       ? [...MasterData.suppliers].sort((a, b) => (b.active ? 1 : 0) - (a.active ? 1 : 0))
-      : SUPPLIERS.map(s => ({ brand_name: s.name, brand_code: s.code, firm_name: s.name, firm_code: s.code, city: s.city, active: s.active }));
+      : SUPPLIERS.map(s => ({ brand_name: s.name, brand_code: s.code, firm_name: s.parent || s.name, firm_code: s.code, city: s.city, active: s.active }));
     data = src;
   } else if (fid === 'iDocs') {
     const src = MasterData.docOptions.length > 0 ? MasterData.docOptions : DOCS_OPTIONS;
@@ -3897,29 +3897,66 @@ function displayForm(f) {
   };
 }
 
-// Combined item label. `item.name` holds whatever was typed (an alias or a
-// bare main name); `item.aka` holds the other name it's tagged with, if any
-// — output format/order is still TBD, kept as "Name on Aka" for now.
-// `emptyLabel` is used when the name is blank (e.g. Mix).
-function itemLabel(item, emptyLabel = '') {
+// `item.name`/`item.aka` are stored bidirectionally (whichever the user typed
+// first ends up in `name`), so output always needs "alias on main" regardless
+// of which field happens to hold which. Resolve direction from the master:
+// if `name` matches a KNOWN BARE main item (found in master with no alias
+// tagged), then `name` is the main and `aka` is the (new) alias being added —
+// flip the order. Otherwise assume the common case: `name` is the alias and
+// `aka` is its main (matches how autocomplete auto-fills aka on selection).
+function resolveItemOrder(item) {
   const name = (item.name || '').trim();
   const aka  = (item.aka  || '').trim();
-  const base = name || emptyLabel;
-  if (aka && aka.toLowerCase() !== name.toLowerCase()) {
-    return base ? `${base} on ${aka}` : aka;
+  if (!aka || aka.toLowerCase() === name.toLowerCase()) {
+    return { alias: name, main: '' };
   }
+  const pool  = (typeof MasterData !== 'undefined' && MasterData.items) || [];
+  const match = pool.find(m => (m.item_name || '').toLowerCase() === name.toLowerCase());
+  const nameIsBareMain = !!(match && !match.trade_no);
+  return nameIsBareMain
+    ? { alias: aka, main: name }   // e.g. name="Royal Queen", aka="new number" (new alias)
+    : { alias: name, main: aka };  // e.g. name="Riddhi Siddhi", aka="Dhan Varsha"
+}
+
+// Combined item label, always "Alias on Main". `emptyLabel` is used when
+// there's no alias text at all (e.g. Mix with no name typed).
+function itemLabel(item, emptyLabel = '') {
+  const { alias, main } = resolveItemOrder(item);
+  const base = alias || emptyLabel;
+  if (main) return base ? `${base} on ${main}` : main;
   return base;
 }
 
-// HTML variant — the " on <aka>" suffix is rendered muted/secondary.
+// HTML variant — the " on <main>" suffix is rendered muted/secondary.
 function itemLabelHTML(item, emptyLabel = '') {
-  const name = (item.name || '').trim();
-  const aka  = (item.aka  || '').trim();
-  const base = name || emptyLabel;
-  if (aka && aka.toLowerCase() !== name.toLowerCase()) {
-    return `${base}<span class="item-on"> on ${aka}</span>`;
-  }
+  const { alias, main } = resolveItemOrder(item);
+  const base = alias || emptyLabel;
+  if (main) return `${base}<span class="item-on"> on ${main}</span>`;
   return base;
+}
+
+// Shared supplier-field parser: "Brand, City" or "Brand (Main Co.), City" —
+// used by every output (WA text, WA preview, A4 image) so they can't drift
+// out of sync with each other again.
+function parseSupplierField(suppRaw) {
+  const raw = suppRaw || '';
+  const m = raw.match(/^(.+?)(?:\s*\((.+?)\))?,\s*(.*)$/);
+  const brand  = m ? m[1].trim() : raw;
+  const parent = m && m[2] ? m[2].trim() : '';
+  const city   = m ? m[3].trim() : '';
+  return {
+    brand, parent, city,
+    display: brand + (city ? `, ${city}` : ''),
+    sub: parent ? `Billing: ${parent}` : ''
+  };
+}
+
+// Shared party GSTIN lookup — used by every output.
+function resolvePartyGSTIN(party) {
+  const partyName = (party || '').split(',')[0].trim().toLowerCase();
+  const partyData = MasterData.parties.find(p => (p.name || '').toLowerCase() === partyName)
+    || PARTIES.find(p => (p.name || '').toLowerCase() === partyName);
+  return partyData?.gstin || '';
 }
 
 // Plain text for WhatsApp copy
@@ -3932,9 +3969,18 @@ function buildMessage(src) {
   L.push(`*OFR ${f.orderNo || '\u2014'}*  \u00B7  ${fmtDate(f.date)}`);
   if (f.editedOn) L.push(`\u270F\uFE0F  _Edited on ${f.editedOn}_`);
   L.push('');
-  if (f.party) L.push(`\uD83E\uDDE7  *${f.party}*`);
-  if (f.supp)  L.push(`\uD83C\uDFED  *${f.supp}*`);
+  const gstin = resolvePartyGSTIN(f.party);
+  if (f.party) {
+    L.push(`\uD83E\uDDE7  *${f.party}*`);
+    if (gstin) L.push(`      _GSTIN: ${gstin}_`);
+  }
+  if (f.supp) {
+    const supp = parseSupplierField(f.supp);
+    L.push(`\uD83C\uDFED  *${supp.display}*`);
+    if (supp.sub) L.push(`      _${supp.sub}_`);
+  }
   if (f.trans) L.push(`\uD83D\uDE9A  *${f.trans}*`);
+  if (f.docs)  L.push(`\uD83D\uDCC4  *${f.docs}*`);
   L.push('');
   L.push('\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501');
   L.push('\uD83D\uDED2  *ITEMS*');
@@ -3972,10 +4018,13 @@ function buildPreviewHTML(src) {
   const ts = `${NOW.getHours()}:${pad(NOW.getMinutes())}`;
   const total = Math.round(f.totalBales);
 
-  const detailRow = (emoji, value) => value ? `
-    <div style="display:flex;align-items:baseline;gap:8px;margin-bottom:6px;">
-      <span style="font-size:14px;line-height:1;">${emoji}</span>
-      <span style="font-size:13.5px;font-weight:600;color:#111;">${value}</span>
+  const detailRow = (emoji, value, sub='') => value ? `
+    <div style="margin-bottom:6px;">
+      <div style="display:flex;align-items:baseline;gap:8px;">
+        <span style="font-size:14px;line-height:1;">${emoji}</span>
+        <span style="font-size:13.5px;font-weight:600;color:#111;">${value}</span>
+      </div>
+      ${sub ? `<div style="font-size:11.5px;color:#888;font-style:italic;padding-left:22px;">${sub}</div>` : ''}
     </div>` : '';
 
   const itemsHTML = valid.map(item => {
@@ -4022,9 +4071,10 @@ function buildPreviewHTML(src) {
 
         <div style="height:1px;background:#F2F2F2;margin-bottom:12px;"></div>
 
-        ${detailRow('🧾', f.party)}
-        ${detailRow('🏭', f.supp)}
+        ${(() => { const gstin = resolvePartyGSTIN(f.party); return detailRow('🧧', f.party, gstin ? 'GSTIN: ' + gstin : ''); })()}
+        ${(() => { const supp = parseSupplierField(f.supp); return detailRow('🏭', f.supp ? supp.display : '', supp.sub); })()}
         ${detailRow('🚚', f.trans)}
+        ${detailRow('📄', f.docs)}
 
         <div style="height:1px;background:#F2F2F2;margin:4px 0 12px;"></div>
 
@@ -4051,18 +4101,8 @@ function buildA4HTML(src, idSuffix='') {
   const totalStr = total % 1 === 0 ? total : total.toFixed(1);
   const baleLabel = total === 1 ? 'Bale' : 'Bales';
 
-  // Parse supplier field: "Brand, City" or "Brand (Parent Co.), City"
-  const suppRaw   = f.supp || '';
-  const suppMatch = suppRaw.match(/^(.+?)(?:\s*\((.+?)\))?,\s*(.*)$/);
-  const suppBrand  = suppMatch ? suppMatch[1].trim() : suppRaw;
-  const suppParent = suppMatch && suppMatch[2] ? suppMatch[2].trim() : '';
-  const suppCity   = suppMatch ? suppMatch[3].trim() : '';
-  const suppDisplay = suppBrand + (suppCity ? `, ${suppCity}` : '');
-  const suppSub    = suppParent ? `Billing: ${suppParent}` : '';
-  const partyName = (f.party || '').split(',')[0].trim().toLowerCase();
-  const partyData = MasterData.parties.find(p => (p.name || '').toLowerCase() === partyName)
-    || PARTIES.find(p => (p.name || '').toLowerCase() === partyName);
-  const gstin = partyData?.gstin || '';
+  const supp  = parseSupplierField(f.supp);
+  const gstin = resolvePartyGSTIN(f.party);
 
   const deboldTo = (str) => (str || '').replace(/\bto\b/gi, '<span class="a4-to">$&</span>');
 
@@ -4126,7 +4166,7 @@ function buildA4HTML(src, idSuffix='') {
           ${cell('Order No.', f.orderNo ? 'OFR ' + f.orderNo : '', false, true)}
           ${cell('Date', fmtDate(f.date))}
           ${cell('Party', f.party, false, false, gstin ? 'GSTIN: ' + gstin : '')}
-          ${cell('Supplier', suppDisplay, false, false, suppSub)}
+          ${cell('Supplier', supp.display, false, false, supp.sub)}
           ${cell('Transport', deboldTo(f.trans))}
           ${cell('Send Documents Through', deboldTo(f.docs))}
         </div>
@@ -4661,7 +4701,7 @@ function renderHistory() {
 function renderHistoryItem(o) {
   const dateStr = o.date ? fmtDate(typeof o.date === 'string' ? o.date.slice(0,10) : o.date) : '';
   const partyName = String(o.party || '').split(',')[0].trim() || '—';
-  const supplierName = String(o.supplier || '').split(',')[0].trim() || '—';
+  const supplierName = parseSupplierField(o.supplier).brand || '—';
   const balesStr = (o.totalBales || 0) + ' ' + ((o.totalBales || 0) === 1 ? 'bale' : 'bales');
   const editedTag = o.updatedAt ? ' · edited' : '';
 

@@ -193,6 +193,56 @@ it (ask before running — it overwrites shared sheet data), and the deployed
 `psa_order_backend.gs` Web App needs a new deployment version to pick up this
 file's mapping change.
 
+## Supplier Groups (Main Company + Sister Firms / Brand Names)
+
+Same alias shape as items, but for suppliers: one **main company** can have many
+**sister-firm/brand-name** suppliers tagged under it (e.g. "Chandrakala Sarees" and
+"Sunray Creation" are separate, real supplier parties, but should be understood as
+brand names of "Maruti Fashion" and "Paresh Print Private Limited" respectively).
+Unlike items, there is no ERP field encoding this (checked `Short Name`/PTSNM in
+`ptm.dbf` — it's a broker/salesman code, not a brand grouping) — it's pure business
+knowledge, tagged manually.
+
+**Data model:** `MasterData.suppliers` entries carry `brand_name` (the specific
+supplier/party — what's typed/searched) and `firm_name` (the main company it's
+tagged under; equals `brand_name` when standalone). Hardcoded fallback
+(`SUPPLIERS` array, `psa_order_generator.html`) adds an optional `parent` key per
+entry, e.g. `{name:"Chandrakala Sarees", code:"CSS1", ..., parent:"Maruti Fashion"}`
+— `MasterData.fromFallback()` maps `parent || name` → `firm_name`. Confirmed real
+groupings tagged today: Chandrakala Sarees → Maruti Fashion, Sunray Creation →
+Paresh Print Private Limited, Khushi → Nand Gopal Print - Msme.
+
+Live backend (`psa_order_backend.gs` `getMasterData`) reads an optional **"Main
+Company"** column from the `parties` sheet tab — blank/absent means standalone
+(firm_name = brand_name = Party Name); filled in means that row is a sister-firm/
+brand tagged under the named main company. This column doesn't exist in the sheet
+yet — add it manually per known groupings, same caution as the items pipeline
+(sheet is shared/live state).
+
+**Behavior:** the single supplier field (`iSupp`) accepts the main name or any
+brand/sister-firm name — search matches `brand_name`, `firm_name`, `brand_code`,
+and `city` (`acFilter('iSupp')`, `psa_order_generator.html`). Autocomplete shows
+both names when a supplier has a distinct main company (hint line: `"Main Co. ·
+City"`); typing the main company's name surfaces itself (no hint) *and* every
+sister firm tagged to it (each with its own hint) — same list. Selecting a
+tagged brand stores `"Brand Name (Main Co.), City"` in the field itself (no
+separate secondary input, unlike items' `aka` field) — parsed by the shared
+`parseSupplierField()` helper (see below) at render time.
+
+**Output rendering** (confirmed correct — same for WA text, WA preview, A4 image):
+main-only supplier shows one line (`Brand Name, City`); a tagged brand shows two
+lines — `Brand Name, City` then `Billing: Main Company` on the next line. Only
+when a distinct main company is tagged; otherwise no second line at all.
+
+**Not yet built:** a UI to tag a *newly added* supplier as a sister-firm of an
+existing main company (pick-from-list, per user preference) — `confirmNewSupplier()`
+currently only creates standalone entries (`firm_name = brand_name` always), and
+its `pushToSheet('saveSupplier', ...)` call is fire-and-forget to `BACKEND_URL`,
+which has **no `saveSupplier` handler at all** (pre-existing gap, unrelated to this
+feature — new suppliers added via quick-add only ever persist to that one device's
+IndexedDB today, never reach the shared sheet). Fix this backend gap before
+building the picker UI, or the picker will silently not persist either.
+
 ## Design Constraints (Always Apply)
 
 - **PSA brand:** always link `./priyam-brand/priyam-brand.css`; use `--ps-*` tokens; Outfit for headings/buttons, Hanken Grotesk for body, IBM Plex Mono for labels and numbers.
