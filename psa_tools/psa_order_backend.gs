@@ -392,7 +392,7 @@ function deleteOrder(id) {
 
 function listOrders(opts) {
   opts = opts || {};
-  const limit = Math.min(parseInt(opts.limit) || 50, 200);
+  const limit = Math.min(parseInt(opts.limit) || 50, 5000);
   const offset = parseInt(opts.offset) || 0;
   const search = (opts.search || '').toString().toLowerCase().trim();
   const seriesFilter = (opts.series || '').toString().toUpperCase().trim();
@@ -403,8 +403,15 @@ function listOrders(opts) {
 
   const allRows = sheet.getRange(2, 1, lastRow - 1, NUM_COLS).getValues();
 
-  // Newest first
-  let orders = allRows.map(rowToObject).reverse();
+  // Reliable order: highest order number first, then date desc as tiebreaker.
+  let orders = allRows.map(rowToObject).sort(function(a, b) {
+    var na = parseInt(a.orderNo) || 0;
+    var nb = parseInt(b.orderNo) || 0;
+    if (na !== nb) return nb - na;
+    var da = a.date instanceof Date ? Utilities.formatDate(a.date, 'GMT', 'yyyy-MM-dd') : String(a.date || '').slice(0, 10);
+    var db = b.date instanceof Date ? Utilities.formatDate(b.date, 'GMT', 'yyyy-MM-dd') : String(b.date || '').slice(0, 10);
+    return da < db ? 1 : (da > db ? -1 : 0);
+  });
 
   if (seriesFilter) {
     orders = orders.filter(function(o) { return String(o.series).toUpperCase() === seriesFilter; });
