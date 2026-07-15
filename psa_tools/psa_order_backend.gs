@@ -227,17 +227,25 @@ function getMasterData() {
       return { name: t['Transport Name'] || '', destination_station: '' };
     });
 
-  // ERP item catalog: Company = supplier party code, Barcode/Print Name is
-  // the customer-facing name. use_count starts at 0 and grows on-device.
+  // ERP item catalog: Company = supplier party code. Each item carries two
+  // names — Item Name is the trade name (primary), Barcode/Print Name is the
+  // party number (the base/print name). party_no is blanked when it just
+  // duplicates the trade name (single-name item). use_count grows on-device.
   const items = (rawItems || [])
     .filter(function(i) {
       const act = i['Active'];
       return act === true || String(act).toLowerCase() === 'true';
     })
     .map(function(i) {
+      const trade = String(i['Item Name'] || '').trim();
+      const print = String(i['Barcode/Print Name'] || '').trim();
+      const name  = trade || print;
+      let party   = print;
+      if (!party || party.toLowerCase() === name.toLowerCase()) party = '';
       return {
         brand_code: String(i['Company'] || ''),
-        item_name:  String(i['Barcode/Print Name'] || i['Item Name'] || ''),
+        item_name:  name,
+        party_no:   party,
         category:   String(i['Quality'] || i['Group Code'] || ''),
         aliases:    '',
         rate:       parseFloat(i['Fixed Sale Rate']) || 0,

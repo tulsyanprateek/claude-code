@@ -516,6 +516,28 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 .name-in:focus { border-bottom-color: var(--orange) !important; }
 
+/* Party number (secondary "print"/base name) — sits under the item name */
+.partyno-in {
+  background: transparent !important; border: none !important;
+  border-bottom: 1px dashed var(--rule2) !important;
+  border-radius: 0 !important; padding: 0.28rem 0.35rem !important;
+  font-family: var(--sans) !important;
+  font-size: 0.8rem !important; font-weight: 500 !important;
+  color: var(--ink3) !important;
+}
+.partyno-in::placeholder { color: var(--ink3); opacity: 0.6; }
+.partyno-in:focus { border-bottom-color: var(--orange) !important; color: var(--ink) !important; }
+.partyno-add {
+  align-self: flex-start; background: none; border: none;
+  color: var(--ink3); font-family: var(--sans);
+  font-size: 0.68rem; padding: 1px 2px; margin-top: 1px;
+  cursor: pointer; opacity: 0.55;
+}
+.partyno-add:hover { opacity: 1; color: var(--orange); }
+
+/* "on <party number>" suffix in WA preview + A4 output — visually secondary */
+.item-on { color: #8a8a8a; font-weight: 500; }
+
 .rate-in {
   background: transparent !important; border: none !important;
   border-bottom: 1px solid var(--rule2) !important;
@@ -3398,7 +3420,7 @@ function addItem(prefillBales='', openMix=false, autoFocus=true) {
       <input class="bales-in" type="number" id="bales-${id}" min="1" step="1"
         value="${prefillBales}" placeholder="qty"
         oninput="updateBaleCount();refreshPreview()">
-      <div class="item-name-wrap" style="min-width:0;">
+      <div class="item-name-wrap" style="min-width:0;display:flex;flex-direction:column;gap:1px;">
         <input class="name-in" type="text" id="name-${id}"
           value="" placeholder="Item name..."
           autocomplete="off"
@@ -3406,6 +3428,11 @@ function addItem(prefillBales='', openMix=false, autoFocus=true) {
           onfocus="itemAcFilter(${id})"
           onblur="setTimeout(()=>itemAcClose(${id}),180)"
           onkeydown="itemAcKey(event,${id})">
+        <input class="partyno-in" type="text" id="partyno-${id}"
+          placeholder="party no." autocomplete="off"
+          style="display:none" oninput="refreshPreview()">
+        <button type="button" class="partyno-add" id="partyno-add-${id}"
+          onclick="revealPartyNo(${id})">+ party no.</button>
       </div>
       <input class="rate-in" type="number" id="rate-${id}"
         placeholder="₹ rate" step="0.01" oninput="refreshPreview()">
@@ -3509,12 +3536,14 @@ function itemAcFilter(key, kind='main') {
         html += `<div class="item-cat-sep">${cat}</div>`;
       }
       categories[cat].forEach(item => {
-        const aliasHint = item.aliases
-          ? `<span class="ac-meta" style="display:block;font-size:10px;color:var(--ink3);">${item.aliases}</span>` : '';
-        const safe = (item.item_name || '').replace(/'/g,"\\'");
+        const hintText = item.party_no || item.aliases || '';
+        const hint = hintText
+          ? `<span class="ac-meta" style="display:block;font-size:10px;color:var(--ink3);">${item.party_no ? 'on ' : ''}${hintText}</span>` : '';
+        const safe  = (item.item_name || '').replace(/'/g,"\\'");
+        const safeP = (item.party_no  || '').replace(/'/g,"\\'");
         html += `<div class="ac-item" style="display:flex;justify-content:space-between;align-items:flex-start;"
-          onmousedown="itemAcSelect('${key}','${kind}','${safe}',${item.rate || 0})">
-          <div>${item.item_name}${aliasHint}</div>
+          onmousedown="itemAcSelect('${key}','${kind}','${safe}',${item.rate || 0},'${safeP}')">
+          <div>${item.item_name}${hint}</div>
           ${item.rate ? `<span style="font-family:var(--mono);font-size:0.8rem;color:var(--orange);flex-shrink:0;margin-left:8px;">₹${item.rate}</span>` : ''}
         </div>`;
       });
@@ -3586,13 +3615,34 @@ function cancelItemQuickAdd(itemId) {
   if (form) form.classList.remove('show');
 }
 
-function itemAcSelect(key, kind, itemName, rate) {
+function itemAcSelect(key, kind, itemName, rate, partyNo='') {
   const { input, rate: rateEl } = itemAcEls(key, kind);
   if (input)  input.value  = itemName;
   // Auto-fill rate only if field is empty
   if (rateEl && rate && !rateEl.value) rateEl.value = rate;
+  // Only the main item row carries a party number (sub-items don't)
+  if (kind === 'main') setRowPartyNo(key, partyNo);
   itemAcClose(key, kind);
   refreshPreview();
+}
+
+// Set (and reveal) an item row's party-number field. Never clobbers an existing
+// manual value with a blank — selecting an item without a base name leaves it.
+function setRowPartyNo(id, partyNo) {
+  const el = document.getElementById(`partyno-${id}`);
+  if (!el || !partyNo) return;
+  el.value = partyNo;
+  el.style.display = '';
+  const addBtn = document.getElementById(`partyno-add-${id}`);
+  if (addBtn) addBtn.style.display = 'none';
+}
+
+// "+ party no." affordance — reveal the field for manual entry.
+function revealPartyNo(id) {
+  const el = document.getElementById(`partyno-${id}`);
+  const addBtn = document.getElementById(`partyno-add-${id}`);
+  if (el) { el.style.display = ''; el.focus(); }
+  if (addBtn) addBtn.style.display = 'none';
 }
 
 function itemAcClose(key, kind='main') {
@@ -3694,6 +3744,7 @@ function readForm() {
   const items = itemIds.map(id => {
     const bales = parseFloat(document.getElementById(`bales-${id}`)?.value) || 0;
     const name  = document.getElementById(`name-${id}`)?.value.trim() || '';
+    const partyNo = document.getElementById(`partyno-${id}`)?.value.trim() || '';
     const rate  = document.getElementById(`rate-${id}`)?.value.trim() || '';
     const isMix = !!mixState[id];
     totalBales += bales;
@@ -3707,7 +3758,7 @@ function readForm() {
         if (sname) subs.push({ name: sname, price: sprice, qty: sqty, unit: sunit });
       });
     }
-    return { bales, name, rate, isMix, subs };
+    return { bales, name, partyNo, rate, isMix, subs };
   });
   // editedOn: shown as an "Edited on …" stamp in outputs. Live-editing an order
   // stamps today (matches the updatedAt the backend will record on save).
@@ -3821,9 +3872,34 @@ function displayForm(f) {
     items: f.items.map(it => ({
       ...it,
       name: displayCase(it.name),
+      partyNo: displayCase(it.partyNo),
       subs: it.subs.map(s => ({ ...s, name: displayCase(s.name) }))
     }))
   };
+}
+
+// Combined item label. When an item has a distinct party number (the base /
+// print name), outputs "Trade on Party" (trade name first). Otherwise just the
+// trade name. `emptyLabel` is used when the trade name is blank (e.g. Mix).
+function itemLabel(item, emptyLabel = '') {
+  const trade = (item.name || '').trim();
+  const party = (item.partyNo || '').trim();
+  const base = trade || emptyLabel;
+  if (party && party.toLowerCase() !== trade.toLowerCase()) {
+    return base ? `${base} on ${party}` : party;
+  }
+  return base;
+}
+
+// HTML variant — the " on <party>" suffix is rendered muted/secondary.
+function itemLabelHTML(item, emptyLabel = '') {
+  const trade = (item.name || '').trim();
+  const party = (item.partyNo || '').trim();
+  const base = trade || emptyLabel;
+  if (party && party.toLowerCase() !== trade.toLowerCase()) {
+    return `${base}<span class="item-on"> on ${party}</span>`;
+  }
+  return base;
 }
 
 // Plain text for WhatsApp copy
@@ -3850,14 +3926,14 @@ function buildMessage(src) {
     const bStr = b === 1 ? '1 bale' : `${b % 1 === 0 ? b : b.toFixed(1)} bales`;
     const rStr = item.rate ? `  ${fmtR(item.rate)}` : '';
     if (item.isMix && item.subs.length > 0) {
-      L.push(`_${bStr}_  *${item.name || 'Mix Items'}*${rStr}`);
+      L.push(`_${bStr}_  *${itemLabel(item, 'Mix Items')}*${rStr}`);
       item.subs.forEach(s => {
         const sq = fmtSubQty(s) ? `  _${fmtSubQty(s)}_` : '';
         const sp = s.price ? `  *${fmtR(s.price)}*` : '';
         L.push(`  \u00B7  ${s.name}${sq}${sp}`);
       });
     } else {
-      L.push(`_${bStr}_  *${item.name || '\u2014'}*${rStr}`);
+      L.push(`_${bStr}_  *${itemLabel(item, '\u2014')}*${rStr}`);
     }
     if (idx < valid.length - 1) L.push('');
   });
@@ -3897,7 +3973,7 @@ function buildPreviewHTML(src) {
         <div style="margin-bottom:9px;">
           <div style="display:flex;align-items:baseline;gap:6px;">
             <span style="font-size:12px;color:#999;font-style:italic;">${bStr}</span>
-            <span style="font-weight:600;font-size:13.5px;color:#111;">${item.name || 'Mix Items'}</span>
+            <span style="font-weight:600;font-size:13.5px;color:#111;">${itemLabelHTML(item, 'Mix Items')}</span>
             ${rStr}
           </div>
           <div style="padding-left:8px;font-size:12.5px;color:#555;margin-top:3px;line-height:1.7;">${subsHTML}</div>
@@ -3906,7 +3982,7 @@ function buildPreviewHTML(src) {
       return `
         <div style="display:flex;align-items:baseline;gap:6px;margin-bottom:9px;">
           <span style="font-size:12px;color:#999;font-style:italic;">${bStr}</span>
-          <span style="font-weight:600;font-size:13.5px;color:#111;">${item.name || '\u2014'}</span>
+          <span style="font-weight:600;font-size:13.5px;color:#111;">${itemLabelHTML(item, '\u2014')}</span>
           ${rStr}
         </div>`;
     }
@@ -3994,7 +4070,7 @@ function buildA4HTML(src, idSuffix='') {
             <div class="a4-item">
               <div class="a4-item-main">
                 <span class="a4-bales">${bStr}</span>
-                <span class="a4-iname">${item.name || 'Mix Items'}</span>
+                <span class="a4-iname">${itemLabelHTML(item, 'Mix Items')}</span>
                 <span class="a4-rate">${rate}</span>
               </div>
               <div class="a4-subs">${subsHTML}</div>
@@ -4004,7 +4080,7 @@ function buildA4HTML(src, idSuffix='') {
             <div class="a4-item">
               <div class="a4-item-main">
                 <span class="a4-bales">${bStr}</span>
-                <span class="a4-iname">${item.name || '—'}</span>
+                <span class="a4-iname">${itemLabelHTML(item, '—')}</span>
                 <span class="a4-rate">${rate}</span>
               </div>
             </div>`;
@@ -4757,6 +4833,7 @@ function populateFormFromOrder(o) {
       const rateEl = document.getElementById(`rate-${id}`);
       if (nameEl) nameEl.value = item.name || '';
       if (rateEl) rateEl.value = item.rate || '';
+      if (item.partyNo) setRowPartyNo(id, item.partyNo);
       // If mix, populate sub-items
       if (item.isMix && Array.isArray(item.subs)) {
         // Clear the default sub that openMix added
